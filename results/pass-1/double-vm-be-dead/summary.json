@@ -1,0 +1,217 @@
+{
+ "id": "double-vm-be-dead",
+ "scenario": "VM 停 + 另一台 BE dead（BE 剩 1/3）",
+ "also": [
+  "逐步恢復雙重故障"
+ ],
+ "pass": 1,
+ "order": null,
+ "steps": [
+  "--target vm --on master",
+  "--target be --mode dead --on follower"
+ ],
+ "started": "00:54:23",
+ "restore_at": "00:57:36",
+ "ended": "00:59:02",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target vm --on master",
+   "at": "00:55:24",
+   "rc": 0
+  },
+  {
+   "step": "--target be --mode dead --on follower",
+   "at": "00:56:01",
+   "rc": 0
+  }
+ ],
+ "during": {
+  "mysql": {
+   "level": "down",
+   "level_zh": "不可用",
+   "total_impact_secs": 0,
+   "windows": [
+    {
+     "start": "00:55:59",
+     "end": null,
+     "secs": null
+    }
+   ],
+   "failed": 87,
+   "failed_by_type": {
+    "SELECT": 1,
+    "INSERT": 86
+   },
+   "reconnects": 87,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 30,
+    "selects_ok": 0,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 184
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "down",
+   "level_zh": "不可用",
+   "total_impact_secs": 4,
+   "windows": [
+    {
+     "start": "00:55:04",
+     "end": "00:55:08",
+     "secs": 4
+    },
+    {
+     "start": "00:55:59",
+     "end": null,
+     "secs": null
+    }
+   ],
+   "failed": 92,
+   "failed_by_type": {
+    "SELECT": 2,
+    "INSERT": 90
+   },
+   "reconnects": 91,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 30,
+    "selects_ok": 0,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 187
+   },
+   "read_only_client": false
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 39,
+   "windows": [
+    {
+     "start": "00:55:05",
+     "end": "00:55:07",
+     "secs": 2
+    },
+    {
+     "start": "00:55:59",
+     "end": "00:56:36",
+     "secs": 37
+    }
+   ],
+   "failed": 36,
+   "failed_by_type": {
+    "SELECT": 36
+   },
+   "reconnects": 36,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 30,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 188
+   },
+   "read_only_client": true
+  }
+ },
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 126,
+   "windows": [
+    {
+     "start": "00:55:59",
+     "end": "00:58:05",
+     "secs": 126
+    }
+   ],
+   "failed": 118,
+   "failed_by_type": {
+    "SELECT": 1,
+    "INSERT": 117
+   },
+   "reconnects": 118,
+   "events": [
+    "00:55:01 EVENT break: vm stop on doris-3 (FE master)",
+    "00:55:24 EVENT break: doris-3 is down",
+    "00:55:56 EVENT break: be dead on doris-1 (FE follower)",
+    "00:57:38 EVENT restore: systemctl start doris-be on doris-1",
+    "00:57:42 EVENT restore: start doris-3",
+    "00:58:30 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 131,
+   "windows": [
+    {
+     "start": "00:55:04",
+     "end": "00:55:08",
+     "secs": 4
+    },
+    {
+     "start": "00:55:59",
+     "end": "00:58:06",
+     "secs": 127
+    }
+   ],
+   "failed": 122,
+   "failed_by_type": {
+    "SELECT": 2,
+    "INSERT": 120
+   },
+   "reconnects": 122,
+   "events": [
+    "00:55:01 EVENT break: vm stop on doris-3 (FE master)",
+    "00:55:24 EVENT break: doris-3 is down",
+    "00:55:56 EVENT break: be dead on doris-1 (FE follower)",
+    "00:57:38 EVENT restore: systemctl start doris-be on doris-1",
+    "00:57:42 EVENT restore: start doris-3",
+    "00:58:30 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 67,
+   "windows": [
+    {
+     "start": "00:55:05",
+     "end": "00:55:07",
+     "secs": 2
+    },
+    {
+     "start": "00:55:59",
+     "end": "00:56:36",
+     "secs": 37
+    },
+    {
+     "start": "00:57:37",
+     "end": "00:58:05",
+     "secs": 28
+    }
+   ],
+   "failed": 63,
+   "failed_by_type": {
+    "SELECT": 63
+   },
+   "reconnects": 63,
+   "events": [
+    "00:55:01 EVENT break: vm stop on doris-3 (FE master)",
+    "00:55:24 EVENT break: doris-3 is down",
+    "00:55:56 EVENT break: be dead on doris-1 (FE follower)",
+    "00:57:38 EVENT restore: systemctl start doris-be on doris-1",
+    "00:57:42 EVENT restore: start doris-3",
+    "00:58:30 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": "FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10054 via doris-1",
+ "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10056 via doris-1"
+}

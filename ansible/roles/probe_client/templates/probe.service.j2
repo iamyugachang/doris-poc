@@ -1,0 +1,14 @@
+[Unit]
+Description=Doris HA probe ({{ item.name }}) (managed by ansible)
+After=network-online.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+WorkingDirectory={{ probe_base }}
+ExecStart={{ item.exec }}
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

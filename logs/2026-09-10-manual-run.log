@@ -1,0 +1,43 @@
+20:23:28 connected to 34.80.234.205
+20:23:32 #5 via 34.80.234.205 rows=10058 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:23:38 #10 via 34.80.234.205 rows=10063 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:23:43 #15 via 34.80.234.205 rows=10068 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:23:49 #20 via 34.80.234.205 rows=10073 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:23:55 #25 via 34.80.234.205 rows=10078 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:24:01 #30 via 34.80.234.205 rows=10083 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:24:07 #35 via 34.80.234.205 rows=10088 max_id=9999 fe=[3:f:up;2:M:up;4:f:up]
+20:24:08 #36 FAIL via 34.80.234.205: OperationalError: (2013, 'Lost connection to MySQL server during query ([Errno 104] Connection reset by peer)')
+20:24:09 connected to 104.199.213.69
+20:24:09 #37 FAIL via 104.199.213.69: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.2, port:9020), statement i
+20:24:10 connected to 104.199.213.69
+20:24:14 #40 via 104.199.213.69 rows=10091 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:24:21 #45 via 104.199.213.69 rows=10096 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:24:27 #50 via 104.199.213.69 rows=10101 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:24:34 #55 via 104.199.213.69 rows=10106 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:24:42 #58 FAIL via 104.199.213.69: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:24:46 connected to 104.199.213.69
+20:24:50 #60 via 104.199.213.69 rows=10111 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:24:56 #65 via 104.199.213.69 rows=10116 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:02 #70 via 104.199.213.69 rows=10121 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:08 #75 via 104.199.213.69 rows=10126 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:14 #80 via 104.199.213.69 rows=10131 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:19 #85 via 104.199.213.69 rows=10136 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:25 #90 via 104.199.213.69 rows=10141 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:30 #95 via 104.199.213.69 rows=10146 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:36 #100 via 104.199.213.69 rows=10151 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:42 #105 via 104.199.213.69 rows=10156 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:47 #110 via 104.199.213.69 rows=10161 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:53 #115 via 104.199.213.69 rows=10166 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:25:58 #120 via 104.199.213.69 rows=10171 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:26:04 #125 via 104.199.213.69 rows=10176 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:26:10 #130 via 104.199.213.69 rows=10181 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:26:15 #135 via 104.199.213.69 rows=10186 max_id=9999 fe=[3:f:up;2:f:DOWN;4:M:up]
+20:26:21 #140 via 104.199.213.69 rows=10191 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:26 #145 via 104.199.213.69 rows=10196 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:32 #150 via 104.199.213.69 rows=10201 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:38 #155 via 104.199.213.69 rows=10206 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:43 #160 via 104.199.213.69 rows=10211 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:49 #165 via 104.199.213.69 rows=10216 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:26:54 #170 via 104.199.213.69 rows=10221 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:27:00 #175 via 104.199.213.69 rows=10226 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]
+20:27:06 #180 via 104.199.213.69 rows=10231 max_id=9999 fe=[3:f:up;2:f:up;4:M:up]

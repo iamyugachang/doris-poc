@@ -1,0 +1,577 @@
+{
+ "id": "double-vm-fe-dead",
+ "scenario": "VM 停 + 另一台 FE dead（FE 剩 1/3）",
+ "also": [],
+ "pass": 2,
+ "order": null,
+ "steps": [
+  "--target vm --on master",
+  "--target fe --mode dead --on follower"
+ ],
+ "started": "03:53:41",
+ "restore_at": "03:57:03",
+ "ended": "04:02:41",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target vm --on master",
+   "at": "03:54:45",
+   "rc": 0
+  },
+  {
+   "step": "--target fe --mode dead --on follower",
+   "at": "03:55:21",
+   "rc": 0
+  }
+ ],
+ "during": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 115,
+   "windows": [
+    {
+     "start": "03:54:23",
+     "end": "03:54:34",
+     "secs": 11
+    },
+    {
+     "start": "03:54:35",
+     "end": "03:54:35",
+     "secs": 0
+    },
+    {
+     "start": "03:54:36",
+     "end": "03:54:54",
+     "secs": 18
+    },
+    {
+     "start": "03:55:20",
+     "end": null,
+     "secs": null
+    }
+   ],
+   "failed": 21,
+   "failed_by_type": {
+    "UPSERT": 1,
+    "SELECT": 10,
+    "INSERT": 10
+   },
+   "reconnects": 12,
+   "window_ops": {
+    "writes_ok": 12,
+    "writes_fail": 5,
+    "selects_ok": 7,
+    "selects_fail": 6,
+    "lines": 30,
+    "span_secs": 181
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 127,
+   "windows": [
+    {
+     "start": "03:54:23",
+     "end": "03:54:57",
+     "secs": 34
+    },
+    {
+     "start": "03:55:19",
+     "end": "03:55:19",
+     "secs": 0
+    },
+    {
+     "start": "03:55:32",
+     "end": null,
+     "secs": null
+    }
+   ],
+   "failed": 16,
+   "failed_by_type": {
+    "INSERT": 9,
+    "SELECT": 7
+   },
+   "reconnects": 7,
+   "window_ops": {
+    "writes_ok": 12,
+    "writes_fail": 5,
+    "selects_ok": 9,
+    "selects_fail": 4,
+    "lines": 30,
+    "span_secs": 187
+   },
+   "read_only_client": false
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 120,
+   "windows": [
+    {
+     "start": "03:54:24",
+     "end": "03:54:53",
+     "secs": 29
+    },
+    {
+     "start": "03:55:19",
+     "end": null,
+     "secs": null
+    }
+   ],
+   "failed": 16,
+   "failed_by_type": {
+    "SELECT": 16
+   },
+   "reconnects": 16,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 19,
+    "selects_fail": 11,
+    "lines": 30,
+    "span_secs": 185
+   },
+   "read_only_client": true
+  }
+ },
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 394,
+   "windows": [
+    {
+     "start": "03:54:23",
+     "end": "03:54:34",
+     "secs": 11
+    },
+    {
+     "start": "03:54:35",
+     "end": "03:54:35",
+     "secs": 0
+    },
+    {
+     "start": "03:54:36",
+     "end": "03:54:54",
+     "secs": 18
+    },
+    {
+     "start": "03:55:20",
+     "end": "03:57:30",
+     "secs": 130
+    },
+    {
+     "start": "03:57:39",
+     "end": "03:57:39",
+     "secs": 0
+    },
+    {
+     "start": "03:57:48",
+     "end": "03:57:48",
+     "secs": 0
+    },
+    {
+     "start": "03:57:57",
+     "end": "03:57:57",
+     "secs": 0
+    },
+    {
+     "start": "03:58:06",
+     "end": "03:58:06",
+     "secs": 0
+    },
+    {
+     "start": "03:58:15",
+     "end": "03:58:15",
+     "secs": 0
+    },
+    {
+     "start": "03:58:24",
+     "end": "03:58:24",
+     "secs": 0
+    },
+    {
+     "start": "03:58:33",
+     "end": "03:58:33",
+     "secs": 0
+    },
+    {
+     "start": "03:58:42",
+     "end": "03:58:43",
+     "secs": 1
+    },
+    {
+     "start": "03:58:52",
+     "end": "03:58:52",
+     "secs": 0
+    },
+    {
+     "start": "03:59:01",
+     "end": "03:59:01",
+     "secs": 0
+    },
+    {
+     "start": "03:59:10",
+     "end": "03:59:10",
+     "secs": 0
+    },
+    {
+     "start": "03:59:19",
+     "end": "03:59:19",
+     "secs": 0
+    },
+    {
+     "start": "03:59:28",
+     "end": "03:59:28",
+     "secs": 0
+    },
+    {
+     "start": "03:59:37",
+     "end": "03:59:37",
+     "secs": 0
+    },
+    {
+     "start": "03:59:46",
+     "end": "03:59:46",
+     "secs": 0
+    },
+    {
+     "start": "03:59:55",
+     "end": "03:59:55",
+     "secs": 0
+    },
+    {
+     "start": "04:00:04",
+     "end": "04:00:04",
+     "secs": 0
+    },
+    {
+     "start": "04:00:14",
+     "end": "04:00:14",
+     "secs": 0
+    },
+    {
+     "start": "04:00:23",
+     "end": "04:00:23",
+     "secs": 0
+    },
+    {
+     "start": "04:00:32",
+     "end": "04:00:32",
+     "secs": 0
+    },
+    {
+     "start": "04:00:41",
+     "end": "04:00:41",
+     "secs": 0
+    },
+    {
+     "start": "04:00:50",
+     "end": "04:00:50",
+     "secs": 0
+    },
+    {
+     "start": "04:00:59",
+     "end": "04:00:59",
+     "secs": 0
+    },
+    {
+     "start": "04:01:06",
+     "end": "04:01:06",
+     "secs": 0
+    },
+    {
+     "start": "04:01:07",
+     "end": "04:01:17",
+     "secs": 10
+    },
+    {
+     "start": "04:01:18",
+     "end": "04:01:18",
+     "secs": 0
+    },
+    {
+     "start": "04:01:19",
+     "end": "04:01:19",
+     "secs": 0
+    },
+    {
+     "start": "04:01:20",
+     "end": "04:01:20",
+     "secs": 0
+    },
+    {
+     "start": "04:01:21",
+     "end": "04:01:21",
+     "secs": 0
+    },
+    {
+     "start": "04:01:47",
+     "end": "04:01:47",
+     "secs": 0
+    }
+   ],
+   "failed": 58,
+   "failed_by_type": {
+    "UPSERT": 1,
+    "SELECT": 13,
+    "INSERT": 44
+   },
+   "reconnects": 46,
+   "events": [
+    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
+    "03:54:45 EVENT break: doris-3 is down",
+    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)",
+    "03:57:04 EVENT restore: systemctl start doris-fe on doris-1",
+    "03:57:08 EVENT restore: start doris-3",
+    "04:02:09 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 397,
+   "windows": [
+    {
+     "start": "03:54:23",
+     "end": "03:54:57",
+     "secs": 34
+    },
+    {
+     "start": "03:55:19",
+     "end": "03:55:19",
+     "secs": 0
+    },
+    {
+     "start": "03:55:32",
+     "end": "03:57:30",
+     "secs": 118
+    },
+    {
+     "start": "03:57:39",
+     "end": "03:57:39",
+     "secs": 0
+    },
+    {
+     "start": "03:57:48",
+     "end": "03:57:48",
+     "secs": 0
+    },
+    {
+     "start": "03:57:57",
+     "end": "03:57:57",
+     "secs": 0
+    },
+    {
+     "start": "03:58:06",
+     "end": "03:58:06",
+     "secs": 0
+    },
+    {
+     "start": "03:58:15",
+     "end": "03:58:15",
+     "secs": 0
+    },
+    {
+     "start": "03:58:24",
+     "end": "03:58:24",
+     "secs": 0
+    },
+    {
+     "start": "03:58:33",
+     "end": "03:58:33",
+     "secs": 0
+    },
+    {
+     "start": "03:58:42",
+     "end": "03:58:42",
+     "secs": 0
+    },
+    {
+     "start": "03:58:52",
+     "end": "03:58:52",
+     "secs": 0
+    },
+    {
+     "start": "03:59:01",
+     "end": "03:59:01",
+     "secs": 0
+    },
+    {
+     "start": "03:59:10",
+     "end": "03:59:10",
+     "secs": 0
+    },
+    {
+     "start": "03:59:19",
+     "end": "03:59:19",
+     "secs": 0
+    },
+    {
+     "start": "03:59:28",
+     "end": "03:59:28",
+     "secs": 0
+    },
+    {
+     "start": "03:59:37",
+     "end": "03:59:37",
+     "secs": 0
+    },
+    {
+     "start": "03:59:46",
+     "end": "03:59:46",
+     "secs": 0
+    },
+    {
+     "start": "03:59:55",
+     "end": "03:59:55",
+     "secs": 0
+    },
+    {
+     "start": "04:00:04",
+     "end": "04:00:04",
+     "secs": 0
+    },
+    {
+     "start": "04:00:13",
+     "end": "04:00:13",
+     "secs": 0
+    },
+    {
+     "start": "04:00:22",
+     "end": "04:00:22",
+     "secs": 0
+    },
+    {
+     "start": "04:00:32",
+     "end": "04:00:32",
+     "secs": 0
+    },
+    {
+     "start": "04:00:41",
+     "end": "04:00:41",
+     "secs": 0
+    },
+    {
+     "start": "04:00:50",
+     "end": "04:00:50",
+     "secs": 0
+    },
+    {
+     "start": "04:00:59",
+     "end": "04:00:59",
+     "secs": 0
+    },
+    {
+     "start": "04:01:06",
+     "end": "04:01:11",
+     "secs": 5
+    },
+    {
+     "start": "04:01:12",
+     "end": "04:01:12",
+     "secs": 0
+    },
+    {
+     "start": "04:01:13",
+     "end": "04:01:13",
+     "secs": 0
+    },
+    {
+     "start": "04:01:14",
+     "end": "04:01:14",
+     "secs": 0
+    },
+    {
+     "start": "04:01:15",
+     "end": "04:01:15",
+     "secs": 0
+    },
+    {
+     "start": "04:01:16",
+     "end": "04:01:16",
+     "secs": 0
+    },
+    {
+     "start": "04:01:18",
+     "end": "04:01:18",
+     "secs": 0
+    },
+    {
+     "start": "04:01:19",
+     "end": "04:01:19",
+     "secs": 0
+    },
+    {
+     "start": "04:01:20",
+     "end": "04:01:20",
+     "secs": 0
+    },
+    {
+     "start": "04:01:21",
+     "end": "04:01:21",
+     "secs": 0
+    },
+    {
+     "start": "04:01:49",
+     "end": "04:01:49",
+     "secs": 0
+    }
+   ],
+   "failed": 53,
+   "failed_by_type": {
+    "INSERT": 45,
+    "SELECT": 8
+   },
+   "reconnects": 43,
+   "events": [
+    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
+    "03:54:45 EVENT break: doris-3 is down",
+    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)",
+    "03:57:04 EVENT restore: systemctl start doris-fe on doris-1",
+    "03:57:08 EVENT restore: start doris-3",
+    "04:02:09 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 172,
+   "windows": [
+    {
+     "start": "03:54:24",
+     "end": "03:54:53",
+     "secs": 29
+    },
+    {
+     "start": "03:55:19",
+     "end": "03:57:30",
+     "secs": 131
+    },
+    {
+     "start": "04:01:12",
+     "end": "04:01:18",
+     "secs": 6
+    }
+   ],
+   "failed": 26,
+   "failed_by_type": {
+    "SELECT": 26
+   },
+   "reconnects": 26,
+   "events": [
+    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
+    "03:54:45 EVENT break: doris-3 is down",
+    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)",
+    "03:57:04 EVENT restore: systemctl start doris-fe on doris-1",
+    "03:57:08 EVENT restore: start doris-3",
+    "04:02:09 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": "FE 1/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2",
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10099 via doris-1"
+}

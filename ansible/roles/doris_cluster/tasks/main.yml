@@ -1,0 +1,63 @@
+---
+# Cluster membership. Runs on every doris host, but the registration steps execute on the seed only.
+# Fresh install: the seed FE alone forms a 1-node group and opens 9030.
+# Re-run on an existing 3-FE cluster: a lone FE has no quorum, so all FEs are started first.
+
+- name: Start FE on the seed
+  become: true
+  ansible.builtin.systemd:
+    name: doris-fe
+    state: started
+  when: fe_seed | bool
+
+- name: Wait for the seed FE (fresh cluster opens 9030 within about 30s)
+  ansible.builtin.wait_for:
+    host: 127.0.0.1
+    port: 9030
+    timeout: 60
+  when: fe_seed | bool
+  register: seed_up
+  ignore_errors: true
+
+- name: No quorum with the seed alone — start every FE
+  become: true
+  ansible.builtin.systemd:
+    name: doris-fe
+    state: started
+  when: hostvars[groups['doris'][0]].seed_up is failed
+
+- name: Wait for FE query port on the seed
+  ansible.builtin.wait_for:
+    host: 127.0.0.1
+    port: 9030
+    timeout: 180
+  when: fe_seed | bool
+
+- name: Register followers and backends (idempotent, 'already exist' ignored)
+  ansible.builtin.shell: |
+    set -o pipefail
+    q(){ mysql -h127.0.0.1 -P9030 -uroot -e "$1" 2>&1 | grep -v -iE 'already exist|^$' || true; }
+    {% for h in groups['doris'] if not (hostvars[h].fe_seed | bool) %}
+    q 'ALTER SYSTEM ADD FOLLOWER "{{ hostvars[h].internal_ip }}:9010"'
+    {% endfor %}
+    {% for h in groups['doris'] %}
+    q 'ALTER SYSTEM ADD BACKEND "{{ hostvars[h].internal_ip }}:9050"'
+    {% endfor %}
+    mysql -h127.0.0.1 -P9030 -uroot -N -e "SELECT 'FE', Host, IsMaster, Alive FROM frontends(); SELECT 'BE', Host, Alive FROM backends();"
+  args:
+    executable: /bin/bash
+  when: fe_seed | bool
+  register: registered
+  changed_when: false
+
+- name: Cluster membership
+  ansible.builtin.debug:
+    msg: "{{ registered.stdout_lines }}"
+  when: fe_seed | bool
+
+- name: Start FE and BE everywhere
+  become: true
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: started
+  loop: [doris-fe, doris-be]

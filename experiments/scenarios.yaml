@@ -1,0 +1,80 @@
+# Fault matrix — one entry per runnable cell. `scenario` must match the Scenario title in
+# openspec/changes/fault-matrix/specs/fault-scenarios/spec.md so fill_results.py can write the 實測 block.
+# steps = demo.sh break arguments, applied in order with `gap` seconds between them.
+defaults:
+  baseline: 30        # seconds of healthy probing before the first break
+  gap: 30             # seconds between stacked breaks
+  observe: 90         # seconds after the last break before measuring / restoring
+  settle: 25          # seconds after restore before the final measure
+
+scenarios:
+  - id: vm-stop-3clients
+    scenario: 三個 client 同時觀察 VM 停機
+    also: [停機 VM 重新啟動]
+    steps: ["--target vm --on master"]
+
+  - id: vm-stop-master-direct
+    scenario: master 所在 VM 停機，client 直連 master
+    order: master-first
+    steps: ["--target vm --on master"]
+
+  - id: vm-stop-master-follower
+    scenario: master 所在 VM 停機，client 連在 follower
+    order: follower-first
+    steps: ["--target vm --on master"]
+
+  - id: vm-stop-follower
+    scenario: follower 所在 VM 停機
+    steps: ["--target vm --on follower"]
+
+  - id: fe-crash-master
+    scenario: master FE crash（kill -9，systemd 自動拉起）
+    also: [crash 後的自動恢復]
+    steps: ["--target fe --mode crash --on master"]
+
+  - id: fe-crash-follower
+    scenario: follower FE crash
+    steps: ["--target fe --mode crash --on follower"]
+
+  - id: fe-dead-master
+    scenario: master FE dead（systemctl stop，不自動起）
+    steps: ["--target fe --mode dead --on master"]
+
+  - id: fe-hang-master
+    scenario: master FE hang（kill -STOP）
+    steps: ["--target fe --mode hang --on master"]
+    observe: 120
+
+  - id: fe-hang-follower
+    scenario: follower FE hang
+    steps: ["--target fe --mode hang --on follower"]
+
+  - id: be-crash
+    scenario: BE crash（systemd 自動拉起）
+    steps: ["--target be --mode crash --on follower"]
+
+  - id: be-dead
+    scenario: BE dead
+    steps: ["--target be --mode dead --on follower"]
+
+  - id: be-hang
+    scenario: BE hang（kill -STOP）
+    steps: ["--target be --mode hang --on follower"]
+    observe: 120
+
+  - id: double-vm-fe-dead
+    scenario: VM 停 + 另一台 FE dead（FE 剩 1/3）
+    steps: ["--target vm --on master", "--target fe --mode dead --on follower"]
+
+  - id: double-vm-be-dead
+    scenario: VM 停 + 另一台 BE dead（BE 剩 1/3）
+    also: [逐步恢復雙重故障]
+    steps: ["--target vm --on master", "--target be --mode dead --on follower"]
+
+  - id: double-two-vms
+    scenario: 兩台 VM 停（FE 1/3、BE 1/3）
+    steps: ["--target vm --on master", "--target vm --on follower"]
+
+  - id: double-crossed
+    scenario: 交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）
+    steps: ["--target vm --on doris-1", "--target be --mode dead --on doris-2", "--target fe --mode dead --on doris-3"]

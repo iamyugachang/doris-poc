@@ -1,0 +1,238 @@
+23:37:25 ##### pass 1 start: 16 scenario(s) ['vm-stop-3clients', 'vm-stop-master-direct', 'vm-stop-master-follower', 'vm-stop-follower', 'fe-crash-master', 'fe-crash-follower', 'fe-dead-master', 'fe-hang-master', 'fe-hang-follower', 'be-crash', 'be-dead', 'be-hang', 'double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
+23:37:25 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+23:37:25   cluster healthy (before pass)
+23:37:25 === [vm-stop-3clients] 三個 client 同時觀察 VM 停機  steps=['--target vm --on master']
+23:37:25 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+23:37:32   wait 30s (baseline)
+23:38:02 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+23:38:28   wait 90s (observe)
+23:39:58 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:40:04   during: mysql=讀寫正常 (29s), jdbc=讀寫正常 (34s), flight=讀取正常 (29s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10013 via doris-1
+23:40:04 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:41:07   wait 25s (settle)
+23:41:32 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:41:38   after:  mysql=讀寫正常 fails=5 impact=29s, jdbc=讀寫正常 fails=3 impact=34s, flight=讀取正常 fails=5 impact=29s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10012 via doris-1  healthy=True
+23:41:38 === [vm-stop-master-direct] master 所在 VM 停機，client 直連 master  steps=['--target vm --on master']
+23:41:38 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order master-first
+23:41:43   wait 30s (baseline)
+23:42:13 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+23:42:40   wait 90s (observe)
+23:44:10 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:44:16   during: mysql=讀寫正常 (37s), jdbc=讀寫正常 (39s), flight=讀取正常 (30s)  alive=FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10016 via doris-1
+23:44:16 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:45:28   wait 25s (settle)
+23:45:53 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:45:58   after:  mysql=讀寫正常 fails=7 impact=53s, jdbc=讀寫正常 fails=6 impact=55s, flight=讀取正常 fails=2 impact=30s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10019 via doris-1  healthy=True
+23:45:58 === [vm-stop-master-follower] master 所在 VM 停機，client 連在 follower  steps=['--target vm --on master']
+23:45:58 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order follower-first
+23:46:05   wait 30s (baseline)
+23:46:35 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+23:47:02   wait 90s (observe)
+23:48:32 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:48:38   during: mysql=讀寫正常 (2s), jdbc=讀寫正常 (2s), flight=讀取正常 (1s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10020 via doris-1
+23:48:38 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:49:29   wait 25s (settle)
+23:49:54 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:50:00   after:  mysql=讀寫正常 fails=1 impact=2s, jdbc=讀寫正常 fails=1 impact=2s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10021 via doris-1  healthy=True
+23:50:00 === [vm-stop-follower] follower 所在 VM 停機  steps=['--target vm --on follower']
+23:50:00 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+23:50:06   wait 30s (baseline)
+23:50:36 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+23:51:03   wait 90s (observe)
+23:52:33 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:52:43   during: mysql=讀寫正常 (25s), jdbc=讀寫正常 (19s), flight=讀取正常 (2s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10023 via doris-2
+23:52:43 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:53:29   wait 25s (settle)
+23:53:54 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:54:00   after:  mysql=讀寫正常 fails=3 impact=25s, jdbc=讀寫正常 fails=3 impact=19s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10024 via doris-1  healthy=True
+23:54:00 === [fe-crash-master] master FE crash（kill -9，systemd 自動拉起）  steps=['--target fe --mode crash --on master']
+23:54:00 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+23:54:06   wait 30s (baseline)
+23:54:36 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on master
+23:54:40   wait 90s (observe)
+23:56:10 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:56:16   during: mysql=讀寫正常 (11s), jdbc=讀寫正常 (11s), flight=讀取正常 (0s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1
+23:56:16 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:56:23   wait 25s (settle)
+23:56:48 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:56:54   after:  mysql=讀寫正常 fails=2 impact=11s, jdbc=讀寫正常 fails=2 impact=11s, flight=讀取正常 fails=0 impact=0s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1  healthy=True
+23:56:54 === [fe-crash-follower] follower FE crash  steps=['--target fe --mode crash --on follower']
+23:56:54 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+23:56:59   wait 30s (baseline)
+23:57:29 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on follower
+23:57:34   wait 90s (observe)
+23:59:04 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:59:10   during: mysql=讀寫正常 (2s), jdbc=讀寫正常 (3s), flight=讀取正常 (2s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1
+23:59:10 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+23:59:16   wait 25s (settle)
+23:59:41 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+23:59:46   after:  mysql=讀寫正常 fails=1 impact=2s, jdbc=讀寫正常 fails=1 impact=3s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1  healthy=True
+23:59:46 === [fe-dead-master] master FE dead（systemctl stop，不自動起）  steps=['--target fe --mode dead --on master']
+23:59:46 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+23:59:53   wait 30s (baseline)
+00:00:23 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on master
+00:00:29   wait 90s (observe)
+00:01:59 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:02:04   during: mysql=讀寫正常 (12s), jdbc=讀寫正常 (18s), flight=讀取正常 (0s)  alive=FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10033 via doris-1
+00:02:04 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:02:23   wait 25s (settle)
+00:02:48 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:02:54   after:  mysql=讀寫正常 fails=2 impact=12s, jdbc=讀寫正常 fails=3 impact=18s, flight=讀取正常 fails=0 impact=0s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10031 via doris-1  healthy=True
+00:02:54 === [fe-hang-master] master FE hang（kill -STOP）  steps=['--target fe --mode hang --on master']
+00:02:54 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:03:00   wait 30s (baseline)
+00:03:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on master
+00:13:30   !! scenario fe-hang-master raised TypeError: can't concat str to bytes
+00:13:30 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:13:43 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+00:13:43   cluster healthy (after exception)
+00:13:43 === [fe-hang-follower] follower FE hang  steps=['--target fe --mode hang --on follower']
+00:13:43 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:13:49   wait 30s (baseline)
+00:15:41 ##### pass 1 start: 9 scenario(s) ['fe-hang-master', 'fe-hang-follower', 'be-crash', 'be-dead', 'be-hang', 'double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
+00:15:41 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+00:15:41   cluster healthy (before pass)
+00:15:41 === [fe-hang-master] master FE hang（kill -STOP）  steps=['--target fe --mode hang --on master']
+00:15:41 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:15:47   wait 30s (baseline)
+00:16:17 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on master
+00:16:21   wait 120s (observe)
+00:18:21 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:18:36   measure --json unparsable: Expecting value: line 1 column 1 (char 0)
+00:18:36   during:   alive=None
+00:18:36 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:18:44   wait 25s (settle)
+00:19:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:19:14   after:  mysql=讀寫正常 fails=15 impact=130s, jdbc=讀寫正常 fails=0 impact=0s, flight=讀取正常 fails=0 impact=0s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10037 via doris-1  healthy=True
+00:19:14 === [fe-hang-follower] follower FE hang  steps=['--target fe --mode hang --on follower']
+00:19:14 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:19:20   wait 30s (baseline)
+00:19:50 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on follower
+00:19:54   wait 90s (observe)
+00:21:24 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:21:35   during: mysql=讀寫正常 (27s), jdbc=讀寫正常 (45s), flight=讀取正常 (69s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10039 via doris-2
+00:21:35 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:21:42   wait 25s (settle)
+00:22:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:22:12   after:  mysql=讀寫正常 fails=1 impact=27s, jdbc=讀寫正常 fails=1 impact=54s, flight=讀取正常 fails=1 impact=69s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10039 via doris-1  healthy=True
+00:22:12 === [be-crash] BE crash（systemd 自動拉起）  steps=['--target be --mode crash --on follower']
+00:22:12 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:22:18   wait 30s (baseline)
+00:22:48 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode crash --on follower
+00:23:08   wait 90s (observe)
+00:24:38 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:24:43   during: mysql=讀寫正常 (27s), jdbc=讀寫正常 (20s), flight=讀取正常 (2s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10040 via doris-1
+00:24:43 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:24:50   wait 25s (settle)
+00:25:15 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:25:23   after:  mysql=讀寫正常 fails=2 impact=27s, jdbc=讀寫正常 fails=1 impact=20s, flight=讀取正常 fails=2 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10042 via doris-1  healthy=True
+00:25:23 === [be-dead] BE dead  steps=['--target be --mode dead --on follower']
+00:25:23 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:25:29   wait 30s (baseline)
+00:25:59 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+00:26:06   wait 90s (observe)
+00:27:36 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:27:41   during: mysql=讀寫正常 (6s), jdbc=讀寫正常 (6s), flight=讀取正常 (1s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10044 via doris-1
+00:27:41 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:28:06   wait 25s (settle)
+00:28:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:28:36   after:  mysql=讀寫正常 fails=1 impact=7s, jdbc=讀寫正常 fails=2 impact=6s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10043 via doris-1  healthy=True
+00:28:36 === [be-hang] BE hang（kill -STOP）  steps=['--target be --mode hang --on follower']
+00:28:36 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:28:42   wait 30s (baseline)
+00:29:12 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode hang --on follower
+00:29:16   wait 120s (observe)
+00:31:16 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:31:22   during: mysql=讀寫正常 (46s), jdbc=讀寫正常 (46s), flight=讀取正常 (47s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10045 via doris-1
+00:31:22 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:31:44   wait 25s (settle)
+00:32:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:32:16   after:  mysql=讀寫正常 fails=3 impact=46s, jdbc=讀寫正常 fails=3 impact=46s, flight=讀取正常 fails=4 impact=47s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10045 via doris-1  healthy=True
+00:32:16 === [double-vm-fe-dead] VM 停 + 另一台 FE dead（FE 剩 1/3）  steps=['--target vm --on master', '--target fe --mode dead --on follower']
+00:32:16 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:32:21   wait 30s (baseline)
+00:32:51 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+00:33:18   wait 30s (gap between breaks)
+00:33:48 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on follower
+00:33:56   wait 90s (observe)
+00:35:26 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:35:37   during: mysql=讀寫正常 (94s), jdbc=讀寫正常 (87s), flight=讀取正常 (92s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2
+00:35:37 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:39:45 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+00:39:45   cluster NOT healthy (after restore)
+00:39:45   restore did not converge — second attempt
+00:39:45 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:39:52 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+00:39:52   cluster NOT healthy (after 2nd restore)
+00:39:52   wait 25s (settle)
+00:40:17 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:40:23   after:  mysql=不可用 fails=78 impact=349s, jdbc=不可用 fails=47 impact=345s, flight=讀取失敗 fails=52 impact=147s  alive=alive check failed: OperationalError: (1105, 'Exception, msg: Node catalog is not ready, please wait for a while. To master progress: .\nFrontends: \nname: fe  healthy=False
+00:40:23 === [double-vm-be-dead] VM 停 + 另一台 BE dead（BE 剩 1/3）  steps=['--target vm --on master', '--target be --mode dead --on follower']
+00:40:23 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:40:23   wait 30s (baseline)
+00:49:23 ##### pass 1 start: 4 scenario(s) ['double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
+00:49:23 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+00:49:23   cluster healthy (before pass)
+00:49:23 === [double-vm-fe-dead] VM 停 + 另一台 FE dead（FE 剩 1/3）  steps=['--target vm --on master', '--target fe --mode dead --on follower']
+00:49:23 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:49:29   wait 30s (baseline)
+00:49:59 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+00:50:25   wait 30s (gap between breaks)
+00:50:55 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on follower
+00:51:01   wait 90s (observe)
+00:52:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:52:40   during: mysql=讀寫正常 (48s), jdbc=讀寫正常 (49s), flight=讀取正常 (65s)  alive=FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, "Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Connection refused)"))
+00:52:40 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:53:53   wait 25s (settle)
+00:54:18 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:54:23   after:  mysql=讀寫正常 fails=32 impact=139s, jdbc=讀寫正常 fails=8 impact=141s, flight=讀取正常 fails=14 impact=112s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10052 via doris-1  healthy=True
+00:54:23 === [double-vm-be-dead] VM 停 + 另一台 BE dead（BE 剩 1/3）  steps=['--target vm --on master', '--target be --mode dead --on follower']
+00:54:23 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:54:29   wait 30s (baseline)
+00:54:59 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+00:55:24   wait 30s (gap between breaks)
+00:55:54 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+00:56:01   wait 90s (observe)
+00:57:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:57:36   during: mysql=不可用 (0s), jdbc=不可用 (4s), flight=讀取正常 (39s)  alive=FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10054 via doris-1
+00:57:36 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+00:58:31   wait 25s (settle)
+00:58:56 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+00:59:02   after:  mysql=讀寫正常 fails=118 impact=126s, jdbc=讀寫正常 fails=122 impact=131s, flight=讀取正常 fails=63 impact=67s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10056 via doris-1  healthy=True
+00:59:02 === [double-two-vms] 兩台 VM 停（FE 1/3、BE 1/3）  steps=['--target vm --on master', '--target vm --on follower']
+00:59:02 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+00:59:07   wait 30s (baseline)
+00:59:37 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+01:00:04   wait 30s (gap between breaks)
+01:00:34 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+01:00:59   wait 90s (observe)
+01:02:29 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+01:02:41   during: mysql=讀寫正常 (111s), jdbc=讀寫正常 (35s), flight=讀取正常 (80s)  alive=FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, "Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)"))
+01:02:41 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+01:03:52   wait 25s (settle)
+01:04:17 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+01:04:23   after:  mysql=讀寫正常 fails=38 impact=184s, jdbc=讀寫正常 fails=4 impact=182s, flight=讀取正常 fails=22 impact=180s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10060 via doris-1  healthy=True
+01:04:23 === [double-crossed] 交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）  steps=['--target vm --on doris-1', '--target be --mode dead --on doris-2', '--target fe --mode dead --on doris-3']
+01:04:23 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+01:04:30   wait 30s (baseline)
+01:05:00 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on doris-1
+01:05:26   wait 30s (gap between breaks)
+01:05:56 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on doris-2
+01:06:06   wait 30s (gap between breaks)
+01:06:36 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on doris-3
+01:06:46   wait 90s (observe)
+01:08:16 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+01:08:25   during: mysql=不可用 (3s), jdbc=不可用 (5s), flight=讀取正常 (130s)  alive=alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+01:08:25 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+01:08:49 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+01:08:52   cluster NOT healthy (after restore)
+01:08:52   restore did not converge — second attempt
+01:08:52 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+01:09:21 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+01:09:21   cluster healthy (after 2nd restore)
+01:09:21   wait 25s (settle)
+01:09:46 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+01:09:51   after:  mysql=讀寫正常 fails=52 impact=185s, jdbc=讀寫正常 fails=52 impact=187s, flight=讀取正常 fails=23 impact=186s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10062 via doris-1  healthy=True
+01:09:51 $ /home/yugachang/workspace/doris-poc/demo.sh measure
+01:09:58 $ /home/yugachang/workspace/doris-poc/demo.sh stop
+01:10:41 ##### pass 1 done: 4/4 scenarios

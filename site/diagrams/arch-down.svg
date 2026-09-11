@@ -1,0 +1,71 @@
+<svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-down-title arch-down-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="arch-down-title">Doris 三節點其中一台 VM 停機後的狀態</title>
+    <desc id="arch-down-desc">doris-2 的 VM 已關機，其 FE 與 BE 離線；client 的連線被重設後改連 doris-3，doris-3 的 FE 被選為新 master 並與 doris-1 同步 edit log；每個 tablet 仍有 doris-1 與 doris-3 上的兩份副本可讀寫。</desc>
+    <defs>
+      <marker id="ad-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/></marker>
+      <marker id="ad-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/></marker>
+      <marker id="ad-arrow-soft" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--ink-20)"/></marker>
+    </defs>
+    <rect width="100%" height="100%" fill="var(--paper)"/>
+    <g font-family="var(--mono)" font-size="7" letter-spacing="0.14em">
+      <rect x="40" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="48" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="118" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-1 · ASIA-EAST1-A</text>
+      <rect x="360" y="152" width="240" height="312" rx="8" fill="none" stroke="var(--ink-20)" stroke-width="0.8" stroke-dasharray="4,4"/>
+      <rect x="368" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="438" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-2 · STOPPED</text>
+      <rect x="680" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="688" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="758" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-3 · ASIA-EAST1-C</text>
+    </g>
+    <g fill="none" stroke="var(--muted)" stroke-width="1">
+      <line x1="480" y1="96" x2="480" y2="184" stroke="var(--ink-20)" stroke-dasharray="2,3" marker-end="url(#ad-arrow-soft)"/>
+      <path d="M440,96 V132 Q440,140 432,140 H168 Q160,140 160,148 V184" stroke-dasharray="4,3" marker-end="url(#ad-arrow)"/>
+      <path d="M520,96 V132 Q520,140 528,140 H792 Q800,140 800,148 V184" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#ad-arrow-accent)"/>
+      <path d="M720,232 H616 Q608,232 608,240 V296 Q608,304 600,304 H368 Q360,304 360,296 V240 Q360,232 352,232 H240" stroke-width="1.2" marker-end="url(#ad-arrow)"/>
+      <line x1="160" y1="248" x2="160" y2="376" marker-end="url(#ad-arrow)"/>
+      <line x1="800" y1="248" x2="800" y2="376" marker-end="url(#ad-arrow)"/>
+      <line x1="240" y1="408" x2="720" y2="408" stroke-dasharray="4,3" marker-start="url(#ad-arrow)" marker-end="url(#ad-arrow)"/>
+    </g>
+    <g font-family="var(--mono)" font-size="8" letter-spacing="0.06em" text-anchor="middle">
+      <rect x="488" y="124" width="72" height="12" rx="2" fill="var(--paper)"/><text x="524" y="133" fill="var(--soft)">CONN RESET</text>
+      <rect x="276" y="120" width="48" height="12" rx="2" fill="var(--paper)"/><text x="300" y="129" fill="var(--soft)">FAILOVER</text>
+      <rect x="628" y="120" width="64" height="12" rx="2" fill="var(--paper)"/><text x="660" y="129" fill="var(--accent)">RECONNECT</text>
+      <rect x="444" y="284" width="80" height="12" rx="2" fill="var(--paper)"/><text x="484" y="293" fill="var(--soft)">EDIT LOG :9010</text>
+      <rect x="808" y="300" width="88" height="12" rx="2" fill="var(--paper)"/><text x="852" y="309" fill="var(--soft)">FE→BE RPC :9050</text>
+      <rect x="256" y="388" width="96" height="12" rx="2" fill="var(--paper)"/><text x="304" y="397" fill="var(--soft)">REPLICA 2/3 ALIVE</text>
+    </g>
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--paper)"/>
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--muted-10)" stroke="var(--soft)" stroke-width="1"/>
+    <text x="480" y="64" fill="var(--ink)" font-size="12" font-weight="600" font-family="var(--sans)" text-anchor="middle">Client / BI 工具</text>
+    <text x="480" y="82" fill="var(--muted)" font-size="9" font-family="var(--mono)" text-anchor="middle">重連一次後照常讀寫</text>
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="184" width="160" height="64" rx="6" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/>
+      <rect x="88" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="199" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="160" y="214" fill="var(--ink)">doris-1 FE</text><text x="160" y="232" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">FOLLOWER</text>
+
+      <rect x="400" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="184" width="160" height="64" rx="6" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="480" y="214" fill="var(--soft)">doris-2 FE</text><text x="480" y="232" fill="var(--soft)" font-size="9" font-weight="400" font-family="var(--mono)">DOWN</text>
+
+      <rect x="720" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="184" width="160" height="64" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2"/>
+      <rect x="728" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--accent)" stroke-opacity="0.5" stroke-width="0.8"/><text x="738" y="199" fill="var(--accent)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="800" y="214" fill="var(--ink)">doris-3 FE</text><text x="800" y="232" fill="var(--accent)" font-size="9" font-weight="500" font-family="var(--mono)">NEW MASTER</text>
+    </g>
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="88" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="160" y="406" fill="var(--ink)">doris-1 BE</text><text x="160" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">replica alive</text>
+
+      <rect x="400" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="376" width="160" height="64" rx="6" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="480" y="406" fill="var(--soft)">doris-2 BE</text><text x="480" y="424" fill="var(--soft)" font-size="9" font-weight="400" font-family="var(--mono)">4 replicas DEAD</text>
+
+      <rect x="720" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="728" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="738" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="800" y="406" fill="var(--ink)">doris-3 BE</text><text x="800" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">replica alive</text>
+    </g>
+    <line x1="40" y1="492" x2="920" y2="492" stroke="var(--rule)" stroke-width="0.8"/>
+    <g font-family="var(--mono)" font-size="8" fill="var(--muted)">
+      <text x="40" y="512" letter-spacing="0.14em">LEGEND</text>
+      <rect x="120" y="504" width="12" height="10" rx="2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1"/><text x="140" y="512">新 master</text>
+      <rect x="232" y="504" width="12" height="10" rx="2" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="3,2"/><text x="252" y="512">已停機</text>
+      <line x1="336" y1="509" x2="360" y2="509" stroke="var(--accent)" stroke-width="1.2"/><text x="368" y="512">client 重連後的連線</text>
+      <line x1="520" y1="509" x2="544" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="552" y="512">副本同步（剩 2/3）</text>
+    </g>
+  </svg>

@@ -1,0 +1,138 @@
+---
+# Port of node_install.sh: OS prerequisites, Doris package, conf, systemd units. Idempotent.
+
+- name: OS packages (JDK 17, mysql client)
+  become: true
+  ansible.builtin.apt:
+    name: [openjdk-17-jdk-headless, default-mysql-client, curl]
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Kernel parameters for Doris BE
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/sysctl.d/99-doris.conf
+    content: "vm.max_map_count=2000000\n"
+    mode: "0644"
+  notify: apply sysctl
+
+- name: Open file limits
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/security/limits.d/doris.conf
+    content: "* soft nofile 1000000\n* hard nofile 1000000\n"
+    mode: "0644"
+
+- name: Disable swap and THP (runtime)
+  become: true
+  ansible.builtin.shell: |
+    swapoff -a || true
+    echo madvise > /sys/kernel/mm/transparent_hugepage/enabled || true
+  changed_when: false
+
+- name: Doris base directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ doris_base }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    mode: "0755"
+
+- name: Is Doris {{ doris_version }} already extracted?
+  ansible.builtin.stat:
+    path: "{{ doris_pkg }}/fe"
+  register: pkg
+
+- name: Download Doris {{ doris_version }} (3+ GB, skipped when already extracted)
+  ansible.builtin.get_url:
+    url: "{{ doris_download_url }}"
+    dest: "{{ doris_base }}/doris-{{ doris_version }}.tar.gz"
+    mode: "0644"
+  when: not pkg.stat.exists
+
+- name: Extract Doris
+  ansible.builtin.unarchive:
+    src: "{{ doris_base }}/doris-{{ doris_version }}.tar.gz"
+    dest: "{{ doris_base }}"
+    remote_src: true
+    creates: "{{ doris_pkg }}/fe"
+
+- name: Remove tarball after extraction
+  ansible.builtin.file:
+    path: "{{ doris_base }}/doris-{{ doris_version }}.tar.gz"
+    state: absent
+
+- name: Point {{ doris_home }} at the installed version
+  ansible.builtin.file:
+    src: "{{ doris_pkg }}"
+    dest: "{{ doris_home }}"
+    state: link
+
+- name: Data directories
+  ansible.builtin.file:
+    path: "{{ doris_base }}/data/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop: [fe, be]
+
+- name: FE conf block
+  ansible.builtin.blockinfile:
+    path: "{{ doris_home }}/fe/conf/fe.conf"
+    marker: "# {mark} ANSIBLE doris-poc"
+    block: |
+      priority_networks = {{ priority_networks }}
+      meta_dir = {{ doris_base }}/data/fe
+      JAVA_HOME={{ java_home }}
+  notify: restart doris-fe
+
+- name: FE heap size
+  ansible.builtin.replace:
+    path: "{{ doris_home }}/fe/conf/fe.conf"
+    regexp: '-Xm([xs])[0-9]+m'
+    replace: '-Xm\g<1>{{ fe_heap_mb }}m'
+  notify: restart doris-fe
+
+- name: BE conf block
+  ansible.builtin.blockinfile:
+    path: "{{ doris_home }}/be/conf/be.conf"
+    marker: "# {mark} ANSIBLE doris-poc"
+    block: |
+      priority_networks = {{ priority_networks }}
+      storage_root_path = {{ doris_base }}/data/be
+      mem_limit = {{ be_mem_limit }}
+      JAVA_HOME={{ java_home }}
+  notify: restart doris-be
+
+- name: FE helper (followers join through the seed FE; harmless once metadata exists)
+  ansible.builtin.copy:
+    dest: "{{ doris_base }}/fe.env"
+    content: "HELPER_ARGS={{ '' if fe_seed | bool else '--helper ' ~ seed_internal_ip ~ ':9010' }}\n"
+    mode: "0644"
+
+- name: systemd units
+  become: true
+  ansible.builtin.template:
+    src: "{{ item }}.service.j2"
+    dest: "/etc/systemd/system/{{ item }}.service"
+    mode: "0644"
+  loop: [doris-fe, doris-be]
+  notify: daemon reload
+
+- name: Stop processes started by hand (they would block the units)
+  become: true
+  ansible.builtin.shell: |
+    changed=0
+    if pgrep -f DorisFE >/dev/null && ! systemctl is-active -q doris-fe; then sudo -u {{ ansible_user }} {{ doris_home }}/fe/bin/stop_fe.sh; changed=1; fi
+    if pgrep -f doris_be >/dev/null && ! systemctl is-active -q doris-be; then sudo -u {{ ansible_user }} {{ doris_home }}/be/bin/stop_be.sh; changed=1; fi
+    echo $changed
+  register: hand_started
+  changed_when: hand_started.stdout == "1"
+
+- name: Enable units (started by the cluster role)
+  become: true
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: true
+    daemon_reload: true
+  loop: [doris-fe, doris-be]

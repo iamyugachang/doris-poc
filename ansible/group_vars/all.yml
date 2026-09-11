@@ -1,0 +1,22 @@
+---
+doris_version: "4.1.1"
+doris_download_url: "https://apache-doris-releases.oss-accelerate.aliyuncs.com/apache-doris-{{ doris_version }}-bin-x64.tar.gz"
+doris_base: /opt/doris
+doris_pkg: "{{ doris_base }}/apache-doris-{{ doris_version }}-bin-x64"
+doris_home: "{{ doris_base }}/cur"
+java_home: /usr/lib/jvm/java-17-openjdk-amd64
+priority_networks: "10.140.0.0/24"
+fe_heap_mb: 4096
+be_mem_limit: "55%"
+
+# probes on the client VM
+probe_base: /opt/probe
+connector_j_version: "9.4.0"
+probe_timezone: Asia/Taipei
+probes:
+  - name: mysql
+    exec: "{{ probe_base }}/venv/bin/python {{ probe_base }}/probe_mysql.py --hosts-file {{ probe_base }}/hosts --log {{ probe_base }}/log/mysql.log --seconds 86400 --base 1000000"
+  - name: jdbc
+    exec: "/usr/bin/java -cp {{ probe_base }}/jdbc:{{ probe_base }}/mysql-connector-j.jar Probe {{ probe_base }}/hosts {{ probe_base }}/log/jdbc.log 86400 2000000"
+  - name: flight
+    exec: "{{ probe_base }}/venv/bin/python {{ probe_base }}/probe_flight.py --hosts-file {{ probe_base }}/hosts --log {{ probe_base }}/log/flight.log --seconds 86400 --base 3000000"

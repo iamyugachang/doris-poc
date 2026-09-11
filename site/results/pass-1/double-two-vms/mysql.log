@@ -1,0 +1,174 @@
+00:59:05 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+00:59:05 connected to doris-1 (10.140.0.2)
+00:59:05 #1 OK INSERT id=1595450 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:06 #2 OK UPSERT id=1595450 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:08 #3 OK SELECT id=1595450 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:09 #4 OK DELETE id=1595450 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:10 #5 OK SELECT id=1595450 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:11 #6 OK INSERT id=1595451 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:12 #7 OK UPSERT id=1595451 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:13 #8 OK SELECT id=1595451 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:14 #9 OK DELETE id=1595451 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:15 #10 OK SELECT id=1595451 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:16 #11 OK INSERT id=1595452 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:17 #12 OK UPSERT id=1595452 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:18 #13 OK SELECT id=1595452 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:19 #14 OK DELETE id=1595452 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:20 #15 OK SELECT id=1595452 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:21 #16 OK INSERT id=1595453 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:23 #17 OK UPSERT id=1595453 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:24 #18 OK SELECT id=1595453 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:25 #19 OK DELETE id=1595453 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:26 #20 OK SELECT id=1595453 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:27 #21 OK INSERT id=1595454 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:28 #22 OK UPSERT id=1595454 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:29 #23 OK SELECT id=1595454 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:30 #24 OK DELETE id=1595454 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:31 #25 OK SELECT id=1595454 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:32 #26 OK INSERT id=1595455 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:33 #27 OK UPSERT id=1595455 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:34 #28 OK SELECT id=1595455 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:35 #29 OK DELETE id=1595455 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:36 #30 OK SELECT id=1595455 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:37 #31 OK INSERT id=1595456 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:39 #32 OK UPSERT id=1595456 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:39 EVENT break: vm stop on doris-2 (FE master)
+00:59:40 #33 OK SELECT id=1595456 via doris-1 rows=10058 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:41 #34 OK DELETE id=1595456 via doris-1 rows=10057 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:42 #35 OK SELECT id=1595456 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:59:43 #36 FAIL INSERT id=1595457 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.4, port:9020), s
+00:59:44 connected to doris-1 (10.140.0.2)
+00:59:47 #37 OK INSERT id=1595458 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+00:59:48 #38 OK UPSERT id=1595458 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:49 #39 OK SELECT id=1595458 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:50 #40 OK DELETE id=1595458 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:51 #41 OK SELECT id=1595458 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:52 #42 OK INSERT id=1595459 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:53 #43 OK UPSERT id=1595459 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:54 #44 OK SELECT id=1595459 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:56 #45 OK DELETE id=1595459 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:57 #46 OK SELECT id=1595459 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:58 #47 OK INSERT id=1595460 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+00:59:59 #48 OK UPSERT id=1595460 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:00 #49 OK SELECT id=1595460 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:01 #50 OK DELETE id=1595460 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:02 #51 OK SELECT id=1595460 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:03 #52 OK INSERT id=1595461 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:03 EVENT break: doris-2 is down
+01:00:04 #53 OK UPSERT id=1595461 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:05 #54 OK SELECT id=1595461 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:06 #55 OK DELETE id=1595461 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:07 #56 OK SELECT id=1595461 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:09 #57 OK INSERT id=1595462 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:10 #58 OK UPSERT id=1595462 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:11 #59 OK SELECT id=1595462 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:12 #60 OK DELETE id=1595462 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:13 #61 OK SELECT id=1595462 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:14 #62 OK INSERT id=1595463 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:15 #63 OK UPSERT id=1595463 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:16 #64 OK SELECT id=1595463 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:17 #65 OK DELETE id=1595463 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:18 #66 OK SELECT id=1595463 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:19 #67 OK INSERT id=1595464 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:20 #68 OK UPSERT id=1595464 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:21 #69 OK SELECT id=1595464 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:23 #70 OK DELETE id=1595464 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:24 #71 OK SELECT id=1595464 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:25 #72 OK INSERT id=1595465 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:26 #73 OK UPSERT id=1595465 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:27 #74 OK SELECT id=1595465 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:28 #75 OK DELETE id=1595465 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:29 #76 OK SELECT id=1595465 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:30 #77 OK INSERT id=1595466 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:31 #78 OK UPSERT id=1595466 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:32 #79 OK SELECT id=1595466 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:33 #80 OK DELETE id=1595466 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:34 #81 OK SELECT id=1595466 via doris-1 rows=10056 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:35 #82 OK INSERT id=1595467 via doris-1 rows=10057 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:36 EVENT break: vm stop on doris-1 (FE follower)
+01:00:36 #83 OK UPSERT id=1595467 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:37 #84 OK SELECT id=1595467 via doris-1 rows=10058 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+01:00:38 #85 FAIL DELETE id=1595467 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query')
+01:00:51 connected to doris-3 (10.140.0.4)
+01:00:51 #86 FAIL INSERT id=1595468 via doris-3: InterfaceError: (0, '')
+01:00:59 EVENT break: doris-1 is down
+01:01:06 connected to doris-3 (10.140.0.4)
+01:01:06 #87 FAIL INSERT id=1595469 via doris-3: InterfaceError: (0, '')
+01:01:21 connected to doris-3 (10.140.0.4)
+01:01:21 #88 FAIL INSERT id=1595470 via doris-3: InterfaceError: (0, '')
+01:01:28 #89 FAIL INSERT id=1595471 via doris-3: OperationalError: (2013, 'Lost connection to MySQL server during query ([Errno 104] Connection reset by peer)')
+01:01:35 #90 FAIL INSERT id=1595472 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:01:42 #91 FAIL INSERT id=1595473 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:01:49 #92 FAIL INSERT id=1595474 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:01:56 #93 FAIL INSERT id=1595475 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:04 #94 FAIL INSERT id=1595476 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:11 #95 FAIL INSERT id=1595477 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:18 #96 FAIL INSERT id=1595478 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:25 #97 FAIL INSERT id=1595479 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:32 #98 FAIL INSERT id=1595480 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:39 #99 FAIL INSERT id=1595481 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:42 EVENT restore: start doris-1
+01:02:46 #100 FAIL INSERT id=1595482 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:53 #101 FAIL INSERT id=1595483 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:02:55 EVENT restore: start doris-2
+01:03:00 #102 FAIL INSERT id=1595484 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:07 #103 FAIL INSERT id=1595485 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:11 #104 FAIL INSERT id=1595486 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:16 #105 FAIL INSERT id=1595487 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:17 #106 FAIL INSERT id=1595488 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:18 #107 FAIL INSERT id=1595489 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:19 #108 FAIL INSERT id=1595490 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:20 #109 FAIL INSERT id=1595491 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:21 #110 FAIL INSERT id=1595492 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:22 #111 FAIL INSERT id=1595493 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:23 #112 FAIL INSERT id=1595494 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:24 #113 FAIL INSERT id=1595495 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:25 #114 FAIL INSERT id=1595496 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:27 #115 FAIL INSERT id=1595497 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:28 #116 FAIL INSERT id=1595498 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:29 #117 FAIL INSERT id=1595499 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:30 #118 FAIL INSERT id=1595500 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:31 #119 FAIL INSERT id=1595501 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+01:03:33 connected to doris-3 (10.140.0.4)
+01:03:33 #120 FAIL INSERT id=1595502 via doris-3: OperationalError: (1105, 'errCode = 2, detailMessage = No backend available as scan node, please check the status of your backen
+01:03:36 connected to doris-1 (10.140.0.2)
+01:03:36 #121 FAIL INSERT id=1595503 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
+01:03:37 connected to doris-1 (10.140.0.2)
+01:03:38 #122 OK INSERT id=1595504 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
+01:03:39 #123 OK UPSERT id=1595504 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:40 #124 OK SELECT id=1595504 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:41 #125 OK DELETE id=1595504 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:42 #126 OK SELECT id=1595504 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:44 #127 OK INSERT id=1595505 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:45 #128 OK UPSERT id=1595505 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:46 #129 OK SELECT id=1595505 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:47 #130 OK DELETE id=1595505 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:48 #131 OK SELECT id=1595505 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:49 #132 OK INSERT id=1595506 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:50 #133 OK UPSERT id=1595506 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:51 #134 OK SELECT id=1595506 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:51 EVENT restore: cluster healthy
+01:03:53 #135 OK DELETE id=1595506 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:54 #136 OK SELECT id=1595506 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:55 #137 OK INSERT id=1595507 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:56 #138 OK UPSERT id=1595507 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:57 #139 OK SELECT id=1595507 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:58 #140 OK DELETE id=1595507 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:03:59 #141 OK SELECT id=1595507 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:00 #142 OK INSERT id=1595508 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:01 #143 OK UPSERT id=1595508 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:02 #144 OK SELECT id=1595508 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:04 #145 OK DELETE id=1595508 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:05 #146 OK SELECT id=1595508 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:06 #147 OK INSERT id=1595509 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:07 #148 OK UPSERT id=1595509 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:08 #149 OK SELECT id=1595509 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:09 #150 OK DELETE id=1595509 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:10 #151 OK SELECT id=1595509 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:11 #152 OK INSERT id=1595510 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:12 #153 OK UPSERT id=1595510 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:13 #154 OK SELECT id=1595510 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:15 #155 OK DELETE id=1595510 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:16 #156 OK SELECT id=1595510 via doris-1 rows=10058 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:17 #157 OK INSERT id=1595511 via doris-1 rows=10059 [doris-1:f:up doris-2:f:up doris-3:M:up]
+01:04:18 #158 OK UPSERT id=1595511 via doris-1 rows=10060 [doris-1:f:up doris-2:f:up doris-3:M:up]

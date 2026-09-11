@@ -1,0 +1,482 @@
+05:12:07 PROBE start proto=jdbc hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT url=jdbc:mysql://10.140.0.2:9030,10.140.0.3:9030,10.140.0.4:9030/hatest
+05:12:08 connected to doris-1 (driver-selected host)
+05:12:08 #1 OK INSERT id=2747270 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:09 #2 OK UPSERT id=2747270 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:10 #3 OK SELECT id=2747270 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:12 #4 OK DELETE id=2747270 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:13 #5 OK SELECT id=2747270 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:14 #6 OK INSERT id=2747271 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:15 #7 OK UPSERT id=2747271 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:16 #8 OK SELECT id=2747271 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:17 #9 OK DELETE id=2747271 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:18 #10 OK SELECT id=2747271 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:19 #11 OK INSERT id=2747272 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:20 #12 OK UPSERT id=2747272 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:21 #13 OK SELECT id=2747272 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:22 #14 OK DELETE id=2747272 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:23 #15 OK SELECT id=2747272 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:25 #16 OK INSERT id=2747273 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:26 #17 OK UPSERT id=2747273 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:27 #18 OK SELECT id=2747273 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:28 #19 OK DELETE id=2747273 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:29 #20 OK SELECT id=2747273 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:30 #21 OK INSERT id=2747274 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:31 #22 OK UPSERT id=2747274 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:32 #23 OK SELECT id=2747274 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:33 #24 OK DELETE id=2747274 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:34 #25 OK SELECT id=2747274 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:35 #26 OK INSERT id=2747275 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:37 #27 OK UPSERT id=2747275 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:38 #28 OK SELECT id=2747275 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:39 #29 OK DELETE id=2747275 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:40 #30 OK SELECT id=2747275 via doris-1 rows=10146 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:41 #31 OK INSERT id=2747276 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:41 EVENT break: vm stop on doris-3 (FE master)
+05:12:42 #32 OK UPSERT id=2747276 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:43 #33 OK SELECT id=2747276 via doris-1 rows=10148 [doris-1:f:up doris-2:f:up doris-3:M:up]
+05:12:44 #34 FAIL DELETE id=2747276 via doris-1: SQLException: ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.4, port:9020), statement
+05:12:45 #34 FAIL SELECT(check) id=1 via -: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: op
+05:12:46 #35 FAIL INSERT id=2747277 via doris-1: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: open editlog. Frontend
+05:12:46 #35 FAIL SELECT(check) id=1 via -: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: op
+05:13:05 EVENT break: doris-3 is down
+05:13:06 connected to doris-1 (driver-selected host)
+05:13:17 #36 FAIL INSERT id=2747278 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
+05:13:17 #36 OK SELECT(check) id=1 via doris-1
+05:13:18 connected to doris-1 (driver-selected host)
+05:13:18 #37 OK INSERT id=2747279 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
+05:13:19 #38 OK UPSERT id=2747279 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:20 #39 OK SELECT id=2747279 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:21 #40 OK DELETE id=2747279 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:23 #41 OK SELECT id=2747279 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:24 #42 OK INSERT id=2747280 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:25 #43 OK UPSERT id=2747280 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:26 #44 OK SELECT id=2747280 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:27 #45 OK DELETE id=2747280 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:28 #46 OK SELECT id=2747280 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:29 #47 OK INSERT id=2747281 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:30 #48 OK UPSERT id=2747281 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:31 #49 OK SELECT id=2747281 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:32 #50 OK DELETE id=2747281 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:33 #51 OK SELECT id=2747281 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:34 #52 OK INSERT id=2747282 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:35 #53 OK UPSERT id=2747282 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:37 #54 OK SELECT id=2747282 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:37 EVENT break: be dead on doris-1 (FE follower)
+05:13:38 #55 OK DELETE id=2747282 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:39 #56 OK SELECT id=2747282 via doris-1 rows=10148 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:13:40 #57 FAIL INSERT id=2747283 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:40 #57 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:41 connected to doris-1 (driver-selected host)
+05:13:41 #58 FAIL INSERT id=2747284 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:41 #58 OK SELECT(check) id=1 via doris-1
+05:13:42 connected to doris-1 (driver-selected host)
+05:13:42 #59 FAIL INSERT id=2747285 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:42 #59 OK SELECT(check) id=1 via doris-1
+05:13:43 connected to doris-1 (driver-selected host)
+05:13:43 #60 FAIL INSERT id=2747286 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+05:13:43 #60 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:44 connected to doris-1 (driver-selected host)
+05:13:44 #61 FAIL INSERT id=2747287 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:44 #61 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:45 connected to doris-1 (driver-selected host)
+05:13:45 #62 FAIL INSERT id=2747288 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:45 #62 OK SELECT(check) id=1 via doris-1
+05:13:46 connected to doris-1 (driver-selected host)
+05:13:46 #63 FAIL INSERT id=2747289 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+05:13:46 #63 OK SELECT(check) id=1 via doris-1
+05:13:47 connected to doris-1 (driver-selected host)
+05:13:47 #64 FAIL INSERT id=2747290 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:47 #64 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:48 connected to doris-1 (driver-selected host)
+05:13:48 #65 FAIL INSERT id=2747291 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:49 #65 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:50 connected to doris-1 (driver-selected host)
+05:13:50 #66 FAIL INSERT id=2747292 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+05:13:50 #66 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:51 connected to doris-1 (driver-selected host)
+05:13:51 #67 FAIL INSERT id=2747293 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:51 #67 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:52 connected to doris-1 (driver-selected host)
+05:13:52 #68 FAIL INSERT id=2747294 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:52 #68 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:53 connected to doris-1 (driver-selected host)
+05:13:53 #69 FAIL INSERT id=2747295 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+05:13:53 #69 OK SELECT(check) id=1 via doris-1
+05:13:54 connected to doris-1 (driver-selected host)
+05:13:54 #70 FAIL INSERT id=2747296 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:54 #70 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:55 connected to doris-1 (driver-selected host)
+05:13:55 #71 FAIL INSERT id=2747297 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:55 #71 OK SELECT(check) id=1 via doris-1
+05:13:56 connected to doris-1 (driver-selected host)
+05:13:56 #72 FAIL INSERT id=2747298 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+05:13:56 #72 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:57 connected to doris-1 (driver-selected host)
+05:13:57 #73 FAIL INSERT id=2747299 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:57 #73 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:58 connected to doris-1 (driver-selected host)
+05:13:58 #74 FAIL INSERT id=2747300 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:58 #74 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:13:59 connected to doris-1 (driver-selected host)
+05:13:59 #75 FAIL INSERT id=2747301 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:13:59 #75 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:14:01 connected to doris-1 (driver-selected host)
+05:14:01 #76 FAIL INSERT id=2747302 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:01 #76 OK SELECT(check) id=1 via doris-1
+05:14:02 connected to doris-1 (driver-selected host)
+05:14:02 #77 FAIL INSERT id=2747303 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+05:14:02 #77 OK SELECT(check) id=1 via doris-1
+05:14:03 connected to doris-1 (driver-selected host)
+05:14:03 #78 FAIL INSERT id=2747304 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:03 #78 OK SELECT(check) id=1 via doris-1
+05:14:04 connected to doris-1 (driver-selected host)
+05:14:04 #79 FAIL INSERT id=2747305 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:04 #79 OK SELECT(check) id=1 via doris-1
+05:14:05 connected to doris-1 (driver-selected host)
+05:14:05 #80 FAIL INSERT id=2747306 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: failed to w
+05:14:05 #80 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:14:06 connected to doris-1 (driver-selected host)
+05:14:06 #81 FAIL INSERT id=2747307 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:06 #81 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:14:07 connected to doris-1 (driver-selected host)
+05:14:07 #82 FAIL INSERT id=2747308 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:07 #82 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:14:08 connected to doris-1 (driver-selected host)
+05:14:08 #83 FAIL INSERT id=2747309 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+05:14:08 #83 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+05:14:09 connected to doris-1 (driver-selected host)
+05:14:09 #84 FAIL INSERT id=2747310 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+05:14:09 #84 OK SELECT(check) id=1 via doris-1
+05:14:10 connected to doris-1 (driver-selected host)
+05:14:10 #85 FAIL INSERT id=2747311 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:10 #85 OK SELECT(check) id=1 via doris-1
+05:14:11 connected to doris-1 (driver-selected host)
+05:14:11 #86 FAIL INSERT id=2747312 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:11 #86 OK SELECT(check) id=1 via doris-1
+05:14:12 connected to doris-1 (driver-selected host)
+05:14:12 #87 FAIL INSERT id=2747313 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:13 #87 OK SELECT(check) id=1 via doris-1
+05:14:14 connected to doris-1 (driver-selected host)
+05:14:14 #88 FAIL INSERT id=2747314 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:14 #88 OK SELECT(check) id=1 via doris-1
+05:14:15 connected to doris-1 (driver-selected host)
+05:14:15 #89 FAIL INSERT id=2747315 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:15 #89 OK SELECT(check) id=1 via doris-1
+05:14:16 connected to doris-1 (driver-selected host)
+05:14:16 #90 FAIL INSERT id=2747316 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:16 #90 OK SELECT(check) id=1 via doris-1
+05:14:17 connected to doris-1 (driver-selected host)
+05:14:17 #91 FAIL INSERT id=2747317 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:17 #91 OK SELECT(check) id=1 via doris-1
+05:14:18 connected to doris-1 (driver-selected host)
+05:14:18 #92 FAIL INSERT id=2747318 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:18 #92 OK SELECT(check) id=1 via doris-1
+05:14:19 connected to doris-1 (driver-selected host)
+05:14:19 #93 FAIL INSERT id=2747319 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:19 #93 OK SELECT(check) id=1 via doris-1
+05:14:20 connected to doris-1 (driver-selected host)
+05:14:20 #94 FAIL INSERT id=2747320 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:20 #94 OK SELECT(check) id=1 via doris-1
+05:14:21 connected to doris-1 (driver-selected host)
+05:14:21 #95 FAIL INSERT id=2747321 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:21 #95 OK SELECT(check) id=1 via doris-1
+05:14:22 connected to doris-1 (driver-selected host)
+05:14:22 #96 FAIL INSERT id=2747322 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:22 #96 OK SELECT(check) id=1 via doris-1
+05:14:23 connected to doris-1 (driver-selected host)
+05:14:23 #97 FAIL INSERT id=2747323 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:23 #97 OK SELECT(check) id=1 via doris-1
+05:14:24 connected to doris-1 (driver-selected host)
+05:14:24 #98 FAIL INSERT id=2747324 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:24 #98 OK SELECT(check) id=1 via doris-1
+05:14:25 connected to doris-1 (driver-selected host)
+05:14:25 #99 FAIL INSERT id=2747325 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:25 #99 OK SELECT(check) id=1 via doris-1
+05:14:26 connected to doris-1 (driver-selected host)
+05:14:26 #100 FAIL INSERT id=2747326 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:26 #100 OK SELECT(check) id=1 via doris-1
+05:14:27 connected to doris-1 (driver-selected host)
+05:14:27 #101 FAIL INSERT id=2747327 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:27 #101 OK SELECT(check) id=1 via doris-1
+05:14:28 connected to doris-1 (driver-selected host)
+05:14:28 #102 FAIL INSERT id=2747328 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:29 #102 OK SELECT(check) id=1 via doris-1
+05:14:30 connected to doris-1 (driver-selected host)
+05:14:30 #103 FAIL INSERT id=2747329 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:30 #103 OK SELECT(check) id=1 via doris-1
+05:14:31 connected to doris-1 (driver-selected host)
+05:14:31 #104 FAIL INSERT id=2747330 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:31 #104 OK SELECT(check) id=1 via doris-1
+05:14:32 connected to doris-1 (driver-selected host)
+05:14:32 #105 FAIL INSERT id=2747331 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:32 #105 OK SELECT(check) id=1 via doris-1
+05:14:33 connected to doris-1 (driver-selected host)
+05:14:33 #106 FAIL INSERT id=2747332 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:33 #106 OK SELECT(check) id=1 via doris-1
+05:14:34 connected to doris-1 (driver-selected host)
+05:14:34 #107 FAIL INSERT id=2747333 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:34 #107 OK SELECT(check) id=1 via doris-1
+05:14:35 connected to doris-1 (driver-selected host)
+05:14:35 #108 FAIL INSERT id=2747334 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:35 #108 OK SELECT(check) id=1 via doris-1
+05:14:36 connected to doris-1 (driver-selected host)
+05:14:36 #109 FAIL INSERT id=2747335 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:36 #109 OK SELECT(check) id=1 via doris-1
+05:14:37 connected to doris-1 (driver-selected host)
+05:14:37 #110 FAIL INSERT id=2747336 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:37 #110 OK SELECT(check) id=1 via doris-1
+05:14:38 connected to doris-1 (driver-selected host)
+05:14:38 #111 FAIL INSERT id=2747337 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:38 #111 OK SELECT(check) id=1 via doris-1
+05:14:39 connected to doris-1 (driver-selected host)
+05:14:39 #112 FAIL INSERT id=2747338 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:39 #112 OK SELECT(check) id=1 via doris-1
+05:14:40 connected to doris-1 (driver-selected host)
+05:14:40 #113 FAIL INSERT id=2747339 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:40 #113 OK SELECT(check) id=1 via doris-1
+05:14:41 connected to doris-1 (driver-selected host)
+05:14:41 #114 FAIL INSERT id=2747340 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:41 #114 OK SELECT(check) id=1 via doris-1
+05:14:42 connected to doris-1 (driver-selected host)
+05:14:42 #115 FAIL INSERT id=2747341 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:42 #115 OK SELECT(check) id=1 via doris-1
+05:14:43 connected to doris-1 (driver-selected host)
+05:14:43 #116 FAIL INSERT id=2747342 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:43 #116 OK SELECT(check) id=1 via doris-1
+05:14:44 connected to doris-1 (driver-selected host)
+05:14:44 #117 FAIL INSERT id=2747343 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:45 #117 OK SELECT(check) id=1 via doris-1
+05:14:46 connected to doris-1 (driver-selected host)
+05:14:46 #118 FAIL INSERT id=2747344 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:46 #118 OK SELECT(check) id=1 via doris-1
+05:14:47 connected to doris-1 (driver-selected host)
+05:14:47 #119 FAIL INSERT id=2747345 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:47 #119 OK SELECT(check) id=1 via doris-1
+05:14:48 connected to doris-1 (driver-selected host)
+05:14:48 #120 FAIL INSERT id=2747346 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:48 #120 OK SELECT(check) id=1 via doris-1
+05:14:49 connected to doris-1 (driver-selected host)
+05:14:49 #121 FAIL INSERT id=2747347 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:49 #121 OK SELECT(check) id=1 via doris-1
+05:14:50 connected to doris-1 (driver-selected host)
+05:14:50 #122 FAIL INSERT id=2747348 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:50 #122 OK SELECT(check) id=1 via doris-1
+05:14:51 connected to doris-1 (driver-selected host)
+05:14:51 #123 FAIL INSERT id=2747349 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:51 #123 OK SELECT(check) id=1 via doris-1
+05:14:52 connected to doris-1 (driver-selected host)
+05:14:52 #124 FAIL INSERT id=2747350 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:52 #124 OK SELECT(check) id=1 via doris-1
+05:14:53 connected to doris-1 (driver-selected host)
+05:14:53 #125 FAIL INSERT id=2747351 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:53 #125 OK SELECT(check) id=1 via doris-1
+05:14:54 connected to doris-1 (driver-selected host)
+05:14:54 #126 FAIL INSERT id=2747352 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:54 #126 OK SELECT(check) id=1 via doris-1
+05:14:55 connected to doris-1 (driver-selected host)
+05:14:55 #127 FAIL INSERT id=2747353 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:55 #127 OK SELECT(check) id=1 via doris-1
+05:14:56 connected to doris-1 (driver-selected host)
+05:14:56 #128 FAIL INSERT id=2747354 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:56 #128 OK SELECT(check) id=1 via doris-1
+05:14:57 connected to doris-1 (driver-selected host)
+05:14:57 #129 FAIL INSERT id=2747355 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:57 #129 OK SELECT(check) id=1 via doris-1
+05:14:58 connected to doris-1 (driver-selected host)
+05:14:58 #130 FAIL INSERT id=2747356 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:58 #130 OK SELECT(check) id=1 via doris-1
+05:14:59 connected to doris-1 (driver-selected host)
+05:14:59 #131 FAIL INSERT id=2747357 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:14:59 #131 OK SELECT(check) id=1 via doris-1
+05:15:00 connected to doris-1 (driver-selected host)
+05:15:00 #132 FAIL INSERT id=2747358 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:00 #132 OK SELECT(check) id=1 via doris-1
+05:15:01 connected to doris-1 (driver-selected host)
+05:15:02 #133 FAIL INSERT id=2747359 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:02 #133 OK SELECT(check) id=1 via doris-1
+05:15:03 connected to doris-1 (driver-selected host)
+05:15:03 #134 FAIL INSERT id=2747360 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:03 #134 OK SELECT(check) id=1 via doris-1
+05:15:04 connected to doris-1 (driver-selected host)
+05:15:04 #135 FAIL INSERT id=2747361 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:04 #135 OK SELECT(check) id=1 via doris-1
+05:15:05 connected to doris-1 (driver-selected host)
+05:15:05 #136 FAIL INSERT id=2747362 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:05 #136 OK SELECT(check) id=1 via doris-1
+05:15:06 connected to doris-1 (driver-selected host)
+05:15:06 #137 FAIL INSERT id=2747363 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:06 #137 OK SELECT(check) id=1 via doris-1
+05:15:07 connected to doris-1 (driver-selected host)
+05:15:07 #138 FAIL INSERT id=2747364 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:07 #138 OK SELECT(check) id=1 via doris-1
+05:15:08 connected to doris-1 (driver-selected host)
+05:15:08 #139 FAIL INSERT id=2747365 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:08 #139 OK SELECT(check) id=1 via doris-1
+05:15:09 connected to doris-1 (driver-selected host)
+05:15:09 #140 FAIL INSERT id=2747366 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:09 #140 OK SELECT(check) id=1 via doris-1
+05:15:10 connected to doris-1 (driver-selected host)
+05:15:10 #141 FAIL INSERT id=2747367 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:10 #141 OK SELECT(check) id=1 via doris-1
+05:15:11 connected to doris-1 (driver-selected host)
+05:15:11 #142 FAIL INSERT id=2747368 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:11 #142 OK SELECT(check) id=1 via doris-1
+05:15:12 connected to doris-1 (driver-selected host)
+05:15:12 #143 FAIL INSERT id=2747369 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:12 #143 OK SELECT(check) id=1 via doris-1
+05:15:13 connected to doris-1 (driver-selected host)
+05:15:13 #144 FAIL INSERT id=2747370 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:13 #144 OK SELECT(check) id=1 via doris-1
+05:15:14 connected to doris-1 (driver-selected host)
+05:15:14 #145 FAIL INSERT id=2747371 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:14 #145 OK SELECT(check) id=1 via doris-1
+05:15:15 connected to doris-1 (driver-selected host)
+05:15:15 #146 FAIL INSERT id=2747372 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:15 #146 OK SELECT(check) id=1 via doris-1
+05:15:16 connected to doris-1 (driver-selected host)
+05:15:16 #147 FAIL INSERT id=2747373 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:16 #147 OK SELECT(check) id=1 via doris-1
+05:15:17 connected to doris-1 (driver-selected host)
+05:15:17 #148 FAIL INSERT id=2747374 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:17 #148 OK SELECT(check) id=1 via doris-1
+05:15:18 connected to doris-1 (driver-selected host)
+05:15:19 #149 FAIL INSERT id=2747375 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:19 #149 OK SELECT(check) id=1 via doris-1
+05:15:20 connected to doris-1 (driver-selected host)
+05:15:20 #150 FAIL INSERT id=2747376 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:20 #150 OK SELECT(check) id=1 via doris-1
+05:15:20 EVENT restore: systemctl start doris-be on doris-1
+05:15:21 connected to doris-1 (driver-selected host)
+05:15:21 #151 FAIL INSERT id=2747377 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:21 #151 OK SELECT(check) id=1 via doris-1
+05:15:22 connected to doris-1 (driver-selected host)
+05:15:22 #152 FAIL INSERT id=2747378 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:22 #152 OK SELECT(check) id=1 via doris-1
+05:15:23 connected to doris-1 (driver-selected host)
+05:15:23 #153 FAIL INSERT id=2747379 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:23 #153 OK SELECT(check) id=1 via doris-1
+05:15:24 connected to doris-1 (driver-selected host)
+05:15:24 #154 FAIL INSERT id=2747380 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:24 #154 OK SELECT(check) id=1 via doris-1
+05:15:24 EVENT restore: start doris-3
+05:15:25 connected to doris-1 (driver-selected host)
+05:15:25 #155 FAIL INSERT id=2747381 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:25 #155 OK SELECT(check) id=1 via doris-1
+05:15:26 connected to doris-1 (driver-selected host)
+05:15:26 #156 FAIL INSERT id=2747382 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:26 #156 OK SELECT(check) id=1 via doris-1
+05:15:27 connected to doris-1 (driver-selected host)
+05:15:27 #157 FAIL INSERT id=2747383 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:27 #157 OK SELECT(check) id=1 via doris-1
+05:15:28 connected to doris-1 (driver-selected host)
+05:15:28 #158 FAIL INSERT id=2747384 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:28 #158 OK SELECT(check) id=1 via doris-1
+05:15:29 connected to doris-1 (driver-selected host)
+05:15:29 #159 FAIL INSERT id=2747385 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:29 #159 OK SELECT(check) id=1 via doris-1
+05:15:30 connected to doris-1 (driver-selected host)
+05:15:30 #160 FAIL INSERT id=2747386 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:30 #160 OK SELECT(check) id=1 via doris-1
+05:15:31 connected to doris-1 (driver-selected host)
+05:15:31 #161 FAIL INSERT id=2747387 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:31 #161 OK SELECT(check) id=1 via doris-1
+05:15:32 connected to doris-1 (driver-selected host)
+05:15:32 #162 FAIL INSERT id=2747388 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:32 #162 OK SELECT(check) id=1 via doris-1
+05:15:33 connected to doris-1 (driver-selected host)
+05:15:33 #163 FAIL INSERT id=2747389 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:33 #163 OK SELECT(check) id=1 via doris-1
+05:15:34 connected to doris-1 (driver-selected host)
+05:15:34 #164 FAIL INSERT id=2747390 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:34 #164 OK SELECT(check) id=1 via doris-1
+05:15:35 connected to doris-1 (driver-selected host)
+05:15:35 #165 FAIL INSERT id=2747391 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:36 #165 OK SELECT(check) id=1 via doris-1
+05:15:37 connected to doris-1 (driver-selected host)
+05:15:37 #166 FAIL INSERT id=2747392 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:37 #166 OK SELECT(check) id=1 via doris-1
+05:15:38 connected to doris-1 (driver-selected host)
+05:15:38 #167 FAIL INSERT id=2747393 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:38 #167 OK SELECT(check) id=1 via doris-1
+05:15:39 connected to doris-1 (driver-selected host)
+05:15:39 #168 FAIL INSERT id=2747394 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:39 #168 OK SELECT(check) id=1 via doris-1
+05:15:40 connected to doris-1 (driver-selected host)
+05:15:40 #169 FAIL INSERT id=2747395 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:40 #169 OK SELECT(check) id=1 via doris-1
+05:15:41 connected to doris-1 (driver-selected host)
+05:15:41 #170 FAIL INSERT id=2747396 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:41 #170 OK SELECT(check) id=1 via doris-1
+05:15:42 connected to doris-1 (driver-selected host)
+05:15:42 #171 FAIL INSERT id=2747397 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:42 #171 OK SELECT(check) id=1 via doris-1
+05:15:43 connected to doris-1 (driver-selected host)
+05:15:43 #172 FAIL INSERT id=2747398 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:43 #172 OK SELECT(check) id=1 via doris-1
+05:15:44 connected to doris-1 (driver-selected host)
+05:15:44 #173 FAIL INSERT id=2747399 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:44 #173 OK SELECT(check) id=1 via doris-1
+05:15:45 connected to doris-1 (driver-selected host)
+05:15:45 #174 FAIL INSERT id=2747400 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:45 #174 OK SELECT(check) id=1 via doris-1
+05:15:46 connected to doris-1 (driver-selected host)
+05:15:46 #175 FAIL INSERT id=2747401 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:46 #175 OK SELECT(check) id=1 via doris-1
+05:15:47 connected to doris-1 (driver-selected host)
+05:15:47 #176 FAIL INSERT id=2747402 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:47 #176 OK SELECT(check) id=1 via doris-1
+05:15:48 connected to doris-1 (driver-selected host)
+05:15:48 #177 FAIL INSERT id=2747403 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:48 #177 OK SELECT(check) id=1 via doris-1
+05:15:49 connected to doris-1 (driver-selected host)
+05:15:49 #178 FAIL INSERT id=2747404 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+05:15:49 #178 OK SELECT(check) id=1 via doris-1
+05:15:50 connected to doris-1 (driver-selected host)
+05:15:50 #179 OK INSERT id=2747405 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
+05:15:52 #180 OK UPSERT id=2747405 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:53 #181 OK SELECT id=2747405 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:54 #182 OK DELETE id=2747405 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:55 #183 OK SELECT id=2747405 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:56 #184 OK INSERT id=2747406 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:57 #185 OK UPSERT id=2747406 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:58 #186 OK SELECT id=2747406 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:15:59 #187 OK DELETE id=2747406 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:00 #188 OK SELECT id=2747406 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:01 #189 OK INSERT id=2747407 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:02 #190 OK UPSERT id=2747407 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:03 #191 OK SELECT id=2747407 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:04 #192 OK DELETE id=2747407 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:05 #193 OK SELECT id=2747407 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:06 #194 OK INSERT id=2747408 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:07 #195 OK UPSERT id=2747408 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:09 #196 OK SELECT id=2747408 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+05:16:10 #197 OK DELETE id=2747408 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:11 #198 OK SELECT id=2747408 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:12 EVENT restore: cluster healthy
+05:16:12 #199 OK INSERT id=2747409 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:13 #200 OK UPSERT id=2747409 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:14 #201 OK SELECT id=2747409 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:15 #202 OK DELETE id=2747409 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:16 #203 OK SELECT id=2747409 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:17 #204 OK INSERT id=2747410 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:18 #205 OK UPSERT id=2747410 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:19 #206 OK SELECT id=2747410 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:20 #207 OK DELETE id=2747410 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:21 #208 OK SELECT id=2747410 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:22 #209 OK INSERT id=2747411 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:24 #210 OK UPSERT id=2747411 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:25 #211 OK SELECT id=2747411 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:26 #212 OK DELETE id=2747411 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:27 #213 OK SELECT id=2747411 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:28 #214 OK INSERT id=2747412 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:29 #215 OK UPSERT id=2747412 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:30 #216 OK SELECT id=2747412 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:31 #217 OK DELETE id=2747412 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:32 #218 OK SELECT id=2747412 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:33 #219 OK INSERT id=2747413 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:34 #220 OK UPSERT id=2747413 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:35 #221 OK SELECT id=2747413 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:36 #222 OK DELETE id=2747413 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:37 #223 OK SELECT id=2747413 via doris-1 rows=10147 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:38 #224 OK INSERT id=2747414 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]
+05:16:39 #225 OK UPSERT id=2747414 via doris-1 rows=10149 [doris-1:f:up doris-2:M:up doris-3:f:up]

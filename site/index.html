@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doris 三節點 HA 實測</title>
+<meta name="description" content="Apache Doris 4.1.1 在 GCP 三個 zone 的故障矩陣實驗：FE/BE/VM 的 crash、dead、hang、stop 與雙重故障下，三種 client 的中斷秒數與可用性等級。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--paper:#fffcf5;--cream:#f5efe4;--cream-light:#faf6ee;--ink:#0f1a14;--ink-soft:#1b2a22;--muted:#4f5e56;--soft:#7f8f86;
+  --primary:#11a679;--primary-deep:#0b7a58;--primary-dark:#06805f;--primary-tint:#e8faf5;--primary-soft:#c9ffe6;--primary-glow:#2ddfa8;
+  --accent:#ffd23f;--accent-soft:#fff6cc;--border:#d9eee8;--surface:#f4fbf8;--note:#e8faf5;--footer:#0c1613;
+  --danger:#d9483b;--danger-soft:#ffe2dd;--warn:#b7791f;--warn-soft:#fff1c2;
+  --sans:"Inter","Noto Sans TC",-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color-scheme:light}
+*{box-sizing:border-box} html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;padding-block:0 0;padding-inline:0}
+a{color:var(--primary-deep);text-decoration:none} a:hover{text-decoration:underline}
+.container{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,252,245,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+header.top .container{display:flex;justify-content:space-between;align-items:center;gap:24px;height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.brand i{width:12px;height:12px;background:var(--primary);border-radius:3px;display:inline-block;box-shadow:3px 3px 0 var(--accent)}
+nav.links{display:flex;gap:6px;flex-wrap:wrap} nav.links a{color:var(--ink);font-size:13px;font-weight:500;padding:6px 10px;border-radius:4px} nav.links a:hover{background:var(--surface);text-decoration:none} nav.links a.cur{background:var(--primary);color:#fff}
+.hero{padding-block:56px 40px;background:linear-gradient(180deg,var(--cream-light),var(--paper))}
+.hero .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary-deep);margin:0 0 14px;font-weight:600}
+.display{font-family:var(--mono);text-transform:uppercase;letter-spacing:-.035em;word-spacing:-.18em;font-weight:700;line-height:.95;margin:0 0 18px;font-size:clamp(34px,4.4vw,60px);color:var(--ink);overflow-wrap:anywhere;text-wrap:balance}
+.display em{font-style:normal;color:var(--primary);background:linear-gradient(transparent 62%,var(--accent) 62%)}
+.lede{font-size:18px;color:var(--muted);max-width:66ch;margin:0 0 24px}
+.lede b{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;font-weight:600;padding:14px 28px;border-radius:4px;border:0;font-size:15px} .btn:hover{background:var(--primary-dark);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)} .btn.ghost:hover{background:var(--ink);color:#fff}
+.steps{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 8px} .step{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)} .step b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--accent);font-weight:700} .step.cur b{background:var(--primary);color:#fff} .step.cur{color:var(--ink)}
+section{padding-block:48px 8px} section.tight{padding-block:28px 8px}
+h2.title{font-family:var(--mono);text-transform:uppercase;letter-spacing:-.03em;word-spacing:-.12em;font-weight:700;line-height:1;font-size:clamp(26px,3.2vw,40px);margin:0 0 10px} h2.title small{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--primary);display:block;margin-bottom:10px;word-spacing:normal}
+.sub{color:var(--muted);margin:0 0 22px;max-width:72ch} h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+.muted{color:var(--muted)} .mono{font-family:var(--mono)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 8px}
+.stat{padding:18px 18px 16px;border:1px solid var(--border);border-radius:12px;background:#fff} .stat.focal{background:var(--ink);color:#fff;border-color:var(--ink)}
+.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)} .stat.focal .k{color:var(--primary-glow)}
+.stat .v{font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.05;margin:8px 0 6px;font-variant-numeric:tabular-nums} .stat.focal .v{color:var(--accent)}
+.stat .d{font-size:13px;color:var(--muted)} .stat.focal .d{color:#cfe3da}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top} tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap} .tablewrap{overflow-x:auto;border-radius:12px}
+.lvl{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.lvl-rw,.lvl-read-ok{background:var(--primary-soft);color:var(--primary-deep)} .lvl-ro{background:var(--warn-soft);color:#7a4f00} .lvl-stalled,.lvl-read-stalled{background:#ffe8c2;color:#7a3e00} .lvl-down,.lvl-read-down{background:var(--danger-soft);color:#8a1f16} .lvl-na{background:var(--cream);color:var(--muted)}
+code{font-family:var(--mono);font-size:12.5px;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1px 6px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.55;background:var(--ink);color:#e6f4ee;border-radius:10px;padding:14px 16px;overflow-x:auto;margin:0} pre code{background:none;border:0;color:inherit;padding:0}
+pre .ev{color:var(--accent);font-weight:600} pre .ko{color:#ff8a7a} pre .okc{color:var(--primary-glow)}
+.card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:18px 20px} .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card h4{margin:0 0 6px;font-size:15px} .card .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary-deep);margin-bottom:8px;font-weight:600}
+.notes{margin:0;padding-left:18px} .notes li{margin-bottom:8px;max-width:78ch} .notes li b{font-weight:600}
+figure{margin:0} .figure{overflow-x:auto;padding-block:8px;background:#fff;border:1px solid var(--border);border-radius:14px} .figure svg{display:block;width:100%;min-width:720px;height:auto}
+figcaption{font-size:13px;color:var(--muted);margin-top:10px;max-width:80ch}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:start}
+.matrix td:first-child{font-weight:600} .matrix .id{font-family:var(--mono);font-size:11px;color:var(--soft);display:block;font-weight:400}
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary-deep);border:1px solid var(--primary);border-radius:3px;padding:1px 6px;font-weight:600}
+.badge.y{color:#7a4f00;border-color:var(--accent);background:var(--accent-soft)}
+.timeline{display:grid;grid-template-columns:76px 1fr;gap:6px 14px;font-size:13px;margin:8px 0} .timeline .t{font-family:var(--mono);color:var(--muted)} .timeline .e{border-left:2px solid var(--border);padding-left:12px} .timeline .e.ev{border-left-color:var(--accent);font-weight:600} .timeline .e.ko{border-left-color:var(--danger);color:#8a1f16} .timeline .e.ok{border-left-color:var(--primary)}
+.req{margin:18px 0;border:1px solid var(--border);border-radius:12px;background:#fff} .req h4{margin:0;padding:12px 16px;font-size:15px;font-weight:600;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:center;background:var(--surface);border-radius:12px 12px 0 0} .req-body{padding:8px 16px 4px}
+.scen{margin:10px 0 14px;border-left:3px solid var(--border);padding:6px 0 6px 14px} .scen-name{font-weight:600;margin-bottom:6px} .wt{display:grid;grid-template-columns:56px 1fr;gap:10px;margin:4px 0;font-size:14px} .kw{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);padding-top:4px;font-weight:700} .kw.then{color:var(--primary-deep)}
+.measured{margin-top:8px;padding:8px 12px;background:var(--note);border-left:3px solid var(--primary);border-radius:0 8px 8px 0;font-size:13px;font-family:var(--mono)} .measured div{margin:2px 0}
+.delta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:20px 0 4px;color:var(--warn);font-weight:700} .delta-added{color:var(--primary-deep)}
+.progress{height:10px;background:var(--cream);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin:8px 0 4px} .bar{height:100%;background:var(--primary)}
+.cb{display:inline-block;width:13px;height:13px;border:1.5px solid var(--soft);border-radius:3px;margin-right:8px;vertical-align:-2px} .cb.on{background:var(--primary);border-color:var(--primary)} .tid{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+.side{position:sticky;top:80px;align-self:start;font-size:13px;display:flex;flex-direction:column;gap:4px} .side a{color:var(--muted);padding:4px 8px;border-left:2px solid transparent} .side a:hover{color:var(--ink);border-left-color:var(--primary);text-decoration:none} .side .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:12px 0 2px}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+.doc p,.doc li{max-width:78ch} .doc table{display:block;overflow-x:auto}
+.eyebrow-sm{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:12px 0 0}
+footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px} footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px} footer a{color:var(--primary-glow)}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr} .grid2{grid-template-columns:1fr} .layout{grid-template-columns:1fr} .side{position:static;flex-direction:row;flex-wrap:wrap} .side .lbl{width:100%}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+</style><style>.figure{--paper:#fff;--rule:#d9eee8;--rule-solid:#d9eee8;--accent:#11a679;--accent-tint:rgba(17,166,121,.10);--white:#fff;--ink-05:rgba(15,26,20,.05);--ink-02:rgba(15,26,20,.02);--ink-20:rgba(15,26,20,.20);--ink-30:rgba(15,26,20,.30);--muted-10:rgba(79,94,86,.10);--muted-15:rgba(79,94,86,.15);--link:#0b7a58}</style>
+</head>
+<body>
+<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="cur">01 精簡報告</a><a href="specs.html" class="">02 實驗設計</a><a href="results.html" class="">03 過程與結果</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
+<div class="hero"><div class="container"><div class="steps"><span class="step cur"><b>1</b>精簡報告</span><span class="step "><b>2</b>實驗設計</span><span class="step "><b>3</b>過程與結果</span></div><p class="eyebrow">Step 01 · 精簡報告 · Apache Doris 4.1.1 · GCP asia-east1 三個 zone</p>
+<h1 class="display">FE 掛了、BE 掛了、整台 VM 掛了，<em>client 還能寫嗎？</em></h1>
+<p class="lede">三台 VM 各跑一個 FE 與一個 BE，client 每秒對同一把 key 做 <b>INSERT → UPSERT → SELECT → DELETE → SELECT</b>，同時用 mysql / jdbc / arrow-flight 三種協定。我們把 16 種故障各注入三輪，量 client 中斷幾秒、寫入還能不能成功、資料有沒有不一致。</p>
+<p><a class="btn" href="specs.html">02 實驗設計 →</a> <a class="btn ghost" href="results.html">03 過程與全部結果 →</a></p></div></div>
+<div class="container">
+<section class="tight"><div class="stats">
+<div class="stat focal"><div class="k">單一故障讀寫正常</div><div class="v">11 / 12</div><div class="d">FE 或 BE 掛一個、整台 VM 停機，client 都在幾秒內恢復</div></div>
+<div class="stat"><div class="k">雙重故障</div><div class="v">1 只讀 · 4 不可用/卡住</div><div class="d">任一層剩 1/3 就失去寫入；查詢視 FE 是否還能服務</div></div>
+<div class="stat"><div class="k">資料不一致</div><div class="v">0</div><div class="d">48 次執行 · 26,357 次操作的 SELECT 驗證</div></div>
+<div class="stat"><div class="k">中斷（單一故障）</div><div class="v">3～136s</div><div class="d">jdbc 最快、hang 類最慢；含 client 逾時等待</div></div>
+</div></section>
+<section id="matrix"><h2 class="title"><small>RESULT MATRIX</small>故障矩陣（16 格 × 3 輪）</h2>
+<p class="sub">等級取三輪中最差；秒數是三輪的影響範圍＝失敗視窗（第一次失敗到下一次成功）＋卡頓（連續兩次操作間隔超過 5 秒）。arrow-flight 只做查詢，所以只有讀取正常 / 讀取失敗。點 <a href="results.html">03</a> 看每一輪、每個 client 的原始 log。</p><div class="tablewrap"><table class="matrix"><thead><tr><th>情境</th><th>注入</th><th>mysql</th><th>jdbc</th><th>arrow-flight</th><th>結論（三輪最差）</th></tr></thead><tbody><tr><td>三個 client 同時觀察 VM 停機<span class="id">vm-stop-3clients</span></td><td class="mono" style="font-size:12px">VM stop @ master</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">4～29s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">4～34s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">2～30s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>master 所在 VM 停機，client 直連 master<span class="id">vm-stop-master-direct · client master-first</span></td><td class="mono" style="font-size:12px">VM stop @ master</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">0～37s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～39s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">0～30s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>master 所在 VM 停機，client 連在 follower<span class="id">vm-stop-master-follower · client follower-first</span></td><td class="mono" style="font-size:12px">VM stop @ master</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">0～28s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">2～32s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～30s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>follower 所在 VM 停機<span class="id">vm-stop-follower</span></td><td class="mono" style="font-size:12px">VM stop @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">0～25s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">2～19s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">2～20s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>master FE crash（kill -9，systemd 自動拉起）<span class="id">fe-crash-master</span></td><td class="mono" style="font-size:12px">FE crash @ master</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">18～26s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">22～29s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">6～8s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>follower FE crash<span class="id">fe-crash-follower</span></td><td class="mono" style="font-size:12px">FE crash @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～2s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～3s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">2～3s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>master FE dead（systemctl stop，不自動起）<span class="id">fe-dead-master</span></td><td class="mono" style="font-size:12px">FE dead @ master</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">0～28s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～27s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">6～9s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>master FE hang（kill -STOP）<span class="id">fe-hang-master</span></td><td class="mono" style="font-size:12px">FE hang @ master</td><td><span class="lvl lvl-ro">只讀</span><div class="mono" style="font-size:11px;margin-top:3px">63～136s</div></td><td><span class="lvl lvl-stalled">卡住</span><div class="mono" style="font-size:11px;margin-top:3px">69～136s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">63～136s</div></td><td><span class="lvl lvl-stalled">卡住</span></td></tr><tr><td>follower FE hang<span class="id">fe-hang-follower</span></td><td class="mono" style="font-size:12px">FE hang @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">18～28s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">45～48s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">39s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>BE crash（systemd 自動拉起）<span class="id">be-crash</span></td><td class="mono" style="font-size:12px">BE crash @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">16～19s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">15～20s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～2s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>BE dead<span class="id">be-dead</span></td><td class="mono" style="font-size:12px">BE dead @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">6～9s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">6～8s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">1～2s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>BE hang（kill -STOP）<span class="id">be-hang</span></td><td class="mono" style="font-size:12px">BE hang @ follower</td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">27～37s</div></td><td><span class="lvl lvl-rw">讀寫正常</span><div class="mono" style="font-size:11px;margin-top:3px">27～36s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">27～31s</div></td><td><span class="lvl lvl-rw">讀寫正常</span></td></tr><tr><td>VM 停 + 另一台 FE dead（FE 剩 1/3）<span class="id">double-vm-fe-dead</span></td><td class="mono" style="font-size:12px">VM stop @ master + FE dead @ follower</td><td><span class="lvl lvl-down">不可用</span><div class="mono" style="font-size:11px;margin-top:3px">102～133s</div></td><td><span class="lvl lvl-down">不可用</span><div class="mono" style="font-size:11px;margin-top:3px">104～139s</div></td><td><span class="lvl lvl-read-down">讀取失敗</span><div class="mono" style="font-size:11px;margin-top:3px">75～134s</div></td><td><span class="lvl lvl-down">不可用</span></td></tr><tr><td>VM 停 + 另一台 BE dead（BE 剩 1/3）<span class="id">double-vm-be-dead</span></td><td class="mono" style="font-size:12px">VM stop @ master + BE dead @ follower</td><td><span class="lvl lvl-ro">只讀</span><div class="mono" style="font-size:11px;margin-top:3px">42～99s</div></td><td><span class="lvl lvl-ro">只讀</span><div class="mono" style="font-size:11px;margin-top:3px">48～103s</div></td><td><span class="lvl lvl-read-ok">讀取正常</span><div class="mono" style="font-size:11px;margin-top:3px">40～61s</div></td><td><span class="lvl lvl-ro">只讀</span></td></tr><tr><td>兩台 VM 停（FE 1/3、BE 1/3）<span class="id">double-two-vms</span></td><td class="mono" style="font-size:12px">VM stop @ master + VM stop @ follower</td><td><span class="lvl lvl-down">不可用</span><div class="mono" style="font-size:11px;margin-top:3px">128～154s</div></td><td><span class="lvl lvl-stalled">卡住</span><div class="mono" style="font-size:11px;margin-top:3px">126～150s</div></td><td><span class="lvl lvl-read-down">讀取失敗</span><div class="mono" style="font-size:11px;margin-top:3px">101～126s</div></td><td><span class="lvl lvl-down">不可用</span></td></tr><tr><td>交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）<span class="id">double-crossed</span></td><td class="mono" style="font-size:12px">VM stop @ doris-1 + BE dead @ doris-2 + FE dead @ doris-3</td><td><span class="lvl lvl-down">不可用</span><div class="mono" style="font-size:11px;margin-top:3px">82～146s</div></td><td><span class="lvl lvl-down">不可用</span><div class="mono" style="font-size:11px;margin-top:3px">133～148s</div></td><td><span class="lvl lvl-read-down">讀取失敗</span><div class="mono" style="font-size:11px;margin-top:3px">142～146s</div></td><td><span class="lvl lvl-down">不可用</span></td></tr></tbody></table></div></section>
+<section id="conclusions"><h2 class="title"><small>TAKEAWAYS</small>結論</h2><ul class="notes"><li><b>單一故障（12 格）：</b>11 格讀寫正常，1 格不是（master FE hang（kill -STOP））。mysql 中斷最長 136s（master FE hang（kill -STOP））。</li><li><b>雙重故障（4 格）：</b>VM 停 + 另一台 FE dead→不可用（flight 讀取失敗）；VM 停 + 另一台 BE dead→只讀（flight 讀取正常）；兩台 VM 停→不可用（flight 讀取失敗）；交錯故障→不可用（flight 讀取失敗）。等級由 FE 與 BE 各自的多數決決定：任一層剩 1/3，寫入就停。</li><li><b>資料一致性：</b>48 次執行、26,357 次操作，SELECT 驗證不一致 0 次。寫入在中斷視窗內失敗會換新 key 重來，不留下半套資料。</li><li><b>恢復：</b>restore 到 3 FE / 3 BE 全 alive、12 副本 OK，5～305 秒（含 VM 開機），不需人工介入。</li><li><b>Arrow Flight SQL：</b>Doris 4.1.1 只走查詢，INSERT/DELETE 回 <code>getMysqlChannel not in mysql connection</code>；寫入請用 MySQL 協定或 Stream Load。</li><li><b>client 端建議：</b>JDBC 多主機 URL 最省事；自行實作時逾時設 2～3 秒、失敗重連時輪替主機，避免卡在轉發給已死 master 的 follower 上。</li></ul></section>
+<section id="arch"><h2 class="title"><small>ARCHITECTURE</small>正常狀態 vs 掛掉一台</h2>
+<p class="sub">3 個 FE 都是 FOLLOWER，以多數決選出 1 個 master；3 個 BE 是一個資料池，每個 tablet 三副本各放一個 zone。client 帶三台 FE 的主機清單，第一台連不上就試下一台。</p>
+<div class="grid2"><figure><div class="figure"><svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-normal-title arch-normal-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="arch-normal-title">Doris 三節點正常狀態架構</title>
+    <desc id="arch-normal-desc">一個 client 連到位於三個 zone 的三台 VM，每台 VM 跑一個 FE 與一個 BE；doris-2 的 FE 目前是 master，另外兩個 FE 透過 edit log 同步，三個 BE 之間保有每個 tablet 的三份副本。</desc>
+    <defs>
+      <marker id="an-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/></marker>
+      <marker id="an-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/></marker>
+    </defs>
+    <rect width="100%" height="100%" fill="var(--paper)"/>
+    <!-- zones -->
+    <g font-family="var(--mono)" font-size="7" letter-spacing="0.14em">
+      <rect x="40" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="48" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="118" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-1 · ASIA-EAST1-A</text>
+      <rect x="360" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="368" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="438" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-2 · ASIA-EAST1-B</text>
+      <rect x="680" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="688" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="758" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-3 · ASIA-EAST1-C</text>
+    </g>
+    <!-- arrows (before boxes) -->
+    <g fill="none" stroke="var(--muted)" stroke-width="1">
+      <line x1="480" y1="96" x2="480" y2="184" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#an-arrow-accent)"/>
+      <path d="M440,96 V132 Q440,140 432,140 H168 Q160,140 160,148 V184" stroke-dasharray="4,3" marker-end="url(#an-arrow)"/>
+      <path d="M520,96 V132 Q520,140 528,140 H792 Q800,140 800,148 V184" stroke-dasharray="4,3" marker-end="url(#an-arrow)"/>
+      <line x1="400" y1="216" x2="240" y2="216" stroke-width="1.2" marker-end="url(#an-arrow)"/>
+      <line x1="560" y1="216" x2="720" y2="216" stroke-width="1.2" marker-end="url(#an-arrow)"/>
+      <line x1="160" y1="248" x2="160" y2="376" marker-end="url(#an-arrow)"/>
+      <line x1="480" y1="248" x2="480" y2="376" marker-end="url(#an-arrow)"/>
+      <line x1="800" y1="248" x2="800" y2="376" marker-end="url(#an-arrow)"/>
+      <line x1="240" y1="408" x2="400" y2="408" stroke-dasharray="4,3" marker-start="url(#an-arrow)" marker-end="url(#an-arrow)"/>
+      <line x1="560" y1="408" x2="720" y2="408" stroke-dasharray="4,3" marker-start="url(#an-arrow)" marker-end="url(#an-arrow)"/>
+    </g>
+    <!-- arrow labels (masked, 8px gap) -->
+    <g font-family="var(--mono)" font-size="8" letter-spacing="0.06em" text-anchor="middle">
+      <rect x="488" y="124" width="64" height="12" rx="2" fill="var(--paper)"/><text x="520" y="133" fill="var(--accent)">SQL :9030</text>
+      <rect x="276" y="120" width="48" height="12" rx="2" fill="var(--paper)"/><text x="300" y="129" fill="var(--soft)">FAILOVER</text>
+      <rect x="636" y="120" width="48" height="12" rx="2" fill="var(--paper)"/><text x="660" y="129" fill="var(--soft)">FAILOVER</text>
+      <rect x="280" y="196" width="80" height="12" rx="2" fill="var(--paper)"/><text x="320" y="205" fill="var(--soft)">EDIT LOG :9010</text>
+      <rect x="600" y="196" width="80" height="12" rx="2" fill="var(--paper)"/><text x="640" y="205" fill="var(--soft)">EDIT LOG :9010</text>
+      <rect x="488" y="300" width="88" height="12" rx="2" fill="var(--paper)"/><text x="532" y="309" fill="var(--soft)">FE→BE RPC :9050</text>
+      <rect x="288" y="388" width="64" height="12" rx="2" fill="var(--paper)"/><text x="320" y="397" fill="var(--soft)">REPLICA ×3</text>
+      <rect x="608" y="388" width="64" height="12" rx="2" fill="var(--paper)"/><text x="640" y="397" fill="var(--soft)">REPLICA ×3</text>
+    </g>
+    <!-- client -->
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--paper)"/>
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--muted-10)" stroke="var(--soft)" stroke-width="1"/>
+    <text x="480" y="64" fill="var(--ink)" font-size="12" font-weight="600" font-family="var(--sans)" text-anchor="middle">Client / BI 工具</text>
+    <text x="480" y="82" fill="var(--muted)" font-size="9" font-family="var(--mono)" text-anchor="middle">hosts=doris-1,doris-2,doris-3</text>
+    <!-- FE boxes -->
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="184" width="160" height="64" rx="6" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/>
+      <rect x="88" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="199" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="160" y="214" fill="var(--ink)">doris-1 FE</text><text x="160" y="232" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">FOLLOWER</text>
+
+      <rect x="400" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="184" width="160" height="64" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2"/>
+      <rect x="408" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--accent)" stroke-opacity="0.5" stroke-width="0.8"/><text x="418" y="199" fill="var(--accent)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="480" y="214" fill="var(--ink)">doris-2 FE</text><text x="480" y="232" fill="var(--accent)" font-size="9" font-weight="500" font-family="var(--mono)">MASTER（當下）</text>
+
+      <rect x="720" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="184" width="160" height="64" rx="6" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/>
+      <rect x="728" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="738" y="199" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="800" y="214" fill="var(--ink)">doris-3 FE</text><text x="800" y="232" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">FOLLOWER</text>
+    </g>
+    <!-- BE boxes -->
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="88" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="160" y="406" fill="var(--ink)">doris-1 BE</text><text x="160" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">tablet replica 1/3</text>
+
+      <rect x="400" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="408" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="418" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="480" y="406" fill="var(--ink)">doris-2 BE</text><text x="480" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">tablet replica 2/3</text>
+
+      <rect x="720" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="728" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="738" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="800" y="406" fill="var(--ink)">doris-3 BE</text><text x="800" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">tablet replica 3/3</text>
+    </g>
+    <!-- legend -->
+    <line x1="40" y1="492" x2="920" y2="492" stroke="var(--rule)" stroke-width="0.8"/>
+    <g font-family="var(--mono)" font-size="8" fill="var(--muted)">
+      <text x="40" y="512" letter-spacing="0.14em">LEGEND</text>
+      <rect x="120" y="504" width="12" height="10" rx="2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1"/><text x="140" y="512">FE master（當下）</text>
+      <rect x="264" y="504" width="12" height="10" rx="2" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/><text x="284" y="512">FE follower</text>
+      <rect x="376" y="504" width="12" height="10" rx="2" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/><text x="396" y="512">BE（資料副本）</text>
+      <line x1="512" y1="509" x2="536" y2="509" stroke="var(--accent)" stroke-width="1.2"/><text x="544" y="512">client 目前連線</text>
+      <line x1="668" y1="509" x2="692" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="700" y="512">備援 / 副本同步</text>
+    </g>
+  </svg></div><figcaption>正常：client 連在當下的 master，follower 透過 edit log 同步。</figcaption></figure>
+<figure><div class="figure"><svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-down-title arch-down-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="arch-down-title">Doris 三節點其中一台 VM 停機後的狀態</title>
+    <desc id="arch-down-desc">doris-2 的 VM 已關機，其 FE 與 BE 離線；client 的連線被重設後改連 doris-3，doris-3 的 FE 被選為新 master 並與 doris-1 同步 edit log；每個 tablet 仍有 doris-1 與 doris-3 上的兩份副本可讀寫。</desc>
+    <defs>
+      <marker id="ad-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/></marker>
+      <marker id="ad-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/></marker>
+      <marker id="ad-arrow-soft" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--ink-20)"/></marker>
+    </defs>
+    <rect width="100%" height="100%" fill="var(--paper)"/>
+    <g font-family="var(--mono)" font-size="7" letter-spacing="0.14em">
+      <rect x="40" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="48" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="118" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-1 · ASIA-EAST1-A</text>
+      <rect x="360" y="152" width="240" height="312" rx="8" fill="none" stroke="var(--ink-20)" stroke-width="0.8" stroke-dasharray="4,4"/>
+      <rect x="368" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="438" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-2 · STOPPED</text>
+      <rect x="680" y="152" width="240" height="312" rx="8" fill="var(--ink-02)" stroke="var(--rule)" stroke-width="0.8"/>
+      <rect x="688" y="156" width="140" height="12" rx="2" fill="var(--paper)"/><text x="758" y="165" fill="var(--soft)" text-anchor="middle">VM DORIS-3 · ASIA-EAST1-C</text>
+    </g>
+    <g fill="none" stroke="var(--muted)" stroke-width="1">
+      <line x1="480" y1="96" x2="480" y2="184" stroke="var(--ink-20)" stroke-dasharray="2,3" marker-end="url(#ad-arrow-soft)"/>
+      <path d="M440,96 V132 Q440,140 432,140 H168 Q160,140 160,148 V184" stroke-dasharray="4,3" marker-end="url(#ad-arrow)"/>
+      <path d="M520,96 V132 Q520,140 528,140 H792 Q800,140 800,148 V184" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#ad-arrow-accent)"/>
+      <path d="M720,232 H616 Q608,232 608,240 V296 Q608,304 600,304 H368 Q360,304 360,296 V240 Q360,232 352,232 H240" stroke-width="1.2" marker-end="url(#ad-arrow)"/>
+      <line x1="160" y1="248" x2="160" y2="376" marker-end="url(#ad-arrow)"/>
+      <line x1="800" y1="248" x2="800" y2="376" marker-end="url(#ad-arrow)"/>
+      <line x1="240" y1="408" x2="720" y2="408" stroke-dasharray="4,3" marker-start="url(#ad-arrow)" marker-end="url(#ad-arrow)"/>
+    </g>
+    <g font-family="var(--mono)" font-size="8" letter-spacing="0.06em" text-anchor="middle">
+      <rect x="488" y="124" width="72" height="12" rx="2" fill="var(--paper)"/><text x="524" y="133" fill="var(--soft)">CONN RESET</text>
+      <rect x="276" y="120" width="48" height="12" rx="2" fill="var(--paper)"/><text x="300" y="129" fill="var(--soft)">FAILOVER</text>
+      <rect x="628" y="120" width="64" height="12" rx="2" fill="var(--paper)"/><text x="660" y="129" fill="var(--accent)">RECONNECT</text>
+      <rect x="444" y="284" width="80" height="12" rx="2" fill="var(--paper)"/><text x="484" y="293" fill="var(--soft)">EDIT LOG :9010</text>
+      <rect x="808" y="300" width="88" height="12" rx="2" fill="var(--paper)"/><text x="852" y="309" fill="var(--soft)">FE→BE RPC :9050</text>
+      <rect x="256" y="388" width="96" height="12" rx="2" fill="var(--paper)"/><text x="304" y="397" fill="var(--soft)">REPLICA 2/3 ALIVE</text>
+    </g>
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--paper)"/>
+    <rect x="400" y="40" width="160" height="56" rx="6" fill="var(--muted-10)" stroke="var(--soft)" stroke-width="1"/>
+    <text x="480" y="64" fill="var(--ink)" font-size="12" font-weight="600" font-family="var(--sans)" text-anchor="middle">Client / BI 工具</text>
+    <text x="480" y="82" fill="var(--muted)" font-size="9" font-family="var(--mono)" text-anchor="middle">重連一次後照常讀寫</text>
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="184" width="160" height="64" rx="6" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/>
+      <rect x="88" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="199" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="160" y="214" fill="var(--ink)">doris-1 FE</text><text x="160" y="232" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">FOLLOWER</text>
+
+      <rect x="400" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="184" width="160" height="64" rx="6" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="480" y="214" fill="var(--soft)">doris-2 FE</text><text x="480" y="232" fill="var(--soft)" font-size="9" font-weight="400" font-family="var(--mono)">DOWN</text>
+
+      <rect x="720" y="184" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="184" width="160" height="64" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2"/>
+      <rect x="728" y="190" width="20" height="12" rx="2" fill="transparent" stroke="var(--accent)" stroke-opacity="0.5" stroke-width="0.8"/><text x="738" y="199" fill="var(--accent)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">FE</text>
+      <text x="800" y="214" fill="var(--ink)">doris-3 FE</text><text x="800" y="232" fill="var(--accent)" font-size="9" font-weight="500" font-family="var(--mono)">NEW MASTER</text>
+    </g>
+    <g font-family="var(--sans)" font-size="12" font-weight="600" text-anchor="middle">
+      <rect x="80" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="80" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="88" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="98" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="160" y="406" fill="var(--ink)">doris-1 BE</text><text x="160" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">replica alive</text>
+
+      <rect x="400" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="400" y="376" width="160" height="64" rx="6" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="480" y="406" fill="var(--soft)">doris-2 BE</text><text x="480" y="424" fill="var(--soft)" font-size="9" font-weight="400" font-family="var(--mono)">4 replicas DEAD</text>
+
+      <rect x="720" y="376" width="160" height="64" rx="6" fill="var(--paper)"/><rect x="720" y="376" width="160" height="64" rx="6" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/>
+      <rect x="728" y="382" width="20" height="12" rx="2" fill="transparent" stroke="var(--ink-30)" stroke-width="0.8"/><text x="738" y="391" fill="var(--muted)" font-size="7" font-weight="500" font-family="var(--mono)" letter-spacing="0.08em">BE</text>
+      <text x="800" y="406" fill="var(--ink)">doris-3 BE</text><text x="800" y="424" fill="var(--muted)" font-size="9" font-weight="400" font-family="var(--mono)">replica alive</text>
+    </g>
+    <line x1="40" y1="492" x2="920" y2="492" stroke="var(--rule)" stroke-width="0.8"/>
+    <g font-family="var(--mono)" font-size="8" fill="var(--muted)">
+      <text x="40" y="512" letter-spacing="0.14em">LEGEND</text>
+      <rect x="120" y="504" width="12" height="10" rx="2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1"/><text x="140" y="512">新 master</text>
+      <rect x="232" y="504" width="12" height="10" rx="2" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="3,2"/><text x="252" y="512">已停機</text>
+      <line x1="336" y1="509" x2="360" y2="509" stroke="var(--accent)" stroke-width="1.2"/><text x="368" y="512">client 重連後的連線</text>
+      <line x1="520" y1="509" x2="544" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="552" y="512">副本同步（剩 2/3）</text>
+    </g>
+  </svg></div><figcaption>掛掉一台：連線被重設後改連他台，剩餘 FE 選出新 master，副本剩 2/3 仍可讀寫。</figcaption></figure></div></section>
+<section id="timeline"><h2 class="title"><small>ONE RUN</small>一次故障的時間軸</h2>
+<p class="sub">三個 client 同時觀察 VM 停機，第 1 輪，mysql client 視角。橘/綠帶是 client 受影響的區間。</p>
+<figure><div class="figure"><svg viewBox="0 0 960 232" role="img" aria-labelledby="tl-t tl-d" xmlns="http://www.w3.org/2000/svg"><title id="tl-t">三個 client 同時觀察 VM 停機第 1 輪時間軸</title><desc id="tl-d">從注入故障到 client 恢復與叢集歸隊的事件時間軸。</desc><rect width="100%" height="100%" fill="#fff"/><rect x="80" y="112" width="132" height="16" fill="rgba(17,166,121,.15)"/><line x1="64" y1="120" x2="896" y2="120" stroke="#d9eee8" stroke-width="1"/><line x1="64" y1="128" x2="64" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="64" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+0s</text><line x1="200" y1="128" x2="200" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="200" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+30s</text><line x1="336" y1="128" x2="336" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="336" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+60s</text><line x1="472" y1="128" x2="472" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="472" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+90s</text><line x1="608" y1="128" x2="608" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="608" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+120s</text><line x1="744" y1="128" x2="744" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="744" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+150s</text><line x1="880" y1="128" x2="880" y2="136" stroke="#7f8f86" stroke-width="0.8"/><text x="880" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="middle">+180s</text><circle cx="64" cy="120" r="4" fill="#4f5e56"/><line x1="64" y1="56" x2="64" y2="116" stroke="#d9eee8"/><text x="64" y="48" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0f1a14" text-anchor="start">EVENT break: vm stop on doris-3 (FE master)</text><text x="64" y="60" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="start">+0s · 23:38:04</text><circle cx="80" cy="120" r="6" fill="#11a679"/><line x1="80" y1="124" x2="80" y2="152" stroke="#d9eee8"/><text x="80" y="164" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0b7a58" text-anchor="start">client 失敗（29s 後恢復）</text><text x="80" y="176" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="start">+4s · 23:38:08</text><circle cx="172" cy="120" r="4" fill="#4f5e56"/><line x1="172" y1="92" x2="172" y2="116" stroke="#d9eee8"/><text x="172" y="84" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0f1a14" text-anchor="start">EVENT break: doris-3 is down</text><text x="172" y="96" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="start">+24s · 23:38:28</text><circle cx="212" cy="120" r="6" fill="#11a679"/><line x1="212" y1="124" x2="212" y2="188" stroke="#d9eee8"/><text x="212" y="200" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0b7a58" text-anchor="start">client 恢復</text><text x="212" y="212" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="start">+33s · 23:38:37</text><circle cx="616" cy="120" r="4" fill="#4f5e56"/><line x1="616" y1="56" x2="616" y2="116" stroke="#d9eee8"/><text x="616" y="48" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0f1a14" text-anchor="start">EVENT restore: start doris-3</text><text x="616" y="60" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="start">+122s · 23:40:06</text><circle cx="896" cy="120" r="4" fill="#4f5e56"/><line x1="896" y1="124" x2="896" y2="152" stroke="#d9eee8"/><text x="896" y="164" font-family="Inter,Noto Sans TC,sans-serif" font-size="11" font-weight="600" fill="#0f1a14" text-anchor="end">EVENT restore: cluster healthy</text><text x="896" y="176" font-family="JetBrains Mono,monospace" font-size="8" fill="#7f8f86" text-anchor="end">+183s · 23:41:07</text></svg></div><figcaption>來源：<code>results/pass-1/vm-stop-3clients/mysql.log</code>，由 measure 的 EVENT 與失敗視窗產生。</figcaption></figure></section>
+<section id="repro"><h2 class="title"><small>REPRODUCE</small>自己跑一次</h2>
+<div class="grid2"><div class="tablewrap"><table><thead><tr><th>階段</th><th>指令</th><th>做什麼</th></tr></thead><tbody>
+<tr><td>建立</td><td><code>./demo.sh up</code></td><td>terraform apply（4 VM + 防火牆）→ ansible（Doris、叢集、三個探測）→ 灌資料</td></tr>
+<tr><td>監控</td><td><code>./demo.sh monitor</code></td><td>在 client VM 起三個探測並即時合併捲動</td></tr>
+<tr><td>斷線</td><td><code>./demo.sh break --target fe|be|vm --mode crash|dead|hang|stop --on master|follower</code></td><td>注入故障，可疊加</td></tr>
+<tr><td>復原</td><td><code>./demo.sh restore</code></td><td>逆序逆轉全部故障，等叢集健康</td></tr>
+<tr><td>測量</td><td><code>./demo.sh measure</code></td><td>中斷視窗、失敗數、可用性等級</td></tr>
+<tr><td>整個矩陣</td><td><code>experiments/run_matrix.py --pass N</code></td><td>開機 → 逐格跑 → 關機；結果進 results/</td></tr>
+<tr><td>Tear down</td><td><code>./demo.sh down</code></td><td>terraform destroy</td></tr></tbody></table></div>
+<div><div class="tablewrap"><table><thead><tr><th>成本（asia-east1）</th><th>金額</th></tr></thead><tbody>
+<tr><td>3 × e2-standard-4 + client e2-small + 170 GB pd-balanced，運行中</td><td class="n">約 US$0.51 / 小時</td></tr>
+<tr><td>跑完三輪矩陣（約 4 小時）</td><td class="n">約 US$2</td></tr>
+<tr><td><code>stop</code> 後只剩磁碟</td><td class="n">約 US$16 / 月</td></tr>
+<tr><td><code>down</code> 後</td><td class="n">0</td></tr></tbody></table></div>
+<p style="margin:16px 0 0"><a class="btn" href="explore.html">打開互動架構圖 ↗</a></p></div></div></section>
+</div>
+<footer><div class="container"><span>Apache Doris 4.1.1 · GCP asia-east1 a/b/c · Terraform + Ansible + demo.sh</span><span>產生於 2026-09-11 · 視覺依 doris.apache.org 配色</span></div></footer>
+</body>
+</html>

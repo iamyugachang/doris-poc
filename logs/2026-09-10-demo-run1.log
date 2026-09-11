@@ -1,0 +1,44 @@
+20:44:29 PROBE start hosts=doris-1,doris-2,doris-3 duration=900s
+20:44:29 connected to doris-1 (34.80.234.205)
+20:44:34 #5 OK via doris-1 rows=10472 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:44:40 #10 OK via doris-1 rows=10477 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:44:46 EVENT break: gcloud stop doris-3 (FE master)
+20:44:46 #15 OK via doris-1 rows=10482 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:44:49 #17 FAIL via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.4, por
+20:44:50 connected to doris-1 (34.80.234.205)
+20:44:50 #18 FAIL via doris-1: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:44:51 connected to doris-1 (34.80.234.205)
+20:44:51 #19 FAIL via doris-1: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:44:52 connected to doris-1 (34.80.234.205)
+20:45:00 #20 FAIL via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:45:01 connected to doris-1 (34.80.234.205)
+20:45:08 EVENT break: doris-3 is down
+20:45:09 #21 FAIL via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:45:10 connected to doris-1 (34.80.234.205)
+20:45:18 #22 FAIL via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:45:19 connected to doris-1 (34.80.234.205)
+20:45:23 #25 OK via doris-1 rows=10488 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:29 #30 OK via doris-1 rows=10493 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:34 #35 OK via doris-1 rows=10498 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:40 #40 OK via doris-1 rows=10503 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:46 #45 OK via doris-1 rows=10508 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:52 #50 OK via doris-1 rows=10513 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:45:57 #55 OK via doris-1 rows=10518 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:03 #60 OK via doris-1 rows=10523 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:09 #65 OK via doris-1 rows=10528 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:14 #70 OK via doris-1 rows=10533 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:15 EVENT restore: gcloud start doris-3
+20:46:20 #75 OK via doris-1 rows=10538 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:25 #80 OK via doris-1 rows=10543 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:31 #85 OK via doris-1 rows=10548 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:37 #90 OK via doris-1 rows=10553 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:42 #95 OK via doris-1 rows=10558 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:48 #100 OK via doris-1 rows=10563 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:53 #105 OK via doris-1 rows=10568 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+20:46:57 EVENT restore: cluster healthy, doris-3 rejoined
+20:46:59 #110 OK via doris-1 rows=10573 [doris-1:f:up doris-2:M:up doris-3:f:up]
+20:47:05 #115 OK via doris-1 rows=10578 [doris-1:f:up doris-2:M:up doris-3:f:up]
+20:47:10 #120 OK via doris-1 rows=10583 [doris-1:f:up doris-2:M:up doris-3:f:up]
+20:47:16 #125 OK via doris-1 rows=10588 [doris-1:f:up doris-2:M:up doris-3:f:up]
+20:47:21 #130 OK via doris-1 rows=10593 [doris-1:f:up doris-2:M:up doris-3:f:up]
+20:47:27 #135 OK via doris-1 rows=10598 [doris-1:f:up doris-2:M:up doris-3:f:up]

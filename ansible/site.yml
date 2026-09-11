@@ -1,0 +1,20 @@
+---
+# Full configuration: Doris nodes -> cluster membership -> probe client.
+#   ./venv/bin/ansible-playbook ansible/site.yml            # everything (idempotent)
+#   ./venv/bin/ansible-playbook ansible/site.yml --limit client
+#   ./venv/bin/ansible-playbook ansible/site.yml --check --diff
+
+- name: Install and configure Doris FE + BE on every node
+  hosts: doris
+  roles:
+    - doris_node
+
+- name: Form the cluster from the seed FE (add followers and backends)
+  hosts: doris
+  roles:
+    - doris_cluster
+
+- name: Install the three probes on the client VM
+  hosts: client
+  roles:
+    - probe_client

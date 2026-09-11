@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Apache Doris HA on GCP — 3 VM, 3 zone",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1120,
+      720
+    ],
+    "views": [
+      {
+        "id": "client-path",
+        "label": "Client 路徑",
+        "focus": [
+          "client",
+          "fe1",
+          "fe2",
+          "fe3"
+        ],
+        "note": "Client 以主機清單順序連 FE 9030；任一 FE 掛掉就換下一台。"
+      },
+      {
+        "id": "fe-quorum",
+        "label": "FE 多數決",
+        "focus": [
+          "fe1",
+          "fe2",
+          "fe3"
+        ],
+        "note": "3 個 FOLLOWER 用 BDB JE 複製 edit log，掛 1 台仍有 2/3 多數可選出新 master。"
+      },
+      {
+        "id": "be-replicas",
+        "label": "BE 三副本",
+        "focus": [
+          "be1",
+          "be2",
+          "be3"
+        ],
+        "note": "每個 tablet 3 份副本各放一個 zone；掛 1 台剩 2/3，讀寫照常。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "client",
+      "type": "external",
+      "label": "Client / BI 工具",
+      "sublabel": "MySQL 協定 :9030，多主機 failover",
+      "pos": [
+        491,
+        48
+      ],
+      "size": [
+        180,
+        68
+      ]
+    },
+    {
+      "id": "fe1",
+      "type": "backend",
+      "label": "FE · doris-1",
+      "sublabel": "FOLLOWER，可為 master",
+      "tag": "asia-east1-a",
+      "pos": [
+        110,
+        260
+      ],
+      "size": [
+        160,
+        68
+      ]
+    },
+    {
+      "id": "fe2",
+      "type": "backend",
+      "label": "FE · doris-2",
+      "sublabel": "FOLLOWER，可為 master",
+      "tag": "asia-east1-b",
+      "pos": [
+        480,
+        260
+      ],
+      "size": [
+        160,
+        68
+      ]
+    },
+    {
+      "id": "fe3",
+      "type": "backend",
+      "label": "FE · doris-3",
+      "sublabel": "FOLLOWER，可為 master",
+      "tag": "asia-east1-c",
+      "pos": [
+        850,
+        260
+      ],
+      "size": [
+        160,
+        68
+      ]
+    },
+    {
+      "id": "be1",
+      "type": "database",
+      "label": "BE · doris-1",
+      "sublabel": "tablet 副本 1/3",
+      "pos": [
+        110,
+        480
+      ],
+      "size": [
+        160,
+        68
+      ]
+    },
+    {
+      "id": "be2",
+      "type": "database",
+      "label": "BE · doris-2",
+      "sublabel": "tablet 副本 2/3",
+      "pos": [
+        480,
+        480
+      ],
+      "size": [
+        160,
+        68
+      ]
+    },
+    {
+      "id": "be3",
+      "type": "database",
+      "label": "BE · doris-3",
+      "sublabel": "tablet 副本 3/3",
+      "pos": [
+        850,
+        480
+      ],
+      "size": [
+        160,
+        68
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "VM doris-1 · asia-east1-a",
+      "wraps": [
+        "fe1",
+        "be1"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "VM doris-2 · asia-east1-b",
+      "wraps": [
+        "fe2",
+        "be2"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "VM doris-3 · asia-east1-c",
+      "wraps": [
+        "fe3",
+        "be3"
+      ],
+      "pad": 28
+    }
+  ],
+  "connections": [
+    {
+      "id": "client-fe1",
+      "from": "client",
+      "to": "fe1",
+      "label": "SQL :9030",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelSegment": 1
+    },
+    {
+      "id": "client-fe2",
+      "from": "client",
+      "to": "fe2",
+      "label": "failover",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 56
+    },
+    {
+      "id": "client-fe3",
+      "from": "client",
+      "to": "fe3",
+      "label": "failover",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelSegment": 1
+    },
+    {
+      "id": "fe1-fe2",
+      "from": "fe1",
+      "to": "fe2",
+      "label": "edit log :9010"
+    },
+    {
+      "id": "fe2-fe3",
+      "from": "fe2",
+      "to": "fe3",
+      "label": "edit log :9010"
+    },
+    {
+      "id": "fe1-be1",
+      "from": "fe1",
+      "to": "be1",
+      "label": "heartbeat / plan :9050",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 24
+    },
+    {
+      "id": "fe2-be2",
+      "from": "fe2",
+      "to": "be2",
+      "label": "heartbeat / plan :9050",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 24
+    },
+    {
+      "id": "fe3-be3",
+      "from": "fe3",
+      "to": "be3",
+      "label": "heartbeat / plan :9050",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 24
+    },
+    {
+      "id": "be1-be2",
+      "from": "be1",
+      "to": "be2",
+      "label": "副本同步 :8060",
+      "variant": "dashed"
+    },
+    {
+      "id": "be2-be3",
+      "from": "be2",
+      "to": "be3",
+      "label": "副本同步 :8060",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "orange",
+      "title": "掛掉一台會怎樣",
+      "items": [
+        "FE 剩 2/3 多數，數秒到 30 秒內選出新 master",
+        "BE 剩 2/3 副本，讀寫照常，寫入以多數決成功",
+        "VM 回來後 FE 以 follower 歸隊，副本自動補齊"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "規格與成本",
+      "items": [
+        "3 × e2-standard-4（4 vCPU / 16 GB）+ 50 GB pd-balanced",
+        "約 US$0.49/hr；stop 後只剩磁碟約 US$15/月",
+        "Doris 4.1.1，JDK 17，systemd 自啟"
+      ]
+    }
+  ]
+}

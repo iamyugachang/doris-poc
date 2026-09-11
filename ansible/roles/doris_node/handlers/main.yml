@@ -1,0 +1,18 @@
+---
+- name: apply sysctl
+  become: true
+  ansible.builtin.command: sysctl -q -w vm.max_map_count=2000000
+
+- name: daemon reload
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+# Only restart a unit that is already running; the cluster role starts units the first time.
+- name: restart doris-fe
+  become: true
+  ansible.builtin.shell: systemctl is-active -q doris-fe && systemctl restart doris-fe || true
+
+- name: restart doris-be
+  become: true
+  ansible.builtin.shell: systemctl is-active -q doris-be && systemctl restart doris-be || true

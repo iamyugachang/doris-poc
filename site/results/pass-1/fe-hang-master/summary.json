@@ -1,0 +1,76 @@
+{
+ "id": "fe-hang-master",
+ "scenario": "master FE hang（kill -STOP）",
+ "also": [],
+ "pass": 1,
+ "order": null,
+ "steps": [
+  "--target fe --mode hang --on master"
+ ],
+ "started": "00:15:41",
+ "restore_at": "00:18:36",
+ "ended": "00:19:14",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target fe --mode hang --on master",
+   "at": "00:16:21",
+   "rc": 0
+  }
+ ],
+ "during": {},
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 130,
+   "windows": [
+    {
+     "start": "00:16:30",
+     "end": "00:18:40",
+     "secs": 130
+    }
+   ],
+   "failed": 15,
+   "failed_by_type": {
+    "INSERT": 15
+   },
+   "reconnects": 15,
+   "events": [
+    "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+    "00:18:37 EVENT restore: resume fe on doris-3",
+    "00:18:44 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 0,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "events": [
+    "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+    "00:18:37 EVENT restore: resume fe on doris-3",
+    "00:18:44 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 0,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "events": [
+    "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+    "00:18:37 EVENT restore: resume fe on doris-3",
+    "00:18:44 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": null,
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10037 via doris-1"
+}

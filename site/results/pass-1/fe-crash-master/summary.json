@@ -1,0 +1,166 @@
+{
+ "id": "fe-crash-master",
+ "scenario": "master FE crash（kill -9，systemd 自動拉起）",
+ "also": [
+  "crash 後的自動恢復"
+ ],
+ "pass": 1,
+ "order": null,
+ "steps": [
+  "--target fe --mode crash --on master"
+ ],
+ "started": "23:54:00",
+ "restore_at": "23:56:16",
+ "ended": "23:56:54",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target fe --mode crash --on master",
+   "at": "23:54:40",
+   "rc": 255
+  }
+ ],
+ "during": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 11,
+   "windows": [
+    {
+     "start": "23:55:10",
+     "end": "23:55:21",
+     "secs": 11
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "DELETE": 1,
+    "INSERT": 1
+   },
+   "reconnects": 2,
+   "window_ops": {
+    "writes_ok": 39,
+    "writes_fail": 2,
+    "selects_ok": 25,
+    "selects_fail": 0,
+    "lines": 66
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 11,
+   "windows": [
+    {
+     "start": "23:54:40",
+     "end": "23:54:42",
+     "secs": 2
+    },
+    {
+     "start": "23:55:12",
+     "end": "23:55:21",
+     "secs": 9
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "DELETE": 2
+   },
+   "reconnects": 2,
+   "window_ops": {
+    "writes_ok": 39,
+    "writes_fail": 2,
+    "selects_ok": 25,
+    "selects_fail": 0,
+    "lines": 66
+   },
+   "read_only_client": false
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 0,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 87,
+    "selects_fail": 0,
+    "lines": 87
+   },
+   "read_only_client": true
+  }
+ },
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 11,
+   "windows": [
+    {
+     "start": "23:55:10",
+     "end": "23:55:21",
+     "secs": 11
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "DELETE": 1,
+    "INSERT": 1
+   },
+   "reconnects": 2,
+   "events": [
+    "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+    "23:56:17 EVENT restore: verify fe on doris-2",
+    "23:56:23 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 11,
+   "windows": [
+    {
+     "start": "23:54:40",
+     "end": "23:54:42",
+     "secs": 2
+    },
+    {
+     "start": "23:55:12",
+     "end": "23:55:21",
+     "secs": 9
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "DELETE": 2
+   },
+   "reconnects": 2,
+   "events": [
+    "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+    "23:56:17 EVENT restore: verify fe on doris-2",
+    "23:56:23 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 0,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "events": [
+    "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+    "23:56:17 EVENT restore: verify fe on doris-2",
+    "23:56:23 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1",
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1"
+}

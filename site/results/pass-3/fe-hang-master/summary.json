@@ -1,0 +1,199 @@
+{
+ "id": "fe-hang-master",
+ "scenario": "master FE hang（kill -STOP）",
+ "also": [],
+ "pass": 3,
+ "order": null,
+ "steps": [
+  "--target fe --mode hang --on master"
+ ],
+ "started": "04:47:11",
+ "restore_at": "04:49:58",
+ "ended": "04:50:37",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target fe --mode hang --on master",
+   "at": "04:47:51",
+   "rc": 0
+  }
+ ],
+ "during": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 64,
+   "windows": [
+    {
+     "start": "04:48:00",
+     "end": "04:48:00",
+     "secs": 0
+    },
+    {
+     "start": "04:48:09",
+     "end": "04:48:09",
+     "secs": 0
+    },
+    {
+     "start": "04:48:18",
+     "end": "04:48:18",
+     "secs": 0
+    },
+    {
+     "start": "04:48:27",
+     "end": "04:48:27",
+     "secs": 0
+    },
+    {
+     "start": "04:48:36",
+     "end": "04:48:37",
+     "secs": 1
+    },
+    {
+     "start": "04:48:46",
+     "end": "04:48:46",
+     "secs": 0
+    },
+    {
+     "start": "04:48:55",
+     "end": "04:48:55",
+     "secs": 0
+    }
+   ],
+   "failed": 7,
+   "failed_by_type": {
+    "INSERT": 7
+   },
+   "reconnects": 7,
+   "window_ops": {
+    "writes_ok": 18,
+    "writes_fail": 0,
+    "selects_ok": 12,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 158
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 69,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "window_ops": {
+    "writes_ok": 18,
+    "writes_fail": 0,
+    "selects_ok": 12,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 159
+   },
+   "read_only_client": false
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 63,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 30,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 161
+   },
+   "read_only_client": true
+  }
+ },
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 64,
+   "windows": [
+    {
+     "start": "04:48:00",
+     "end": "04:48:00",
+     "secs": 0
+    },
+    {
+     "start": "04:48:09",
+     "end": "04:48:09",
+     "secs": 0
+    },
+    {
+     "start": "04:48:18",
+     "end": "04:48:18",
+     "secs": 0
+    },
+    {
+     "start": "04:48:27",
+     "end": "04:48:27",
+     "secs": 0
+    },
+    {
+     "start": "04:48:36",
+     "end": "04:48:37",
+     "secs": 1
+    },
+    {
+     "start": "04:48:46",
+     "end": "04:48:46",
+     "secs": 0
+    },
+    {
+     "start": "04:48:55",
+     "end": "04:48:55",
+     "secs": 0
+    }
+   ],
+   "failed": 7,
+   "failed_by_type": {
+    "INSERT": 7
+   },
+   "reconnects": 7,
+   "events": [
+    "04:47:49 EVENT break: fe hang on doris-2 (FE master)",
+    "04:49:59 EVENT restore: resume fe on doris-2",
+    "04:50:06 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 69,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "events": [
+    "04:47:49 EVENT break: fe hang on doris-2 (FE master)",
+    "04:49:59 EVENT restore: resume fe on doris-2",
+    "04:50:06 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 63,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "events": [
+    "04:47:49 EVENT break: fe hang on doris-2 (FE master)",
+    "04:49:59 EVENT restore: resume fe on doris-2",
+    "04:50:06 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10136 via doris-1",
+ "alive_after": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1"
+}

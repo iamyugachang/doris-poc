@@ -1,0 +1,73 @@
+---
+# Port of clients/install_client.sh: JDK, python venv with pymysql/pyarrow/ADBC, Connector/J, three systemd units.
+
+- name: Timezone (probe logs line up with the operator's clock)
+  become: true
+  ansible.builtin.command: timedatectl set-timezone {{ probe_timezone }}
+  changed_when: false
+
+- name: OS packages
+  become: true
+  ansible.builtin.apt:
+    name: [openjdk-17-jdk-headless, python3-venv, curl]
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Probe directories
+  become: true
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    mode: "0755"
+  loop: ["{{ probe_base }}", "{{ probe_base }}/log", "{{ probe_base }}/jdbc"]
+
+- name: Probe sources
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/../clients/{{ item }}"
+    dest: "{{ probe_base }}/{{ item }}"
+    mode: "0644"
+  loop: [probe_common.py, probe_mysql.py, probe_flight.py, Probe.java]
+  register: sources
+
+- name: Python venv with client libraries
+  ansible.builtin.pip:
+    name: [pymysql, pyarrow, adbc-driver-manager, adbc-driver-flightsql]
+    virtualenv: "{{ probe_base }}/venv"
+    virtualenv_command: python3 -m venv
+
+- name: MySQL Connector/J {{ connector_j_version }}
+  ansible.builtin.get_url:
+    url: "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/{{ connector_j_version }}/mysql-connector-j-{{ connector_j_version }}.jar"
+    dest: "{{ probe_base }}/mysql-connector-j.jar"
+    mode: "0644"
+
+- name: Is the JDBC probe compiled?
+  ansible.builtin.stat:
+    path: "{{ probe_base }}/jdbc/Probe.class"
+  register: probe_class
+
+- name: Compile the JDBC probe
+  ansible.builtin.command: javac -d {{ probe_base }}/jdbc {{ probe_base }}/Probe.java
+  when: sources.changed or not probe_class.stat.exists
+
+- name: systemd units for the probes (left disabled; demo.sh monitor starts them)
+  become: true
+  ansible.builtin.template:
+    src: probe.service.j2
+    dest: "/etc/systemd/system/probe-{{ item.name }}.service"
+    mode: "0644"
+  loop: "{{ probes }}"
+  loop_control:
+    label: "probe-{{ item.name }}"
+  register: units
+
+- name: Reload systemd and restart running probes with the new code
+  become: true
+  ansible.builtin.shell: |
+    systemctl daemon-reload
+    for p in {{ probes | map(attribute='name') | join(' ') }}; do
+      systemctl is-active -q probe-$p && systemctl restart probe-$p || true
+    done
+  when: units.changed or sources.changed

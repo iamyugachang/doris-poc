@@ -1,0 +1,105 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "started": "23:41:41",
+  "ended": null,
+  "ops": 110,
+  "failed": 5,
+  "failed_by_type": {
+   "SELECT": 1,
+   "INSERT": 4
+  },
+  "reconnects": 5,
+  "windows": [
+   {
+    "start": "23:42:19",
+    "end": "23:42:56",
+    "secs": 37
+   }
+  ],
+  "total_impact_secs": 37,
+  "events": [
+   "23:42:15 EVENT break: vm stop on doris-2 (FE master)",
+   "23:42:40 EVENT break: doris-2 is down"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 43,
+   "writes_fail": 1,
+   "selects_ok": 28,
+   "selects_fail": 0,
+   "lines": 72
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "started": "23:41:42",
+  "ended": null,
+  "ops": 101,
+  "failed": 4,
+  "failed_by_type": {
+   "SELECT": 1,
+   "INSERT": 3
+  },
+  "reconnects": 3,
+  "windows": [
+   {
+    "start": "23:42:19",
+    "end": "23:42:58",
+    "secs": 39
+   }
+  ],
+  "total_impact_secs": 39,
+  "events": [
+   "23:42:15 EVENT break: vm stop on doris-2 (FE master)",
+   "23:42:40 EVENT break: doris-2 is down"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 38,
+   "writes_fail": 2,
+   "selects_ok": 25,
+   "selects_fail": 0,
+   "lines": 65
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "started": "23:41:42",
+  "ended": null,
+  "ops": 116,
+  "failed": 2,
+  "failed_by_type": {
+   "SELECT": 2
+  },
+  "reconnects": 2,
+  "windows": [
+   {
+    "start": "23:42:19",
+    "end": "23:42:49",
+    "secs": 30
+   }
+  ],
+  "total_impact_secs": 30,
+  "events": [
+   "23:42:15 EVENT break: vm stop on doris-2 (FE master)",
+   "23:42:40 EVENT break: doris-2 is down"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 82,
+   "selects_fail": 0,
+   "lines": 82
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常"
+ },
+ "alive": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10016 via doris-1",
+ "faults": "23:42:16 vm stop doris-2"
+}

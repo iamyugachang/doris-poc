@@ -1,0 +1,17 @@
+[Unit]
+Description=Apache Doris BE (managed by ansible)
+After=network-online.target
+
+[Service]
+Type=forking
+User={{ ansible_user }}
+Environment=JAVA_HOME={{ java_home }}
+ExecStart={{ doris_home }}/be/bin/start_be.sh --daemon
+ExecStop={{ doris_home }}/be/bin/stop_be.sh
+PIDFile={{ doris_home }}/be/bin/be.pid
+LimitNOFILE=1000000
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

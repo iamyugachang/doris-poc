@@ -1,0 +1,100 @@
+00:15:45 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+00:15:45 connected to doris-1 (10.140.0.2)
+00:15:45 #1 OK INSERT id=1569450 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:46 #2 OK UPSERT id=1569450 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:47 #3 OK SELECT id=1569450 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:48 #4 OK DELETE id=1569450 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:49 #5 OK SELECT id=1569450 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:50 #6 OK INSERT id=1569451 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:51 #7 OK UPSERT id=1569451 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:52 #8 OK SELECT id=1569451 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:54 #9 OK DELETE id=1569451 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:55 #10 OK SELECT id=1569451 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:56 #11 OK INSERT id=1569452 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:57 #12 OK UPSERT id=1569452 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:58 #13 OK SELECT id=1569452 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:15:59 #14 OK DELETE id=1569452 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:00 #15 OK SELECT id=1569452 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:01 #16 OK INSERT id=1569453 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:02 #17 OK UPSERT id=1569453 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:03 #18 OK SELECT id=1569453 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:04 #19 OK DELETE id=1569453 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:05 #20 OK SELECT id=1569453 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:06 #21 OK INSERT id=1569454 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:07 #22 OK UPSERT id=1569454 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:08 #23 OK SELECT id=1569454 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:09 #24 OK DELETE id=1569454 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:10 #25 OK SELECT id=1569454 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:12 #26 OK INSERT id=1569455 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:13 #27 OK UPSERT id=1569455 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:14 #28 OK SELECT id=1569455 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:15 #29 OK DELETE id=1569455 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:16 #30 OK SELECT id=1569455 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:17 #31 OK INSERT id=1569456 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:18 #32 OK UPSERT id=1569456 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:19 #33 OK SELECT id=1569456 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:19 EVENT break: fe hang on doris-3 (FE master)
+00:16:20 #34 OK DELETE id=1569456 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:16:29 #35 OK SELECT id=1569456 via doris-1 rows=10036 [?]
+00:16:30 #36 FAIL INSERT id=1569457 via doris-1: InterfaceError: (0, '')
+00:16:39 connected to doris-1 (10.140.0.2)
+00:16:39 #37 FAIL INSERT id=1569458 via doris-1: InterfaceError: (0, '')
+00:16:48 connected to doris-1 (10.140.0.2)
+00:16:48 #38 FAIL INSERT id=1569459 via doris-1: InterfaceError: (0, '')
+00:16:57 connected to doris-1 (10.140.0.2)
+00:16:57 #39 FAIL INSERT id=1569460 via doris-1: InterfaceError: (0, '')
+00:17:06 connected to doris-1 (10.140.0.2)
+00:17:06 #40 FAIL INSERT id=1569461 via doris-1: InterfaceError: (0, '')
+00:17:15 connected to doris-1 (10.140.0.2)
+00:17:15 #41 FAIL INSERT id=1569462 via doris-1: InterfaceError: (0, '')
+00:17:24 connected to doris-1 (10.140.0.2)
+00:17:24 #42 FAIL INSERT id=1569463 via doris-1: InterfaceError: (0, '')
+00:17:33 connected to doris-1 (10.140.0.2)
+00:17:33 #43 FAIL INSERT id=1569464 via doris-1: InterfaceError: (0, '')
+00:17:42 connected to doris-1 (10.140.0.2)
+00:17:42 #44 FAIL INSERT id=1569465 via doris-1: InterfaceError: (0, '')
+00:17:51 connected to doris-1 (10.140.0.2)
+00:17:51 #45 FAIL INSERT id=1569466 via doris-1: InterfaceError: (0, '')
+00:18:00 connected to doris-1 (10.140.0.2)
+00:18:00 #46 FAIL INSERT id=1569467 via doris-1: InterfaceError: (0, '')
+00:18:10 connected to doris-1 (10.140.0.2)
+00:18:10 #47 FAIL INSERT id=1569468 via doris-1: InterfaceError: (0, '')
+00:18:19 connected to doris-1 (10.140.0.2)
+00:18:19 #48 FAIL INSERT id=1569469 via doris-1: InterfaceError: (0, '')
+00:18:28 connected to doris-1 (10.140.0.2)
+00:18:28 #49 FAIL INSERT id=1569470 via doris-1: InterfaceError: (0, '')
+00:18:37 connected to doris-1 (10.140.0.2)
+00:18:37 #50 FAIL INSERT id=1569471 via doris-1: InterfaceError: (0, '')
+00:18:37 EVENT restore: resume fe on doris-3
+00:18:40 connected to doris-1 (10.140.0.2)
+00:18:40 #51 OK INSERT id=1569472 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
+00:18:41 #52 OK UPSERT id=1569472 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:42 #53 OK SELECT id=1569472 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:43 #54 OK DELETE id=1569472 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:44 EVENT restore: cluster healthy
+00:18:44 #55 OK SELECT id=1569472 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:45 #56 OK INSERT id=1569473 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:46 #57 OK UPSERT id=1569473 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:47 #58 OK SELECT id=1569473 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:48 #59 OK DELETE id=1569473 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:49 #60 OK SELECT id=1569473 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:50 #61 OK INSERT id=1569474 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:51 #62 OK UPSERT id=1569474 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:52 #63 OK SELECT id=1569474 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:53 #64 OK DELETE id=1569474 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:54 #65 OK SELECT id=1569474 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:55 #66 OK INSERT id=1569475 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:57 #67 OK UPSERT id=1569475 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:58 #68 OK SELECT id=1569475 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:18:59 #69 OK DELETE id=1569475 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:00 #70 OK SELECT id=1569475 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:01 #71 OK INSERT id=1569476 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:02 #72 OK UPSERT id=1569476 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:03 #73 OK SELECT id=1569476 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:04 #74 OK DELETE id=1569476 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:05 #75 OK SELECT id=1569476 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:06 #76 OK INSERT id=1569477 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:07 #77 OK UPSERT id=1569477 via doris-1 rows=10038 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:08 #78 OK SELECT id=1569477 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:09 #79 OK DELETE id=1569477 via doris-1 rows=10036 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:19:10 #80 OK SELECT id=1569477 via doris-1 rows=10037 [doris-1:f:up doris-2:f:up doris-3:M:up]

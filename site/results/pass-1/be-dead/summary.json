@@ -1,0 +1,165 @@
+{
+ "id": "be-dead",
+ "scenario": "BE dead",
+ "also": [],
+ "pass": 1,
+ "order": null,
+ "steps": [
+  "--target be --mode dead --on follower"
+ ],
+ "started": "00:25:23",
+ "restore_at": "00:27:41",
+ "ended": "00:28:36",
+ "healthy_after": true,
+ "breaks": [
+  {
+   "step": "--target be --mode dead --on follower",
+   "at": "00:26:06",
+   "rc": 0
+  }
+ ],
+ "during": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 6,
+   "windows": [],
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "window_ops": {
+    "writes_ok": 18,
+    "writes_fail": 0,
+    "selects_ok": 12,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 130
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 6,
+   "windows": [
+    {
+     "start": "00:26:04",
+     "end": "00:26:10",
+     "secs": 6
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "SELECT": 1,
+    "INSERT": 1
+   },
+   "reconnects": 2,
+   "window_ops": {
+    "writes_ok": 18,
+    "writes_fail": 0,
+    "selects_ok": 12,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 131
+   },
+   "read_only_client": false
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 1,
+   "windows": [
+    {
+     "start": "00:26:05",
+     "end": "00:26:06",
+     "secs": 1
+    }
+   ],
+   "failed": 1,
+   "failed_by_type": {
+    "SELECT": 1
+   },
+   "reconnects": 1,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 30,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 132
+   },
+   "read_only_client": true
+  }
+ },
+ "after": {
+  "mysql": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 7,
+   "windows": [
+    {
+     "start": "00:27:50",
+     "end": "00:27:51",
+     "secs": 1
+    }
+   ],
+   "failed": 1,
+   "failed_by_type": {
+    "INSERT": 1
+   },
+   "reconnects": 1,
+   "events": [
+    "00:26:01 EVENT break: be dead on doris-1 (FE follower)",
+    "00:27:43 EVENT restore: systemctl start doris-be on doris-1",
+    "00:28:06 EVENT restore: cluster healthy"
+   ]
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 6,
+   "windows": [
+    {
+     "start": "00:26:04",
+     "end": "00:26:10",
+     "secs": 6
+    }
+   ],
+   "failed": 2,
+   "failed_by_type": {
+    "SELECT": 1,
+    "INSERT": 1
+   },
+   "reconnects": 2,
+   "events": [
+    "00:26:01 EVENT break: be dead on doris-1 (FE follower)",
+    "00:27:43 EVENT restore: systemctl start doris-be on doris-1",
+    "00:28:06 EVENT restore: cluster healthy"
+   ]
+  },
+  "flight": {
+   "level": "read-ok",
+   "level_zh": "讀取正常",
+   "total_impact_secs": 1,
+   "windows": [
+    {
+     "start": "00:26:05",
+     "end": "00:26:06",
+     "secs": 1
+    }
+   ],
+   "failed": 1,
+   "failed_by_type": {
+    "SELECT": 1
+   },
+   "reconnects": 1,
+   "events": [
+    "00:26:01 EVENT break: be dead on doris-1 (FE follower)",
+    "00:27:43 EVENT restore: systemctl start doris-be on doris-1",
+    "00:28:06 EVENT restore: cluster healthy"
+   ]
+  }
+ },
+ "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10044 via doris-1",
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10043 via doris-1"
+}

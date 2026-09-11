@@ -1,0 +1,629 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "phase": null,
+  "started": "05:16:46",
+  "ended": null,
+  "ops": 175,
+  "failed": 30,
+  "failed_by_type": {
+   "UPSERT": 1,
+   "SELECT": 15,
+   "DELETE": 1,
+   "INSERT": 13
+  },
+  "reconnects": 5,
+  "windows": [
+   {
+    "start": "05:17:24",
+    "end": "05:17:29",
+    "secs": 5
+   },
+   {
+    "start": "05:18:20",
+    "end": "05:21:06",
+    "secs": 166
+   }
+  ],
+  "fail_window_secs": 171,
+  "gaps": [
+   {
+    "from": "05:18:20",
+    "to": "05:18:31",
+    "secs": 11
+   },
+   {
+    "from": "05:18:31",
+    "to": "05:18:46",
+    "secs": 15
+   },
+   {
+    "from": "05:18:46",
+    "to": "05:19:01",
+    "secs": 15
+   },
+   {
+    "from": "05:19:01",
+    "to": "05:19:16",
+    "secs": 15
+   },
+   {
+    "from": "05:19:16",
+    "to": "05:19:30",
+    "secs": 14
+   },
+   {
+    "from": "05:19:30",
+    "to": "05:19:45",
+    "secs": 15
+   },
+   {
+    "from": "05:19:45",
+    "to": "05:19:51",
+    "secs": 6
+   },
+   {
+    "from": "05:19:51",
+    "to": "05:19:58",
+    "secs": 7
+   },
+   {
+    "from": "05:19:58",
+    "to": "05:20:05",
+    "secs": 7
+   },
+   {
+    "from": "05:20:05",
+    "to": "05:20:12",
+    "secs": 7
+   },
+   {
+    "from": "05:20:12",
+    "to": "05:20:18",
+    "secs": 6
+   },
+   {
+    "from": "05:20:18",
+    "to": "05:20:25",
+    "secs": 7
+   },
+   {
+    "from": "05:20:25",
+    "to": "05:20:31",
+    "secs": 6
+   },
+   {
+    "from": "05:20:31",
+    "to": "05:20:38",
+    "secs": 7
+   },
+   {
+    "from": "05:20:38",
+    "to": "05:20:45",
+    "secs": 7
+   }
+  ],
+  "stall_secs": 145,
+  "max_gap_secs": 15,
+  "impact_secs": 171,
+  "total_impact_secs": 171,
+  "events": [
+   "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+   "05:17:45 EVENT break: doris-2 is down",
+   "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+   "05:18:41 EVENT break: doris-1 is down",
+   "05:20:24 EVENT restore: start doris-1",
+   "05:20:37 EVENT restore: start doris-2",
+   "05:21:46 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 18,
+   "writes_fail": 0,
+   "selects_ok": 12,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 326
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+   "phase": "during",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 66,
+   "failed": 14,
+   "failed_by_type": {
+    "UPSERT": 1,
+    "SELECT": 7,
+    "DELETE": 1,
+    "INSERT": 5
+   },
+   "reconnects": 4,
+   "windows": [
+    {
+     "start": "05:17:24",
+     "end": "05:17:29",
+     "secs": 5
+    },
+    {
+     "start": "05:18:20",
+     "end": "05:21:06",
+     "secs": 166
+    }
+   ],
+   "fail_window_secs": 171,
+   "gaps": [
+    {
+     "from": "05:18:20",
+     "to": "05:18:31",
+     "secs": 11
+    },
+    {
+     "from": "05:18:31",
+     "to": "05:18:46",
+     "secs": 15
+    },
+    {
+     "from": "05:18:46",
+     "to": "05:19:01",
+     "secs": 15
+    },
+    {
+     "from": "05:19:01",
+     "to": "05:19:16",
+     "secs": 15
+    },
+    {
+     "from": "05:19:16",
+     "to": "05:19:30",
+     "secs": 14
+    },
+    {
+     "from": "05:19:30",
+     "to": "05:19:45",
+     "secs": 15
+    },
+    {
+     "from": "05:19:45",
+     "to": "05:19:51",
+     "secs": 6
+    },
+    {
+     "from": "05:19:51",
+     "to": "05:19:58",
+     "secs": 7
+    },
+    {
+     "from": "05:19:58",
+     "to": "05:20:05",
+     "secs": 7
+    },
+    {
+     "from": "05:20:05",
+     "to": "05:20:12",
+     "secs": 7
+    },
+    {
+     "from": "05:20:12",
+     "to": "05:20:18",
+     "secs": 6
+    },
+    {
+     "from": "05:20:18",
+     "to": "05:20:25",
+     "secs": 6
+    }
+   ],
+   "stall_secs": 124,
+   "max_gap_secs": 15,
+   "impact_secs": 129,
+   "total_impact_secs": 129,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:37 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 2,
+    "selects_ok": 0,
+    "selects_fail": 2,
+    "lines": 4,
+    "span_secs": 184
+   },
+   "level": "down",
+   "level_zh": "不可用"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+   "phase": "after",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 25,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:37 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 15,
+    "writes_fail": 0,
+    "selects_ok": 10,
+    "selects_fail": 0,
+    "lines": 25,
+    "span_secs": 26
+   },
+   "level": "rw",
+   "level_zh": "讀寫正常"
+  }
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "phase": null,
+  "started": "05:16:46",
+  "ended": null,
+  "ops": 150,
+  "failed": 5,
+  "failed_by_type": {
+   "INSERT": 3,
+   "SELECT": 2
+  },
+  "reconnects": 4,
+  "windows": [
+   {
+    "start": "05:17:24",
+    "end": "05:17:29",
+    "secs": 5
+   },
+   {
+    "start": "05:18:23",
+    "end": "05:21:06",
+    "secs": 163
+   }
+  ],
+  "fail_window_secs": 168,
+  "gaps": [
+   {
+    "from": "05:18:23",
+    "to": "05:18:52",
+    "secs": 29
+   },
+   {
+    "from": "05:18:52",
+    "to": "05:19:20",
+    "secs": 28
+   },
+   {
+    "from": "05:19:20",
+    "to": "05:21:06",
+    "secs": 106
+   }
+  ],
+  "stall_secs": 163,
+  "max_gap_secs": 106,
+  "impact_secs": 168,
+  "total_impact_secs": 168,
+  "events": [
+   "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+   "05:17:45 EVENT break: doris-2 is down",
+   "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+   "05:18:41 EVENT break: doris-1 is down",
+   "05:20:24 EVENT restore: start doris-1",
+   "05:20:37 EVENT restore: start doris-2",
+   "05:21:46 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 18,
+   "writes_fail": 0,
+   "selects_ok": 12,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 328
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+   "phase": "during",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 56,
+   "failed": 4,
+   "failed_by_type": {
+    "INSERT": 2,
+    "SELECT": 2
+   },
+   "reconnects": 3,
+   "windows": [
+    {
+     "start": "05:17:24",
+     "end": "05:17:29",
+     "secs": 5
+    },
+    {
+     "start": "05:18:23",
+     "end": "05:21:06",
+     "secs": 163
+    }
+   ],
+   "fail_window_secs": 168,
+   "gaps": [
+    {
+     "from": "05:18:23",
+     "to": "05:18:52",
+     "secs": 29
+    },
+    {
+     "from": "05:18:52",
+     "to": "05:19:20",
+     "secs": 28
+    },
+    {
+     "from": "05:19:20",
+     "to": "05:21:06",
+     "secs": 64
+    }
+   ],
+   "stall_secs": 121,
+   "max_gap_secs": 64,
+   "impact_secs": 126,
+   "total_impact_secs": 126,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:37 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 0,
+    "selects_fail": 0,
+    "lines": 0,
+    "span_secs": 184
+   },
+   "level": "stalled",
+   "level_zh": "卡住（無回應）"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+   "phase": "after",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 27,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:37 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 16,
+    "writes_fail": 0,
+    "selects_ok": 11,
+    "selects_fail": 0,
+    "lines": 27,
+    "span_secs": 28
+   },
+   "level": "rw",
+   "level_zh": "讀寫正常"
+  }
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "phase": null,
+  "started": "05:16:46",
+  "ended": null,
+  "ops": 158,
+  "failed": 7,
+  "failed_by_type": {
+   "SELECT": 7
+  },
+  "reconnects": 4,
+  "windows": [
+   {
+    "start": "05:17:24",
+    "end": "05:17:26",
+    "secs": 2
+   },
+   {
+    "start": "05:18:20",
+    "end": "05:21:06",
+    "secs": 166
+   }
+  ],
+  "fail_window_secs": 168,
+  "gaps": [
+   {
+    "from": "05:18:20",
+    "to": "05:18:58",
+    "secs": 38
+   },
+   {
+    "from": "05:18:58",
+    "to": "05:19:45",
+    "secs": 47
+   },
+   {
+    "from": "05:19:45",
+    "to": "05:20:26",
+    "secs": 41
+   },
+   {
+    "from": "05:20:26",
+    "to": "05:21:03",
+    "secs": 37
+   }
+  ],
+  "stall_secs": 163,
+  "max_gap_secs": 47,
+  "impact_secs": 168,
+  "total_impact_secs": 168,
+  "events": [
+   "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+   "05:17:45 EVENT break: doris-2 is down",
+   "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+   "05:18:41 EVENT break: doris-1 is down",
+   "05:20:24 EVENT restore: start doris-1",
+   "05:20:36 EVENT restore: start doris-2",
+   "05:21:46 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 30,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 329
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+   "phase": "during",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 60,
+   "failed": 4,
+   "failed_by_type": {
+    "SELECT": 4
+   },
+   "reconnects": 3,
+   "windows": [
+    {
+     "start": "05:17:24",
+     "end": "05:17:26",
+     "secs": 2
+    },
+    {
+     "start": "05:18:20",
+     "end": "05:21:06",
+     "secs": 166
+    }
+   ],
+   "fail_window_secs": 168,
+   "gaps": [
+    {
+     "from": "05:18:20",
+     "to": "05:18:58",
+     "secs": 38
+    },
+    {
+     "from": "05:18:58",
+     "to": "05:19:45",
+     "secs": 47
+    },
+    {
+     "from": "05:19:45",
+     "to": "05:20:26",
+     "secs": 39
+    }
+   ],
+   "stall_secs": 124,
+   "max_gap_secs": 47,
+   "impact_secs": 126,
+   "total_impact_secs": 126,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:36 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": true,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 0,
+    "selects_fail": 0,
+    "lines": 0,
+    "span_secs": 184
+   },
+   "level": "read-stalled",
+   "level_zh": "讀取卡住"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+   "phase": "after",
+   "started": "05:16:46",
+   "ended": null,
+   "ops": 28,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:17:20 EVENT break: vm stop on doris-2 (FE master)",
+    "05:17:45 EVENT break: doris-2 is down",
+    "05:18:18 EVENT break: vm stop on doris-1 (FE follower)",
+    "05:18:41 EVENT break: doris-1 is down",
+    "05:20:24 EVENT restore: start doris-1",
+    "05:20:36 EVENT restore: start doris-2",
+    "05:21:46 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": true,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 28,
+    "selects_fail": 0,
+    "lines": 28,
+    "span_secs": 29
+   },
+   "level": "read-ok",
+   "level_zh": "讀取正常"
+  }
+ },
+ "alive": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10153 via doris-1",
+ "faults": ""
+}

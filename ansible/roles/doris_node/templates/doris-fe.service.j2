@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache Doris FE (managed by ansible)
+After=network-online.target
+
+[Service]
+Type=forking
+User={{ ansible_user }}
+EnvironmentFile={{ doris_base }}/fe.env
+Environment=JAVA_HOME={{ java_home }}
+ExecStart=/bin/bash -c '{{ doris_home }}/fe/bin/start_fe.sh --daemon $HELPER_ARGS'
+ExecStop={{ doris_home }}/fe/bin/stop_fe.sh
+PIDFile={{ doris_home }}/fe/bin/fe.pid
+LimitNOFILE=1000000
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

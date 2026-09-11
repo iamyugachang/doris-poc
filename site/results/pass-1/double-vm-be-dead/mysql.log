@@ -1,0 +1,376 @@
+00:54:27 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+00:54:27 connected to doris-1 (10.140.0.2)
+00:54:27 #1 OK INSERT id=1592670 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:28 #2 OK UPSERT id=1592670 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:29 #3 OK SELECT id=1592670 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:30 #4 OK DELETE id=1592670 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:31 #5 OK SELECT id=1592670 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:32 #6 OK INSERT id=1592671 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:33 #7 OK UPSERT id=1592671 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:35 #8 OK SELECT id=1592671 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:36 #9 OK DELETE id=1592671 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:37 #10 OK SELECT id=1592671 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:38 #11 OK INSERT id=1592672 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:39 #12 OK UPSERT id=1592672 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:40 #13 OK SELECT id=1592672 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:41 #14 OK DELETE id=1592672 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:42 #15 OK SELECT id=1592672 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:43 #16 OK INSERT id=1592673 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:44 #17 OK UPSERT id=1592673 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:45 #18 OK SELECT id=1592673 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:46 #19 OK DELETE id=1592673 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:47 #20 OK SELECT id=1592673 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:49 #21 OK INSERT id=1592674 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:50 #22 OK UPSERT id=1592674 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:51 #23 OK SELECT id=1592674 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:52 #24 OK DELETE id=1592674 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:53 #25 OK SELECT id=1592674 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:54 #26 OK INSERT id=1592675 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:55 #27 OK UPSERT id=1592675 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:56 #28 OK SELECT id=1592675 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:57 #29 OK DELETE id=1592675 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:58 #30 OK SELECT id=1592675 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:54:59 #31 OK INSERT id=1592676 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:55:00 #32 OK UPSERT id=1592676 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:55:01 EVENT break: vm stop on doris-3 (FE master)
+00:55:01 #33 OK SELECT id=1592676 via doris-1 rows=10054 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:55:03 #34 OK DELETE id=1592676 via doris-1 rows=10053 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:55:04 #35 OK SELECT id=1592676 via doris-1 rows=10052 [doris-1:f:up doris-2:f:up doris-3:M:up]
+00:55:08 #36 OK INSERT id=1592677 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:09 #37 OK UPSERT id=1592677 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:10 #38 OK SELECT id=1592677 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:11 #39 OK DELETE id=1592677 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:12 #40 OK SELECT id=1592677 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:14 #41 OK INSERT id=1592678 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:15 #42 OK UPSERT id=1592678 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:16 #43 OK SELECT id=1592678 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:17 #44 OK DELETE id=1592678 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:18 #45 OK SELECT id=1592678 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:19 #46 OK INSERT id=1592679 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:20 #47 OK UPSERT id=1592679 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:21 #48 OK SELECT id=1592679 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:22 #49 OK DELETE id=1592679 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:23 #50 OK SELECT id=1592679 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:24 EVENT break: doris-3 is down
+00:55:25 #51 OK INSERT id=1592680 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:26 #52 OK UPSERT id=1592680 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:27 #53 OK SELECT id=1592680 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:28 #54 OK DELETE id=1592680 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:29 #55 OK SELECT id=1592680 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:30 #56 OK INSERT id=1592681 via doris-1 rows=10053 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:31 #57 OK UPSERT id=1592681 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:32 #58 OK SELECT id=1592681 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:33 #59 OK DELETE id=1592681 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:34 #60 OK SELECT id=1592681 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:35 #61 OK INSERT id=1592682 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:37 #62 OK UPSERT id=1592682 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:38 #63 OK SELECT id=1592682 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:39 #64 OK DELETE id=1592682 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:40 #65 OK SELECT id=1592682 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:41 #66 OK INSERT id=1592683 via doris-1 rows=10053 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:42 #67 OK UPSERT id=1592683 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:43 #68 OK SELECT id=1592683 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:44 #69 OK DELETE id=1592683 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:45 #70 OK SELECT id=1592683 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:46 #71 OK INSERT id=1592684 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:47 #72 OK UPSERT id=1592684 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:48 #73 OK SELECT id=1592684 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:50 #74 OK DELETE id=1592684 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:51 #75 OK SELECT id=1592684 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:52 #76 OK INSERT id=1592685 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:53 #77 OK UPSERT id=1592685 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:54 #78 OK SELECT id=1592685 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:55 #79 OK DELETE id=1592685 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:56 #80 OK SELECT id=1592685 via doris-1 rows=10052 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:56 EVENT break: be dead on doris-1 (FE follower)
+00:55:57 #81 OK INSERT id=1592686 via doris-1 rows=10053 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:58 #82 OK UPSERT id=1592686 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:55:59 #83 FAIL SELECT id=1592686 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, h
+00:56:00 connected to doris-1 (10.140.0.2)
+00:56:00 #84 FAIL INSERT id=1592687 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:01 connected to doris-1 (10.140.0.2)
+00:56:01 #85 FAIL INSERT id=1592688 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:02 connected to doris-1 (10.140.0.2)
+00:56:03 #86 FAIL INSERT id=1592689 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:04 connected to doris-1 (10.140.0.2)
+00:56:04 #87 FAIL INSERT id=1592690 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:05 connected to doris-1 (10.140.0.2)
+00:56:05 #88 FAIL INSERT id=1592691 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:06 connected to doris-1 (10.140.0.2)
+00:56:06 #89 FAIL INSERT id=1592692 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:07 connected to doris-1 (10.140.0.2)
+00:56:07 #90 FAIL INSERT id=1592693 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:08 connected to doris-1 (10.140.0.2)
+00:56:08 #91 FAIL INSERT id=1592694 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:09 connected to doris-1 (10.140.0.2)
+00:56:09 #92 FAIL INSERT id=1592695 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:10 connected to doris-1 (10.140.0.2)
+00:56:10 #93 FAIL INSERT id=1592696 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:11 connected to doris-1 (10.140.0.2)
+00:56:11 #94 FAIL INSERT id=1592697 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:12 connected to doris-1 (10.140.0.2)
+00:56:12 #95 FAIL INSERT id=1592698 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:13 connected to doris-1 (10.140.0.2)
+00:56:13 #96 FAIL INSERT id=1592699 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:14 connected to doris-1 (10.140.0.2)
+00:56:14 #97 FAIL INSERT id=1592700 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:15 connected to doris-1 (10.140.0.2)
+00:56:15 #98 FAIL INSERT id=1592701 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:16 connected to doris-1 (10.140.0.2)
+00:56:16 #99 FAIL INSERT id=1592702 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:18 connected to doris-1 (10.140.0.2)
+00:56:18 #100 FAIL INSERT id=1592703 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+00:56:19 connected to doris-1 (10.140.0.2)
+00:56:19 #101 FAIL INSERT id=1592704 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:20 connected to doris-1 (10.140.0.2)
+00:56:20 #102 FAIL INSERT id=1592705 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:21 connected to doris-1 (10.140.0.2)
+00:56:21 #103 FAIL INSERT id=1592706 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:22 connected to doris-1 (10.140.0.2)
+00:56:22 #104 FAIL INSERT id=1592707 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:23 connected to doris-1 (10.140.0.2)
+00:56:23 #105 FAIL INSERT id=1592708 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:24 connected to doris-1 (10.140.0.2)
+00:56:24 #106 FAIL INSERT id=1592709 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+00:56:25 connected to doris-1 (10.140.0.2)
+00:56:25 #107 FAIL INSERT id=1592710 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:26 connected to doris-1 (10.140.0.2)
+00:56:26 #108 FAIL INSERT id=1592711 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:27 connected to doris-1 (10.140.0.2)
+00:56:27 #109 FAIL INSERT id=1592712 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+00:56:28 connected to doris-1 (10.140.0.2)
+00:56:28 #110 FAIL INSERT id=1592713 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:29 connected to doris-1 (10.140.0.2)
+00:56:29 #111 FAIL INSERT id=1592714 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:30 connected to doris-1 (10.140.0.2)
+00:56:30 #112 FAIL INSERT id=1592715 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+00:56:32 connected to doris-1 (10.140.0.2)
+00:56:32 #113 FAIL INSERT id=1592716 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:33 connected to doris-1 (10.140.0.2)
+00:56:33 #114 FAIL INSERT id=1592717 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:34 connected to doris-1 (10.140.0.2)
+00:56:34 #115 FAIL INSERT id=1592718 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+00:56:35 connected to doris-1 (10.140.0.2)
+00:56:35 #116 FAIL INSERT id=1592719 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+00:56:36 connected to doris-1 (10.140.0.2)
+00:56:36 #117 FAIL INSERT id=1592720 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:37 connected to doris-1 (10.140.0.2)
+00:56:37 #118 FAIL INSERT id=1592721 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:38 connected to doris-1 (10.140.0.2)
+00:56:38 #119 FAIL INSERT id=1592722 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:39 connected to doris-1 (10.140.0.2)
+00:56:39 #120 FAIL INSERT id=1592723 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:40 connected to doris-1 (10.140.0.2)
+00:56:40 #121 FAIL INSERT id=1592724 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:41 connected to doris-1 (10.140.0.2)
+00:56:41 #122 FAIL INSERT id=1592725 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:42 connected to doris-1 (10.140.0.2)
+00:56:42 #123 FAIL INSERT id=1592726 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:43 connected to doris-1 (10.140.0.2)
+00:56:43 #124 FAIL INSERT id=1592727 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:44 connected to doris-1 (10.140.0.2)
+00:56:44 #125 FAIL INSERT id=1592728 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:45 connected to doris-1 (10.140.0.2)
+00:56:45 #126 FAIL INSERT id=1592729 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:46 connected to doris-1 (10.140.0.2)
+00:56:46 #127 FAIL INSERT id=1592730 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:48 connected to doris-1 (10.140.0.2)
+00:56:48 #128 FAIL INSERT id=1592731 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:49 connected to doris-1 (10.140.0.2)
+00:56:49 #129 FAIL INSERT id=1592732 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:50 connected to doris-1 (10.140.0.2)
+00:56:50 #130 FAIL INSERT id=1592733 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:51 connected to doris-1 (10.140.0.2)
+00:56:51 #131 FAIL INSERT id=1592734 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:52 connected to doris-1 (10.140.0.2)
+00:56:52 #132 FAIL INSERT id=1592735 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:53 connected to doris-1 (10.140.0.2)
+00:56:53 #133 FAIL INSERT id=1592736 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:54 connected to doris-1 (10.140.0.2)
+00:56:54 #134 FAIL INSERT id=1592737 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:55 connected to doris-1 (10.140.0.2)
+00:56:55 #135 FAIL INSERT id=1592738 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:56 connected to doris-1 (10.140.0.2)
+00:56:56 #136 FAIL INSERT id=1592739 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:57 connected to doris-1 (10.140.0.2)
+00:56:57 #137 FAIL INSERT id=1592740 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:58 connected to doris-1 (10.140.0.2)
+00:56:58 #138 FAIL INSERT id=1592741 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:56:59 connected to doris-1 (10.140.0.2)
+00:56:59 #139 FAIL INSERT id=1592742 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:00 connected to doris-1 (10.140.0.2)
+00:57:00 #140 FAIL INSERT id=1592743 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:01 connected to doris-1 (10.140.0.2)
+00:57:01 #141 FAIL INSERT id=1592744 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:02 connected to doris-1 (10.140.0.2)
+00:57:02 #142 FAIL INSERT id=1592745 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:03 connected to doris-1 (10.140.0.2)
+00:57:04 #143 FAIL INSERT id=1592746 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:05 connected to doris-1 (10.140.0.2)
+00:57:05 #144 FAIL INSERT id=1592747 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:06 connected to doris-1 (10.140.0.2)
+00:57:06 #145 FAIL INSERT id=1592748 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:07 connected to doris-1 (10.140.0.2)
+00:57:07 #146 FAIL INSERT id=1592749 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:08 connected to doris-1 (10.140.0.2)
+00:57:08 #147 FAIL INSERT id=1592750 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:09 connected to doris-1 (10.140.0.2)
+00:57:09 #148 FAIL INSERT id=1592751 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:10 connected to doris-1 (10.140.0.2)
+00:57:10 #149 FAIL INSERT id=1592752 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:11 connected to doris-1 (10.140.0.2)
+00:57:11 #150 FAIL INSERT id=1592753 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:12 connected to doris-1 (10.140.0.2)
+00:57:12 #151 FAIL INSERT id=1592754 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:13 connected to doris-1 (10.140.0.2)
+00:57:13 #152 FAIL INSERT id=1592755 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:14 connected to doris-1 (10.140.0.2)
+00:57:14 #153 FAIL INSERT id=1592756 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:15 connected to doris-1 (10.140.0.2)
+00:57:15 #154 FAIL INSERT id=1592757 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:16 connected to doris-1 (10.140.0.2)
+00:57:16 #155 FAIL INSERT id=1592758 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:17 connected to doris-1 (10.140.0.2)
+00:57:17 #156 FAIL INSERT id=1592759 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:18 connected to doris-1 (10.140.0.2)
+00:57:18 #157 FAIL INSERT id=1592760 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:19 connected to doris-1 (10.140.0.2)
+00:57:19 #158 FAIL INSERT id=1592761 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:21 connected to doris-1 (10.140.0.2)
+00:57:21 #159 FAIL INSERT id=1592762 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:22 connected to doris-1 (10.140.0.2)
+00:57:22 #160 FAIL INSERT id=1592763 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:23 connected to doris-1 (10.140.0.2)
+00:57:23 #161 FAIL INSERT id=1592764 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:24 connected to doris-1 (10.140.0.2)
+00:57:24 #162 FAIL INSERT id=1592765 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:25 connected to doris-1 (10.140.0.2)
+00:57:25 #163 FAIL INSERT id=1592766 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:26 connected to doris-1 (10.140.0.2)
+00:57:26 #164 FAIL INSERT id=1592767 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:27 connected to doris-1 (10.140.0.2)
+00:57:27 #165 FAIL INSERT id=1592768 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:28 connected to doris-1 (10.140.0.2)
+00:57:28 #166 FAIL INSERT id=1592769 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:29 connected to doris-1 (10.140.0.2)
+00:57:29 #167 FAIL INSERT id=1592770 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:30 connected to doris-1 (10.140.0.2)
+00:57:30 #168 FAIL INSERT id=1592771 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:31 connected to doris-1 (10.140.0.2)
+00:57:31 #169 FAIL INSERT id=1592772 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:32 connected to doris-1 (10.140.0.2)
+00:57:32 #170 FAIL INSERT id=1592773 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:33 connected to doris-1 (10.140.0.2)
+00:57:33 #171 FAIL INSERT id=1592774 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:34 connected to doris-1 (10.140.0.2)
+00:57:34 #172 FAIL INSERT id=1592775 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:35 connected to doris-1 (10.140.0.2)
+00:57:35 #173 FAIL INSERT id=1592776 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:36 connected to doris-1 (10.140.0.2)
+00:57:36 #174 FAIL INSERT id=1592777 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:38 EVENT restore: systemctl start doris-be on doris-1
+00:57:38 connected to doris-1 (10.140.0.2)
+00:57:38 #175 FAIL INSERT id=1592778 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:39 connected to doris-1 (10.140.0.2)
+00:57:39 #176 FAIL INSERT id=1592779 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:40 connected to doris-1 (10.140.0.2)
+00:57:40 #177 FAIL INSERT id=1592780 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:41 connected to doris-1 (10.140.0.2)
+00:57:41 #178 FAIL INSERT id=1592781 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:42 connected to doris-1 (10.140.0.2)
+00:57:42 #179 FAIL INSERT id=1592782 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:42 EVENT restore: start doris-3
+00:57:43 connected to doris-1 (10.140.0.2)
+00:57:43 #180 FAIL INSERT id=1592783 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:44 connected to doris-1 (10.140.0.2)
+00:57:44 #181 FAIL INSERT id=1592784 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:45 connected to doris-1 (10.140.0.2)
+00:57:45 #182 FAIL INSERT id=1592785 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:46 connected to doris-1 (10.140.0.2)
+00:57:46 #183 FAIL INSERT id=1592786 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:47 connected to doris-1 (10.140.0.2)
+00:57:47 #184 FAIL INSERT id=1592787 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:48 connected to doris-1 (10.140.0.2)
+00:57:48 #185 FAIL INSERT id=1592788 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:49 connected to doris-1 (10.140.0.2)
+00:57:49 #186 FAIL INSERT id=1592789 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:50 connected to doris-1 (10.140.0.2)
+00:57:50 #187 FAIL INSERT id=1592790 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:51 connected to doris-1 (10.140.0.2)
+00:57:51 #188 FAIL INSERT id=1592791 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:52 connected to doris-1 (10.140.0.2)
+00:57:52 #189 FAIL INSERT id=1592792 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:53 connected to doris-1 (10.140.0.2)
+00:57:53 #190 FAIL INSERT id=1592793 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:55 connected to doris-1 (10.140.0.2)
+00:57:55 #191 FAIL INSERT id=1592794 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:56 connected to doris-1 (10.140.0.2)
+00:57:56 #192 FAIL INSERT id=1592795 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:57 connected to doris-1 (10.140.0.2)
+00:57:57 #193 FAIL INSERT id=1592796 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:58 connected to doris-1 (10.140.0.2)
+00:57:58 #194 FAIL INSERT id=1592797 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:57:59 connected to doris-1 (10.140.0.2)
+00:57:59 #195 FAIL INSERT id=1592798 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:00 connected to doris-1 (10.140.0.2)
+00:58:00 #196 FAIL INSERT id=1592799 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:01 connected to doris-1 (10.140.0.2)
+00:58:01 #197 FAIL INSERT id=1592800 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:02 connected to doris-1 (10.140.0.2)
+00:58:02 #198 FAIL INSERT id=1592801 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:03 connected to doris-1 (10.140.0.2)
+00:58:03 #199 FAIL INSERT id=1592802 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:04 connected to doris-1 (10.140.0.2)
+00:58:04 #200 FAIL INSERT id=1592803 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+00:58:05 connected to doris-1 (10.140.0.2)
+00:58:05 #201 OK INSERT id=1592804 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
+00:58:06 #202 OK UPSERT id=1592804 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:07 #203 OK SELECT id=1592804 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:08 #204 OK DELETE id=1592804 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:10 #205 OK SELECT id=1592804 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:11 #206 OK INSERT id=1592805 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:12 #207 OK UPSERT id=1592805 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:13 #208 OK SELECT id=1592805 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:14 #209 OK DELETE id=1592805 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:15 #210 OK SELECT id=1592805 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:16 #211 OK INSERT id=1592806 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:17 #212 OK UPSERT id=1592806 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:18 #213 OK SELECT id=1592806 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:19 #214 OK DELETE id=1592806 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:20 #215 OK SELECT id=1592806 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:21 #216 OK INSERT id=1592807 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:22 #217 OK UPSERT id=1592807 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:23 #218 OK SELECT id=1592807 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:24 #219 OK DELETE id=1592807 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+00:58:26 #220 OK SELECT id=1592807 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:27 #221 OK INSERT id=1592808 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:28 #222 OK UPSERT id=1592808 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:29 #223 OK SELECT id=1592808 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:30 #224 OK DELETE id=1592808 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:30 EVENT restore: cluster healthy
+00:58:31 #225 OK SELECT id=1592808 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:32 #226 OK INSERT id=1592809 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:33 #227 OK UPSERT id=1592809 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:34 #228 OK SELECT id=1592809 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:35 #229 OK DELETE id=1592809 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:36 #230 OK SELECT id=1592809 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:37 #231 OK INSERT id=1592810 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:38 #232 OK UPSERT id=1592810 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:40 #233 OK SELECT id=1592810 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:41 #234 OK DELETE id=1592810 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:42 #235 OK SELECT id=1592810 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:43 #236 OK INSERT id=1592811 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:44 #237 OK UPSERT id=1592811 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:45 #238 OK SELECT id=1592811 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:46 #239 OK DELETE id=1592811 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:47 #240 OK SELECT id=1592811 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:48 #241 OK INSERT id=1592812 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:49 #242 OK UPSERT id=1592812 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:50 #243 OK SELECT id=1592812 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:51 #244 OK DELETE id=1592812 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:52 #245 OK SELECT id=1592812 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:53 #246 OK INSERT id=1592813 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:55 #247 OK UPSERT id=1592813 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:56 #248 OK SELECT id=1592813 via doris-1 rows=10056 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:57 #249 OK DELETE id=1592813 via doris-1 rows=10055 [doris-1:f:up doris-2:M:up doris-3:f:up]
+00:58:58 #250 OK SELECT id=1592813 via doris-1 rows=10054 [doris-1:f:up doris-2:M:up doris-3:f:up]

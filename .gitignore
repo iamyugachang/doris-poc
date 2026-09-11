@@ -1,0 +1,10 @@
+venv/
+.state/
+__pycache__/
+infra/.terraform/
+infra/*.tfstate*
+infra/.terraform.lock.hcl
+ansible/inventory.ini
+site/__pycache__/
+experiments/__pycache__/
+*.bak

@@ -1,0 +1,54 @@
+schema: spec-driven
+
+context: |
+  Language: zh-TW
+  All artifacts must be written in zh-TW.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  # Doris HA POC on GCP
+
+  ## 目的
+  驗證 Apache Doris 4.1.1 在 GCP 單一 region（asia-east1）三個 zone 各一台 VM 的部署，
+  在節點 / 程序故障時 client 的讀寫是否持續可用，並量化每種故障對三種協定 client 的影響。
+
+  ## 範圍
+  - 3 台 e2-standard-4（doris-1/2/3，zone a/b/c），每台跑 1 個 FE（FOLLOWER）+ 1 個 BE
+  - 1 台 e2-small（doris-client）在同一 VPC 跑三個探測 client：mysql（pymysql）、jdbc（Connector/J）、arrow-flight（ADBC）
+  - client 以「多主機清單」連 FE，不做 Load Balancer
+  - 探測循環：INSERT → UPSERT → SELECT（驗 ver=2）→ DELETE → SELECT（驗不存在），每秒一步、每輪換 key
+  - 故障注入：VM stop、FE/BE 程序 crash / dead / hang，以及雙重故障組合
+  - 量測：中斷秒數（第一次失敗到下一次成功）、各操作失敗數、資料一致性、叢集狀態、恢復時間
+
+  ## 非目標
+  - 效能與吞吐量
+  - 跨 region / 災難復原
+  - Load Balancer、DNS、認證授權
+  - 大資料量（測試表固定 1 萬筆 + 探測列）
+
+  ## 假設
+  - 單 region，三個 zone 互通延遲可忽略；VPC 內 default-allow-internal 放行
+  - FE 與 BE 同機只是 POC 省錢，正式環境應分開
+  - Doris 4.1.1 的 Arrow Flight SQL 預期為查詢專用；flight client 遇到 DML 不支援時只驗證 SELECT（由實驗確認）
+  - 探測逾時：connect 3s、read/write 8s；量到的中斷含 client 逾時等待
+
+  ## 名詞
+  - FE / BE：Doris 的 Frontend（metadata、SQL 規劃）/ Backend（資料儲存與計算）
+  - FOLLOWER / master：FE 角色；3 個 FOLLOWER 以 BDB JE 多數決選出 1 個 master
+  - quorum（多數決）：3 台要有 2 台活著。FE 缺 quorum 無法選主、無法改 metadata；BE 寫入要 2/3 副本成功
+  - tablet / replication_num：資料分片 / 每個分片的副本數（本 POC = 3，各 zone 一份）
+  - 可用性等級：讀寫正常 / 只讀（寫入失敗）/ 不可用
+
+  ## 工具鏈
+  - 資源：Terraform（infra/）；設定：Ansible（ansible/）；動作：demo.sh（break / restore / monitor / measure）
+  - 實驗結果記錄在 logs/ 與各 Scenario 的「實測」段落，報告網站 site/（Cloud Run）
+
+rules:
+  proposal:
+    - 必含「非目標」段落
+    - 用「可用性等級」（讀寫正常 / 只讀 / 不可用）描述每種故障的預期
+  specs:
+    - 每個故障情境一個 Scenario，Then 要寫出預期的可用性等級與三個 client 的觀察點
+    - Scenario 只寫預期；實驗跑完後在 Then 之後附「實測」段落（日期、數字、log 檔名），跑之前不得填
+  tasks:
+    - 每個任務標明會動到的檔案（demo.sh / cluster.py / clients/ / ansible/ / site/）
+    - 實驗任務要寫「跑完把結果回填到哪個 spec 的哪個 Scenario」
