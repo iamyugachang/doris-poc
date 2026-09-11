@@ -241,6 +241,10 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <tr><td><code>results/</code>、<code>site/</code>、<code>deploy/</code></td><td>三輪原始結果與彙整；三頁網站產生器與輸出；Cloud Run 靜態站（nginx）</td></tr>
 </tbody></table></div></section>
 </div>'''
+(ROOT / "site/diagrams").mkdir(exist_ok=True)
+(ROOT / "site/diagrams/flow.svg").write_text(flow_svg(), encoding="utf-8")
+(ROOT / "site/diagrams/env-state.svg").write_text(env_state_svg(), encoding="utf-8")
+(ROOT / "site/diagrams/avail-state.svg").write_text(avail_state_svg(), encoding="utf-8")
 out = ROOT / "site/howto.html"
 out.write_text(shell("Doris HA 部署與操作", "Terraform 與 Ansible 的分工、環境與叢集可用性狀態機、從零到跑完一輪故障矩陣的指令。", body, "howto"), encoding="utf-8")
 print(f"wrote {out} ({out.stat().st_size:,} bytes)")

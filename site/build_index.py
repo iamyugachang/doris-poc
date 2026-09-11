@@ -80,6 +80,7 @@ def timeline_svg():
     out.append("</svg>"); return "".join(out), a, sj
 
 tl_svg, tl_a, tl_sj = timeline_svg()
+(ROOT / "site/diagrams/timeline.svg").write_text(tl_svg, encoding="utf-8")
 diag = {n: (ROOT / f"site/diagrams/{n}.svg").read_text(encoding="utf-8") for n in ("arch-normal", "arch-down")}
 svg_vars = '<style>.figure{--paper:#fff;--rule:#d9eee8;--rule-solid:#d9eee8;--accent:#11a679;--accent-tint:rgba(17,166,121,.10);--white:#fff;--ink-05:rgba(15,26,20,.05);--ink-02:rgba(15,26,20,.02);--ink-20:rgba(15,26,20,.20);--ink-30:rgba(15,26,20,.30);--muted-10:rgba(79,94,86,.10);--muted-15:rgba(79,94,86,.15);--link:#0b7a58}</style>'
 

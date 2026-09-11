@@ -8,3 +8,4 @@ ansible/inventory.ini
 site/__pycache__/
 experiments/__pycache__/
 *.bak
+slides/node_modules/

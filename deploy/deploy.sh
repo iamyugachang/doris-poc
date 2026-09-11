@@ -14,6 +14,7 @@ STAGE="$(mktemp -d)"; trap 'rm -rf "$STAGE"' EXIT
 cp "$HERE/Dockerfile" "$HERE/nginx.conf" "$STAGE/"
 mkdir -p "$STAGE/site"; cp "$ROOT/site/index.html" "$ROOT/site/explore.html" "$ROOT/site/specs.html" "$ROOT/site/results.html" "$ROOT/site/howto.html" "$STAGE/site/"
 [ -d "$ROOT/site/results" ] && cp -r "$ROOT/site/results" "$STAGE/site/results"
+[ -d "$ROOT/site/slides" ] && cp -r "$ROOT/site/slides" "$STAGE/site/slides"
 
 run gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com --project="$PROJECT" --quiet
 run gcloud run deploy "$SERVICE" --source="$STAGE" --project="$PROJECT" --region="$REGION" \
