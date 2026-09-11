@@ -3,7 +3,7 @@
 驗證 Apache Doris 4.1.1 在 GCP 單一 region 三個 zone、每台 VM 各跑一個 FE + 一個 BE 的部署下，**FE / BE / 整台 VM 發生 crash、dead、hang、stop 以及雙重故障時，三種協定的 client（mysql、jdbc、arrow-flight）還能不能讀寫、中斷多久、資料有沒有不一致**。
 
 - 線上 demo（三頁對應 demo 順序）：https://doris-ha-demo-195642473078.asia-east1.run.app
-  - `/` 精簡報告（矩陣 + 結論）→ `/specs.html` 實驗設計（OpenSpec）→ `/results.html` 過程與全部結果 → `/explore.html` 互動架構圖
+  - `/` 精簡報告（矩陣 + 結論）→ `/specs.html` 實驗設計（OpenSpec）→ `/results.html` 過程與全部結果 → `/howto.html` 部署與操作（Terraform / Ansible 分工、狀態機、指令）→ `/explore.html` 互動架構圖
 - 規格：`openspec/`（主 spec = 環境契約；change `fault-matrix` = 實驗設計，每個 Scenario 已回填三輪實測）
 - 結果：`results/pass-{1,2,3}/<情境>/`（三份 client log + summary.json），彙整 `results/summary.json`
 

@@ -73,7 +73,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 </style><style>.figure{--paper:#fff;--rule:#d9eee8;--rule-solid:#d9eee8;--accent:#11a679;--accent-tint:rgba(17,166,121,.10);--white:#fff;--ink-05:rgba(15,26,20,.05);--ink-02:rgba(15,26,20,.02);--ink-20:rgba(15,26,20,.20);--ink-30:rgba(15,26,20,.30);--muted-10:rgba(79,94,86,.10);--muted-15:rgba(79,94,86,.15);--link:#0b7a58}</style>
 </head>
 <body>
-<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="cur">01 精簡報告</a><a href="specs.html" class="">02 實驗設計</a><a href="results.html" class="">03 過程與結果</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
+<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="cur">01 精簡報告</a><a href="specs.html" class="">02 實驗設計</a><a href="results.html" class="">03 過程與結果</a><a href="howto.html" class="">部署與操作</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
 <div class="hero"><div class="container"><div class="steps"><span class="step cur"><b>1</b>精簡報告</span><span class="step "><b>2</b>實驗設計</span><span class="step "><b>3</b>過程與結果</span></div><p class="eyebrow">Step 01 · 精簡報告 · Apache Doris 4.1.1 · GCP asia-east1 三個 zone</p>
 <h1 class="display">FE 掛了、BE 掛了、整台 VM 掛了，<em>client 還能寫嗎？</em></h1>
 <p class="lede">三台 VM 各跑一個 FE 與一個 BE，client 每秒對同一把 key 做 <b>INSERT → UPSERT → SELECT → DELETE → SELECT</b>，同時用 mysql / jdbc / arrow-flight 三種協定。我們把 16 種故障各注入三輪，量 client 中斷幾秒、寫入還能不能成功、資料有沒有不一致。</p>

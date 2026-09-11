@@ -73,7 +73,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 </style>
 </head>
 <body>
-<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="">01 精簡報告</a><a href="specs.html" class="cur">02 實驗設計</a><a href="results.html" class="">03 過程與結果</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
+<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="">01 精簡報告</a><a href="specs.html" class="cur">02 實驗設計</a><a href="results.html" class="">03 過程與結果</a><a href="howto.html" class="">部署與操作</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
 <div class="hero"><div class="container"><div class="steps"><span class="step "><b>1</b>精簡報告</span><span class="step cur"><b>2</b>實驗設計</span><span class="step "><b>3</b>過程與結果</span></div><p class="eyebrow">Step 02 · 實驗設計（OpenSpec）</p>
 <h1 class="display">先講清楚<em>要驗證什麼</em>，再動手</h1>
 <p class="lede">主 spec 是環境與工具的行為契約；change <b>fault-matrix</b> 是實驗設計：故障矩陣的每一格是一個 Scenario，寫明注入方式、觀察點與預期的可用性等級（讀寫正常 / 只讀 / 不可用）。實驗依 tasks 逐格跑完後，工具把三輪實測回填到各 Scenario。</p>

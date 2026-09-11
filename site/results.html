@@ -73,7 +73,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 </style>
 </head>
 <body>
-<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="">01 精簡報告</a><a href="specs.html" class="">02 實驗設計</a><a href="results.html" class="cur">03 過程與結果</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
+<header class="top"><div class="container"><a class="brand" href="index.html"><i></i> Apache Doris · HA POC</a><nav class="links"><a href="index.html" class="">01 精簡報告</a><a href="specs.html" class="">02 實驗設計</a><a href="results.html" class="cur">03 過程與結果</a><a href="howto.html" class="">部署與操作</a><a href="explore.html" class="">互動架構圖 ↗</a></nav></div></header>
 <div class="hero"><div class="container"><div class="steps"><span class="step "><b>1</b>精簡報告</span><span class="step "><b>2</b>實驗設計</span><span class="step cur"><b>3</b>過程與結果</span></div><p class="eyebrow">Step 03 · 實驗過程與全部結果</p>
 <h1 class="display">每一格、每一輪、<em>每個 client</em> 的原始結果</h1>
 <p class="lede">依 <a href="specs.html">實驗設計</a> 的故障矩陣，由 <code>experiments/run_matrix.py</code> 自動逐格執行：<b>monitor → baseline 30s → break → 觀察 90s → measure → restore → settle → measure</b>。每格跑三輪，每輪從全部 VM 重新開機開始。共 16 格、48 次執行。等級由 <code>measure</code> 依故障期間最後一段紀錄判定；中斷秒數 = 第一次失敗到下一次成功。</p>

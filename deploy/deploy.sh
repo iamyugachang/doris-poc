@@ -12,7 +12,7 @@ run(){ if [ $DRY = 1 ]; then echo "[dry-run] $*"; else "$@"; fi; }
 # stage only what the image needs: Dockerfile, nginx.conf, the pages, and the per-run logs
 STAGE="$(mktemp -d)"; trap 'rm -rf "$STAGE"' EXIT
 cp "$HERE/Dockerfile" "$HERE/nginx.conf" "$STAGE/"
-mkdir -p "$STAGE/site"; cp "$ROOT/site/index.html" "$ROOT/site/explore.html" "$ROOT/site/specs.html" "$ROOT/site/results.html" "$STAGE/site/"
+mkdir -p "$STAGE/site"; cp "$ROOT/site/index.html" "$ROOT/site/explore.html" "$ROOT/site/specs.html" "$ROOT/site/results.html" "$ROOT/site/howto.html" "$STAGE/site/"
 [ -d "$ROOT/site/results" ] && cp -r "$ROOT/site/results" "$STAGE/site/results"
 
 run gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com --project="$PROJECT" --quiet
