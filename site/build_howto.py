@@ -23,7 +23,7 @@ def box(x, y, w, h, name, sub="", focal=False, dashed=False, tag=""):
 
 def label(x, y, text, color=MUTED):
     w = 8 + len(text) * 5.4
-    return f'<rect x="{x-w/2}" y="{y-9}" width="{w}" height="12" rx="2" fill="{WHITE}"/><text x="{x}" y="{y}" {FONT_L} fill="{color}" text-anchor="middle">{html.escape(text)}</text>'
+    return f'<rect x="{x-w/2}" y="{y-9}" width="{w}" height="12" rx="2" fill="{WHITE}"/><text x="{x}" y="{y}" {FONT_L.replace('fill="#4f5e56"', f'fill="{color}"')} text-anchor="middle">{html.escape(text)}</text>'
 
 def arrow(d, dashed=False, color=MUTED, marker="arrow"):
     return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="1.2"{" stroke-dasharray=\"4,3\"" if dashed else ""} marker-end="url(#{marker})"/>'

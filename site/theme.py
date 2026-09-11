@@ -75,7 +75,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 
 def shell(title, description, body, current, extra_head=""):
     """Full page: sticky nav with the three demo steps, body, footer."""
-    nav = [("index.html", "01 精簡報告", "index"), ("specs.html", "02 實驗設計", "specs"), ("results.html", "03 過程與結果", "results"), ("howto.html", "部署與操作", "howto"), ("explore.html", "互動架構圖 ↗", "explore")]
+    nav = [("index.html", "01 精簡報告", "index"), ("specs.html", "02 實驗設計", "specs"), ("results.html", "03 過程與結果", "results"), ("howto.html", "部署與操作", "howto"), ("deck/", "投影片 ↗", "deck"), ("explore.html", "互動架構圖 ↗", "explore")]
     links = "".join(f'<a href="{h}" class="{"cur" if k == current else ""}">{t}</a>' for h, t, k in nav)
     return f"""<!doctype html>
 <html lang="zh-Hant">

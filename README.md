@@ -3,7 +3,7 @@
 驗證 Apache Doris 4.1.1 在 GCP 單一 region 三個 zone、每台 VM 各跑一個 FE + 一個 BE 的部署下，**FE / BE / 整台 VM 發生 crash、dead、hang、stop 以及雙重故障時，三種協定的 client（mysql、jdbc、arrow-flight）還能不能讀寫、中斷多久、資料有沒有不一致**。
 
 - 線上 demo（三頁對應 demo 順序）：https://doris-ha-demo-195642473078.asia-east1.run.app
-  - `/` 精簡報告（矩陣 + 結論）→ `/specs.html` 實驗設計（OpenSpec）→ `/results.html` 過程與全部結果 → `/howto.html` 部署與操作（Terraform / Ansible 分工、狀態機、指令）→ `/explore.html` 互動架構圖
+  - `/` 精簡報告（矩陣 + 結論）→ `/specs.html` 實驗設計（OpenSpec）→ `/results.html` 過程與全部結果 → `/howto.html` 部署與操作（Terraform / Ansible 分工、狀態機、指令）→ `/deck/` 投影片（open-slide，React）→ `/slides/` 投影片（Slidev）→ `/explore.html` 互動架構圖
 - 規格：`openspec/`（主 spec = 環境契約；change `fault-matrix` = 實驗設計，每個 Scenario 已回填三輪實測）
 - 結果：`results/pass-{1,2,3}/<情境>/`（三份 client log + summary.json），彙整 `results/summary.json`
 
@@ -59,6 +59,8 @@ Client VM（同 VPC）三個探測同時跑，每秒一步 INSERT→UPSERT→SEL
 | `experiments/run_matrix.py --pass N [--only id,…]` | 一輪 = 開機 → 逐格（`experiments/scenarios.yaml`）monitor → baseline → break → 觀察 → measure → restore → measure → 關機 |
 | `experiments/fill_results.py` | 從 log 重算三輪結果 → `results/summary.json`，回填 spec 各 Scenario 的「實測」段落 |
 | `experiments/finalize.sh` | 回填 → 產三頁（`site/build_*.py`）→ `openspec validate` → 部署 Cloud Run |
+| `site/build_slides.py` → `cd slides && npx slidev build slides.md --base /slides/ --out ../site/slides` | 由同一份結果產生 Slidev 投影片（線上 `/slides/`；本機 `npx slidev slides.md` 可編輯預覽） |
+| `cd openslide && pnpm build --out-dir ../site/deck` | open-slide 投影片（`openslide/slides/doris-ha/index.tsx`，React 手寫 14 頁；線上 `/deck/`；本機 `pnpm dev` 有簡報者模式與講稿） |
 | 任何 demo.sh 指令 + `--dry-run` | 只印出會執行的 gcloud / terraform / ansible 指令 |
 
 ## 快速開始
@@ -98,6 +100,7 @@ demo.sh         動作指令                     cluster.py      本機端狀態
 clients/        三個探測程式（部署到 client VM） experiments/    scenarios.yaml、run_matrix.py、fill_results.py、finalize.sh
 openspec/       規格（主 spec + change）      results/        三輪原始結果與彙整
 site/           三頁網站產生器與輸出           deploy/         Cloud Run 靜態站（nginx）
+slides/         Slidev 投影片                 openslide/      open-slide 投影片（React）
 logs/           矩陣之前的手動實測紀錄
 ```
 
