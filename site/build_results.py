@@ -4,7 +4,7 @@ Also copies the per-run probe logs into site/results/ so the deployed page can l
 Run after experiments/fill_results.py:  ./venv/bin/python site/build_results.py"""
 import json, markdown, pathlib, shutil, html, re, collections, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from theme import shell, steps, lvl
+from theme import shell, steps, lvl, plain
 import yaml
 
 def md(t): return markdown.markdown(t)
@@ -22,8 +22,8 @@ def copy_logs():
         dst = SITE_RES / f.parent.parent.name / f.parent.name / f.name; dst.parent.mkdir(parents=True, exist_ok=True); shutil.copy(f, dst)
 copy_logs()
 
-GROUPS = [("vm", "單一 VM 停機", lambda i: i.startswith("vm-")), ("fe", "FE 程序故障", lambda i: i.startswith("fe-")),
-          ("be", "BE 程序故障", lambda i: i.startswith("be-")), ("double", "雙重故障", lambda i: i.startswith("double-"))]
+GROUPS = [("vm", "壞一個元件 · 整台 VM 關機", lambda i: i.startswith("vm-")), ("fe", "壞一個元件 · FE 程序", lambda i: i.startswith("fe-")),
+          ("be", "壞一個元件 · BE 程序", lambda i: i.startswith("be-")), ("double", "同時壞兩個以上", lambda i: i.startswith("double-"))]
 
 def timeline(events, windows):
     items = []
@@ -36,9 +36,9 @@ def timeline(events, windows):
 
 def scenario_block(sid):
     a = agg[sid]
-    head = f'''<div class="card" id="{sid}"><div class="k">{sid} · {html.escape(" → ".join(a["steps"]))}{(" · client 順序 " + a["order"]) if a.get("order") else ""}</div>
-    <h4>{html.escape(a["scenario"])}</h4>
-    <p class="muted" style="margin:4px 0 12px">三輪最差等級：{lvl(a["overall"])}　arrow-flight：{lvl(a["clients"]["flight"]["worst"])}
+    head = f'''<div class="card" id="{sid}"><div class="k">{sid} · {html.escape(" → ".join(a["steps"]))}{(" · client 先連 " + a["order"].replace("-first", "")) if a.get("order") else ""}</div>
+    <h4>{html.escape(plain(a["scenario"]))}</h4>
+    <p class="muted" style="margin:4px 0 12px">3 輪最差：{lvl(a["overall"])}　arrow-flight：{lvl(a["clients"]["flight"]["worst"])}
     　中斷 mysql {a["clients"]["mysql"]["impact_min"]}～{a["clients"]["mysql"]["impact_max"]}s · jdbc {a["clients"]["jdbc"]["impact_min"]}～{a["clients"]["jdbc"]["impact_max"]}s · flight {a["clients"]["flight"]["impact_min"]}～{a["clients"]["flight"]["impact_max"]}s</p>'''
     rows = []
     for i, p in enumerate(a["passes"]):
@@ -47,7 +47,7 @@ def scenario_block(sid):
         for c in ("mysql", "jdbc", "flight"):
             cp = a["clients"][c]["passes"][i]
             fb = ", ".join(f"{k}×{v}" for k, v in (cp["failed_by_type"] or {}).items())
-            cells.append(f'<td>{lvl(cp["level"])}<div class="mono" style="font-size:12px;margin-top:4px">影響 {cp["impact"]}s（失敗 {cp.get("fail_secs")}s + 卡頓 {cp.get("stall")}s，最長間隔 {cp.get("max_gap")}s）· 失敗 {cp["failed"]}{(" (" + fb + ")") if fb else ""} · 重連 {cp["reconnects"]}</div><div style="font-size:12px;margin-top:2px"><a href="{d}/{c}.log">log</a></div></td>')
+            cells.append(f'<td>{lvl(cp["level"])}<div class="mono" style="font-size:12px;margin-top:4px">中斷 {cp["impact"]}s（失敗 {cp.get("fail_secs")}s + 無回應 {cp.get("stall")}s，最長間隔 {cp.get("max_gap")}s）· 失敗 {cp["failed"]}{(" (" + fb + ")") if fb else ""} · 重連 {cp["reconnects"]}</div><div style="font-size:12px;margin-top:2px"><a href="{d}/{c}.log">log</a></div></td>')
         r = a["recovery"][i]
         rows.append(f'<tr><td class="n">第 {p} 輪</td>{"".join(cells)}<td class="n">{r["restore_secs"] if r["restore_secs"] is not None else "—"}s{(" · systemd +" + str(r["systemd_secs"]) + "s") if r["systemd_secs"] is not None else ""}<div class="muted" style="font-size:11px;white-space:normal">{html.escape(str(r["alive_during"] or ""))[:60]}</div></td></tr>')
     table = f'<div class="tablewrap"><table><thead><tr><th>輪次</th><th>mysql</th><th>jdbc</th><th>arrow-flight</th><th>restore → 健康</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
@@ -70,14 +70,14 @@ n_runs = sum(len(a["passes"]) for a in agg.values())
 notes_md = (ROOT / "results/run-notes.md"); run_notes = ("<section class=\"tight\"><h2 class=\"title\"><small>THIS RUN</small>本次執行備註</h2>" + md(notes_md.read_text(encoding="utf-8")).replace("<ul>", "<ul class=\"notes\">") + "</section>") if notes_md.exists() else ""
 body = f'''<div class="hero"><div class="container">{steps("results")}<p class="eyebrow">Step 03 · 實驗過程與全部結果</p>
 <h1 class="display">每一格、每一輪、<em>每個 client</em> 的原始結果</h1>
-<p class="lede">依 <a href="specs.html">實驗設計</a> 的故障矩陣，由 <code>experiments/run_matrix.py</code> 自動逐格執行：<b>monitor → baseline 30s → break → 觀察 90s → measure → restore → settle → measure</b>。每格跑三輪，每輪從全部 VM 重新開機開始。共 {len(agg)} 格、{n_runs} 次執行。等級由 <code>measure</code> 依故障期間最後一段紀錄判定；中斷秒數 = 第一次失敗到下一次成功。</p>
-<p><a class="btn ghost" href="index.html">← 看精簡結論</a></p></div></div>
+<p class="lede">依 <a href="specs.html">實驗設計</a> 的故障矩陣，由 <code>experiments/run_matrix.py</code> 自動逐格執行：<b>monitor → 健康跑 30 秒 → break → 觀察 90～120 秒 → measure → restore → 等叢集健康 → measure</b>。每格跑 3 輪，每輪從全部 VM 重新開機開始。共 {len(agg)} 格、{n_runs} 次執行。結果等級由 <code>measure</code> 依故障期間最後 30 秒的成功率判定；中斷秒數 = 失敗時間 + 無回應時間。</p>
+<p><a class="btn ghost" href="index.html">← 精簡報告</a></p></div></div>
 <div class="container">
 <section class="tight"><h2 class="title"><small>HOW TO READ</small>怎麼看這頁</h2>
 <div class="cards">
-<div class="card"><div class="k">等級</div><p style="margin:0">{lvl("rw")} 寫入與查詢在中斷後全部恢復　{lvl("ro")} 查詢可用、寫入持續失敗　{lvl("down")} 查詢也失敗。arrow-flight 只做查詢：{lvl("read-ok")} / {lvl("read-down")}</p></div>
-<div class="card"><div class="k">影響秒數</div><p style="margin:0">失敗視窗（第一次 FAIL 到下一次 OK）＋卡頓（連續兩次操作間隔超過 5 秒，例如 client 卡在轉發給已卡住的 master）。含 client 自己的逾時等待：connect 3s、read/write 8s。</p></div>
-<div class="card"><div class="k">restore → 健康</div><p style="margin:0">從逆轉第一個故障到 3 FE / 3 BE alive、12 副本 OK 的秒數；crash 類另記 systemd 拉起的秒數。</p></div>
+<div class="card"><div class="k">結果等級</div><p style="margin:0">{lvl("rw")} 中斷後讀寫都恢復　{lvl("ro")} 能查、不能寫　{lvl("down")} 查詢也失敗　{lvl("stalled")} 卡住等 timeout，最後 30 秒沒有任何操作完成。arrow-flight 只能查詢：{lvl("read-ok")} / {lvl("read-down")} / {lvl("read-stalled")}</p></div>
+<div class="card"><div class="k">中斷秒數</div><p style="margin:0">失敗時間（第一次 FAIL 到下一次 OK）＋無回應時間（連續兩次操作間隔超過 5 秒，例如 master FE hang 時 client 在等 timeout）。含 client 自己的 timeout：connect 3 秒、read / write 8 秒。</p></div>
+<div class="card"><div class="k">restore → 健康</div><p style="margin:0">從還原第一個故障到 3 FE / 3 BE 全部 alive、12 個 replica 正常的秒數；crash 類另記 systemd 重啟的秒數。</p></div>
 </div></section>
 {run_notes}
 {"".join(sections)}

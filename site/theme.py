@@ -1,7 +1,7 @@
 """Shared look for the three demo pages, modelled on doris.apache.org (default 'doris' theme):
 cream paper, ink green-black, primary green #11a679, yellow accent #ffd23f, Inter body, JetBrains Mono
 uppercase display titles, 4px buttons, soft green borders. Light only (no dark mode by request)."""
-import datetime
+import datetime, re
 
 SITE_URL = "https://doris-ha-demo-195642473078.asia-east1.run.app"
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">'
@@ -101,3 +101,17 @@ def steps(current):
 def lvl(level, zh=None):
     z = zh or {"rw": "讀寫正常", "ro": "只讀", "down": "不可用", "stalled": "卡住", "read-ok": "讀取正常", "read-down": "讀取失敗", "read-stalled": "讀取卡住"}.get(level, "n/a")
     return f'<span class="lvl lvl-{level if level else "na"}">{z}</span>'
+
+PLAIN = [("逆序逆轉全部故障", "依相反順序還原全部故障"), ("逆序逆轉全部", "依相反順序還原全部故障"), ("逆序把故障全部還原", "依相反順序還原全部故障"),
+         ("逆序全部還原", "依相反順序全部還原"), ("逆序逆轉", "依相反順序還原"), ("逆序恢復", "依相反順序恢復"), ("逆轉全部故障", "還原全部故障"), ("逆轉", "還原"),
+         ("注入 1～3 個故障", "製造 1～3 個故障"), ("故障注入", "製造故障"), ("注入故障", "製造故障"), ("注入方式", "故障方式"), ("注入（WHEN）", "故障（WHEN）"), ("注入條件", "故障條件"), ("注入", "製造故障"),
+         ("三個探測", "三個 probe"), ("探測程式", "probe（測試程式）"), ("探測循環", "測試循環"), ("探測 ×3", "probe ×3"), ("探測", "probe"),
+         ("逾時", "timeout"), ("多數決", "quorum"), ("埠在", "port 在"), ("埠", "port"), ("副本", "replica"), ("拉起", "重啟"), ("歸隊", "回到叢集"),
+         ("失敗視窗", "失敗時間"), ("systemd 自動拉起", "systemd 自動重啟"), ("不自動起", "不會自動重啟"), ("卡頓", "無回應時間"), ("冗餘", "備援"), ("換台", "換另一台 FE"), ("他台", "另一台"), ("三輪最差", "3 輪最差"), ("三輪", "3 輪")]
+def plain(text):
+    """Taiwan-engineer wording: replace translated jargon with the everyday term (English where clearer)."""
+    for a, b in PLAIN: text = text.replace(a, b)
+    text = text.replace("三replica", "3 個 replica").replace("三份replica", "3 個 replica")
+    text = re.sub(r"([\u4e00-\u9fff])(quorum|replica|timeout|probe|port)", r"\1 \2", text)
+    text = re.sub(r"(quorum|replica|timeout|probe|port)([\u4e00-\u9fff])", r"\1 \2", text)
+    return re.sub(r"([\u4e00-\u9fff])3 輪", r"\1 3 輪", text)

@@ -4,7 +4,7 @@ architecture diagrams, method, expected matrix, scenario tables; the raw OpenSpe
 Run: ./venv/bin/python site/build_specs.py"""
 import re, html, pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from theme import shell, steps, lvl
+from theme import shell, steps, lvl, plain
 from svgkit import FONT_L, RULE, GREEN, WHITE, box, label, arrow, DEFS
 import markdown, yaml
 
@@ -20,7 +20,7 @@ def slug(s): return re.sub(r"[^a-z0-9一-鿿]+", "-", s.lower()).strip("-")
 # ---------- diagrams ----------
 def experiment_svg():
     """Experiment setup: client VM (3 probes + logs) → Doris ×3; demo.sh break injects, measure reads the logs."""
-    s = [f'<svg viewBox="0 0 960 392" role="img" aria-labelledby="ex-t ex-d" xmlns="http://www.w3.org/2000/svg"><title id="ex-t">實驗架構：探測、注入、量測</title><desc id="ex-d">client VM 上三個探測程式以多主機清單連三台 Doris VM 並每秒寫一行 log；demo.sh break 對任一台的 FE、BE 或整台 VM 注入故障並在 log 記 EVENT；demo.sh measure 讀 log 算出可用性等級與中斷秒數。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
+    s = [f'<svg viewBox="0 0 960 392" role="img" aria-labelledby="ex-t ex-d" xmlns="http://www.w3.org/2000/svg"><title id="ex-t">實驗架構：probe、製造故障、量測</title><desc id="ex-d">client VM 上三個 probe（測試程式）以多主機清單連三台 Doris VM 並每秒寫一行 log；demo.sh break 對任一台的 FE、BE 或整台 VM 製造故障並在 log 記 EVENT；demo.sh measure 讀 log 算出可用性等級與中斷秒數。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
     s.append(f'<rect x="40" y="48" width="280" height="232" rx="8" fill="rgba(15,26,20,.02)" stroke="{RULE}"/><rect x="48" y="52" width="152" height="12" rx="2" fill="{WHITE}"/><text x="124" y="61" {FONT_L} text-anchor="middle">doris-client · 同一 VPC</text>')
     s.append(f'<rect x="400" y="48" width="520" height="232" rx="8" fill="rgba(15,26,20,.02)" stroke="{RULE}"/><rect x="408" y="52" width="176" height="12" rx="2" fill="{WHITE}"/><text x="496" y="61" {FONT_L} text-anchor="middle">Doris ×3 · asia-east1 a / b / c</text>')
     # arrows first
@@ -28,9 +28,9 @@ def experiment_svg():
     s.append(arrow("M180,160 V200")); s.append(label(240, 184, "每秒一行 OK / FAIL"))
     s.append(arrow("M180,256 V304")); s.append(label(232, 284, "measure 讀 log"))
     s.append(arrow("M424,336 H368 Q360,336 360,328 V236 Q360,228 352,228 H296", dashed=True)); s.append(label(404, 280, "EVENT 行"))
-    s.append(arrow("M536,304 V168", color=GREEN, marker="arrow-g")); s.append(label(620, 240, "對 FE / BE / VM 注入", GREEN))
+    s.append(arrow("M536,304 V168", color=GREEN, marker="arrow-g")); s.append(label(620, 240, "對 FE / BE / VM 製造故障", GREEN))
     # boxes
-    s.append(box(64, 96, 232, 64, "探測 ×3", "mysql / jdbc / arrow-flight · 每秒一步", tag="PROBE"))
+    s.append(box(64, 96, 232, 64, "probe ×3", "mysql / jdbc / arrow-flight · 每秒一步", tag="PROBE"))
     s.append(box(64, 200, 232, 56, "client log ×3", "OK · FAIL · EVENT", dashed=True, tag="LOG"))
     s.append(box(64, 304, 232, 64, "demo.sh measure", "可用性等級 + 中斷秒數", tag="MEASURE"))
     for i, z in enumerate("abc"):
@@ -40,9 +40,9 @@ def experiment_svg():
 
 def cell_flow_svg(n_cells):
     """One matrix cell from monitor to the final measure; repeated three passes."""
-    steps_ = [("monitor", "三個 client 開始探測"), ("baseline", "健康期 30 秒"), ("break", "注入 1～3 個故障"), ("觀察", "90～120 秒"),
-              ("measure", "等級 + 中斷秒數"), ("restore", "逆序逆轉全部"), ("settle", "等叢集健康"), ("measure", "確認回到讀寫正常")]
-    s = [f'<svg viewBox="0 0 960 176" role="img" aria-labelledby="cf-t cf-d" xmlns="http://www.w3.org/2000/svg"><title id="cf-t">每格實驗的流程</title><desc id="cf-d">每一格依序執行 monitor、30 秒基準、break、觀察、measure、restore、等待健康、再 measure；整個矩陣跑三輪，每輪從全部 VM 開機開始。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
+    steps_ = [("monitor", "三個 probe 開始測試"), ("baseline", "健康期 30 秒"), ("break", "製造 1～3 個故障"), ("觀察", "90～120 秒"),
+              ("measure", "等級 + 中斷秒數"), ("restore", "依相反順序還原全部故障"), ("settle", "等叢集健康"), ("measure", "確認回到讀寫正常")]
+    s = [f'<svg viewBox="0 0 960 176" role="img" aria-labelledby="cf-t cf-d" xmlns="http://www.w3.org/2000/svg"><title id="cf-t">每格實驗的流程</title><desc id="cf-d">每一格依序執行 monitor、30 秒基準、break、觀察、measure、restore、等待健康、再 measure；整個矩陣跑 3 輪，每輪從全部 VM 開機開始。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
     for i in range(len(steps_) - 1):
         x = 16 + i * 120; s.append(arrow(f"M{x+96},76 H{x+120}"))
     for i, (name, sub) in enumerate(steps_):
@@ -61,7 +61,7 @@ def cell(text):
     for _, z, _ in found: rest = rest.replace(z, "")
     rest = re.sub(r"^[\s，、或/／]+|[\s，、]+$", "", rest.replace("或", "").strip())
     pills = " ".join(lvl(k, z) for _, z, k in found)
-    return pills + (f' <span class="note">{html.escape(rest)}</span>' if rest else "")
+    return pills + (f' <span class="note">{html.escape(plain(rest))}</span>' if rest else "")
 
 def parse_design(text):
     """→ (matrix header, matrix rows, open questions) from design.md"""
@@ -157,7 +157,7 @@ n_sc = sum(len(r["scenarios"]) for r in reqs)
 arch_svg = (ROOT / "site/diagrams/arch-normal.svg").read_text(encoding="utf-8")
 ex_svg = experiment_svg(); cf_svg = cell_flow_svg(n_cells)
 (ROOT / "site/diagrams/experiment.svg").write_text(ex_svg, encoding="utf-8"); (ROOT / "site/diagrams/cell-flow.svg").write_text(cf_svg, encoding="utf-8")
-TITLES = {"topology": "拓撲 topology", "clients": "探測 client clients", "operations": "操作契約 operations", "fault-scenarios": "故障情境 fault-scenarios"}
+TITLES = {"topology": "拓撲 topology", "clients": "probe client clients", "operations": "操作契約 operations", "fault-scenarios": "故障情境 fault-scenarios"}
 
 # ---------- sections ----------
 matrix = '<div class="tablewrap"><table class="hyp"><thead><tr>' + "".join(f"<th>{html.escape(h)}</th>" for h in head) + "</tr></thead><tbody>"
@@ -166,10 +166,10 @@ matrix += "</tbody></table></div>"
 
 scen_html = []
 for r in reqs:
-    scen_html.append(f'<h3 id="req-{slug(r["name"])}">{html.escape(r["name"])}</h3><p class="sub">{inline(" ".join(r["desc"]))}</p>')
-    scen_html.append('<div class="tablewrap"><table class="scen-table"><thead><tr><th>情境</th><th>注入（WHEN）</th><th>預期（THEN）</th><th>等級</th></tr></thead><tbody>')
+    scen_html.append(f'<h3 id="req-{slug(r["name"])}">{html.escape(r["name"])}</h3><p class="sub">{plain(inline(" ".join(r["desc"])))}</p>')
+    scen_html.append('<div class="tablewrap"><table class="scen-table"><thead><tr><th>情境</th><th>故障（WHEN）</th><th>預期（THEN）</th><th>等級</th></tr></thead><tbody>')
     for sc in r["scenarios"]:
-        scen_html.append(f'<tr><td><b>{html.escape(sc["name"])}</b></td><td>{inline(sc["when"])}</td><td>{inline(sc["then"])}</td><td>{cell(sc["level"]) if sc["level"] else "<span class=muted>—</span>"}</td></tr>')
+        scen_html.append(f'<tr><td><b>{html.escape(plain(sc["name"]))}</b></td><td>{plain(inline(sc["when"]))}</td><td>{plain(inline(sc["then"]))}</td><td>{cell(sc["level"]) if sc["level"] else "<span class=muted>—</span>"}</td></tr>')
     scen_html.append("</tbody></table></div>")
 
 appendix = [f'<details><summary>Proposal（為什麼、改什麼）</summary><div class="doc">{md(proposal)}</div></details>',
@@ -185,51 +185,51 @@ nav += ['<a href="#appendix">附錄 · OpenSpec 原文</a>', '<div class="lbl">�
 
 body = f'''<div class="hero"><div class="container">{steps("specs")}<p class="eyebrow">Step 02 · 實驗設計（OpenSpec）</p>
 <h1 class="display">先講清楚<em>要驗證什麼</em>，再動手</h1>
-<p class="lede">三台 VM 各跑一個 FE 與一個 BE。我們對 <b>FE、BE、整台 VM</b> 各用 <b>crash / dead / hang / stop</b> 注入故障，共 {n_cells} 格，每格跑三輪，看 client 是「讀寫正常」、「只讀」還是「不可用」。這頁只有設計與假設，數字在下一頁。</p>
+<p class="lede">三台 VM 各跑一個 FE 與一個 BE。我們對 <b>FE、BE、整台 VM</b> 各用 <b>crash / dead / hang / stop</b> 製造故障，共 {n_cells} 格，每格跑 3 輪，看 client 是「讀寫正常」、「只讀」還是「不可用」。這頁只有設計與事前假設，實測數字在下一頁。</p>
 <p><a class="btn" href="results.html">看實驗過程與結果 →</a> <a class="btn ghost" href="index.html">← 精簡報告</a></p></div></div>
 <div class="container"><div class="layout"><nav class="side">{"".join(nav)}</nav><main>
 
 <section id="arch"><h2 class="title"><small>01 · ARCHITECTURE</small>架構</h2>
 <p class="sub">受測系統與實驗工具各一張圖。</p>
-<figure><div class="figure">{arch_svg}</div><figcaption>受測系統：3 台 VM（asia-east1 a / b / c）各 1 FE + 1 BE。FE 三個 FOLLOWER 以多數決選 1 個 master；資料三副本，每個 zone 一份。client 以多主機清單連 FE，不經 Load Balancer。</figcaption></figure>
-<figure style="margin-top:18px"><div class="figure">{ex_svg}</div><figcaption>實驗工具：三個探測（mysql / jdbc / arrow-flight）每秒對同一把 key 做 INSERT → UPSERT → SELECT → DELETE → SELECT 並寫 log；<b>break</b> 對任一台的 FE、BE 或整台 VM 注入故障並在 log 記 EVENT；<b>measure</b> 讀 log 算等級與中斷秒數；restore 逆序把故障全部還原。</figcaption></figure>
+<figure><div class="figure">{arch_svg}</div><figcaption>受測系統：3 台 VM（asia-east1 a / b / c）各 1 FE + 1 BE。FE 三個 FOLLOWER 以 quorum 選 1 個 master；資料3 個 replica，每個 zone 一份。client 以多主機清單連 FE，不經 Load Balancer。</figcaption></figure>
+<figure style="margin-top:18px"><div class="figure">{ex_svg}</div><figcaption>實驗工具：三個 probe（mysql / jdbc / arrow-flight）每秒對同一把 key 做 INSERT → UPSERT → SELECT → DELETE → SELECT 並寫 log；<b>break</b> 對任一台的 FE、BE 或整台 VM 製造故障並在 log 記 EVENT；<b>measure</b> 讀 log 算等級與中斷秒數；restore 依相反順序還原全部故障。</figcaption></figure>
 </section>
 
 <section id="client"><h2 class="title"><small>02 · CLIENT</small>Client 行為</h2>
-<p class="sub">三種連線方式同時跑在 client VM 上，各自一個 systemd 服務、一份 log；用同一套探測循環，才能互相比較。</p>
+<p class="sub">三種連線方式同時跑在 client VM 上，各自一個 systemd 服務、一份 log；用同一套測試循環，才能互相比較。</p>
 <div class="tablewrap"><table class="client-table"><thead><tr><th>client</th><th>協定 / 端點</th><th>連線與 failover</th><th>驗證什麼</th></tr></thead><tbody>
 <tr><td><b>mysql</b><br><span class="note">pymysql</span></td><td>MySQL 協定 · FE:9030</td><td>持 3 台 FE 清單，依序試，第一台可連即用；失敗就關連線、從清單頭重連（自行實作）</td><td>寫 + 讀</td></tr>
 <tr><td><b>jdbc</b><br><span class="note">MySQL Connector/J</span></td><td>MySQL 協定 · FE:9030</td><td>多主機 URL <code>jdbc:mysql://fe1,fe2,fe3/…?failOverReadOnly=false</code>，failover 交給 driver</td><td>寫 + 讀</td></tr>
 <tr><td><b>arrow-flight</b><br><span class="note">ADBC</span></td><td>Arrow Flight SQL · FE:8070，結果由 BE:8050 取回</td><td>同 mysql 的清單 failover；連線時先試 INSERT + DELETE，Doris 不支援 DML 就改為只 SELECT</td><td>只讀（預期）</td></tr>
 </tbody></table></div>
 <div class="cards method" style="margin-top:18px">
-<div class="card"><div class="k">探測循環</div><p>每秒一步，對同一把 key 做 <b>INSERT(ver=1) → UPSERT(ver=2) → SELECT（驗 ver=2）→ DELETE → SELECT（驗不存在）</b>，一輪 5 秒後換下一把 key；三個 client 用不重疊的 key 區段。SELECT 驗證不符即記失敗。</p></div>
-<div class="card"><div class="k">逾時</div><p>connect <b>3 秒</b>、read / write <b>8 秒</b>（三個 client 相同）。量到的中斷秒數包含這段等待，hang 類情境會因此拉長。</p></div>
+<div class="card"><div class="k">測試循環</div><p>每秒一步，對同一把 key 做 <b>INSERT(ver=1) → UPSERT(ver=2) → SELECT（驗 ver=2）→ DELETE → SELECT（驗不存在）</b>，一輪 5 秒後換下一把 key；三個 client 用不重疊的 key 區段。SELECT 驗證不符即記失敗。</p></div>
+<div class="card"><div class="k">timeout</div><p>connect <b>3 秒</b>、read / write <b>8 秒</b>（三個 client 相同）。量到的中斷秒數包含這段等待，hang 類情境會因此拉長。</p></div>
 <div class="card"><div class="k">失敗時</div><p>操作失敗記 <code>FAIL</code>，關掉連線、依清單重連（記 <code>connected to &lt;fe&gt;</code>），從新 key 的 INSERT 重新開始。不重試同一筆，所以不會留下半套資料。</p></div>
 </div></section>
 
 <section id="method"><h2 class="title"><small>03 · METHOD</small>方法</h2>
 <figure><div class="figure">{cf_svg}</div><figcaption>每一格的流程。break 之後觀察 90 秒（hang 類 120 秒）再量；restore 之後再量一次確認回到讀寫正常。</figcaption></figure>
 <div class="cards method" style="margin-top:18px">
-<div class="card"><div class="k">注入方式</div><table class="mini"><tbody>
-<tr><td><b>crash</b></td><td><code>kill -9</code>，systemd 10 秒後拉起</td></tr>
-<tr><td><b>dead</b></td><td><code>systemctl stop</code>，不自動起，等 restore</td></tr>
-<tr><td><b>hang</b></td><td><code>kill -STOP</code>，程序在、埠在、不回應</td></tr>
+<div class="card"><div class="k">故障方式</div><table class="mini"><tbody>
+<tr><td><b>crash</b></td><td><code>kill -9</code>，systemd 10 秒後重啟</td></tr>
+<tr><td><b>dead</b></td><td><code>systemctl stop</code>，不會自動重啟，等 restore</td></tr>
+<tr><td><b>hang</b></td><td><code>kill -STOP</code>，程序在、port 在、不回應</td></tr>
 <tr><td><b>stop</b></td><td>整台 VM <code>gcloud compute instances stop</code></td></tr>
 </tbody></table></div>
-<div class="card"><div class="k">對象 × 位置</div><p>對象：<b>FE</b> / <b>BE</b> / <b>VM</b>。位置：<b>master 所在</b> / <b>follower 所在</b>（由 <code>SHOW FRONTENDS</code> 即時解析）。雙重故障 = 連續兩次 break 疊加，restore 逆序全部還原。</p></div>
+<div class="card"><div class="k">對象 × 位置</div><p>對象：<b>FE</b> / <b>BE</b> / <b>VM</b>。位置：<b>master 所在</b> / <b>follower 所在</b>（由 <code>SHOW FRONTENDS</code> 即時解析）。雙重故障 = 連續兩次 break 疊加，restore 依相反順序全部還原。</p></div>
 <div class="card"><div class="k">量什麼</div><p><b>可用性等級</b>：故障中最後 30 秒的操作成功率 → 讀寫正常 / 只讀 / 不可用（arrow-flight 只判讀取）。<b>中斷秒數</b>：第一次 FAIL 到下一次 OK。另記各操作失敗數、重連數、資料一致性。</p></div>
 </div></section>
 
 <section id="hyp"><h2 class="title"><small>04 · HYPOTHESES</small>假設</h2>
-<p class="sub">規則只有一條：<b>FE 與 BE 各自要有 2/3 存活</b>。任一層剩 1 個，寫入就停；查詢能不能活，由實驗決定。</p>
+<p class="sub">規則只有一條：<b>FE 和 BE 各自要 3 台活 2 台（quorum）</b>。任一層只剩 1 台，寫入就停；查詢能不能活，由實驗決定。</p>
 {matrix}
 <h3>要靠實驗回答的問題</h3>
-<ol class="notes">{"".join(f"<li>{inline(q)}</li>" for q in questions)}</ol>
+<ol class="notes">{"".join(f"<li>{plain(inline(q))}</li>" for q in questions)}</ol>
 </section>
 
 <section id="scen"><h2 class="title"><small>05 · SCENARIOS</small>情境</h2>
-<p class="sub">fault-scenarios delta spec 的 {n_sc} 個 Scenario：注入條件與預期。</p>
+<p class="sub">每個情境的故障條件與事前預期（來自 OpenSpec 的 {n_sc} 個 Scenario）。</p>
 {"".join(scen_html)}
 </section>
 
@@ -251,5 +251,5 @@ details{border:1px solid var(--border);border-radius:12px;background:#fff;margin
 .side .sub-link{font-size:12px;padding-left:16px}
 ol.notes li{margin-bottom:6px}
 </style>"""
-OUT.write_text(shell("Doris HA 實驗設計", "Doris 三節點 HA 故障矩陣的實驗設計：架構圖、注入方式、量測定義、預期矩陣與每個情境的假設。", body, "specs", EXTRA), encoding="utf-8")
+OUT.write_text(shell("Doris HA 實驗設計", "Doris 三節點 HA 故障矩陣的實驗設計：架構圖、故障方式、量測定義、預期矩陣與每個情境的假設。", body, "specs", EXTRA), encoding="utf-8")
 print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes): {n_cells} cells, {n_sc} scenarios, {len(main_specs)} main specs in appendix")

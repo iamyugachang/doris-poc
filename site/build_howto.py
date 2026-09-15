@@ -9,7 +9,7 @@ from svgkit import FONT_N, FONT_S, FONT_L, INK, MUTED, RULE, GREEN, TINT, WHITE,
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 # ---------- 1. tooling flow: local -> terraform -> GCP ; ansible -> nodes ; demo.sh -> actions ----------
 def flow_svg():
-    s = [f'<svg viewBox="0 0 960 400" role="img" aria-labelledby="fl-t fl-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-t">工具分工：Terraform、Ansible、demo.sh</title><desc id="fl-d">本機的 demo.sh 呼叫 Terraform 建立 GCP 資源並產生 inventory，Ansible 依 inventory 設定四台 VM，demo.sh 再透過 gcloud 與 ssh 對叢集做故障注入與量測。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
+    s = [f'<svg viewBox="0 0 960 400" role="img" aria-labelledby="fl-t fl-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-t">工具分工：Terraform、Ansible、demo.sh</title><desc id="fl-d">本機的 demo.sh 呼叫 Terraform 建立 GCP 資源並產生 inventory，Ansible 依 inventory 設定四台 VM，demo.sh 再透過 gcloud 與 ssh 對叢集做製造故障與量測。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
     # zones
     s.append(f'<rect x="40" y="48" width="240" height="312" rx="8" fill="rgba(15,26,20,.02)" stroke="{RULE}"/><rect x="48" y="52" width="88" height="12" rx="2" fill="{WHITE}"/><text x="92" y="61" {FONT_L} text-anchor="middle">本機 (WSL)</text>')
     s.append(f'<rect x="360" y="48" width="560" height="312" rx="8" fill="rgba(15,26,20,.02)" stroke="{RULE}"/><rect x="368" y="52" width="136" height="12" rx="2" fill="{WHITE}"/><text x="436" y="61" {FONT_L} text-anchor="middle">GCP · project doris-poc</text>')
@@ -27,7 +27,7 @@ def flow_svg():
     s.append(box(80, 288, 160, 64, "demo.sh", "monitor · break · measure", tag="OPS"))
     s.append(box(400, 80, 160, 64, "VM ×4 · 防火牆 · API", "vm_status 開關機", tag="GCE"))
     s.append(box(400, 184, 160, 64, "Doris FE+BE ×3", "systemd · conf · 叢集註冊", tag="NODE"))
-    s.append(box(400, 288, 240, 64, "client VM · 三個探測", "probe-mysql / jdbc / flight", tag="CLI"))
+    s.append(box(400, 288, 240, 64, "client VM · 三個 probe", "probe-mysql / jdbc / flight", tag="CLI"))
     s.append(box(760, 288, 128, 64, "故障中的節點", "kill / stop / STOP / VM", dashed=True))
     s.append("</svg>"); return "".join(s)
 
@@ -41,17 +41,17 @@ def env_state_svg():
     s.append(arrow("M440,152 H540")); s.append(label(490, 144, "MONITOR"))
     s.append(arrow("M680,152 H780")); s.append(label(730, 144, "BREAK (可疊加)"))
     # restore: 故障中 -> 健康, routed below
-    s.append(arrow("M860,184 V216 Q860,224 852,224 H448 Q440,224 440,216 V184")); s.append(label(650, 216, "RESTORE (逆序逆轉全部故障)"))
+    s.append(arrow("M860,184 V216 Q860,224 852,224 H448 Q440,224 440,216 V184")); s.append(label(650, 216, "RESTORE (依相反順序還原全部故障)"))
     # self loop on 故障中: crash auto recover
-    s.append(arrow("M820,120 V96 Q820,88 828,88 H892 Q900,88 900,96 V120")); s.append(label(860, 80, "CRASH → SYSTEMD 拉起"))
+    s.append(arrow("M820,120 V96 Q820,88 828,88 H892 Q900,88 900,96 V120")); s.append(label(860, 80, "CRASH → SYSTEMD 重啟"))
     # stop / start between 健康 and 關機
     s.append(arrow("M340,184 V248")); s.append(label(300, 220, "STOP"))
-    s.append(arrow("M400,248 V184")); s.append(label(452, 220, "START (自動歸隊)"))
+    s.append(arrow("M400,248 V184")); s.append(label(452, 220, "START (自動回到叢集)"))
     # down: 關機 -> 未建立 and 健康 -> 未建立 (single annotation)
     s.append(arrow("M300,280 H140 Q132,280 132,272 V184", dashed=True)); s.append(label(216, 272, "DOWN (terraform destroy)"))
     s.append(box(60, 120, 140, 64, "未建立", "沒有任何資源", dashed=True))
-    s.append(box(300, 120, 140, 64, "健康", "3 FE · 3 BE · 12 副本 OK", focal=True))
-    s.append(box(540, 120, 140, 64, "監控中", "三個探測每秒讀寫"))
+    s.append(box(300, 120, 140, 64, "健康", "3 FE · 3 BE · 12 replica OK", focal=True))
+    s.append(box(540, 120, 140, 64, "監控中", "三個 probe 每秒讀寫"))
     s.append(box(780, 120, 140, 64, "故障中", ".state/faults 記錄"))
     s.append(box(300, 248, 140, 64, "關機", "只剩磁碟費"))
     s.append(f'<text x="60" y="320" {FONT_L}>* 任一狀態都能 STATUS 查看；--dry-run 不改變狀態</text>')
@@ -70,7 +70,7 @@ def avail_state_svg():
     s.append(arrow("M280,208 V184 Q280,176 288,176 H352 Q360,176 360,184 V208", dashed=True))
     s.append(box(300, 64, 200, 64, "讀寫正常", "FE ≥ 2 且 BE ≥ 2", focal=True))
     s.append(box(200, 208, 160, 64, "只讀", "寫入失敗、SELECT 正常"))
-    s.append(box(360, 208, 160, 64, "卡住", "client 等逾時、無回應"))
+    s.append(box(360, 208, 160, 64, "卡住", "client 等 timeout、無回應"))
     s.append(box(520, 208, 160, 64, "不可用", "連查詢都失敗", dashed=True))
     s.append(f'<text x="60" y="340" {FONT_L}>* 只讀 + FE 再掛一個 → 不可用（兩層都剩 1/3）；等級由 measure 依故障中最後 30 秒的操作判定</text>')
     s.append("</svg>"); return "".join(s)
@@ -86,7 +86,7 @@ body = f'''<div class="hero"><div class="container"><p class="eyebrow">部署與
 <figure><div class="figure">{flow_svg()}</div><figcaption>實線＝誰呼叫誰；虛線＝產出物或前置條件。demo.sh up 依序做前兩條實線，之後的實驗只走第三條。</figcaption></figure>
 <div class="tablewrap" style="margin-top:18px"><table><thead><tr><th>層</th><th>工具 / 目錄</th><th>負責</th><th>不負責</th><th>對應指令</th></tr></thead><tbody>
 <tr><td><b>資源</b></td><td>Terraform · <code>infra/</code></td><td>GCP 上「存在什麼」：4 台 VM（3 Doris + 1 client）、防火牆、API、VM 開關機、產生 Ansible inventory</td><td>機器裡的軟體、叢集成員</td><td><code>demo.sh up / stop / start / down / plan</code></td></tr>
-<tr><td><b>設定</b></td><td>Ansible · <code>ansible/</code></td><td>機器裡「長什麼樣」：JDK、Doris、conf、systemd、FE/BE 註冊、client VM 的三個探測</td><td>開關機、故障注入、量測</td><td><code>demo.sh up / client / plan</code></td></tr>
+<tr><td><b>設定</b></td><td>Ansible · <code>ansible/</code></td><td>機器裡「長什麼樣」：JDK、Doris、conf、systemd、FE/BE 註冊、client VM 的三個 probe</td><td>開關機、製造故障、量測</td><td><code>demo.sh up / client / plan</code></td></tr>
 <tr><td><b>動作</b></td><td><code>demo.sh</code> · <code>experiments/</code></td><td>monitor / break / restore / measure；矩陣執行器、結果彙整、網站</td><td>描述狀態</td><td><code>demo.sh monitor / break / restore / measure</code>、<code>run_matrix.py</code></td></tr>
 </tbody></table></div></section>
 
@@ -131,7 +131,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <tr><td><b>probe_client</b></td><td>client ×1</td><td>時區、JDK、venv（pymysql / pyarrow / adbc）、Connector/J、javac → 三個 unit <code>probe-mysql / jdbc / flight</code>（不 enable，由 monitor 啟動；程式碼變更時自動 restart）</td></tr>
 </tbody></table></div>
 <ul class="notes" style="margin-top:14px">
-<li><b>變數集中在</b> <code>group_vars/all.yml</code>：Doris 版本與下載網址、路徑、priority_networks、FE heap、BE mem_limit、探測指令。</li>
+<li><b>變數集中在</b> <code>group_vars/all.yml</code>：Doris 版本與下載網址、路徑、priority_networks、FE heap、BE mem_limit、probe 指令。</li>
 <li><b>inventory 不手寫</b>，來自 Terraform；<code>fe_seed=true</code> 那台負責註冊其他節點。</li>
 <li><b>sh 對照：</b>原本的 <code>grep -q || cat >></code> 變成 <code>blockinfile</code>、<code>ln -sfn</code> 變成 <code>file state=link</code>、<code>curl + tar</code> 變成 <code>get_url + unarchive creates=</code>、<code>nohup</code> 變成 systemd + handler。</li>
 </ul></div>
@@ -160,13 +160,13 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 
 <section id="states"><h2 class="title"><small>04 · STATE MACHINES</small>狀態機</h2>
 <p class="sub">兩個層次：<b>環境</b>（demo.sh 指令把整個環境帶到哪個狀態）與<b>叢集可用性</b>（FE / BE 存活數決定 client 還能做什麼）。</p>
-<figure><div class="figure">{env_state_svg()}</div><figcaption>環境狀態機。故障可以疊加（連續 break），restore 依相反順序全部逆轉；crash 類故障由 systemd 自動拉起，restore 只做健康確認。狀態存在 <code>.state/faults</code>，<code>demo.sh status</code> 隨時可看。</figcaption></figure>
-<figure style="margin-top:18px"><div class="figure">{avail_state_svg()}</div><figcaption>叢集可用性狀態機（實驗結果驗證）。FE 三個 FOLLOWER 需 2 個才能選 master 與改 metadata；BE 三副本寫入需 2 份成功。三輪實測：FE 剩 1 → 不可用（連查詢都拿不到 metadata）；BE 剩 1 → 只讀；master FE 被 SIGSTOP → 卡住，2026-09-15 三輪：兩輪在 120 秒觀察內沒有重新選主（直到人工恢復），一輪約 73 秒後選出新 master。</figcaption></figure>
+<figure><div class="figure">{env_state_svg()}</div><figcaption>環境狀態機。故障可以疊加（連續 break），restore 依相反順序全部還原；crash 類故障由 systemd 自動重啟，restore 只做健康確認。狀態存在 <code>.state/faults</code>，<code>demo.sh status</code> 隨時可看。</figcaption></figure>
+<figure style="margin-top:18px"><div class="figure">{avail_state_svg()}</div><figcaption>叢集可用性狀態機（實驗結果驗證）。FE 三個 FOLLOWER 需 2 個才能選 master 與改 metadata；BE 3 個 replica 寫入需 2 份成功。3 輪實測：FE 剩 1 → 不可用（連查詢都拿不到 metadata）；BE 剩 1 → 只讀；master FE 被 SIGSTOP → 卡住，2026-09-15 3 輪：兩輪在 120 秒觀察內沒有重新選主（直到人工恢復），一輪約 73 秒後選出新 master。</figcaption></figure>
 <div class="tablewrap" style="margin-top:18px"><table><thead><tr><th>叢集狀態</th><th>條件</th><th>client 看到什麼</th><th>measure 判定</th></tr></thead><tbody>
 <tr><td>{lvl("rw")}</td><td>FE 存活 ≥ 2 且 BE 存活 ≥ 2</td><td>短暫失敗後全部恢復，中斷多在 0～40 秒</td><td>故障中最後 30 秒有寫入成功</td></tr>
 <tr><td>{lvl("ro")}</td><td>BE 存活 = 1（FE ≥ 2）</td><td>INSERT/UPSERT/DELETE 持續失敗，SELECT 正常</td><td>寫入全失敗、讀取檢查成功</td></tr>
-<tr><td>{lvl("down")}</td><td>FE 存活 = 1</td><td>僅存 FE 拒絕連線（follower）或全部逾時（master）</td><td>寫入與讀取檢查都失敗</td></tr>
-<tr><td>{lvl("stalled")}</td><td>master FE 程序暫停但 TCP 仍在</td><td>jdbc 一筆卡住到恢復、mysql 每筆 8 秒逾時、flight 每筆 9 秒</td><td>最後 30 秒沒有任何操作完成</td></tr>
+<tr><td>{lvl("down")}</td><td>FE 存活 = 1</td><td>僅存 FE 拒絕連線（follower）或全部 timeout（master）</td><td>寫入與讀取檢查都失敗</td></tr>
+<tr><td>{lvl("stalled")}</td><td>master FE 程序暫停但 TCP 仍在</td><td>jdbc 一筆卡住到恢復、mysql 每筆 8 秒 timeout、flight 每筆 9 秒</td><td>最後 30 秒沒有任何操作完成</td></tr>
 </tbody></table></div></section>
 
 <section id="commands"><h2 class="title"><small>05 · COMMANDS</small>從零到跑完一輪實驗</h2>
@@ -180,8 +180,8 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <pre><code>./demo.sh monitor         # 終端 1：三個 client 即時捲動
 ./demo.sh break --target fe --mode hang --on master   # 終端 2
 ./demo.sh status          # FE 存活數、目前故障
-./demo.sh restore         # 逆轉全部故障、等健康
-./demo.sh measure         # 失敗視窗、卡頓、可用性等級</code></pre>
+./demo.sh restore         # 還原全部故障、等健康
+./demo.sh measure         # 失敗時間、無回應時間、可用性等級</code></pre>
 <h3>C. 跑整個矩陣（每輪約 70 分鐘）</h3>
 <pre><code>./venv/bin/python experiments/run_matrix.py --pass 1   # 開機→16 格→關機
 ./venv/bin/python experiments/run_matrix.py --pass 2
@@ -194,16 +194,16 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <h3>break 的三個維度</h3>
 <div class="tablewrap"><table><thead><tr><th>參數</th><th>值</th><th>意思</th></tr></thead><tbody>
 <tr><td><code>--target</code></td><td>fe / be / vm</td><td>對象：FE 程序、BE 程序、整台 VM</td></tr>
-<tr><td><code>--mode</code></td><td>crash / dead / hang / stop</td><td>kill -9（systemd 10 秒拉起）／systemctl stop（等人）／kill -STOP（活著不回應）／VM 停機</td></tr>
+<tr><td><code>--mode</code></td><td>crash / dead / hang / stop</td><td>kill -9（systemd 10 秒重啟）／systemctl stop（等人）／kill -STOP（活著不回應）／VM 停機</td></tr>
 <tr><td><code>--on</code></td><td>master / follower / &lt;vm&gt;</td><td>位置：用 SHOW FRONTENDS 找 master；BE 的 master 指「master FE 所在那台的 BE」</td></tr>
 </tbody></table></div>
 <h3 style="margin-top:22px">每格執行器做的事</h3>
 <ol class="notes">
-<li><code>monitor --fresh</code>：清 log、重啟三個探測（可指定 client 主機順序）</li><li>baseline 30 秒</li><li><code>break …</code>（雙重故障間隔 30 秒）</li><li>觀察 90 秒（hang 類 120 秒）</li><li><code>measure --json</code>（故障中）</li><li><code>restore</code>，等健康（最長 8 分鐘）</li><li>settle 25 秒 → <code>measure --json</code>（恢復後）→ 存 <code>results/pass-N/&lt;id&gt;/</code></li>
+<li><code>monitor --fresh</code>：清 log、重啟三個 probe（可指定 client 主機順序）</li><li>baseline 30 秒</li><li><code>break …</code>（雙重故障間隔 30 秒）</li><li>觀察 90 秒（hang 類 120 秒）</li><li><code>measure --json</code>（故障中）</li><li><code>restore</code>，等健康（最長 8 分鐘）</li><li>settle 25 秒 → <code>measure --json</code>（恢復後）→ 存 <code>results/pass-N/&lt;id&gt;/</code></li>
 </ol>
 <h3 style="margin-top:22px">量測定義</h3>
 <ul class="notes">
-<li><b>失敗視窗</b>：第一次 FAIL 到下一次 OK</li><li><b>卡頓</b>：連續兩次操作間隔 &gt; 5 秒（例如卡在轉發給已死 master）</li><li><b>受影響秒數</b>：兩者聯集，裁到故障期間</li><li><b>等級</b>：故障中最後 30 秒；寫入失敗後另開連線做讀取檢查以分辨只讀與不可用</li>
+<li><b>失敗時間</b>：第一次 FAIL 到下一次 OK</li><li><b>無回應時間</b>：連續兩次操作間隔 &gt; 5 秒（例如卡在轉發給已死 master）</li><li><b>受影響秒數</b>：兩者聯集，裁到故障期間</li><li><b>等級</b>：故障中最後 30 秒；寫入失敗後另開連線做讀取檢查以分辨只讀與不可用</li>
 </ul>
 </div></div></section>
 
@@ -215,7 +215,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <tr><td><code>clients/</code></td><td>probe_common.py、probe_mysql.py、probe_flight.py、Probe.java（部署到 client VM）</td></tr>
 <tr><td><code>experiments/</code></td><td>scenarios.yaml（16 格）、run_matrix.py、fill_results.py、finalize.sh</td></tr>
 <tr><td><code>openspec/</code></td><td>主 spec（topology / clients / operations）與 change fault-matrix（proposal / design / tasks / delta spec；只有設計與假設）</td></tr>
-<tr><td><code>results/</code>、<code>site/</code>、<code>deploy/</code></td><td>三輪原始結果與彙整；三頁網站產生器與輸出；Cloud Run 靜態站（nginx）</td></tr>
+<tr><td><code>results/</code>、<code>site/</code>、<code>deploy/</code></td><td>3 輪原始結果與彙整；三頁網站產生器與輸出；Cloud Run 靜態站（nginx）</td></tr>
 </tbody></table></div></section>
 </div>'''
 (ROOT / "site/diagrams").mkdir(exist_ok=True)
