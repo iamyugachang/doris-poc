@@ -1,702 +1,721 @@
-04:21:10 ##### pass 3 start: 16 scenario(s) ['vm-stop-3clients', 'vm-stop-master-direct', 'vm-stop-master-follower', 'vm-stop-follower', 'fe-crash-master', 'fe-crash-follower', 'fe-dead-master', 'fe-hang-master', 'fe-hang-follower', 'be-crash', 'be-dead', 'be-hang', 'double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
-04:21:10 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+19:07:30 ##### pass 3 start: 16 scenario(s) ['vm-stop-3clients', 'vm-stop-master-direct', 'vm-stop-master-follower', 'vm-stop-follower', 'fe-crash-master', 'fe-crash-follower', 'fe-dead-master', 'fe-hang-master', 'fe-hang-follower', 'be-crash', 'be-dead', 'be-hang', 'double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
+19:07:30 $ /home/yugachang/workspace/doris-poc/demo.sh start
+    |     "name" = "doris-3"
+    |     "zone" = "asia-east1-c"
+    |   },
+    | ]
+    |   NAME     ZONE           INTERNAL     EXTERNAL
+    |   doris-1  asia-east1-a   10.140.0.2   34.80.24.53
+    |   doris-2  asia-east1-b   10.140.0.3   35.229.153.36
+    |   doris-3  asia-east1-c   10.140.0.4   35.201.192.134
+    |   waiting (0s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.201.192.134' ([Errno 111] Co
+    |   waiting (5s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.201.192.134' ([Errno 111] Co
+    |   waiting (10s): doris-2(fe), doris-1(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (19s): doris-2(fe)
+    |   waiting (24s): doris-2(fe)
+    | healthy after 29s
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10246
+    | (queried via doris-1 34.80.24.53)
+    | FE:
+    |   doris-1  10.140.0.2   follower alive=true  journal=60009
+    |   doris-2  10.140.0.3   follower alive=true  journal=60009
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=60011
+    | BE:
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10246
+19:08:42 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
     | healthy after 0s
-04:21:10   cluster healthy (before pass)
-04:21:10 === [vm-stop-3clients] 三個 client 同時觀察 VM 停機  steps=['--target vm --on master']
-04:21:10 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10113
+19:08:42   cluster healthy (before pass)
+19:08:42 === [vm-stop-3clients] 三個 client 同時觀察 VM 停機  steps=['--target vm --on master']
+19:08:42 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10246
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:21:16   wait 30s (baseline)
-04:21:46 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-3 (FE master) ==  [2m04:21:46
+19:08:50   wait 30s (baseline)
+19:09:20 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-3 (FE master) ==  [2m19:09:21
     | [1;35m▶ EVENT break: vm stop on doris-3 (FE master)
     | [1;35m▶ EVENT break: doris-3 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
-04:22:13   wait 90s (observe)
-04:23:43 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:23:49   during: mysql=讀寫正常 (27s), jdbc=讀寫正常 (34s), flight=讀取正常 (30s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10116 via doris-1
-04:23:49 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+19:09:52   wait 90s (observe)
+19:11:22 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:11:30   during: mysql=讀寫正常 (29s), jdbc=讀寫正常 (33s), flight=讀取正常 (29s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10249 via doris-1
+19:11:30 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | [1;35m▶ EVENT restore: start doris-3
     |   waiting for the cluster to be healthy…
     |   waiting (0s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (5s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (10s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (15s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (20s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (25s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (30s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (35s): replicas={'OK': 8, 'VERSION_ERROR': 4}
-    | healthy after 40s
+    |   waiting (20s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    |   waiting (25s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    |   waiting (30s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    | healthy after 35s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 34.80.84.237)
+    | (queried via doris-1 34.80.24.53)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=25664
-    |   doris-2  10.140.0.3   MASTER   alive=true  journal=25668
-    |   doris-3  10.140.0.4   follower alive=true  journal=25664
+    |   doris-1  10.140.0.2   follower alive=true  journal=60529
+    |   doris-2  10.140.0.3   MASTER   alive=true  journal=60536
+    |   doris-3  10.140.0.4   follower alive=true  journal=60529
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10116
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10247
     | Starting instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
     | Instance internal IP is 10.140.0.4
-    | Instance external IP is 34.80.234.205
-04:24:45   wait 25s (settle)
-04:25:10 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:25:16   after:  mysql=讀寫正常 fails=6 impact=27s, jdbc=讀寫正常 fails=7 impact=34s, flight=讀取正常 fails=5 impact=30s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10116 via doris-1  healthy=True
-04:25:16 === [vm-stop-master-direct] master 所在 VM 停機，client 直連 master  steps=['--target vm --on master']
-04:25:16 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order master-first
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10116
+    | Instance external IP is 35.201.192.134
+19:12:19   wait 25s (settle)
+19:12:44 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:12:50   after:  mysql=讀寫正常 fails=5 impact=29s, jdbc=讀寫正常 fails=5 impact=33s, flight=讀取正常 fails=5 impact=29s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10249 via doris-1  healthy=True
+19:12:50 === [vm-stop-master-direct] master 所在 VM 停機，client 直連 master  steps=['--target vm --on master']
+19:12:50 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order master-first
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10249
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:25:22   wait 30s (baseline)
-04:25:52 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-2 (FE master) ==  [2m04:25:52
+19:12:57   wait 30s (baseline)
+19:13:27 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-2 (FE master) ==  [2m19:13:27
     | [1;35m▶ EVENT break: vm stop on doris-2 (FE master)
     | [1;35m▶ EVENT break: doris-2 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-2...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-b/instances/doris-2].
-04:26:19   wait 90s (observe)
-04:27:49 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:27:55   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (1s), flight=讀取正常 (2s)  alive=FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10117 via doris-1
-04:27:55 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:27:55
-    | [1;35m▶ EVENT restore: start doris-2
-    |   waiting for the cluster to be healthy…
-    |   waiting (0s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (5s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+19:13:55   wait 90s (observe)
+19:15:25 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:15:32   during: mysql=讀寫正常 (1s), jdbc=讀寫正常 (1s), flight=讀取正常 (2s)  alive=FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10252 via doris-1
+19:15:32 $ /home/yugachang/workspace/doris-poc/demo.sh restore
     |   waiting (10s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (15s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (20s): doris-2(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (25s): doris-2(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    | healthy after 30s
+    |   waiting (20s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (25s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (30s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (35s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    |   waiting (40s): replicas={'OK': 10, 'VERSION_ERROR': 2}
+    |   waiting (45s): replicas={'OK': 10, 'VERSION_ERROR': 2}
+    |   waiting (50s): replicas={'OK': 10, 'VERSION_ERROR': 2}
+    | healthy after 56s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 34.80.84.237)
+    | (queried via doris-1 34.80.24.53)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=26353
-    |   doris-2  10.140.0.3   follower alive=true  journal=26353
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=26368
+    |   doris-1  10.140.0.2   follower alive=true  journal=61307
+    |   doris-2  10.140.0.3   follower alive=true  journal=61307
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=61325
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10118
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10251
     | Starting instance(s) doris-2...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-b/instances/doris-2].
     | Instance internal IP is 10.140.0.3
-    | Instance external IP is 104.199.213.69
-04:28:42   wait 25s (settle)
-04:29:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:29:13   after:  mysql=讀寫正常 fails=1 impact=0s, jdbc=讀寫正常 fails=1 impact=1s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10118 via doris-1  healthy=True
-04:29:13 === [vm-stop-master-follower] master 所在 VM 停機，client 連在 follower  steps=['--target vm --on master']
-04:29:13 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order follower-first
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10118
+    | Instance external IP is 107.167.189.172
+19:16:43   wait 25s (settle)
+19:17:08 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:17:19   after:  mysql=讀寫正常 fails=1 impact=1s, jdbc=讀寫正常 fails=1 impact=1s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10253 via doris-1  healthy=True
+19:17:19 === [vm-stop-master-follower] master 所在 VM 停機，client 連在 follower  steps=['--target vm --on master']
+19:17:19 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order follower-first
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10252
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:29:18   wait 30s (baseline)
-04:29:48 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-3 (FE master) ==  [2m04:29:49
+19:17:24   wait 30s (baseline)
+19:17:54 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-3 (FE master) ==  [2m19:17:55
     | [1;35m▶ EVENT break: vm stop on doris-3 (FE master)
     | [1;35m▶ EVENT break: doris-3 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
-04:30:14   wait 90s (observe)
-04:31:44 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:31:50   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (2s), flight=讀取正常 (1s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10120 via doris-1
-04:31:50 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+19:18:21   wait 90s (observe)
+19:19:51 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:19:57   during: mysql=讀寫正常 (35s), jdbc=讀寫正常 (33s), flight=讀取正常 (30s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10253 via doris-1
+19:19:57 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:19:57
+    | [1;35m▶ EVENT restore: start doris-3
+    |   waiting for the cluster to be healthy…
+    |   waiting (0s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (5s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (10s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
     |   waiting (15s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (20s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (25s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (30s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (35s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (40s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (45s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    | healthy after 51s
+    |   waiting (20s): doris-3(fe), replicas={'OK': 11, 'VERSION_ERROR': 1}
+    |   waiting (25s): doris-3(fe)
+    | healthy after 30s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 34.80.84.237)
+    | (queried via doris-1 34.80.24.53)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=27080
-    |   doris-2  10.140.0.3   MASTER   alive=true  journal=27091
-    |   doris-3  10.140.0.4   follower alive=true  journal=27080
+    |   doris-1  10.140.0.2   follower alive=true  journal=61896
+    |   doris-2  10.140.0.3   MASTER   alive=true  journal=61917
+    |   doris-3  10.140.0.4   follower alive=true  journal=61896
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10118
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10255
     | Starting instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
     | Instance internal IP is 10.140.0.4
-    | Instance external IP is 35.221.241.215
-04:32:58   wait 25s (settle)
-04:33:23 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:33:28   after:  mysql=讀寫正常 fails=1 impact=0s, jdbc=讀寫正常 fails=1 impact=2s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10119 via doris-1  healthy=True
-04:33:28 === [vm-stop-follower] follower 所在 VM 停機  steps=['--target vm --on follower']
-04:33:28 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10118
+    | Instance external IP is 35.194.240.180
+19:20:42   wait 25s (settle)
+19:21:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:21:13   after:  mysql=讀寫正常 fails=7 impact=35s, jdbc=讀寫正常 fails=5 impact=33s, flight=讀取正常 fails=6 impact=30s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10253 via doris-1  healthy=True
+19:21:13 === [vm-stop-follower] follower 所在 VM 停機  steps=['--target vm --on follower']
+19:21:13 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10253
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:33:35   wait 30s (baseline)
-04:34:05 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
-    | == break: vm stop on doris-1 (FE follower) ==  [2m04:34:06
+19:21:19   wait 30s (baseline)
+19:21:49 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+    | == break: vm stop on doris-1 (FE follower) ==  [2m19:21:49
     | [1;35m▶ EVENT break: vm stop on doris-1 (FE follower)
     | [1;35m▶ EVENT break: doris-1 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
-04:34:32   wait 90s (observe)
-04:36:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:36:10   during: mysql=讀寫正常 (12s), jdbc=讀寫正常 (14s), flight=讀取正常 (18s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10124 via doris-2
-04:36:10 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:36:10
+19:22:15   wait 90s (observe)
+19:23:45 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:23:53   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (0s), flight=讀取正常 (2s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10255 via doris-2
+19:23:53 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:23:53
     | [1;35m▶ EVENT restore: start doris-1
     |   waiting for the cluster to be healthy…
     |   waiting (3s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
     |   waiting (8s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
     |   waiting (13s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
-    |   waiting (18s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
-    |   waiting (23s): doris-1(fe), replicas={'VERSION_ERROR': 4, 'OK': 8}
-    |   waiting (31s): doris-1(fe), replicas={'VERSION_ERROR': 4, 'OK': 8}
-    | healthy after 36s
+    |   waiting (18s): doris-1(fe), replicas={'VERSION_ERROR': 4, 'OK': 8}
+    |   waiting (23s): doris-1(fe)
+    | healthy after 31s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=27712
-    |   doris-2  10.140.0.3   MASTER   alive=true  journal=27741
-    |   doris-3  10.140.0.4   follower alive=true  journal=27712
+    |   doris-1  10.140.0.2   follower alive=true  journal=62554
+    |   doris-2  10.140.0.3   MASTER   alive=true  journal=62571
+    |   doris-3  10.140.0.4   follower alive=true  journal=62554
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10123
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10254
     | Starting instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
     | Instance internal IP is 10.140.0.2
-    | Instance external IP is 35.185.162.157
-04:37:02   wait 25s (settle)
-04:37:27 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:37:33   after:  mysql=讀寫正常 fails=2 impact=12s, jdbc=讀寫正常 fails=2 impact=14s, flight=讀取正常 fails=1 impact=18s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10123 via doris-1  healthy=True
-04:37:33 === [fe-crash-master] master FE crash（kill -9，systemd 自動拉起）  steps=['--target fe --mode crash --on master']
-04:37:33 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10123
+    | Instance external IP is 35.229.153.36
+19:24:38   wait 25s (settle)
+19:25:03 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:25:10   after:  mysql=讀寫正常 fails=1 impact=0s, jdbc=讀寫正常 fails=1 impact=0s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10253 via doris-1  healthy=True
+19:25:10 === [fe-crash-master] master FE crash（kill -9，systemd 自動拉起）  steps=['--target fe --mode crash --on master']
+19:25:10 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10253
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:37:39   wait 30s (baseline)
-04:38:09 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on master
-    | == break: fe crash on doris-2 (FE master) ==  [2m04:38:09
+19:25:16   wait 30s (baseline)
+19:25:46 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on master
+    | == break: fe crash on doris-2 (FE master) ==  [2m19:25:46
     | [1;35m▶ EVENT break: fe crash on doris-2 (FE master)
     | killed
     | [1;35m▶ EVENT recovered: fe restarted by systemd on doris-2 (+9s)
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:38:29   wait 90s (observe)
-04:39:59 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:40:05   during: mysql=讀寫正常 (24s), jdbc=讀寫正常 (23s), flight=讀取正常 (8s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10130 via doris-1
-04:40:05 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:40:05
+19:26:06   wait 90s (observe)
+19:27:36 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:27:47   during: mysql=讀寫正常 (6s), jdbc=讀寫正常 (9s), flight=讀取正常 (7s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10257 via doris-1
+19:27:47 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:27:47
     | [1;35m▶ EVENT restore: verify fe on doris-2
     |   waiting for the cluster to be healthy…
     | healthy after 0s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=28226
-    |   doris-2  10.140.0.3   follower alive=true  journal=28226
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=28255
+    |   doris-1  10.140.0.2   follower alive=true  journal=63117
+    |   doris-2  10.140.0.3   follower alive=true  journal=63117
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=63132
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10129
-04:40:14   wait 25s (settle)
-04:40:39 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:40:45   after:  mysql=讀寫正常 fails=6 impact=24s, jdbc=讀寫正常 fails=4 impact=23s, flight=讀取正常 fails=1 impact=8s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10131 via doris-1  healthy=True
-04:40:45 === [fe-crash-follower] follower FE crash  steps=['--target fe --mode crash --on follower']
-04:40:45 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10131
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10259
+19:27:56   wait 25s (settle)
+19:28:21 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:28:26   after:  mysql=讀寫正常 fails=0 impact=6s, jdbc=讀寫正常 fails=3 impact=9s, flight=讀取正常 fails=1 impact=7s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10259 via doris-1  healthy=True
+19:28:26 === [fe-crash-follower] follower FE crash  steps=['--target fe --mode crash --on follower']
+19:28:26 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10259
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:40:51   wait 30s (baseline)
-04:41:21 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on follower
-    | == break: fe crash on doris-1 (FE follower) ==  [2m04:41:21
+19:28:31   wait 30s (baseline)
+19:29:01 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on follower
+    | == break: fe crash on doris-1 (FE follower) ==  [2m19:29:02
     | [1;35m▶ EVENT break: fe crash on doris-1 (FE follower)
     | killed
     | [1;35m▶ EVENT recovered: fe restarted by systemd on doris-1 (+9s)
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:41:42   wait 90s (observe)
-04:43:12 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:43:17   during: mysql=讀寫正常 (2s), jdbc=讀寫正常 (2s), flight=讀取正常 (3s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10133 via doris-1
-04:43:17 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:43:17
+19:29:21   wait 90s (observe)
+19:30:51 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:30:57   during: mysql=讀寫正常 (4s), jdbc=讀寫正常 (1s), flight=讀取正常 (5s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10258 via doris-1
+19:30:57 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:30:57
     | [1;35m▶ EVENT restore: verify fe on doris-1
     |   waiting for the cluster to be healthy…
     | healthy after 0s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=28765
-    |   doris-2  10.140.0.3   follower alive=true  journal=28765
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=28792
+    |   doris-1  10.140.0.2   follower alive=true  journal=63660
+    |   doris-2  10.140.0.3   follower alive=true  journal=63660
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=63673
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10132
-04:43:24   wait 25s (settle)
-04:43:49 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:43:54   after:  mysql=讀寫正常 fails=1 impact=2s, jdbc=讀寫正常 fails=1 impact=2s, flight=讀取正常 fails=1 impact=3s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10132 via doris-1  healthy=True
-04:43:54 === [fe-dead-master] master FE dead（systemctl stop，不自動起）  steps=['--target fe --mode dead --on master']
-04:43:54 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10133
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10257
+19:31:06   wait 25s (settle)
+19:31:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:31:38   after:  mysql=讀寫正常 fails=1 impact=4s, jdbc=讀寫正常 fails=1 impact=1s, flight=讀取正常 fails=1 impact=5s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10257 via doris-1  healthy=True
+19:31:38 === [fe-dead-master] master FE dead（systemctl stop，不自動起）  steps=['--target fe --mode dead --on master']
+19:31:38 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10257
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:44:00   wait 30s (baseline)
-04:44:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on master
-    | == break: fe dead on doris-3 (FE master) ==  [2m04:44:30
+19:31:44   wait 30s (baseline)
+19:32:14 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on master
+    | == break: fe dead on doris-3 (FE master) ==  [2m19:32:14
     | [1;35m▶ EVENT break: fe dead on doris-3 (FE master)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:44:37   wait 90s (observe)
-04:46:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:46:13   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (1s), flight=讀取正常 (9s)  alive=FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1
-04:46:13 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:46:13
+19:32:20   wait 90s (observe)
+19:33:50 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:33:56   during: mysql=讀寫正常 (25s), jdbc=讀寫正常 (24s), flight=讀取正常 (0s)  alive=FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10264 via doris-1
+19:33:56 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:33:56
     | [1;35m▶ EVENT restore: systemctl start doris-fe on doris-3
     |   waiting for the cluster to be healthy…
     |   waiting (0s): doris-3(fe)
     |   waiting (5s): doris-3(fe)
-    |   waiting (10s): doris-3(fe)
-    |   waiting (15s): doris-3(fe)
-    | healthy after 20s
+    | healthy after 10s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=29352
-    |   doris-2  10.140.0.3   MASTER   alive=true  journal=29369
-    |   doris-3  10.140.0.4   follower alive=true  journal=29352
+    |   doris-1  10.140.0.2   follower alive=true  journal=64154
+    |   doris-2  10.140.0.3   MASTER   alive=true  journal=64165
+    |   doris-3  10.140.0.4   follower alive=true  journal=64154
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10134
-04:46:41   wait 25s (settle)
-04:47:06 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:47:11   after:  mysql=讀寫正常 fails=0 impact=0s, jdbc=讀寫正常 fails=2 impact=1s, flight=讀取正常 fails=0 impact=9s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1  healthy=True
-04:47:11 === [fe-hang-master] master FE hang（kill -STOP）  steps=['--target fe --mode hang --on master']
-04:47:11 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10134
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10262
+19:34:13   wait 25s (settle)
+19:34:38 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:34:44   after:  mysql=讀寫正常 fails=2 impact=25s, jdbc=讀寫正常 fails=2 impact=24s, flight=讀取正常 fails=0 impact=0s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10264 via doris-1  healthy=True
+19:34:44 === [fe-hang-master] master FE hang（kill -STOP）  steps=['--target fe --mode hang --on master']
+19:34:44 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10264
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:47:17   wait 30s (baseline)
-04:47:47 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on master
-    | == break: fe hang on doris-2 (FE master) ==  [2m04:47:47
+19:34:50   wait 30s (baseline)
+19:35:20 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on master
+    | == break: fe hang on doris-2 (FE master) ==  [2m19:35:20
     | [1;35m▶ EVENT break: fe hang on doris-2 (FE master)
     | paused
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:47:51   wait 120s (observe)
-04:49:51 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:49:58   during: mysql=讀寫正常 (64s), jdbc=讀寫正常 (69s), flight=讀取正常 (63s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10136 via doris-1
-04:49:58 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:49:58
+19:35:24   wait 120s (observe)
+19:37:24 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:37:30   during: mysql=讀寫正常 (73s), jdbc=讀寫正常 (83s), flight=讀取正常 (72s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10265 via doris-1
+19:37:30 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:37:30
     | [1;35m▶ EVENT restore: resume fe on doris-2
     |   waiting for the cluster to be healthy…
     | healthy after 0s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=29763
-    |   doris-2  10.140.0.3   follower alive=true  journal=28998
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=29772
+    |   doris-1  10.140.0.2   follower alive=true  journal=64498
+    |   doris-2  10.140.0.3   follower alive=true  journal=63885
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=64539
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10134
-04:50:06   wait 25s (settle)
-04:50:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:50:37   after:  mysql=讀寫正常 fails=7 impact=64s, jdbc=讀寫正常 fails=0 impact=69s, flight=讀取正常 fails=0 impact=63s  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1  healthy=True
-04:50:37 === [fe-hang-follower] follower FE hang  steps=['--target fe --mode hang --on follower']
-04:50:37 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10134
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10266
+19:37:37   wait 25s (settle)
+19:38:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:38:07   after:  mysql=讀寫正常 fails=8 impact=73s, jdbc=讀寫正常 fails=1 impact=83s, flight=讀取正常 fails=0 impact=72s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10265 via doris-1  healthy=True
+19:38:07 === [fe-hang-follower] follower FE hang  steps=['--target fe --mode hang --on follower']
+19:38:07 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10265
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:50:43   wait 30s (baseline)
-04:51:13 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on follower
-    | == break: fe hang on doris-1 (FE follower) ==  [2m04:51:13
+19:38:14   wait 30s (baseline)
+19:38:44 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on follower
+    | == break: fe hang on doris-1 (FE follower) ==  [2m19:38:44
     | [1;35m▶ EVENT break: fe hang on doris-1 (FE follower)
     | paused
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:51:17   wait 90s (observe)
-04:52:47 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:52:59   during: mysql=讀寫正常 (20s), jdbc=讀寫正常 (39s), flight=讀取正常 (39s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10138 via doris-2
-04:52:59 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:52:59
+19:38:47   wait 90s (observe)
+19:40:17 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:40:29   during: mysql=讀寫正常 (19s), jdbc=讀寫正常 (47s), flight=讀取正常 (40s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10266 via doris-2
+19:40:29 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:40:29
     | [1;35m▶ EVENT restore: resume fe on doris-1
     |   waiting for the cluster to be healthy…
     | healthy after 0s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=30020
-    |   doris-2  10.140.0.3   follower alive=true  journal=30199
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=30209
+    |   doris-1  10.140.0.2   follower alive=true  journal=64958
+    |   doris-2  10.140.0.3   follower alive=true  journal=64958
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=64966
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10137
-04:53:06   wait 25s (settle)
-04:53:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:53:36   after:  mysql=讀寫正常 fails=1 impact=20s, jdbc=讀寫正常 fails=1 impact=48s, flight=讀取正常 fails=1 impact=39s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10138 via doris-1  healthy=True
-04:53:36 === [be-crash] BE crash（systemd 自動拉起）  steps=['--target be --mode crash --on follower']
-04:53:36 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10138
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10266
+19:40:36   wait 25s (settle)
+19:41:01 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:41:06   after:  mysql=讀寫正常 fails=1 impact=19s, jdbc=讀寫正常 fails=1 impact=57s, flight=讀取正常 fails=1 impact=40s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10266 via doris-1  healthy=True
+19:41:06 === [be-crash] BE crash（systemd 自動拉起）  steps=['--target be --mode crash --on follower']
+19:41:06 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10266
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:53:41   wait 30s (baseline)
-04:54:11 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode crash --on follower
-    | == break: be crash on doris-1 (FE follower) ==  [2m04:54:12
+19:41:12   wait 30s (baseline)
+19:41:42 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode crash --on follower
+    | == break: be crash on doris-1 (FE follower) ==  [2m19:41:42
     | [1;35m▶ EVENT break: be crash on doris-1 (FE follower)
     | killed
     | [1;35m▶ EVENT recovered: be restarted by systemd on doris-1 (+9s)
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:54:32   wait 90s (observe)
-04:56:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:56:08   during: mysql=讀寫正常 (16s), jdbc=讀寫正常 (15s), flight=讀取正常 (1s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10139 via doris-1
-04:56:08 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:56:08
+19:42:01   wait 90s (observe)
+19:43:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:43:38   during: mysql=讀寫正常 (8s), jdbc=讀寫正常 (7s), flight=讀取正常 (1s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10264 via doris-1
+19:43:38 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:43:38
     | [1;35m▶ EVENT restore: verify be on doris-1
     |   waiting for the cluster to be healthy…
     | healthy after 0s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=30736
-    |   doris-2  10.140.0.3   follower alive=true  journal=30736
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=30744
+    |   doris-1  10.140.0.2   follower alive=true  journal=65518
+    |   doris-2  10.140.0.3   follower alive=true  journal=65518
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=65534
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10141
-04:56:14   wait 25s (settle)
-04:56:39 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:56:45   after:  mysql=讀寫正常 fails=1 impact=16s, jdbc=讀寫正常 fails=2 impact=15s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
-04:56:45 === [be-dead] BE dead  steps=['--target be --mode dead --on follower']
-04:56:45 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10141
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10264
+19:43:48   wait 25s (settle)
+19:44:13 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:44:18   after:  mysql=讀寫正常 fails=1 impact=8s, jdbc=讀寫正常 fails=1 impact=7s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10266 via doris-1  healthy=True
+19:44:18 === [be-dead] BE dead  steps=['--target be --mode dead --on follower']
+19:44:18 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10266
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-04:56:51   wait 30s (baseline)
-04:57:21 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
-    | == break: be dead on doris-1 (FE follower) ==  [2m04:57:21
+19:44:24   wait 30s (baseline)
+19:44:54 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+    | == break: be dead on doris-1 (FE follower) ==  [2m19:44:54
     | [1;35m▶ EVENT break: be dead on doris-1 (FE follower)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-04:57:27   wait 90s (observe)
-04:58:57 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-04:59:03   during: mysql=讀寫正常 (7s), jdbc=讀寫正常 (7s), flight=讀取正常 (2s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10139 via doris-1
-04:59:03 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m04:59:03
+19:45:01   wait 90s (observe)
+19:46:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:46:37   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (0s), flight=讀取正常 (1s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10266 via doris-1
+19:46:37 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:46:37
     | [1;35m▶ EVENT restore: systemctl start doris-be on doris-1
     |   waiting for the cluster to be healthy…
-    |   waiting (0s): doris-1(be), replicas={'DEAD': 4, 'OK': 8}
-    |   waiting (5s): replicas={'VERSION_ERROR': 4, 'OK': 8}
-    |   waiting (10s): replicas={'VERSION_ERROR': 4, 'OK': 8}
-    |   waiting (15s): replicas={'VERSION_ERROR': 4, 'OK': 8}
-    | healthy after 20s
+    |   waiting (0s): replicas={'OK': 11, 'VERSION_ERROR': 1}
+    | healthy after 5s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=31286
-    |   doris-2  10.140.0.3   follower alive=true  journal=31286
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=31309
+    |   doris-1  10.140.0.2   follower alive=true  journal=66076
+    |   doris-2  10.140.0.3   follower alive=true  journal=66076
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=66084
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10141
-04:59:30   wait 25s (settle)
-04:59:55 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:00:02   after:  mysql=讀寫正常 fails=1 impact=7s, jdbc=讀寫正常 fails=1 impact=7s, flight=讀取正常 fails=2 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
-05:00:02 === [be-hang] BE hang（kill -STOP）  steps=['--target be --mode hang --on follower']
-05:00:02 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10141
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10268
+19:46:56   wait 25s (settle)
+19:47:21 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:47:26   after:  mysql=讀寫正常 fails=0 impact=0s, jdbc=讀寫正常 fails=2 impact=0s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10268 via doris-1  healthy=True
+19:47:26 === [be-hang] BE hang（kill -STOP）  steps=['--target be --mode hang --on follower']
+19:47:26 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10268
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-05:00:09   wait 30s (baseline)
-05:00:39 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode hang --on follower
-    | == break: be hang on doris-1 (FE follower) ==  [2m05:00:40
+19:47:32   wait 30s (baseline)
+19:48:02 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode hang --on follower
+    | == break: be hang on doris-1 (FE follower) ==  [2m19:48:02
     | [1;35m▶ EVENT break: be hang on doris-1 (FE follower)
     | paused
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-05:00:43   wait 120s (observe)
-05:02:43 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:02:48   during: mysql=讀寫正常 (37s), jdbc=讀寫正常 (36s), flight=讀取正常 (31s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10141 via doris-1
-05:02:48 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    | == restore: reverse all faults ==  [2m05:02:48
+19:48:05   wait 120s (observe)
+19:50:05 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:50:11   during: mysql=讀寫正常 (35s), jdbc=讀寫正常 (37s), flight=讀取正常 (31s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10268 via doris-1
+19:50:11 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | == restore: reverse all faults ==  [2m19:50:11
     | [1;35m▶ EVENT restore: resume be on doris-1
     |   waiting for the cluster to be healthy…
     |   waiting (0s): replicas={'VERSION_ERROR': 4, 'OK': 8}
     |   waiting (5s): replicas={'VERSION_ERROR': 4, 'OK': 8}
-    |   waiting (10s): replicas={'VERSION_ERROR': 4, 'OK': 8}
-    | healthy after 15s
+    | healthy after 10s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=31841
-    |   doris-2  10.140.0.3   follower alive=true  journal=31841
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=31866
+    |   doris-1  10.140.0.2   follower alive=true  journal=66604
+    |   doris-2  10.140.0.3   follower alive=true  journal=66604
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=66619
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10143
-05:03:10   wait 25s (settle)
-05:03:35 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:03:41   after:  mysql=讀寫正常 fails=4 impact=37s, jdbc=讀寫正常 fails=4 impact=36s, flight=讀取正常 fails=4 impact=31s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
-05:03:41 === [double-vm-fe-dead] VM 停 + 另一台 FE dead（FE 剩 1/3）  steps=['--target vm --on master', '--target fe --mode dead --on follower']
-05:03:41 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10141
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10268
+19:50:28   wait 25s (settle)
+19:50:53 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:50:58   after:  mysql=讀寫正常 fails=4 impact=35s, jdbc=讀寫正常 fails=4 impact=37s, flight=讀取正常 fails=4 impact=31s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10268 via doris-1  healthy=True
+19:50:58 === [double-vm-fe-dead] VM 停 + 另一台 FE dead（FE 剩 1/3）  steps=['--target vm --on master', '--target fe --mode dead --on follower']
+19:50:58 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10268
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-05:03:46   wait 30s (baseline)
-05:04:16 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-3 (FE master) ==  [2m05:04:16
+19:51:04   wait 30s (baseline)
+19:51:34 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-3 (FE master) ==  [2m19:51:34
     | [1;35m▶ EVENT break: vm stop on doris-3 (FE master)
     | [1;35m▶ EVENT break: doris-3 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
-05:04:43   wait 30s (gap between breaks)
-05:05:13 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on follower
-    | == break: fe dead on doris-1 (FE follower) ==  [2m05:05:14
+19:52:01   wait 30s (gap between breaks)
+19:52:31 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on follower
+    | == break: fe dead on doris-1 (FE follower) ==  [2m19:52:31
     | [1;35m▶ EVENT break: fe dead on doris-1 (FE follower)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-05:05:20   wait 90s (observe)
-05:06:50 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:07:02   during: mysql=讀寫正常 (86s), jdbc=讀寫正常 (95s), flight=讀取正常 (92s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2
-05:07:02 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+19:52:37   wait 90s (observe)
+19:54:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:54:19   during: mysql=讀寫正常 (86s), jdbc=讀寫正常 (94s), flight=讀取正常 (92s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2
+19:54:19 $ /home/yugachang/workspace/doris-poc/demo.sh restore
     |   waiting (183s): doris-3(fe), doris-3(be)
     |   waiting (194s): doris-3(fe), doris-3(be)
     |   waiting (205s): doris-3(fe), doris-3(be)
     |   waiting (216s): doris-3(fe), doris-3(be)
-    |   waiting (225s): doris-3(fe), doris-3(be)
-    |   waiting (231s): doris-2(fe)
-    |   waiting (236s): doris-2(fe)
-    |   waiting (241s): doris-2(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 4, 'VERSION_ERROR': 4}
-    |   waiting (246s): doris-2(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 4, 'VERSION_ERROR': 4}
-    | healthy after 251s
+    |   waiting (224s): doris-3(fe), doris-3(be)
+    |   waiting (230s): doris-2(fe)
+    |   waiting (235s): doris-2(fe)
+    |   waiting (240s): doris-2(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 4, 'VERSION_ERROR': 4}
+    |   waiting (245s): doris-2(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 4, 'VERSION_ERROR': 4}
+    | healthy after 250s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=32271
-    |   doris-2  10.140.0.3   follower alive=true  journal=32271
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=32288
+    |   doris-1  10.140.0.2   follower alive=true  journal=67025
+    |   doris-2  10.140.0.3   follower alive=true  journal=67025
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=67048
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10145
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10274
     | Starting instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
     | Instance internal IP is 10.140.0.4
-    | Instance external IP is 34.80.150.141
-05:11:32   wait 25s (settle)
-05:11:57 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:12:04   after:  mysql=讀寫正常 fails=58 impact=348s, jdbc=讀寫正常 fails=52 impact=355s, flight=讀取正常 fails=27 impact=144s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10144 via doris-1  healthy=True
-05:12:04 === [double-vm-be-dead] VM 停 + 另一台 BE dead（BE 剩 1/3）  steps=['--target vm --on master', '--target be --mode dead --on follower']
-05:12:04 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10144
+    | Instance external IP is 35.201.192.134
+19:58:48   wait 25s (settle)
+19:59:13 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+19:59:20   after:  mysql=讀寫正常 fails=63 impact=350s, jdbc=讀寫正常 fails=57 impact=354s, flight=讀取正常 fails=23 impact=143s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10274 via doris-1  healthy=True
+19:59:20 === [double-vm-be-dead] VM 停 + 另一台 BE dead（BE 剩 1/3）  steps=['--target vm --on master', '--target be --mode dead --on follower']
+19:59:20 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10274
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-05:12:09   wait 30s (baseline)
-05:12:39 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-3 (FE master) ==  [2m05:12:40
+19:59:25   wait 30s (baseline)
+19:59:55 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-3 (FE master) ==  [2m19:59:56
     | [1;35m▶ EVENT break: vm stop on doris-3 (FE master)
     | [1;35m▶ EVENT break: doris-3 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
-05:13:05   wait 30s (gap between breaks)
-05:13:35 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
-    | == break: be dead on doris-1 (FE follower) ==  [2m05:13:36
+20:00:23   wait 30s (gap between breaks)
+20:00:53 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+    | == break: be dead on doris-1 (FE follower) ==  [2m20:00:53
     | [1;35m▶ EVENT break: be dead on doris-1 (FE follower)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-05:13:42   wait 90s (observe)
-05:15:12 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:15:18   during: mysql=只讀 (45s), jdbc=只讀 (55s), flight=讀取正常 (59s)  alive=FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10147 via doris-1
-05:15:18 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+20:01:00   wait 90s (observe)
+20:02:30 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:02:38   during: mysql=只讀 (26s), jdbc=只讀 (25s), flight=讀取正常 (35s)  alive=FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10272 via doris-1
+20:02:38 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    | [1;35m▶ EVENT restore: systemctl start doris-be on doris-1
     | [1;35m▶ EVENT restore: start doris-3
     |   waiting for the cluster to be healthy…
     |   waiting (0s): doris-3(fe), doris-1(be), doris-3(be), replicas={'DEAD': 8, 'OK': 4}
     |   waiting (5s): doris-3(fe), doris-1(be), doris-3(be), replicas={'DEAD': 8, 'OK': 4}
     |   waiting (10s): doris-3(fe), doris-1(be), doris-3(be), replicas={'DEAD': 8, 'OK': 4}
-    |   waiting (15s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (20s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (15s): doris-3(fe), doris-1(be), doris-3(be), replicas={'DEAD': 8, 'OK': 4}
+    |   waiting (20s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
     |   waiting (25s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (30s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    | healthy after 35s
+    | healthy after 30s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 35.185.162.157)
+    | (queried via doris-1 35.229.153.36)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=32890
-    |   doris-2  10.140.0.3   MASTER   alive=true  journal=32904
-    |   doris-3  10.140.0.4   follower alive=true  journal=32890
+    |   doris-1  10.140.0.2   follower alive=true  journal=67714
+    |   doris-2  10.140.0.3   MASTER   alive=true  journal=67735
+    |   doris-3  10.140.0.4   follower alive=true  journal=67714
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10149
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10272
     | Starting instance(s) doris-3...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
     | Instance internal IP is 10.140.0.4
-    | Instance external IP is 34.80.234.205
-05:16:12   wait 25s (settle)
-05:16:37 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:16:42   after:  mysql=讀寫正常 fails=131 impact=47s, jdbc=讀寫正常 fails=144 impact=56s, flight=讀取正常 fails=34 impact=59s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10147 via doris-1  healthy=True
-05:16:42 === [double-two-vms] 兩台 VM 停（FE 1/3、BE 1/3）  steps=['--target vm --on master', '--target vm --on follower']
-05:16:42 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10147
+    | Instance external IP is 34.80.24.53
+20:03:27   wait 25s (settle)
+20:03:52 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:03:58   after:  mysql=只讀 fails=105 impact=26s, jdbc=讀寫正常 fails=138 impact=26s, flight=讀取正常 fails=65 impact=68s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10272 via doris-1  healthy=True
+20:03:58 === [double-two-vms] 兩台 VM 停（FE 1/3、BE 1/3）  steps=['--target vm --on master', '--target vm --on follower']
+20:03:58 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10272
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-05:16:48   wait 30s (baseline)
-05:17:18 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
-    | == break: vm stop on doris-2 (FE master) ==  [2m05:17:18
+20:04:04   wait 30s (baseline)
+20:04:34 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+    | == break: vm stop on doris-2 (FE master) ==  [2m20:04:34
     | [1;35m▶ EVENT break: vm stop on doris-2 (FE master)
     | [1;35m▶ EVENT break: doris-2 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-2...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-b/instances/doris-2].
-05:17:46   wait 30s (gap between breaks)
-05:18:16 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
-    | == break: vm stop on doris-1 (FE follower) ==  [2m05:18:16
+20:05:00   wait 30s (gap between breaks)
+20:05:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+    | == break: vm stop on doris-1 (FE follower) ==  [2m20:05:31
     | [1;35m▶ EVENT break: vm stop on doris-1 (FE follower)
     | [1;35m▶ EVENT break: doris-1 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
-05:18:41   wait 90s (observe)
-05:20:11 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:20:23   during: mysql=讀寫正常 (117s), jdbc=讀寫正常 (62s), flight=讀取正常 (87s)  alive=FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, "Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)"))
-05:20:23 $ /home/yugachang/workspace/doris-poc/demo.sh restore
-    |   waiting (31s): doris-2(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (36s): doris-2(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (41s): replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (46s): replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (52s): replicas={'OK': 11, 'VERSION_ERROR': 1}
-    | healthy after 57s
+20:05:57   wait 90s (observe)
+20:07:27 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:07:44   during: mysql=讀寫正常 (106s), jdbc=讀寫正常 (89s), flight=讀取正常 (95s)  alive=alive check failed: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:07:44 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+    |   waiting (11s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '34.80.24.53' ([Errno 111] Conne
+    |   waiting (16s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '34.80.24.53' ([Errno 111] Conne
+    |   waiting (21s): doris-2(fe), doris-1(fe), doris-2(be), replicas={'OK': 8, 'DEAD': 4}
+    |   waiting (29s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    |   waiting (34s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    | healthy after 40s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 34.80.84.237)
+    | (queried via doris-1 35.194.240.180)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=33359
-    |   doris-2  10.140.0.3   follower alive=true  journal=33359
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=33380
+    |   doris-1  10.140.0.2   follower alive=true  journal=68150
+    |   doris-2  10.140.0.3   follower alive=true  journal=68150
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=68169
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10153
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10274
     | Starting instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
     | Instance internal IP is 10.140.0.2
-    | Instance external IP is 34.80.84.237
+    | Instance external IP is 35.194.240.180
     | Starting instance(s) doris-2...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-b/instances/doris-2].
     | Instance internal IP is 10.140.0.3
-    | Instance external IP is 35.221.241.215
-05:21:46   wait 25s (settle)
-05:22:11 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:22:16   after:  mysql=讀寫正常 fails=30 impact=171s, jdbc=讀寫正常 fails=5 impact=168s, flight=讀取正常 fails=7 impact=168s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10153 via doris-1  healthy=True
-05:22:16 === [double-crossed] 交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）  steps=['--target vm --on doris-1', '--target be --mode dead --on doris-2', '--target fe --mode dead --on doris-3']
-05:22:16 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
-    | hatest.events (UNIQUE KEY, 3 replicas) rows=10153
+    | Instance external IP is 35.201.192.134
+20:08:57   wait 25s (settle)
+20:09:22 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:09:27   after:  mysql=讀寫正常 fails=34 impact=180s, jdbc=讀寫正常 fails=8 impact=180s, flight=讀取正常 fails=14 impact=182s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10276 via doris-1  healthy=True
+20:09:27 === [double-crossed] 交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）  steps=['--target vm --on doris-1', '--target be --mode dead --on doris-2', '--target fe --mode dead --on doris-3']
+20:09:27 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+    | hatest.events (UNIQUE KEY, 3 replicas) rows=10276
     | active active active 
     | [1;32m✔ probes started on doris-client: mysql jdbc flight (logs /opt/probe/log/*.log)
-05:22:22   wait 30s (baseline)
-05:22:52 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on doris-1
-    | == break: vm stop on doris-1 (FE follower) ==  [2m05:22:52
+20:09:33   wait 30s (baseline)
+20:10:03 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on doris-1
+    | == break: vm stop on doris-1 (FE follower) ==  [2m20:10:03
     | [1;35m▶ EVENT break: vm stop on doris-1 (FE follower)
     | [1;35m▶ EVENT break: doris-1 is down
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
     | Stopping instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
-05:23:20   wait 30s (gap between breaks)
-05:23:50 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on doris-2
-    | == break: be dead on doris-2 (FE follower) ==  [2m05:23:54
+20:10:30   wait 30s (gap between breaks)
+20:11:00 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on doris-2
+    | == break: be dead on doris-2 (FE follower) ==  [2m20:11:04
     | [1;35m▶ EVENT break: be dead on doris-2 (FE follower)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-05:24:00   wait 30s (gap between breaks)
-05:24:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on doris-3
-    | == break: fe dead on doris-3 (FE master) ==  [2m05:24:33
+20:11:10   wait 30s (gap between breaks)
+20:11:40 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on doris-3
+    | == break: fe dead on doris-3 (FE master) ==  [2m20:11:43
     | [1;35m▶ EVENT break: fe dead on doris-3 (FE master)
     | stopped
     | [1;32m✔ fault injected — watch the probes / run: ./demo.sh status
-05:24:39   wait 90s (observe)
-05:26:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:26:18   during: mysql=只讀 (86s), jdbc=只讀 (28s), flight=讀取正常 (117s)  alive=alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:18 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+20:11:49   wait 90s (observe)
+20:13:19 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:13:28   during: mysql=只讀 (79s), jdbc=不可用 (30s), flight=讀取正常 (157s)  alive=alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:28 $ /home/yugachang/workspace/doris-poc/demo.sh restore
     |   waiting (3s): OperationalError: (1105, 'Exception, msg: Failed to get master client.')
     |   waiting (11s): OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-    |   waiting (16s): doris-1(fe), doris-1(be), doris-2(be), doris-3(be)
-    |   waiting (21s): doris-1(fe), doris-1(be), doris-2(be), doris-3(be)
-    |   waiting (26s): doris-1(fe)
-    |   waiting (35s): doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (40s): doris-3(be), replicas={'OK': 8, 'DEAD': 4}
-    |   waiting (45s): replicas={'OK': 8, 'VERSION_ERROR': 4}
-    |   waiting (50s): replicas={'OK': 8, 'VERSION_ERROR': 4}
+    |   waiting (16s): doris-1(fe), doris-1(be), doris-2(be), replicas={'DEAD': 8, 'OK': 4}
+    |   waiting (21s): doris-1(fe), doris-1(be), doris-2(be), replicas={'DEAD': 8, 'OK': 4}
+    |   waiting (26s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
+    |   waiting (31s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
+    |   waiting (39s): replicas={'VERSION_ERROR': 4, 'OK': 8}
+    |   waiting (44s): replicas={'VERSION_ERROR': 4, 'OK': 8}
+    |   waiting (50s): replicas={'VERSION_ERROR': 4, 'OK': 8}
     | healthy after 55s
     | [1;35m▶ EVENT restore: cluster healthy
-    | (queried via doris-1 34.80.150.141)
+    | (queried via doris-1 107.167.189.172)
     | FE:
-    |   doris-1  10.140.0.2   follower alive=true  journal=33811
-    |   doris-2  10.140.0.3   follower alive=true  journal=33811
-    |   doris-3  10.140.0.4   MASTER   alive=true  journal=33834
+    |   doris-1  10.140.0.2   follower alive=true  journal=68629
+    |   doris-2  10.140.0.3   follower alive=true  journal=68629
+    |   doris-3  10.140.0.4   MASTER   alive=true  journal=68649
     | BE:
-    |   doris-1  10.140.0.2   alive=true  tablets=22
-    |   doris-2  10.140.0.3   alive=true  tablets=25
-    |   doris-3  10.140.0.4   alive=true  tablets=27
-    | replicas hatest.events: {'OK': 12}   rows=10159
+    |   doris-1  10.140.0.2   alive=true  tablets=26
+    |   doris-2  10.140.0.3   alive=true  tablets=29
+    |   doris-3  10.140.0.4   alive=true  tablets=31
+    | replicas hatest.events: {'OK': 12}   rows=10279
     | Starting instance(s) doris-1...
     | Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
     | Instance internal IP is 10.140.0.2
-    | Instance external IP is 34.80.150.141
-05:27:37   wait 25s (settle)
-05:28:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
-05:28:09   after:  mysql=讀寫正常 fails=57 impact=163s, jdbc=讀寫正常 fails=63 impact=198s, flight=讀取正常 fails=25 impact=198s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10160 via doris-1  healthy=True
-05:28:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure
-05:28:16 $ /home/yugachang/workspace/doris-poc/demo.sh stop
+    | Instance external IP is 107.167.189.172
+20:14:52   wait 25s (settle)
+20:15:17 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+20:15:25   after:  mysql=讀寫正常 fails=39 impact=98s, jdbc=讀寫正常 fails=60 impact=184s, flight=讀取正常 fails=17 impact=213s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10278 via doris-1  healthy=True
+20:15:25 $ /home/yugachang/workspace/doris-poc/demo.sh measure
+20:15:31 $ /home/yugachang/workspace/doris-poc/demo.sh stop
     |   "name" = "doris-client"
     |   "zone" = "asia-east1-a"
     | }
     | inventory = "./../ansible/inventory.ini"
     | nodes = [
     |   {
-    |     "external_ip" = "34.80.150.141"
+    |     "external_ip" = "107.167.189.172"
     |     "internal_ip" = "10.140.0.2"
     |     "name" = "doris-1"
     |     "zone" = "asia-east1-a"
     |   },
     |   {
-    |     "external_ip" = "35.221.241.215"
+    |     "external_ip" = "35.201.192.134"
     |     "internal_ip" = "10.140.0.3"
     |     "name" = "doris-2"
     |     "zone" = "asia-east1-b"
     |   },
     |   {
-    |     "external_ip" = "34.80.234.205"
+    |     "external_ip" = "34.80.24.53"
     |     "internal_ip" = "10.140.0.4"
     |     "name" = "doris-3"
     |     "zone" = "asia-east1-c"
     |   },
     | ]
     | [1;32m✔ stopped (disks kept)
-05:29:01 ##### pass 3 done: 16/16 scenarios
+20:16:14 ##### pass 3 done: 16/16 scenarios

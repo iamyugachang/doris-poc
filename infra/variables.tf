@@ -24,6 +24,12 @@ variable "machine_type" {
   default = "e2-standard-4"
 }
 
+variable "machine_type_override" {
+  # per-node override, e.g. { "doris-3" = "n2-standard-4" } when a zone is out of the default type
+  type    = map(string)
+  default = {}
+}
+
 variable "disk_gb" {
   type    = number
   default = 50

@@ -2,11 +2,12 @@
 """Build site/results.html (實驗過程與全部結果) from results/summary.json + per-run logs.
 Also copies the per-run probe logs into site/results/ so the deployed page can link to them.
 Run after experiments/fill_results.py:  ./venv/bin/python site/build_results.py"""
-import json, pathlib, shutil, html, re, collections, sys
+import json, markdown, pathlib, shutil, html, re, collections, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from theme import shell, steps, lvl
 import yaml
 
+def md(t): return markdown.markdown(t)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 agg = json.loads((ROOT / "results/summary.json").read_text(encoding="utf-8"))
 order = [s["id"] for s in yaml.safe_load((ROOT / "experiments/scenarios.yaml").read_text(encoding="utf-8"))["scenarios"]]
@@ -66,6 +67,7 @@ for key, title, pred in GROUPS:
     sections.append(f'<section id="g-{key}"><h2 class="title"><small>{key.upper()}</small>{title}</h2><div class="cards" style="grid-template-columns:1fr">{"".join(scenario_block(i) for i in ids)}</div></section>')
 
 n_runs = sum(len(a["passes"]) for a in agg.values())
+notes_md = (ROOT / "results/run-notes.md"); run_notes = ("<section class=\"tight\"><h2 class=\"title\"><small>THIS RUN</small>本次執行備註</h2>" + md(notes_md.read_text(encoding="utf-8")).replace("<ul>", "<ul class=\"notes\">") + "</section>") if notes_md.exists() else ""
 body = f'''<div class="hero"><div class="container">{steps("results")}<p class="eyebrow">Step 03 · 實驗過程與全部結果</p>
 <h1 class="display">每一格、每一輪、<em>每個 client</em> 的原始結果</h1>
 <p class="lede">依 <a href="specs.html">實驗設計</a> 的故障矩陣，由 <code>experiments/run_matrix.py</code> 自動逐格執行：<b>monitor → baseline 30s → break → 觀察 90s → measure → restore → settle → measure</b>。每格跑三輪，每輪從全部 VM 重新開機開始。共 {len(agg)} 格、{n_runs} 次執行。等級由 <code>measure</code> 依故障期間最後一段紀錄判定；中斷秒數 = 第一次失敗到下一次成功。</p>
@@ -77,6 +79,7 @@ body = f'''<div class="hero"><div class="container">{steps("results")}<p class="
 <div class="card"><div class="k">影響秒數</div><p style="margin:0">失敗視窗（第一次 FAIL 到下一次 OK）＋卡頓（連續兩次操作間隔超過 5 秒，例如 client 卡在轉發給已卡住的 master）。含 client 自己的逾時等待：connect 3s、read/write 8s。</p></div>
 <div class="card"><div class="k">restore → 健康</div><p style="margin:0">從逆轉第一個故障到 3 FE / 3 BE alive、12 副本 OK 的秒數；crash 類另記 systemd 拉起的秒數。</p></div>
 </div></section>
+{run_notes}
 {"".join(sections)}
 </div>'''
 out = ROOT / "site/results.html"

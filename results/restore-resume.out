@@ -1,0 +1,31 @@
+
+[1;36m== restore: reverse all faults ==[0m  [2m17:49:12[0m
+[1;35m▶ EVENT restore: start doris-1[0m
+Starting instance(s) doris-1...
+.....done.
+Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-a/instances/doris-1].
+Instance internal IP is 10.140.0.2
+Instance external IP is 34.80.24.53
+[1;35m▶ EVENT restore: start doris-3[0m
+Starting instance(s) doris-3...
+.....done.
+Updated [https://compute.googleapis.com/compute/v1/projects/doris-poc/zones/asia-east1-c/instances/doris-3].
+Instance internal IP is 10.140.0.4
+Instance external IP is 35.194.240.180
+  waiting for the cluster to be healthy…
+  waiting (0s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
+  waiting (5s): doris-3(fe), doris-3(be), replicas={'OK': 8, 'DEAD': 4}
+  waiting (10s): doris-3(fe), replicas={'OK': 8, 'VERSION_ERROR': 4}
+  waiting (15s): doris-3(fe)
+healthy after 20s
+[1;35m▶ EVENT restore: cluster healthy[0m
+(queried via doris-1 34.80.24.53)
+FE:
+  doris-1  10.140.0.2   follower alive=true  journal=50381
+  doris-2  10.140.0.3   MASTER   alive=true  journal=50400
+  doris-3  10.140.0.4   follower alive=true  journal=50381
+BE:
+  doris-1  10.140.0.2   alive=true  tablets=26
+  doris-2  10.140.0.3   alive=true  tablets=29
+  doris-3  10.140.0.4   alive=true  tablets=31
+replicas hatest.events: {'OK': 12}   rows=10204

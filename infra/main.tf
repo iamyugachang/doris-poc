@@ -22,7 +22,7 @@ resource "google_compute_instance" "doris" {
   count        = length(var.zones)
   name         = "${var.name_prefix}-${count.index + 1}"
   zone         = "${var.region}-${var.zones[count.index]}"
-  machine_type = var.machine_type
+  machine_type = lookup(var.machine_type_override, "${var.name_prefix}-${count.index + 1}", var.machine_type)
   tags         = ["doris"]
   labels       = local.labels
 

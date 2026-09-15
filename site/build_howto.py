@@ -66,7 +66,7 @@ def avail_state_svg():
     s.append(arrow("M500,128 V176 Q500,184 508,184 H592 Q600,184 600,192 V208")); s.append(label(550, 176, "FE 存活 = 1"))
     s.append(arrow("M600,272 V296 Q600,304 592,304 H480 Q472,304 472,296 V128", dashed=True)); s.append(label(536, 296, "FE 回到 ≥ 2"))
     s.append(arrow("M440,128 V208")); s.append(label(496, 168, "MASTER FE HANG"))
-    s.append(arrow("M420,272 V296 Q420,304 428,304 H452 Q460,304 460,296 V128", dashed=True)); s.append(label(504, 320, "63s 後重新選主 或 恢復"))
+    s.append(arrow("M420,272 V296 Q420,304 428,304 H452 Q460,304 460,296 V128", dashed=True)); s.append(label(504, 320, "重新選主（時間不定）或 恢復"))
     s.append(arrow("M280,208 V184 Q280,176 288,176 H352 Q360,176 360,184 V208", dashed=True))
     s.append(box(300, 64, 200, 64, "讀寫正常", "FE ≥ 2 且 BE ≥ 2", focal=True))
     s.append(box(200, 208, 160, 64, "只讀", "寫入失敗、SELECT 正常"))
@@ -161,7 +161,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <section id="states"><h2 class="title"><small>04 · STATE MACHINES</small>狀態機</h2>
 <p class="sub">兩個層次：<b>環境</b>（demo.sh 指令把整個環境帶到哪個狀態）與<b>叢集可用性</b>（FE / BE 存活數決定 client 還能做什麼）。</p>
 <figure><div class="figure">{env_state_svg()}</div><figcaption>環境狀態機。故障可以疊加（連續 break），restore 依相反順序全部逆轉；crash 類故障由 systemd 自動拉起，restore 只做健康確認。狀態存在 <code>.state/faults</code>，<code>demo.sh status</code> 隨時可看。</figcaption></figure>
-<figure style="margin-top:18px"><div class="figure">{avail_state_svg()}</div><figcaption>叢集可用性狀態機（實驗結果驗證）。FE 三個 FOLLOWER 需 2 個才能選 master 與改 metadata；BE 三副本寫入需 2 份成功。三輪實測：FE 剩 1 → 不可用（連查詢都拿不到 metadata）；BE 剩 1 → 只讀；master FE 被 SIGSTOP → 卡住，第 1 輪 2 分鐘未選主、第 2/3 輪 63 秒後選主。</figcaption></figure>
+<figure style="margin-top:18px"><div class="figure">{avail_state_svg()}</div><figcaption>叢集可用性狀態機（實驗結果驗證）。FE 三個 FOLLOWER 需 2 個才能選 master 與改 metadata；BE 三副本寫入需 2 份成功。三輪實測：FE 剩 1 → 不可用（連查詢都拿不到 metadata）；BE 剩 1 → 只讀；master FE 被 SIGSTOP → 卡住，2026-09-15 三輪：兩輪在 120 秒觀察內沒有重新選主（直到人工恢復），一輪約 73 秒後選出新 master。</figcaption></figure>
 <div class="tablewrap" style="margin-top:18px"><table><thead><tr><th>叢集狀態</th><th>條件</th><th>client 看到什麼</th><th>measure 判定</th></tr></thead><tbody>
 <tr><td>{lvl("rw")}</td><td>FE 存活 ≥ 2 且 BE 存活 ≥ 2</td><td>短暫失敗後全部恢復，中斷多在 0～40 秒</td><td>故障中最後 30 秒有寫入成功</td></tr>
 <tr><td>{lvl("ro")}</td><td>BE 存活 = 1（FE ≥ 2）</td><td>INSERT/UPSERT/DELETE 持續失敗，SELECT 正常</td><td>寫入全失敗、讀取檢查成功</td></tr>

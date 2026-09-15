@@ -1,256 +1,221 @@
-03:53:45 PROBE start proto=jdbc hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT url=jdbc:mysql://10.140.0.2:9030,10.140.0.3:9030,10.140.0.4:9030/hatest
-03:53:46 connected to doris-1 (driver-selected host)
-03:53:46 #1 OK INSERT id=2700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:47 #2 OK UPSERT id=2700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:48 #3 OK SELECT id=2700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:49 #4 OK DELETE id=2700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:50 #5 OK SELECT id=2700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:51 #6 OK INSERT id=2700251 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:52 #7 OK UPSERT id=2700251 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:53 #8 OK SELECT id=2700251 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:55 #9 OK DELETE id=2700251 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:56 #10 OK SELECT id=2700251 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:57 #11 OK INSERT id=2700252 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:58 #12 OK UPSERT id=2700252 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:59 #13 OK SELECT id=2700252 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:00 #14 OK DELETE id=2700252 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:01 #15 OK SELECT id=2700252 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:02 #16 OK INSERT id=2700253 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:03 #17 OK UPSERT id=2700253 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:04 #18 OK SELECT id=2700253 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:05 #19 OK DELETE id=2700253 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:06 #20 OK SELECT id=2700253 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:07 #21 OK INSERT id=2700254 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:08 #22 OK UPSERT id=2700254 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:09 #23 OK SELECT id=2700254 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:11 #24 OK DELETE id=2700254 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:12 #25 OK SELECT id=2700254 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:13 #26 OK INSERT id=2700255 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:14 #27 OK UPSERT id=2700255 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:15 #28 OK SELECT id=2700255 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:16 #29 OK DELETE id=2700255 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:17 #30 OK SELECT id=2700255 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:18 #31 OK INSERT id=2700256 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:19 #32 OK UPSERT id=2700256 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:20 #33 OK SELECT id=2700256 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:20 EVENT break: vm stop on doris-3 (FE master)
-03:54:21 #34 OK DELETE id=2700256 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:22 #35 OK SELECT id=2700256 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:23 #36 FAIL INSERT id=2700257 via doris-1: SQLException: ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.4, port:9020), statement
-03:54:23 #36 FAIL SELECT(check) id=1 via -: SQLException: ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.4, p
-03:54:24 #37 FAIL INSERT id=2700258 via doris-1: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: open editlog. Frontend
-03:54:24 #37 FAIL SELECT(check) id=1 via -: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: op
-03:54:25 #38 FAIL INSERT id=2700259 via doris-1: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: open editlog. Frontend
-03:54:25 #38 FAIL SELECT(check) id=1 via -: SQLException: Exception, msg: Node catalog is not ready, please wait for a while. To master progress: op
-03:54:45 EVENT break: doris-3 is down
-03:54:46 connected to doris-1 (driver-selected host)
-03:54:57 #39 FAIL INSERT id=2700260 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:54:57 #39 OK SELECT(check) id=1 via doris-1
-03:54:58 connected to doris-1 (driver-selected host)
-03:54:58 #40 OK INSERT id=2700261 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
-03:54:59 #41 OK UPSERT id=2700261 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:00 #42 OK SELECT id=2700261 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:01 #43 OK DELETE id=2700261 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:02 #44 OK SELECT id=2700261 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:03 #45 OK INSERT id=2700262 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:04 #46 OK UPSERT id=2700262 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:05 #47 OK SELECT id=2700262 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:06 #48 OK DELETE id=2700262 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:08 #49 OK SELECT id=2700262 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:09 #50 OK INSERT id=2700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:10 #51 OK UPSERT id=2700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:11 #52 OK SELECT id=2700263 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:12 #53 OK DELETE id=2700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:13 #54 OK SELECT id=2700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:14 #55 OK INSERT id=2700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:15 #56 OK UPSERT id=2700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:16 #57 OK SELECT id=2700264 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:17 EVENT break: fe dead on doris-1 (FE follower)
-03:55:17 #58 OK DELETE id=2700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:18 #59 OK SELECT id=2700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:19 #60 FAIL INSERT id=2700265 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 1,028 milliseconds ago.
-03:55:19 #60 OK SELECT(check) id=1 via doris-2
-03:55:20 connected to doris-2 (driver-selected host)
-03:55:32 #61 FAIL INSERT id=2700266 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:55:43 #61 FAIL SELECT(check) id=1 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
-03:55:44 connected to doris-2 (driver-selected host)
-03:55:55 #62 FAIL INSERT id=2700267 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,011 milliseconds ago.
-03:56:06 #62 FAIL SELECT(check) id=1 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
-03:56:07 connected to doris-2 (driver-selected host)
-03:56:18 #63 FAIL INSERT id=2700268 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:56:29 #63 FAIL SELECT(check) id=1 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
-03:56:30 connected to doris-2 (driver-selected host)
-03:56:41 #64 FAIL INSERT id=2700269 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:56:52 #64 FAIL SELECT(check) id=1 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
-03:56:53 connected to doris-2 (driver-selected host)
-03:57:04 #65 FAIL INSERT id=2700270 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,004 milliseconds ago.
-03:57:04 EVENT restore: systemctl start doris-fe on doris-1
-03:57:08 EVENT restore: start doris-3
-03:57:15 #65 FAIL SELECT(check) id=1 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
-03:57:16 connected to doris-2 (driver-selected host)
-03:57:27 #66 FAIL INSERT id=2700271 via doris-2: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:57:30 #66 OK SELECT(check) id=1 via doris-1
-03:57:31 connected to doris-1 (driver-selected host)
-03:57:39 #67 FAIL INSERT id=2700272 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:57:39 #67 OK SELECT(check) id=1 via doris-1
-03:57:40 connected to doris-1 (driver-selected host)
-03:57:48 #68 FAIL INSERT id=2700273 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:57:48 #68 OK SELECT(check) id=1 via doris-1
-03:57:49 connected to doris-1 (driver-selected host)
-03:57:57 #69 FAIL INSERT id=2700274 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,008 milliseconds ago.
-03:57:57 #69 OK SELECT(check) id=1 via doris-1
-03:57:58 connected to doris-1 (driver-selected host)
-03:58:06 #70 FAIL INSERT id=2700275 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:58:06 #70 OK SELECT(check) id=1 via doris-1
-03:58:07 connected to doris-1 (driver-selected host)
-03:58:15 #71 FAIL INSERT id=2700276 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-03:58:15 #71 OK SELECT(check) id=1 via doris-1
-03:58:16 connected to doris-1 (driver-selected host)
-03:58:24 #72 FAIL INSERT id=2700277 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,015 milliseconds ago.
-03:58:24 #72 OK SELECT(check) id=1 via doris-1
-03:58:25 connected to doris-1 (driver-selected host)
-03:58:33 #73 FAIL INSERT id=2700278 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,003 milliseconds ago.
-03:58:33 #73 OK SELECT(check) id=1 via doris-1
-03:58:34 connected to doris-1 (driver-selected host)
-03:58:42 #74 FAIL INSERT id=2700279 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,008 milliseconds ago.
-03:58:42 #74 OK SELECT(check) id=1 via doris-1
-03:58:44 connected to doris-1 (driver-selected host)
-03:58:52 #75 FAIL INSERT id=2700280 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,006 milliseconds ago.
-03:58:52 #75 OK SELECT(check) id=1 via doris-1
-03:58:53 connected to doris-1 (driver-selected host)
-03:59:01 #76 FAIL INSERT id=2700281 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,003 milliseconds ago.
-03:59:01 #76 OK SELECT(check) id=1 via doris-1
-03:59:02 connected to doris-1 (driver-selected host)
-03:59:10 #77 FAIL INSERT id=2700282 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-03:59:10 #77 OK SELECT(check) id=1 via doris-1
-03:59:11 connected to doris-1 (driver-selected host)
-03:59:19 #78 FAIL INSERT id=2700283 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:59:19 #78 OK SELECT(check) id=1 via doris-1
-03:59:20 connected to doris-1 (driver-selected host)
-03:59:28 #79 FAIL INSERT id=2700284 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:59:28 #79 OK SELECT(check) id=1 via doris-1
-03:59:29 connected to doris-1 (driver-selected host)
-03:59:37 #80 FAIL INSERT id=2700285 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-03:59:37 #80 OK SELECT(check) id=1 via doris-1
-03:59:38 connected to doris-1 (driver-selected host)
-03:59:46 #81 FAIL INSERT id=2700286 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-03:59:46 #81 OK SELECT(check) id=1 via doris-1
-03:59:47 connected to doris-1 (driver-selected host)
-03:59:55 #82 FAIL INSERT id=2700287 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,007 milliseconds ago.
-03:59:55 #82 OK SELECT(check) id=1 via doris-1
-03:59:56 connected to doris-1 (driver-selected host)
-04:00:04 #83 FAIL INSERT id=2700288 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-04:00:04 #83 OK SELECT(check) id=1 via doris-1
-04:00:05 connected to doris-1 (driver-selected host)
-04:00:13 #84 FAIL INSERT id=2700289 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,008 milliseconds ago.
-04:00:13 #84 OK SELECT(check) id=1 via doris-1
-04:00:14 connected to doris-1 (driver-selected host)
-04:00:22 #85 FAIL INSERT id=2700290 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-04:00:22 #85 OK SELECT(check) id=1 via doris-1
-04:00:24 connected to doris-1 (driver-selected host)
-04:00:32 #86 FAIL INSERT id=2700291 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-04:00:32 #86 OK SELECT(check) id=1 via doris-1
-04:00:33 connected to doris-1 (driver-selected host)
-04:00:41 #87 FAIL INSERT id=2700292 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-04:00:41 #87 OK SELECT(check) id=1 via doris-1
-04:00:42 connected to doris-1 (driver-selected host)
-04:00:50 #88 FAIL INSERT id=2700293 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
-04:00:50 #88 OK SELECT(check) id=1 via doris-1
-04:00:51 connected to doris-1 (driver-selected host)
-04:00:59 #89 FAIL INSERT id=2700294 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
-04:00:59 #89 OK SELECT(check) id=1 via doris-1
-04:01:00 connected to doris-1 (driver-selected host)
-04:01:06 #90 FAIL INSERT id=2700295 via doris-1: SQLException: ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), statement
-04:01:11 #90 OK SELECT(check) id=1 via doris-3
-04:01:12 connected to doris-1 (driver-selected host)
-04:01:12 #91 FAIL INSERT id=2700296 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3
-04:01:12 #91 OK SELECT(check) id=1 via doris-1
-04:01:13 connected to doris-1 (driver-selected host)
-04:01:13 #92 FAIL INSERT id=2700297 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36039, cause tablet 1789045666396 succ replica num 1 < load 
-04:01:13 #92 OK SELECT(check) id=1 via doris-1
-04:01:14 connected to doris-1 (driver-selected host)
-04:01:14 #93 FAIL INSERT id=2700298 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36040, cause tablet 1789045666396 succ replica num 1 < load 
-04:01:14 #93 OK SELECT(check) id=1 via doris-1
-04:01:15 connected to doris-1 (driver-selected host)
-04:01:15 #94 FAIL INSERT id=2700299 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3
-04:01:15 #94 OK SELECT(check) id=1 via doris-1
-04:01:16 connected to doris-1 (driver-selected host)
-04:01:16 #95 FAIL INSERT id=2700300 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36043, cause tablet 1789045666396 succ replica num 1 < load 
-04:01:16 #95 OK SELECT(check) id=1 via doris-1
-04:01:17 connected to doris-1 (driver-selected host)
-04:01:18 #96 FAIL INSERT id=2700301 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36044, cause tablet 1789045666396 succ replica num 1 < load 
-04:01:18 #96 OK SELECT(check) id=1 via doris-1
-04:01:19 connected to doris-1 (driver-selected host)
-04:01:19 #97 FAIL INSERT id=2700302 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36046, cause tablet 1789045666400 succ replica num 1 < load 
-04:01:19 #97 OK SELECT(check) id=1 via doris-1
-04:01:20 connected to doris-1 (driver-selected host)
-04:01:20 #98 FAIL INSERT id=2700303 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36048, cause tablet 1789045666404 succ replica num 1 < load 
-04:01:20 #98 OK SELECT(check) id=1 via doris-1
-04:01:21 connected to doris-1 (driver-selected host)
-04:01:21 #99 FAIL INSERT id=2700304 via doris-1: SQLException: errCode = 2, detailMessage = Failed to commit txn 36050, cause tablet 1789045666408 succ replica num 1 < load 
-04:01:21 #99 OK SELECT(check) id=1 via doris-1
-04:01:22 connected to doris-1 (driver-selected host)
-04:01:22 #100 OK INSERT id=2700305 via doris-1 rows=10097 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
-04:01:23 #101 OK UPSERT id=2700305 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:25 #102 OK SELECT id=2700305 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:26 #103 OK DELETE id=2700305 via doris-1 rows=10096 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:27 #104 OK SELECT id=2700305 via doris-1 rows=10096 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:28 #105 OK INSERT id=2700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:29 #106 OK UPSERT id=2700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:30 #107 OK SELECT id=2700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:31 #108 OK DELETE id=2700306 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:32 #109 OK SELECT id=2700306 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:33 #110 OK INSERT id=2700307 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:34 #111 OK UPSERT id=2700307 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:36 #112 OK SELECT id=2700307 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:37 #113 OK DELETE id=2700307 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:38 #114 OK SELECT id=2700307 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:49 #115 FAIL INSERT id=2700308 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 9,008 milliseconds ago.
-04:01:49 #115 OK SELECT(check) id=1 via doris-1
-04:01:51 connected to doris-1 (driver-selected host)
-04:01:51 #116 OK INSERT id=2700309 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
-04:01:52 #117 OK UPSERT id=2700309 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:53 #118 OK SELECT id=2700309 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:54 #119 OK DELETE id=2700309 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:55 #120 OK SELECT id=2700309 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:56 #121 OK INSERT id=2700310 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:57 #122 OK UPSERT id=2700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:58 #123 OK SELECT id=2700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:59 #124 OK DELETE id=2700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:00 #125 OK SELECT id=2700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:01 #126 OK INSERT id=2700311 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:03 #127 OK UPSERT id=2700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:04 #128 OK SELECT id=2700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:05 #129 OK DELETE id=2700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:06 #130 OK SELECT id=2700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:07 #131 OK INSERT id=2700312 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:08 #132 OK UPSERT id=2700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 #133 OK SELECT id=2700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 EVENT restore: cluster healthy
-04:02:10 #134 OK DELETE id=2700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:11 #135 OK SELECT id=2700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:12 #136 OK INSERT id=2700313 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:13 #137 OK UPSERT id=2700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:14 #138 OK SELECT id=2700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:16 #139 OK DELETE id=2700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:17 #140 OK SELECT id=2700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:18 #141 OK INSERT id=2700314 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:19 #142 OK UPSERT id=2700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:20 #143 OK SELECT id=2700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:21 #144 OK DELETE id=2700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:22 #145 OK SELECT id=2700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:23 #146 OK INSERT id=2700315 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:24 #147 OK UPSERT id=2700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:25 #148 OK SELECT id=2700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:26 #149 OK DELETE id=2700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:27 #150 OK SELECT id=2700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:29 #151 OK INSERT id=2700316 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:30 #152 OK UPSERT id=2700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:31 #153 OK SELECT id=2700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:32 #154 OK DELETE id=2700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:33 #155 OK SELECT id=2700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:34 #156 OK INSERT id=2700317 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:35 #157 OK UPSERT id=2700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:36 #158 OK SELECT id=2700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:37 #159 OK DELETE id=2700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:38 #160 OK SELECT id=2700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:46:04 PROBE start proto=jdbc hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT url=jdbc:mysql://10.140.0.2:9030,10.140.0.3:9030,10.140.0.4:9030/hatest
+18:46:04 connected to doris-1 (driver-selected host)
+18:46:04 #1 OK INSERT id=2691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:05 #2 OK UPSERT id=2691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:07 #3 OK SELECT id=2691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:08 #4 OK DELETE id=2691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:09 #5 OK SELECT id=2691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:10 #6 OK INSERT id=2691641 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:11 #7 OK UPSERT id=2691641 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:12 #8 OK SELECT id=2691641 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:13 #9 OK DELETE id=2691641 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:14 #10 OK SELECT id=2691641 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:15 #11 OK INSERT id=2691642 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:16 #12 OK UPSERT id=2691642 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:17 #13 OK SELECT id=2691642 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:18 #14 OK DELETE id=2691642 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:19 #15 OK SELECT id=2691642 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:20 #16 OK INSERT id=2691643 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:21 #17 OK UPSERT id=2691643 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:22 #18 OK SELECT id=2691643 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:24 #19 OK DELETE id=2691643 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:25 #20 OK SELECT id=2691643 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:26 #21 OK INSERT id=2691644 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:27 #22 OK UPSERT id=2691644 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:28 #23 OK SELECT id=2691644 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:29 #24 OK DELETE id=2691644 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:30 #25 OK SELECT id=2691644 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:31 #26 OK INSERT id=2691645 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:32 #27 OK UPSERT id=2691645 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:33 #28 OK SELECT id=2691645 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:34 #29 OK DELETE id=2691645 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:35 #30 OK SELECT id=2691645 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:36 #31 OK INSERT id=2691646 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:37 #32 OK UPSERT id=2691646 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:38 EVENT break: vm stop on doris-2 (FE master)
+18:46:38 #33 OK SELECT id=2691646 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:39 #34 OK DELETE id=2691646 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:40 #35 OK SELECT id=2691646 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:42 #36 OK INSERT id=2691647 via doris-1 rows=10235 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:46:43 #37 FAIL UPSERT id=2691647 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: failed to w
+18:46:43 #37 OK SELECT(check) id=1 via doris-1
+18:46:44 connected to doris-1 (driver-selected host)
+18:46:44 #38 FAIL INSERT id=2691648 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: failed to w
+18:46:44 #38 OK SELECT(check) id=1 via doris-1
+18:46:45 connected to doris-1 (driver-selected host)
+18:46:45 #39 FAIL INSERT id=2691649 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+18:46:45 #39 OK SELECT(check) id=1 via doris-1
+18:46:46 connected to doris-1 (driver-selected host)
+18:46:46 #40 FAIL INSERT id=2691650 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+18:46:47 #40 OK SELECT(check) id=1 via doris-1
+18:46:48 connected to doris-1 (driver-selected host)
+18:46:48 #41 FAIL INSERT id=2691651 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+18:46:48 #41 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:46:49 connected to doris-1 (driver-selected host)
+18:46:49 #42 FAIL INSERT id=2691652 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+18:46:49 #42 OK SELECT(check) id=1 via doris-1
+18:46:50 connected to doris-1 (driver-selected host)
+18:46:50 #43 FAIL INSERT id=2691653 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: failed to w
+18:46:50 #43 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:46:51 connected to doris-1 (driver-selected host)
+18:46:51 #44 FAIL INSERT id=2691654 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+18:46:51 #44 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:46:52 connected to doris-1 (driver-selected host)
+18:46:52 #45 FAIL INSERT id=2691655 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+18:46:52 #45 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:46:53 connected to doris-1 (driver-selected host)
+18:46:53 #46 FAIL INSERT id=2691656 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+18:46:53 #46 OK SELECT(check) id=1 via doris-1
+18:46:54 connected to doris-1 (driver-selected host)
+18:46:54 #47 FAIL INSERT id=2691657 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+18:46:54 #47 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:46:55 connected to doris-1 (driver-selected host)
+18:46:55 #48 FAIL INSERT id=2691658 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: failed to w
+18:46:55 #48 OK SELECT(check) id=1 via doris-1
+18:46:56 connected to doris-1 (driver-selected host)
+18:46:56 #49 FAIL INSERT id=2691659 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: failed to w
+18:46:56 #49 OK SELECT(check) id=1 via doris-1
+18:46:58 connected to doris-1 (driver-selected host)
+18:47:01 EVENT break: doris-2 is down
+18:47:09 #50 FAIL INSERT id=2691660 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
+18:47:09 #50 OK SELECT(check) id=1 via doris-1
+18:47:10 connected to doris-1 (driver-selected host)
+18:47:10 #51 FAIL INSERT id=2691661 via doris-1: SQLException: errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: failed to w
+18:47:10 #51 FAIL SELECT(check) id=1 via doris-1: SQLException: RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io 
+18:47:11 connected to doris-1 (driver-selected host)
+18:47:11 #52 FAIL INSERT id=2691662 via doris-1: SQLException: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2
+18:47:11 #52 OK SELECT(check) id=1 via doris-1
+18:47:12 connected to doris-1 (driver-selected host)
+18:47:12 #53 FAIL INSERT id=2691663 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:12 #53 OK SELECT(check) id=1 via doris-1
+18:47:13 connected to doris-1 (driver-selected host)
+18:47:13 #54 FAIL INSERT id=2691664 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:13 #54 OK SELECT(check) id=1 via doris-1
+18:47:14 connected to doris-1 (driver-selected host)
+18:47:14 #55 FAIL INSERT id=2691665 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:14 #55 OK SELECT(check) id=1 via doris-1
+18:47:15 connected to doris-1 (driver-selected host)
+18:47:15 #56 FAIL INSERT id=2691666 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:15 #56 OK SELECT(check) id=1 via doris-1
+18:47:16 connected to doris-1 (driver-selected host)
+18:47:16 #57 FAIL INSERT id=2691667 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:16 #57 OK SELECT(check) id=1 via doris-1
+18:47:17 connected to doris-1 (driver-selected host)
+18:47:17 #58 FAIL INSERT id=2691668 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:17 #58 OK SELECT(check) id=1 via doris-1
+18:47:18 connected to doris-1 (driver-selected host)
+18:47:18 #59 FAIL INSERT id=2691669 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:18 #59 OK SELECT(check) id=1 via doris-1
+18:47:19 connected to doris-1 (driver-selected host)
+18:47:19 #60 FAIL INSERT id=2691670 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:19 #60 OK SELECT(check) id=1 via doris-1
+18:47:20 connected to doris-1 (driver-selected host)
+18:47:20 #61 FAIL INSERT id=2691671 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:20 #61 OK SELECT(check) id=1 via doris-1
+18:47:21 connected to doris-1 (driver-selected host)
+18:47:21 #62 FAIL INSERT id=2691672 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:21 #62 OK SELECT(check) id=1 via doris-1
+18:47:23 connected to doris-1 (driver-selected host)
+18:47:23 #63 FAIL INSERT id=2691673 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:23 #63 OK SELECT(check) id=1 via doris-1
+18:47:24 connected to doris-1 (driver-selected host)
+18:47:24 #64 FAIL INSERT id=2691674 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:24 #64 OK SELECT(check) id=1 via doris-1
+18:47:25 connected to doris-1 (driver-selected host)
+18:47:25 #65 FAIL INSERT id=2691675 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:25 #65 OK SELECT(check) id=1 via doris-1
+18:47:26 connected to doris-1 (driver-selected host)
+18:47:26 #66 FAIL INSERT id=2691676 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:26 #66 OK SELECT(check) id=1 via doris-1
+18:47:27 connected to doris-1 (driver-selected host)
+18:47:27 #67 FAIL INSERT id=2691677 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:27 #67 OK SELECT(check) id=1 via doris-1
+18:47:28 connected to doris-1 (driver-selected host)
+18:47:28 #68 FAIL INSERT id=2691678 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:28 #68 OK SELECT(check) id=1 via doris-1
+18:47:29 connected to doris-1 (driver-selected host)
+18:47:29 #69 FAIL INSERT id=2691679 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:29 #69 OK SELECT(check) id=1 via doris-1
+18:47:30 connected to doris-1 (driver-selected host)
+18:47:30 #70 FAIL INSERT id=2691680 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:30 #70 OK SELECT(check) id=1 via doris-1
+18:47:31 connected to doris-1 (driver-selected host)
+18:47:31 #71 FAIL INSERT id=2691681 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:31 #71 OK SELECT(check) id=1 via doris-1
+18:47:32 connected to doris-1 (driver-selected host)
+18:47:32 #72 FAIL INSERT id=2691682 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:32 #72 OK SELECT(check) id=1 via doris-1
+18:47:33 connected to doris-1 (driver-selected host)
+18:47:33 #73 FAIL INSERT id=2691683 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:33 #73 OK SELECT(check) id=1 via doris-1
+18:47:33 EVENT break: fe dead on doris-1 (FE follower)
+18:47:34 connected to doris-1 (driver-selected host)
+18:47:34 #74 FAIL INSERT id=2691684 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:34 #74 OK SELECT(check) id=1 via doris-1
+18:47:35 connected to doris-1 (driver-selected host)
+18:47:35 #75 FAIL INSERT id=2691685 via doris-1: SQLException: errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < load requ
+18:47:35 #75 OK SELECT(check) id=1 via doris-1
+18:47:39 connected to doris-3 (driver-selected host)
+18:47:50 #76 FAIL INSERT id=2691686 via doris-3: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,010 milliseconds ago.
+18:48:04 #76 FAIL SELECT(check) id=1 via doris-3: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,0
+18:48:08 connected to doris-3 (driver-selected host)
+18:48:19 #77 FAIL INSERT id=2691687 via doris-3: CommunicationsException: Communications link failure  The last packet successfully received from the server was 8,009 milliseconds ago.
+18:49:18 EVENT restore: systemctl start doris-fe on doris-1
+18:49:22 EVENT restore: start doris-2
+18:49:49 #77 FAIL SELECT(check) id=1 via doris-3: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of
+18:49:50 #78 FAIL INSERT id=2691688 via doris-3: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of your backends.[1789
+18:49:50 #78 FAIL SELECT(check) id=1 via -: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of
+18:49:53 #79 FAIL INSERT id=2691689 via doris-3: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of your backends.[1789
+18:49:53 #79 FAIL SELECT(check) id=1 via -: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of
+18:49:54 #80 FAIL INSERT id=2691690 via doris-3: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of your backends.[1789
+18:49:54 #80 FAIL SELECT(check) id=1 via -: SQLException: errCode = 2, detailMessage = No backend available as scan node, please check the status of
+18:49:55 connected to doris-1 (driver-selected host)
+18:49:56 #81 OK INSERT id=2691691 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+18:49:57 #82 OK UPSERT id=2691691 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:49:58 #83 OK SELECT id=2691691 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:49:59 #84 OK DELETE id=2691691 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:00 #85 OK SELECT id=2691691 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:02 #86 OK INSERT id=2691692 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:03 #87 OK UPSERT id=2691692 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:04 #88 OK SELECT id=2691692 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:05 #89 OK DELETE id=2691692 via doris-1 rows=10237 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:06 #90 OK SELECT id=2691692 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:18 #91 FAIL INSERT id=2691693 via doris-1: CommunicationsException: Communications link failure  The last packet successfully received from the server was 9,009 milliseconds ago.
+18:50:18 #91 OK SELECT(check) id=1 via doris-1
+18:50:19 connected to doris-1 (driver-selected host)
+18:50:25 #92 OK INSERT id=2691694 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
+18:50:27 #93 OK UPSERT id=2691694 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:28 #94 OK SELECT id=2691694 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:29 #95 OK DELETE id=2691694 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:30 #96 OK SELECT id=2691694 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 #97 OK INSERT id=2691695 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 EVENT restore: cluster healthy
+18:50:32 #98 OK UPSERT id=2691695 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:33 #99 OK SELECT id=2691695 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:34 #100 OK DELETE id=2691695 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:35 #101 OK SELECT id=2691695 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:36 #102 OK INSERT id=2691696 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:38 #103 OK UPSERT id=2691696 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:39 #104 OK SELECT id=2691696 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:40 #105 OK DELETE id=2691696 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:41 #106 OK SELECT id=2691696 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:42 #107 OK INSERT id=2691697 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:43 #108 OK UPSERT id=2691697 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:44 #109 OK SELECT id=2691697 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:45 #110 OK DELETE id=2691697 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:46 #111 OK SELECT id=2691697 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:47 #112 OK INSERT id=2691698 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:49 #113 OK UPSERT id=2691698 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:50 #114 OK SELECT id=2691698 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:51 #115 OK DELETE id=2691698 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:52 #116 OK SELECT id=2691698 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:53 #117 OK INSERT id=2691699 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:54 #118 OK UPSERT id=2691699 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:55 #119 OK SELECT id=2691699 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:56 #120 OK DELETE id=2691699 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:57 #121 OK SELECT id=2691699 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:58 #122 OK INSERT id=2691700 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:59 #123 OK UPSERT id=2691700 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:00 #124 OK SELECT id=2691700 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:01 #125 OK DELETE id=2691700 via doris-1 rows=10240 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:03 #126 OK SELECT id=2691700 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]

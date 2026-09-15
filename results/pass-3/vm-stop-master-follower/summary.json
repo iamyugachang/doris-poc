@@ -7,14 +7,14 @@
  "steps": [
   "--target vm --on master"
  ],
- "started": "04:29:13",
- "restore_at": "04:31:50",
- "ended": "04:33:28",
+ "started": "19:17:19",
+ "restore_at": "19:19:57",
+ "ended": "19:21:13",
  "healthy_after": true,
  "breaks": [
   {
    "step": "--target vm --on master",
-   "at": "04:30:14",
+   "at": "19:18:21",
    "rc": 0
   }
  ],
@@ -22,78 +22,109 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 0,
+   "total_impact_secs": 35,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:54",
+     "start": "19:17:59",
+     "end": "19:18:00",
+     "secs": 1
+    },
+    {
+     "start": "19:18:01",
+     "end": "19:18:01",
+     "secs": 0
+    },
+    {
+     "start": "19:18:02",
+     "end": "19:18:02",
+     "secs": 0
+    },
+    {
+     "start": "19:18:11",
+     "end": "19:18:11",
+     "secs": 0
+    },
+    {
+     "start": "19:18:12",
+     "end": "19:18:12",
+     "secs": 0
+    },
+    {
+     "start": "19:18:21",
+     "end": "19:18:21",
+     "secs": 0
+    },
+    {
+     "start": "19:18:30",
+     "end": "19:18:30",
      "secs": 0
     }
    ],
-   "failed": 1,
+   "failed": 7,
    "failed_by_type": {
-    "INSERT": 1
+    "INSERT": 7
    },
-   "reconnects": 1,
+   "reconnects": 7,
    "window_ops": {
     "writes_ok": 18,
     "writes_fail": 0,
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 150
+    "span_secs": 151
    },
    "read_only_client": false
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 2,
+   "total_impact_secs": 33,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:56",
-     "secs": 2
+     "start": "19:18:00",
+     "end": "19:18:33",
+     "secs": 33
     }
    ],
-   "failed": 1,
+   "failed": 5,
    "failed_by_type": {
-    "SELECT": 1
+    "INSERT": 3,
+    "SELECT": 2
    },
-   "reconnects": 1,
+   "reconnects": 2,
    "window_ops": {
     "writes_ok": 18,
     "writes_fail": 0,
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 150
+    "span_secs": 152
    },
    "read_only_client": false
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 1,
+   "total_impact_secs": 30,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:55",
-     "secs": 1
+     "start": "19:18:00",
+     "end": "19:18:30",
+     "secs": 30
     }
    ],
-   "failed": 1,
+   "failed": 6,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 6
    },
-   "reconnects": 1,
+   "reconnects": 6,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
     "selects_ok": 30,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 152
+    "span_secs": 155
    },
    "read_only_client": true
   }
@@ -102,73 +133,104 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 0,
+   "total_impact_secs": 35,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:54",
+     "start": "19:17:59",
+     "end": "19:18:00",
+     "secs": 1
+    },
+    {
+     "start": "19:18:01",
+     "end": "19:18:01",
+     "secs": 0
+    },
+    {
+     "start": "19:18:02",
+     "end": "19:18:02",
+     "secs": 0
+    },
+    {
+     "start": "19:18:11",
+     "end": "19:18:11",
+     "secs": 0
+    },
+    {
+     "start": "19:18:12",
+     "end": "19:18:12",
+     "secs": 0
+    },
+    {
+     "start": "19:18:21",
+     "end": "19:18:21",
+     "secs": 0
+    },
+    {
+     "start": "19:18:30",
+     "end": "19:18:30",
      "secs": 0
     }
    ],
-   "failed": 1,
+   "failed": 7,
    "failed_by_type": {
-    "INSERT": 1
+    "INSERT": 7
    },
-   "reconnects": 1,
+   "reconnects": 7,
    "events": [
-    "04:29:50 EVENT break: vm stop on doris-3 (FE master)",
-    "04:30:14 EVENT break: doris-3 is down",
-    "04:31:52 EVENT restore: start doris-3",
-    "04:32:57 EVENT restore: cluster healthy"
+    "19:17:56 EVENT break: vm stop on doris-3 (FE master)",
+    "19:18:21 EVENT break: doris-3 is down",
+    "19:19:59 EVENT restore: start doris-3",
+    "19:20:42 EVENT restore: cluster healthy"
    ]
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 2,
+   "total_impact_secs": 33,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:56",
-     "secs": 2
+     "start": "19:18:00",
+     "end": "19:18:33",
+     "secs": 33
     }
    ],
-   "failed": 1,
+   "failed": 5,
    "failed_by_type": {
-    "SELECT": 1
+    "INSERT": 3,
+    "SELECT": 2
    },
-   "reconnects": 1,
+   "reconnects": 2,
    "events": [
-    "04:29:50 EVENT break: vm stop on doris-3 (FE master)",
-    "04:30:14 EVENT break: doris-3 is down",
-    "04:31:52 EVENT restore: start doris-3",
-    "04:32:57 EVENT restore: cluster healthy"
+    "19:17:56 EVENT break: vm stop on doris-3 (FE master)",
+    "19:18:21 EVENT break: doris-3 is down",
+    "19:19:59 EVENT restore: start doris-3",
+    "19:20:42 EVENT restore: cluster healthy"
    ]
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 1,
+   "total_impact_secs": 30,
    "windows": [
     {
-     "start": "04:29:54",
-     "end": "04:29:55",
-     "secs": 1
+     "start": "19:18:00",
+     "end": "19:18:30",
+     "secs": 30
     }
    ],
-   "failed": 1,
+   "failed": 6,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 6
    },
-   "reconnects": 1,
+   "reconnects": 6,
    "events": [
-    "04:29:50 EVENT break: vm stop on doris-3 (FE master)",
-    "04:30:14 EVENT break: doris-3 is down",
-    "04:31:52 EVENT restore: start doris-3",
-    "04:32:57 EVENT restore: cluster healthy"
+    "19:17:56 EVENT break: vm stop on doris-3 (FE master)",
+    "19:18:21 EVENT break: doris-3 is down",
+    "19:19:59 EVENT restore: start doris-3",
+    "19:20:42 EVENT restore: cluster healthy"
    ]
   }
  },
- "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10120 via doris-1",
- "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10119 via doris-1"
+ "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10253 via doris-1",
+ "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10253 via doris-1"
 }

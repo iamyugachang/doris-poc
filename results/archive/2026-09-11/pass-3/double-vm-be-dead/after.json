@@ -1,0 +1,2293 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "phase": null,
+  "started": "05:12:07",
+  "ended": null,
+  "ops": 340,
+  "failed": 131,
+  "failed_by_type": {
+   "SELECT": 14,
+   "INSERT": 117
+  },
+  "reconnects": 119,
+  "windows": [
+   {
+    "start": "05:12:44",
+    "end": "05:12:45",
+    "secs": 1
+   },
+   {
+    "start": "05:12:46",
+    "end": "05:12:46",
+    "secs": 0
+   },
+   {
+    "start": "05:12:55",
+    "end": "05:13:13",
+    "secs": 18
+   },
+   {
+    "start": "05:13:40",
+    "end": "05:13:42",
+    "secs": 2
+   },
+   {
+    "start": "05:13:43",
+    "end": "05:13:43",
+    "secs": 0
+   },
+   {
+    "start": "05:13:44",
+    "end": "05:13:45",
+    "secs": 1
+   },
+   {
+    "start": "05:13:46",
+    "end": "05:13:47",
+    "secs": 1
+   },
+   {
+    "start": "05:13:48",
+    "end": "05:13:48",
+    "secs": 0
+   },
+   {
+    "start": "05:13:49",
+    "end": "05:13:53",
+    "secs": 4
+   },
+   {
+    "start": "05:13:54",
+    "end": "05:13:55",
+    "secs": 1
+   },
+   {
+    "start": "05:13:56",
+    "end": "05:13:56",
+    "secs": 0
+   },
+   {
+    "start": "05:13:57",
+    "end": "05:13:57",
+    "secs": 0
+   },
+   {
+    "start": "05:13:58",
+    "end": "05:13:58",
+    "secs": 0
+   },
+   {
+    "start": "05:13:59",
+    "end": "05:14:00",
+    "secs": 1
+   },
+   {
+    "start": "05:14:01",
+    "end": "05:14:01",
+    "secs": 0
+   },
+   {
+    "start": "05:14:02",
+    "end": "05:14:04",
+    "secs": 2
+   },
+   {
+    "start": "05:14:05",
+    "end": "05:14:06",
+    "secs": 1
+   },
+   {
+    "start": "05:14:08",
+    "end": "05:14:10",
+    "secs": 2
+   },
+   {
+    "start": "05:14:11",
+    "end": "05:14:11",
+    "secs": 0
+   },
+   {
+    "start": "05:14:12",
+    "end": "05:14:12",
+    "secs": 0
+   },
+   {
+    "start": "05:14:13",
+    "end": "05:14:13",
+    "secs": 0
+   },
+   {
+    "start": "05:14:14",
+    "end": "05:14:15",
+    "secs": 1
+   },
+   {
+    "start": "05:14:16",
+    "end": "05:14:16",
+    "secs": 0
+   },
+   {
+    "start": "05:14:17",
+    "end": "05:14:17",
+    "secs": 0
+   },
+   {
+    "start": "05:14:18",
+    "end": "05:14:18",
+    "secs": 0
+   },
+   {
+    "start": "05:14:19",
+    "end": "05:14:19",
+    "secs": 0
+   },
+   {
+    "start": "05:14:20",
+    "end": "05:14:20",
+    "secs": 0
+   },
+   {
+    "start": "05:14:21",
+    "end": "05:14:21",
+    "secs": 0
+   },
+   {
+    "start": "05:14:22",
+    "end": "05:14:22",
+    "secs": 0
+   },
+   {
+    "start": "05:14:24",
+    "end": "05:14:24",
+    "secs": 0
+   },
+   {
+    "start": "05:14:25",
+    "end": "05:14:25",
+    "secs": 0
+   },
+   {
+    "start": "05:14:26",
+    "end": "05:14:26",
+    "secs": 0
+   },
+   {
+    "start": "05:14:27",
+    "end": "05:14:27",
+    "secs": 0
+   },
+   {
+    "start": "05:14:28",
+    "end": "05:14:28",
+    "secs": 0
+   },
+   {
+    "start": "05:14:29",
+    "end": "05:14:29",
+    "secs": 0
+   },
+   {
+    "start": "05:14:30",
+    "end": "05:14:30",
+    "secs": 0
+   },
+   {
+    "start": "05:14:32",
+    "end": "05:14:32",
+    "secs": 0
+   },
+   {
+    "start": "05:14:33",
+    "end": "05:14:33",
+    "secs": 0
+   },
+   {
+    "start": "05:14:34",
+    "end": "05:14:34",
+    "secs": 0
+   },
+   {
+    "start": "05:14:35",
+    "end": "05:14:35",
+    "secs": 0
+   },
+   {
+    "start": "05:14:36",
+    "end": "05:14:36",
+    "secs": 0
+   },
+   {
+    "start": "05:14:37",
+    "end": "05:14:37",
+    "secs": 0
+   },
+   {
+    "start": "05:14:38",
+    "end": "05:14:38",
+    "secs": 0
+   },
+   {
+    "start": "05:14:39",
+    "end": "05:14:40",
+    "secs": 1
+   },
+   {
+    "start": "05:14:41",
+    "end": "05:14:41",
+    "secs": 0
+   },
+   {
+    "start": "05:14:42",
+    "end": "05:14:42",
+    "secs": 0
+   },
+   {
+    "start": "05:14:43",
+    "end": "05:14:43",
+    "secs": 0
+   },
+   {
+    "start": "05:14:44",
+    "end": "05:14:44",
+    "secs": 0
+   },
+   {
+    "start": "05:14:45",
+    "end": "05:14:45",
+    "secs": 0
+   },
+   {
+    "start": "05:14:46",
+    "end": "05:14:46",
+    "secs": 0
+   },
+   {
+    "start": "05:14:47",
+    "end": "05:14:47",
+    "secs": 0
+   },
+   {
+    "start": "05:14:49",
+    "end": "05:14:49",
+    "secs": 0
+   },
+   {
+    "start": "05:14:50",
+    "end": "05:14:50",
+    "secs": 0
+   },
+   {
+    "start": "05:14:51",
+    "end": "05:14:51",
+    "secs": 0
+   },
+   {
+    "start": "05:14:52",
+    "end": "05:14:52",
+    "secs": 0
+   },
+   {
+    "start": "05:14:53",
+    "end": "05:14:53",
+    "secs": 0
+   },
+   {
+    "start": "05:14:54",
+    "end": "05:14:54",
+    "secs": 0
+   },
+   {
+    "start": "05:14:55",
+    "end": "05:14:55",
+    "secs": 0
+   },
+   {
+    "start": "05:14:57",
+    "end": "05:14:57",
+    "secs": 0
+   },
+   {
+    "start": "05:14:58",
+    "end": "05:14:58",
+    "secs": 0
+   },
+   {
+    "start": "05:14:59",
+    "end": "05:14:59",
+    "secs": 0
+   },
+   {
+    "start": "05:15:00",
+    "end": "05:15:00",
+    "secs": 0
+   },
+   {
+    "start": "05:15:01",
+    "end": "05:15:01",
+    "secs": 0
+   },
+   {
+    "start": "05:15:02",
+    "end": "05:15:02",
+    "secs": 0
+   },
+   {
+    "start": "05:15:03",
+    "end": "05:15:03",
+    "secs": 0
+   },
+   {
+    "start": "05:15:04",
+    "end": "05:15:04",
+    "secs": 0
+   },
+   {
+    "start": "05:15:06",
+    "end": "05:15:06",
+    "secs": 0
+   },
+   {
+    "start": "05:15:07",
+    "end": "05:15:07",
+    "secs": 0
+   },
+   {
+    "start": "05:15:08",
+    "end": "05:15:08",
+    "secs": 0
+   },
+   {
+    "start": "05:15:09",
+    "end": "05:15:09",
+    "secs": 0
+   },
+   {
+    "start": "05:15:10",
+    "end": "05:15:10",
+    "secs": 0
+   },
+   {
+    "start": "05:15:11",
+    "end": "05:15:11",
+    "secs": 0
+   },
+   {
+    "start": "05:15:12",
+    "end": "05:15:12",
+    "secs": 0
+   },
+   {
+    "start": "05:15:14",
+    "end": "05:15:14",
+    "secs": 0
+   },
+   {
+    "start": "05:15:15",
+    "end": "05:15:15",
+    "secs": 0
+   },
+   {
+    "start": "05:15:16",
+    "end": "05:15:16",
+    "secs": 0
+   },
+   {
+    "start": "05:15:17",
+    "end": "05:15:17",
+    "secs": 0
+   },
+   {
+    "start": "05:15:18",
+    "end": "05:15:18",
+    "secs": 0
+   },
+   {
+    "start": "05:15:19",
+    "end": "05:15:19",
+    "secs": 0
+   },
+   {
+    "start": "05:15:20",
+    "end": "05:15:20",
+    "secs": 0
+   },
+   {
+    "start": "05:15:21",
+    "end": "05:15:22",
+    "secs": 1
+   },
+   {
+    "start": "05:15:23",
+    "end": "05:15:23",
+    "secs": 0
+   },
+   {
+    "start": "05:15:24",
+    "end": "05:15:24",
+    "secs": 0
+   },
+   {
+    "start": "05:15:25",
+    "end": "05:15:25",
+    "secs": 0
+   },
+   {
+    "start": "05:15:26",
+    "end": "05:15:26",
+    "secs": 0
+   },
+   {
+    "start": "05:15:27",
+    "end": "05:15:27",
+    "secs": 0
+   },
+   {
+    "start": "05:15:28",
+    "end": "05:15:28",
+    "secs": 0
+   },
+   {
+    "start": "05:15:30",
+    "end": "05:15:30",
+    "secs": 0
+   },
+   {
+    "start": "05:15:31",
+    "end": "05:15:31",
+    "secs": 0
+   },
+   {
+    "start": "05:15:32",
+    "end": "05:15:32",
+    "secs": 0
+   },
+   {
+    "start": "05:15:33",
+    "end": "05:15:33",
+    "secs": 0
+   },
+   {
+    "start": "05:15:34",
+    "end": "05:15:34",
+    "secs": 0
+   },
+   {
+    "start": "05:15:35",
+    "end": "05:15:35",
+    "secs": 0
+   },
+   {
+    "start": "05:15:36",
+    "end": "05:15:36",
+    "secs": 0
+   },
+   {
+    "start": "05:15:37",
+    "end": "05:15:38",
+    "secs": 1
+   },
+   {
+    "start": "05:15:39",
+    "end": "05:15:39",
+    "secs": 0
+   },
+   {
+    "start": "05:15:40",
+    "end": "05:15:40",
+    "secs": 0
+   },
+   {
+    "start": "05:15:41",
+    "end": "05:15:41",
+    "secs": 0
+   },
+   {
+    "start": "05:15:42",
+    "end": "05:15:42",
+    "secs": 0
+   },
+   {
+    "start": "05:15:43",
+    "end": "05:15:43",
+    "secs": 0
+   },
+   {
+    "start": "05:15:44",
+    "end": "05:15:44",
+    "secs": 0
+   },
+   {
+    "start": "05:15:45",
+    "end": "05:15:45",
+    "secs": 0
+   },
+   {
+    "start": "05:15:47",
+    "end": "05:15:47",
+    "secs": 0
+   },
+   {
+    "start": "05:15:48",
+    "end": "05:15:48",
+    "secs": 0
+   },
+   {
+    "start": "05:15:49",
+    "end": "05:15:49",
+    "secs": 0
+   }
+  ],
+  "fail_window_secs": 38,
+  "gaps": [
+   {
+    "from": "05:12:46",
+    "to": "05:12:55",
+    "secs": 9
+   },
+   {
+    "from": "05:12:55",
+    "to": "05:13:04",
+    "secs": 9
+   },
+   {
+    "from": "05:13:04",
+    "to": "05:13:13",
+    "secs": 9
+   }
+  ],
+  "stall_secs": 27,
+  "max_gap_secs": 9,
+  "impact_secs": 47,
+  "total_impact_secs": 47,
+  "events": [
+   "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+   "05:13:05 EVENT break: doris-3 is down",
+   "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+   "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+   "05:15:24 EVENT restore: start doris-3",
+   "05:16:12 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 18,
+   "writes_fail": 0,
+   "selects_ok": 12,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 271
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+   "phase": "during",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 213,
+   "failed": 106,
+   "failed_by_type": {
+    "SELECT": 14,
+    "INSERT": 92
+   },
+   "reconnects": 93,
+   "windows": [
+    {
+     "start": "05:12:44",
+     "end": "05:12:45",
+     "secs": 1
+    },
+    {
+     "start": "05:12:46",
+     "end": "05:12:46",
+     "secs": 0
+    },
+    {
+     "start": "05:12:55",
+     "end": "05:13:13",
+     "secs": 18
+    },
+    {
+     "start": "05:13:40",
+     "end": "05:13:42",
+     "secs": 2
+    },
+    {
+     "start": "05:13:43",
+     "end": "05:13:43",
+     "secs": 0
+    },
+    {
+     "start": "05:13:44",
+     "end": "05:13:45",
+     "secs": 1
+    },
+    {
+     "start": "05:13:46",
+     "end": "05:13:47",
+     "secs": 1
+    },
+    {
+     "start": "05:13:48",
+     "end": "05:13:48",
+     "secs": 0
+    },
+    {
+     "start": "05:13:49",
+     "end": "05:13:53",
+     "secs": 4
+    },
+    {
+     "start": "05:13:54",
+     "end": "05:13:55",
+     "secs": 1
+    },
+    {
+     "start": "05:13:56",
+     "end": "05:13:56",
+     "secs": 0
+    },
+    {
+     "start": "05:13:57",
+     "end": "05:13:57",
+     "secs": 0
+    },
+    {
+     "start": "05:13:58",
+     "end": "05:13:58",
+     "secs": 0
+    },
+    {
+     "start": "05:13:59",
+     "end": "05:14:00",
+     "secs": 1
+    },
+    {
+     "start": "05:14:01",
+     "end": "05:14:01",
+     "secs": 0
+    },
+    {
+     "start": "05:14:02",
+     "end": "05:14:04",
+     "secs": 2
+    },
+    {
+     "start": "05:14:05",
+     "end": "05:14:06",
+     "secs": 1
+    },
+    {
+     "start": "05:14:08",
+     "end": "05:14:10",
+     "secs": 2
+    },
+    {
+     "start": "05:14:11",
+     "end": "05:14:11",
+     "secs": 0
+    },
+    {
+     "start": "05:14:12",
+     "end": "05:14:12",
+     "secs": 0
+    },
+    {
+     "start": "05:14:13",
+     "end": "05:14:13",
+     "secs": 0
+    },
+    {
+     "start": "05:14:14",
+     "end": "05:14:15",
+     "secs": 1
+    },
+    {
+     "start": "05:14:16",
+     "end": "05:14:16",
+     "secs": 0
+    },
+    {
+     "start": "05:14:17",
+     "end": "05:14:17",
+     "secs": 0
+    },
+    {
+     "start": "05:14:18",
+     "end": "05:14:18",
+     "secs": 0
+    },
+    {
+     "start": "05:14:19",
+     "end": "05:14:19",
+     "secs": 0
+    },
+    {
+     "start": "05:14:20",
+     "end": "05:14:20",
+     "secs": 0
+    },
+    {
+     "start": "05:14:21",
+     "end": "05:14:21",
+     "secs": 0
+    },
+    {
+     "start": "05:14:22",
+     "end": "05:14:22",
+     "secs": 0
+    },
+    {
+     "start": "05:14:24",
+     "end": "05:14:24",
+     "secs": 0
+    },
+    {
+     "start": "05:14:25",
+     "end": "05:14:25",
+     "secs": 0
+    },
+    {
+     "start": "05:14:26",
+     "end": "05:14:26",
+     "secs": 0
+    },
+    {
+     "start": "05:14:27",
+     "end": "05:14:27",
+     "secs": 0
+    },
+    {
+     "start": "05:14:28",
+     "end": "05:14:28",
+     "secs": 0
+    },
+    {
+     "start": "05:14:29",
+     "end": "05:14:29",
+     "secs": 0
+    },
+    {
+     "start": "05:14:30",
+     "end": "05:14:30",
+     "secs": 0
+    },
+    {
+     "start": "05:14:32",
+     "end": "05:14:32",
+     "secs": 0
+    },
+    {
+     "start": "05:14:33",
+     "end": "05:14:33",
+     "secs": 0
+    },
+    {
+     "start": "05:14:34",
+     "end": "05:14:34",
+     "secs": 0
+    },
+    {
+     "start": "05:14:35",
+     "end": "05:14:35",
+     "secs": 0
+    },
+    {
+     "start": "05:14:36",
+     "end": "05:14:36",
+     "secs": 0
+    },
+    {
+     "start": "05:14:37",
+     "end": "05:14:37",
+     "secs": 0
+    },
+    {
+     "start": "05:14:38",
+     "end": "05:14:38",
+     "secs": 0
+    },
+    {
+     "start": "05:14:39",
+     "end": "05:14:40",
+     "secs": 1
+    },
+    {
+     "start": "05:14:41",
+     "end": "05:14:41",
+     "secs": 0
+    },
+    {
+     "start": "05:14:42",
+     "end": "05:14:42",
+     "secs": 0
+    },
+    {
+     "start": "05:14:43",
+     "end": "05:14:43",
+     "secs": 0
+    },
+    {
+     "start": "05:14:44",
+     "end": "05:14:44",
+     "secs": 0
+    },
+    {
+     "start": "05:14:45",
+     "end": "05:14:45",
+     "secs": 0
+    },
+    {
+     "start": "05:14:46",
+     "end": "05:14:46",
+     "secs": 0
+    },
+    {
+     "start": "05:14:47",
+     "end": "05:14:47",
+     "secs": 0
+    },
+    {
+     "start": "05:14:49",
+     "end": "05:14:49",
+     "secs": 0
+    },
+    {
+     "start": "05:14:50",
+     "end": "05:14:50",
+     "secs": 0
+    },
+    {
+     "start": "05:14:51",
+     "end": "05:14:51",
+     "secs": 0
+    },
+    {
+     "start": "05:14:52",
+     "end": "05:14:52",
+     "secs": 0
+    },
+    {
+     "start": "05:14:53",
+     "end": "05:14:53",
+     "secs": 0
+    },
+    {
+     "start": "05:14:54",
+     "end": "05:14:54",
+     "secs": 0
+    },
+    {
+     "start": "05:14:55",
+     "end": "05:14:55",
+     "secs": 0
+    },
+    {
+     "start": "05:14:57",
+     "end": "05:14:57",
+     "secs": 0
+    },
+    {
+     "start": "05:14:58",
+     "end": "05:14:58",
+     "secs": 0
+    },
+    {
+     "start": "05:14:59",
+     "end": "05:14:59",
+     "secs": 0
+    },
+    {
+     "start": "05:15:00",
+     "end": "05:15:00",
+     "secs": 0
+    },
+    {
+     "start": "05:15:01",
+     "end": "05:15:01",
+     "secs": 0
+    },
+    {
+     "start": "05:15:02",
+     "end": "05:15:02",
+     "secs": 0
+    },
+    {
+     "start": "05:15:03",
+     "end": "05:15:03",
+     "secs": 0
+    },
+    {
+     "start": "05:15:04",
+     "end": "05:15:04",
+     "secs": 0
+    },
+    {
+     "start": "05:15:06",
+     "end": "05:15:06",
+     "secs": 0
+    },
+    {
+     "start": "05:15:07",
+     "end": "05:15:07",
+     "secs": 0
+    },
+    {
+     "start": "05:15:08",
+     "end": "05:15:08",
+     "secs": 0
+    },
+    {
+     "start": "05:15:09",
+     "end": "05:15:09",
+     "secs": 0
+    },
+    {
+     "start": "05:15:10",
+     "end": "05:15:10",
+     "secs": 0
+    },
+    {
+     "start": "05:15:11",
+     "end": "05:15:11",
+     "secs": 0
+    },
+    {
+     "start": "05:15:12",
+     "end": "05:15:12",
+     "secs": 0
+    },
+    {
+     "start": "05:15:14",
+     "end": "05:15:14",
+     "secs": 0
+    },
+    {
+     "start": "05:15:15",
+     "end": "05:15:15",
+     "secs": 0
+    },
+    {
+     "start": "05:15:16",
+     "end": "05:15:16",
+     "secs": 0
+    },
+    {
+     "start": "05:15:17",
+     "end": "05:15:17",
+     "secs": 0
+    },
+    {
+     "start": "05:15:18",
+     "end": "05:15:18",
+     "secs": 0
+    },
+    {
+     "start": "05:15:19",
+     "end": "05:15:19",
+     "secs": 0
+    },
+    {
+     "start": "05:15:20",
+     "end": "05:15:20",
+     "secs": 0
+    }
+   ],
+   "fail_window_secs": 36,
+   "gaps": [
+    {
+     "from": "05:12:46",
+     "to": "05:12:55",
+     "secs": 9
+    },
+    {
+     "from": "05:12:55",
+     "to": "05:13:04",
+     "secs": 9
+    },
+    {
+     "from": "05:13:04",
+     "to": "05:13:13",
+     "secs": 9
+    }
+   ],
+   "stall_secs": 27,
+   "max_gap_secs": 9,
+   "impact_secs": 45,
+   "total_impact_secs": 45,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 28,
+    "selects_ok": 28,
+    "selects_fail": 0,
+    "lines": 56,
+    "span_secs": 159
+   },
+   "level": "ro",
+   "level_zh": "只讀"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+   "phase": "after",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 25,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 15,
+    "writes_fail": 0,
+    "selects_ok": 10,
+    "selects_fail": 0,
+    "lines": 25,
+    "span_secs": 26
+   },
+   "level": "rw",
+   "level_zh": "讀寫正常"
+  }
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "phase": null,
+  "started": "05:12:07",
+  "ended": null,
+  "ops": 350,
+  "failed": 144,
+  "failed_by_type": {
+   "DELETE": 1,
+   "SELECT": 19,
+   "INSERT": 124
+  },
+  "reconnects": 124,
+  "windows": [
+   {
+    "start": "05:12:44",
+    "end": "05:13:17",
+    "secs": 33
+   },
+   {
+    "start": "05:13:40",
+    "end": "05:13:41",
+    "secs": 1
+   },
+   {
+    "start": "05:13:42",
+    "end": "05:13:42",
+    "secs": 0
+   },
+   {
+    "start": "05:13:43",
+    "end": "05:13:45",
+    "secs": 2
+   },
+   {
+    "start": "05:13:46",
+    "end": "05:13:46",
+    "secs": 0
+   },
+   {
+    "start": "05:13:47",
+    "end": "05:13:53",
+    "secs": 6
+   },
+   {
+    "start": "05:13:54",
+    "end": "05:13:55",
+    "secs": 1
+   },
+   {
+    "start": "05:13:56",
+    "end": "05:14:01",
+    "secs": 5
+   },
+   {
+    "start": "05:14:02",
+    "end": "05:14:02",
+    "secs": 0
+   },
+   {
+    "start": "05:14:03",
+    "end": "05:14:03",
+    "secs": 0
+   },
+   {
+    "start": "05:14:04",
+    "end": "05:14:04",
+    "secs": 0
+   },
+   {
+    "start": "05:14:05",
+    "end": "05:14:09",
+    "secs": 4
+   },
+   {
+    "start": "05:14:10",
+    "end": "05:14:10",
+    "secs": 0
+   },
+   {
+    "start": "05:14:11",
+    "end": "05:14:11",
+    "secs": 0
+   },
+   {
+    "start": "05:14:12",
+    "end": "05:14:13",
+    "secs": 1
+   },
+   {
+    "start": "05:14:14",
+    "end": "05:14:14",
+    "secs": 0
+   },
+   {
+    "start": "05:14:15",
+    "end": "05:14:15",
+    "secs": 0
+   },
+   {
+    "start": "05:14:16",
+    "end": "05:14:16",
+    "secs": 0
+   },
+   {
+    "start": "05:14:17",
+    "end": "05:14:17",
+    "secs": 0
+   },
+   {
+    "start": "05:14:18",
+    "end": "05:14:18",
+    "secs": 0
+   },
+   {
+    "start": "05:14:19",
+    "end": "05:14:19",
+    "secs": 0
+   },
+   {
+    "start": "05:14:20",
+    "end": "05:14:20",
+    "secs": 0
+   },
+   {
+    "start": "05:14:21",
+    "end": "05:14:21",
+    "secs": 0
+   },
+   {
+    "start": "05:14:22",
+    "end": "05:14:22",
+    "secs": 0
+   },
+   {
+    "start": "05:14:23",
+    "end": "05:14:23",
+    "secs": 0
+   },
+   {
+    "start": "05:14:24",
+    "end": "05:14:24",
+    "secs": 0
+   },
+   {
+    "start": "05:14:25",
+    "end": "05:14:25",
+    "secs": 0
+   },
+   {
+    "start": "05:14:26",
+    "end": "05:14:26",
+    "secs": 0
+   },
+   {
+    "start": "05:14:27",
+    "end": "05:14:27",
+    "secs": 0
+   },
+   {
+    "start": "05:14:28",
+    "end": "05:14:29",
+    "secs": 1
+   },
+   {
+    "start": "05:14:30",
+    "end": "05:14:30",
+    "secs": 0
+   },
+   {
+    "start": "05:14:31",
+    "end": "05:14:31",
+    "secs": 0
+   },
+   {
+    "start": "05:14:32",
+    "end": "05:14:32",
+    "secs": 0
+   },
+   {
+    "start": "05:14:33",
+    "end": "05:14:33",
+    "secs": 0
+   },
+   {
+    "start": "05:14:34",
+    "end": "05:14:34",
+    "secs": 0
+   },
+   {
+    "start": "05:14:35",
+    "end": "05:14:35",
+    "secs": 0
+   },
+   {
+    "start": "05:14:36",
+    "end": "05:14:36",
+    "secs": 0
+   },
+   {
+    "start": "05:14:37",
+    "end": "05:14:37",
+    "secs": 0
+   },
+   {
+    "start": "05:14:38",
+    "end": "05:14:38",
+    "secs": 0
+   },
+   {
+    "start": "05:14:39",
+    "end": "05:14:39",
+    "secs": 0
+   },
+   {
+    "start": "05:14:40",
+    "end": "05:14:40",
+    "secs": 0
+   },
+   {
+    "start": "05:14:41",
+    "end": "05:14:41",
+    "secs": 0
+   },
+   {
+    "start": "05:14:42",
+    "end": "05:14:42",
+    "secs": 0
+   },
+   {
+    "start": "05:14:43",
+    "end": "05:14:43",
+    "secs": 0
+   },
+   {
+    "start": "05:14:44",
+    "end": "05:14:45",
+    "secs": 1
+   },
+   {
+    "start": "05:14:46",
+    "end": "05:14:46",
+    "secs": 0
+   },
+   {
+    "start": "05:14:47",
+    "end": "05:14:47",
+    "secs": 0
+   },
+   {
+    "start": "05:14:48",
+    "end": "05:14:48",
+    "secs": 0
+   },
+   {
+    "start": "05:14:49",
+    "end": "05:14:49",
+    "secs": 0
+   },
+   {
+    "start": "05:14:50",
+    "end": "05:14:50",
+    "secs": 0
+   },
+   {
+    "start": "05:14:51",
+    "end": "05:14:51",
+    "secs": 0
+   },
+   {
+    "start": "05:14:52",
+    "end": "05:14:52",
+    "secs": 0
+   },
+   {
+    "start": "05:14:53",
+    "end": "05:14:53",
+    "secs": 0
+   },
+   {
+    "start": "05:14:54",
+    "end": "05:14:54",
+    "secs": 0
+   },
+   {
+    "start": "05:14:55",
+    "end": "05:14:55",
+    "secs": 0
+   },
+   {
+    "start": "05:14:56",
+    "end": "05:14:56",
+    "secs": 0
+   },
+   {
+    "start": "05:14:57",
+    "end": "05:14:57",
+    "secs": 0
+   },
+   {
+    "start": "05:14:58",
+    "end": "05:14:58",
+    "secs": 0
+   },
+   {
+    "start": "05:14:59",
+    "end": "05:14:59",
+    "secs": 0
+   },
+   {
+    "start": "05:15:00",
+    "end": "05:15:00",
+    "secs": 0
+   },
+   {
+    "start": "05:15:02",
+    "end": "05:15:02",
+    "secs": 0
+   },
+   {
+    "start": "05:15:03",
+    "end": "05:15:03",
+    "secs": 0
+   },
+   {
+    "start": "05:15:04",
+    "end": "05:15:04",
+    "secs": 0
+   },
+   {
+    "start": "05:15:05",
+    "end": "05:15:05",
+    "secs": 0
+   },
+   {
+    "start": "05:15:06",
+    "end": "05:15:06",
+    "secs": 0
+   },
+   {
+    "start": "05:15:07",
+    "end": "05:15:07",
+    "secs": 0
+   },
+   {
+    "start": "05:15:08",
+    "end": "05:15:08",
+    "secs": 0
+   },
+   {
+    "start": "05:15:09",
+    "end": "05:15:09",
+    "secs": 0
+   },
+   {
+    "start": "05:15:10",
+    "end": "05:15:10",
+    "secs": 0
+   },
+   {
+    "start": "05:15:11",
+    "end": "05:15:11",
+    "secs": 0
+   },
+   {
+    "start": "05:15:12",
+    "end": "05:15:12",
+    "secs": 0
+   },
+   {
+    "start": "05:15:13",
+    "end": "05:15:13",
+    "secs": 0
+   },
+   {
+    "start": "05:15:14",
+    "end": "05:15:14",
+    "secs": 0
+   },
+   {
+    "start": "05:15:15",
+    "end": "05:15:15",
+    "secs": 0
+   },
+   {
+    "start": "05:15:16",
+    "end": "05:15:16",
+    "secs": 0
+   },
+   {
+    "start": "05:15:17",
+    "end": "05:15:17",
+    "secs": 0
+   },
+   {
+    "start": "05:15:19",
+    "end": "05:15:19",
+    "secs": 0
+   },
+   {
+    "start": "05:15:20",
+    "end": "05:15:20",
+    "secs": 0
+   },
+   {
+    "start": "05:15:21",
+    "end": "05:15:21",
+    "secs": 0
+   },
+   {
+    "start": "05:15:22",
+    "end": "05:15:22",
+    "secs": 0
+   },
+   {
+    "start": "05:15:23",
+    "end": "05:15:23",
+    "secs": 0
+   },
+   {
+    "start": "05:15:24",
+    "end": "05:15:24",
+    "secs": 0
+   },
+   {
+    "start": "05:15:25",
+    "end": "05:15:25",
+    "secs": 0
+   },
+   {
+    "start": "05:15:26",
+    "end": "05:15:26",
+    "secs": 0
+   },
+   {
+    "start": "05:15:27",
+    "end": "05:15:27",
+    "secs": 0
+   },
+   {
+    "start": "05:15:28",
+    "end": "05:15:28",
+    "secs": 0
+   },
+   {
+    "start": "05:15:29",
+    "end": "05:15:29",
+    "secs": 0
+   },
+   {
+    "start": "05:15:30",
+    "end": "05:15:30",
+    "secs": 0
+   },
+   {
+    "start": "05:15:31",
+    "end": "05:15:31",
+    "secs": 0
+   },
+   {
+    "start": "05:15:32",
+    "end": "05:15:32",
+    "secs": 0
+   },
+   {
+    "start": "05:15:33",
+    "end": "05:15:33",
+    "secs": 0
+   },
+   {
+    "start": "05:15:34",
+    "end": "05:15:34",
+    "secs": 0
+   },
+   {
+    "start": "05:15:35",
+    "end": "05:15:36",
+    "secs": 1
+   },
+   {
+    "start": "05:15:37",
+    "end": "05:15:37",
+    "secs": 0
+   },
+   {
+    "start": "05:15:38",
+    "end": "05:15:38",
+    "secs": 0
+   },
+   {
+    "start": "05:15:39",
+    "end": "05:15:39",
+    "secs": 0
+   },
+   {
+    "start": "05:15:40",
+    "end": "05:15:40",
+    "secs": 0
+   },
+   {
+    "start": "05:15:41",
+    "end": "05:15:41",
+    "secs": 0
+   },
+   {
+    "start": "05:15:42",
+    "end": "05:15:42",
+    "secs": 0
+   },
+   {
+    "start": "05:15:43",
+    "end": "05:15:43",
+    "secs": 0
+   },
+   {
+    "start": "05:15:44",
+    "end": "05:15:44",
+    "secs": 0
+   },
+   {
+    "start": "05:15:45",
+    "end": "05:15:45",
+    "secs": 0
+   },
+   {
+    "start": "05:15:46",
+    "end": "05:15:46",
+    "secs": 0
+   },
+   {
+    "start": "05:15:47",
+    "end": "05:15:47",
+    "secs": 0
+   },
+   {
+    "start": "05:15:48",
+    "end": "05:15:48",
+    "secs": 0
+   },
+   {
+    "start": "05:15:49",
+    "end": "05:15:49",
+    "secs": 0
+   }
+  ],
+  "fail_window_secs": 56,
+  "gaps": [
+   {
+    "from": "05:12:46",
+    "to": "05:13:17",
+    "secs": 31
+   }
+  ],
+  "stall_secs": 31,
+  "max_gap_secs": 31,
+  "impact_secs": 56,
+  "total_impact_secs": 56,
+  "events": [
+   "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+   "05:13:05 EVENT break: doris-3 is down",
+   "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+   "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+   "05:15:24 EVENT restore: start doris-3",
+   "05:16:12 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 18,
+   "writes_fail": 0,
+   "selects_ok": 12,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 272
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+   "phase": "during",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 217,
+   "failed": 116,
+   "failed_by_type": {
+    "DELETE": 1,
+    "SELECT": 19,
+    "INSERT": 96
+   },
+   "reconnects": 95,
+   "windows": [
+    {
+     "start": "05:12:44",
+     "end": "05:13:17",
+     "secs": 33
+    },
+    {
+     "start": "05:13:40",
+     "end": "05:13:41",
+     "secs": 1
+    },
+    {
+     "start": "05:13:42",
+     "end": "05:13:42",
+     "secs": 0
+    },
+    {
+     "start": "05:13:43",
+     "end": "05:13:45",
+     "secs": 2
+    },
+    {
+     "start": "05:13:46",
+     "end": "05:13:46",
+     "secs": 0
+    },
+    {
+     "start": "05:13:47",
+     "end": "05:13:53",
+     "secs": 6
+    },
+    {
+     "start": "05:13:54",
+     "end": "05:13:55",
+     "secs": 1
+    },
+    {
+     "start": "05:13:56",
+     "end": "05:14:01",
+     "secs": 5
+    },
+    {
+     "start": "05:14:02",
+     "end": "05:14:02",
+     "secs": 0
+    },
+    {
+     "start": "05:14:03",
+     "end": "05:14:03",
+     "secs": 0
+    },
+    {
+     "start": "05:14:04",
+     "end": "05:14:04",
+     "secs": 0
+    },
+    {
+     "start": "05:14:05",
+     "end": "05:14:09",
+     "secs": 4
+    },
+    {
+     "start": "05:14:10",
+     "end": "05:14:10",
+     "secs": 0
+    },
+    {
+     "start": "05:14:11",
+     "end": "05:14:11",
+     "secs": 0
+    },
+    {
+     "start": "05:14:12",
+     "end": "05:14:13",
+     "secs": 1
+    },
+    {
+     "start": "05:14:14",
+     "end": "05:14:14",
+     "secs": 0
+    },
+    {
+     "start": "05:14:15",
+     "end": "05:14:15",
+     "secs": 0
+    },
+    {
+     "start": "05:14:16",
+     "end": "05:14:16",
+     "secs": 0
+    },
+    {
+     "start": "05:14:17",
+     "end": "05:14:17",
+     "secs": 0
+    },
+    {
+     "start": "05:14:18",
+     "end": "05:14:18",
+     "secs": 0
+    },
+    {
+     "start": "05:14:19",
+     "end": "05:14:19",
+     "secs": 0
+    },
+    {
+     "start": "05:14:20",
+     "end": "05:14:20",
+     "secs": 0
+    },
+    {
+     "start": "05:14:21",
+     "end": "05:14:21",
+     "secs": 0
+    },
+    {
+     "start": "05:14:22",
+     "end": "05:14:22",
+     "secs": 0
+    },
+    {
+     "start": "05:14:23",
+     "end": "05:14:23",
+     "secs": 0
+    },
+    {
+     "start": "05:14:24",
+     "end": "05:14:24",
+     "secs": 0
+    },
+    {
+     "start": "05:14:25",
+     "end": "05:14:25",
+     "secs": 0
+    },
+    {
+     "start": "05:14:26",
+     "end": "05:14:26",
+     "secs": 0
+    },
+    {
+     "start": "05:14:27",
+     "end": "05:14:27",
+     "secs": 0
+    },
+    {
+     "start": "05:14:28",
+     "end": "05:14:29",
+     "secs": 1
+    },
+    {
+     "start": "05:14:30",
+     "end": "05:14:30",
+     "secs": 0
+    },
+    {
+     "start": "05:14:31",
+     "end": "05:14:31",
+     "secs": 0
+    },
+    {
+     "start": "05:14:32",
+     "end": "05:14:32",
+     "secs": 0
+    },
+    {
+     "start": "05:14:33",
+     "end": "05:14:33",
+     "secs": 0
+    },
+    {
+     "start": "05:14:34",
+     "end": "05:14:34",
+     "secs": 0
+    },
+    {
+     "start": "05:14:35",
+     "end": "05:14:35",
+     "secs": 0
+    },
+    {
+     "start": "05:14:36",
+     "end": "05:14:36",
+     "secs": 0
+    },
+    {
+     "start": "05:14:37",
+     "end": "05:14:37",
+     "secs": 0
+    },
+    {
+     "start": "05:14:38",
+     "end": "05:14:38",
+     "secs": 0
+    },
+    {
+     "start": "05:14:39",
+     "end": "05:14:39",
+     "secs": 0
+    },
+    {
+     "start": "05:14:40",
+     "end": "05:14:40",
+     "secs": 0
+    },
+    {
+     "start": "05:14:41",
+     "end": "05:14:41",
+     "secs": 0
+    },
+    {
+     "start": "05:14:42",
+     "end": "05:14:42",
+     "secs": 0
+    },
+    {
+     "start": "05:14:43",
+     "end": "05:14:43",
+     "secs": 0
+    },
+    {
+     "start": "05:14:44",
+     "end": "05:14:45",
+     "secs": 1
+    },
+    {
+     "start": "05:14:46",
+     "end": "05:14:46",
+     "secs": 0
+    },
+    {
+     "start": "05:14:47",
+     "end": "05:14:47",
+     "secs": 0
+    },
+    {
+     "start": "05:14:48",
+     "end": "05:14:48",
+     "secs": 0
+    },
+    {
+     "start": "05:14:49",
+     "end": "05:14:49",
+     "secs": 0
+    },
+    {
+     "start": "05:14:50",
+     "end": "05:14:50",
+     "secs": 0
+    },
+    {
+     "start": "05:14:51",
+     "end": "05:14:51",
+     "secs": 0
+    },
+    {
+     "start": "05:14:52",
+     "end": "05:14:52",
+     "secs": 0
+    },
+    {
+     "start": "05:14:53",
+     "end": "05:14:53",
+     "secs": 0
+    },
+    {
+     "start": "05:14:54",
+     "end": "05:14:54",
+     "secs": 0
+    },
+    {
+     "start": "05:14:55",
+     "end": "05:14:55",
+     "secs": 0
+    },
+    {
+     "start": "05:14:56",
+     "end": "05:14:56",
+     "secs": 0
+    },
+    {
+     "start": "05:14:57",
+     "end": "05:14:57",
+     "secs": 0
+    },
+    {
+     "start": "05:14:58",
+     "end": "05:14:58",
+     "secs": 0
+    },
+    {
+     "start": "05:14:59",
+     "end": "05:14:59",
+     "secs": 0
+    },
+    {
+     "start": "05:15:00",
+     "end": "05:15:00",
+     "secs": 0
+    },
+    {
+     "start": "05:15:02",
+     "end": "05:15:02",
+     "secs": 0
+    },
+    {
+     "start": "05:15:03",
+     "end": "05:15:03",
+     "secs": 0
+    },
+    {
+     "start": "05:15:04",
+     "end": "05:15:04",
+     "secs": 0
+    },
+    {
+     "start": "05:15:05",
+     "end": "05:15:05",
+     "secs": 0
+    },
+    {
+     "start": "05:15:06",
+     "end": "05:15:06",
+     "secs": 0
+    },
+    {
+     "start": "05:15:07",
+     "end": "05:15:07",
+     "secs": 0
+    },
+    {
+     "start": "05:15:08",
+     "end": "05:15:08",
+     "secs": 0
+    },
+    {
+     "start": "05:15:09",
+     "end": "05:15:09",
+     "secs": 0
+    },
+    {
+     "start": "05:15:10",
+     "end": "05:15:10",
+     "secs": 0
+    },
+    {
+     "start": "05:15:11",
+     "end": "05:15:11",
+     "secs": 0
+    },
+    {
+     "start": "05:15:12",
+     "end": "05:15:12",
+     "secs": 0
+    },
+    {
+     "start": "05:15:13",
+     "end": "05:15:13",
+     "secs": 0
+    },
+    {
+     "start": "05:15:14",
+     "end": "05:15:14",
+     "secs": 0
+    },
+    {
+     "start": "05:15:15",
+     "end": "05:15:15",
+     "secs": 0
+    },
+    {
+     "start": "05:15:16",
+     "end": "05:15:16",
+     "secs": 0
+    },
+    {
+     "start": "05:15:17",
+     "end": "05:15:17",
+     "secs": 0
+    },
+    {
+     "start": "05:15:19",
+     "end": "05:15:19",
+     "secs": 0
+    },
+    {
+     "start": "05:15:20",
+     "end": "05:15:20",
+     "secs": 0
+    }
+   ],
+   "fail_window_secs": 55,
+   "gaps": [
+    {
+     "from": "05:12:46",
+     "to": "05:13:17",
+     "secs": 31
+    }
+   ],
+   "stall_secs": 31,
+   "max_gap_secs": 31,
+   "impact_secs": 55,
+   "total_impact_secs": 55,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 29,
+    "selects_ok": 29,
+    "selects_fail": 0,
+    "lines": 58,
+    "span_secs": 159
+   },
+   "level": "ro",
+   "level_zh": "只讀"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+   "phase": "after",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 27,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": false,
+   "window_ops": {
+    "writes_ok": 17,
+    "writes_fail": 0,
+    "selects_ok": 10,
+    "selects_fail": 0,
+    "lines": 27,
+    "span_secs": 27
+   },
+   "level": "rw",
+   "level_zh": "讀寫正常"
+  }
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "phase": null,
+  "started": "05:12:07",
+  "ended": null,
+  "ops": 237,
+  "failed": 34,
+  "failed_by_type": {
+   "SELECT": 34
+  },
+  "reconnects": 34,
+  "windows": [
+   {
+    "start": "05:12:45",
+    "end": "05:13:14",
+    "secs": 29
+   },
+   {
+    "start": "05:13:40",
+    "end": "05:14:10",
+    "secs": 30
+   }
+  ],
+  "fail_window_secs": 59,
+  "gaps": [
+   {
+    "from": "05:12:46",
+    "to": "05:12:55",
+    "secs": 9
+   },
+   {
+    "from": "05:12:55",
+    "to": "05:13:04",
+    "secs": 9
+   },
+   {
+    "from": "05:13:04",
+    "to": "05:13:13",
+    "secs": 9
+   }
+  ],
+  "stall_secs": 27,
+  "max_gap_secs": 9,
+  "impact_secs": 59,
+  "total_impact_secs": 59,
+  "events": [
+   "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+   "05:13:05 EVENT break: doris-3 is down",
+   "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+   "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+   "05:15:24 EVENT restore: start doris-3",
+   "05:16:12 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 30,
+   "selects_fail": 0,
+   "lines": 30,
+   "span_secs": 274
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常",
+  "during": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+   "phase": "during",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 129,
+   "failed": 34,
+   "failed_by_type": {
+    "SELECT": 34
+   },
+   "reconnects": 34,
+   "windows": [
+    {
+     "start": "05:12:45",
+     "end": "05:13:14",
+     "secs": 29
+    },
+    {
+     "start": "05:13:40",
+     "end": "05:14:10",
+     "secs": 30
+    }
+   ],
+   "fail_window_secs": 59,
+   "gaps": [
+    {
+     "from": "05:12:46",
+     "to": "05:12:55",
+     "secs": 9
+    },
+    {
+     "from": "05:12:55",
+     "to": "05:13:04",
+     "secs": 9
+    },
+    {
+     "from": "05:13:04",
+     "to": "05:13:13",
+     "secs": 9
+    }
+   ],
+   "stall_secs": 27,
+   "max_gap_secs": 9,
+   "impact_secs": 59,
+   "total_impact_secs": 59,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": true,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 29,
+    "selects_fail": 0,
+    "lines": 29,
+    "span_secs": 159
+   },
+   "level": "read-ok",
+   "level_zh": "讀取正常"
+  },
+  "after": {
+   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+   "phase": "after",
+   "started": "05:12:07",
+   "ended": null,
+   "ops": 28,
+   "failed": 0,
+   "failed_by_type": {},
+   "reconnects": 0,
+   "windows": [],
+   "fail_window_secs": 0,
+   "gaps": [],
+   "stall_secs": 0,
+   "max_gap_secs": 0,
+   "impact_secs": 0,
+   "total_impact_secs": 0,
+   "events": [
+    "05:12:41 EVENT break: vm stop on doris-3 (FE master)",
+    "05:13:05 EVENT break: doris-3 is down",
+    "05:13:37 EVENT break: be dead on doris-1 (FE follower)",
+    "05:15:20 EVENT restore: systemctl start doris-be on doris-1",
+    "05:15:24 EVENT restore: start doris-3",
+    "05:16:12 EVENT restore: cluster healthy"
+   ],
+   "read_only_client": true,
+   "window_ops": {
+    "writes_ok": 0,
+    "writes_fail": 0,
+    "selects_ok": 28,
+    "selects_fail": 0,
+    "lines": 28,
+    "span_secs": 29
+   },
+   "level": "read-ok",
+   "level_zh": "讀取正常"
+  }
+ },
+ "alive": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10147 via doris-1",
+ "faults": ""
+}

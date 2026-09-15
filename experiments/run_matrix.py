@@ -34,14 +34,14 @@ def wait(sec, why):
 
 def sh(cmd, timeout=600, env=None, quiet=False):
     """Run a demo.sh command, log its output, return (rc, stdout)."""
-    e = dict(os.environ); e.update(env or {})
+    e = dict(os.environ); e.update(env or {}); e["LC_ALL"] = "C.UTF-8"   # no setlocale warnings on stderr
     log(f"$ {' '.join(cmd)}")
     try:
         p = subprocess.run(cmd, cwd=ROOT, env=e, stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=timeout)
-        out = p.stdout + p.stderr
+        out = p.stdout + p.stderr; sh.last_stdout = p.stdout
     except subprocess.TimeoutExpired as ex:
         dec = lambda b: b.decode(errors="replace") if isinstance(b, bytes) else (b or "")
-        out = dec(ex.stdout) + dec(ex.stderr) + f"\n[TIMEOUT after {timeout}s]"; p = None
+        out = dec(ex.stdout) + dec(ex.stderr) + f"\n[TIMEOUT after {timeout}s]"; p = None; sh.last_stdout = dec(ex.stdout)
     clean = "\n".join(l for l in out.replace("\x1b[1;36m", "").replace("\x1b[0m", "").splitlines() if l.strip() and not l.strip().startswith("."))
     if not quiet:
         for l in clean.splitlines()[-25:]: RUNLOG.write("    | " + l + "\n")
@@ -50,8 +50,8 @@ def sh(cmd, timeout=600, env=None, quiet=False):
 
 def measure_json():
     rc, out = sh([DEMO, "measure", "--json"], timeout=300, quiet=True)
-    try:
-        return json.loads(out.strip().splitlines()[-1])
+    try:   # the JSON document is the last stdout line starting with "{" (stderr warnings are ignored)
+        return json.loads(next(l for l in reversed(sh.last_stdout.splitlines()) if l.startswith("{")))
     except Exception as ex:
         log(f"  measure --json unparsable: {ex}"); return {"error": out[-500:]}
 
@@ -78,8 +78,10 @@ def run_scenario(sc):
     t_restore = now()
     rc, out = sh([DEMO, "restore"], timeout=900)
     healthy = rc == 0 or ensure_healthy("after restore")
-    if not healthy:
-        log("  restore did not converge — second attempt"); sh([DEMO, "restore"], timeout=900); healthy = ensure_healthy("after 2nd restore")
+    for k in range(12):   # e.g. GCP zone capacity: keep retrying restore (~7 min per try) instead of running the next cell on a broken cluster
+        if healthy: break
+        log(f"  restore did not converge — retry {k+1}/12 in 120s"); time.sleep(120)
+        sh([DEMO, "restore"], timeout=900); healthy = ensure_healthy(f"after restore retry {k+1}")
     wait(sc.get("settle", D["settle"]), "settle")
     after = measure_json(); (d / "after.json").write_text(json.dumps(after, ensure_ascii=False, indent=1), encoding="utf-8")
     for p in ("mysql", "jdbc", "flight"):

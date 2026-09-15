@@ -1,0 +1,110 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "started": "23:37:30",
+  "ended": null,
+  "ops": 205,
+  "failed": 5,
+  "failed_by_type": {
+   "INSERT": 5
+  },
+  "reconnects": 5,
+  "windows": [
+   {
+    "start": "23:38:08",
+    "end": "23:38:37",
+    "secs": 29
+   }
+  ],
+  "total_impact_secs": 29,
+  "events": [
+   "23:38:04 EVENT break: vm stop on doris-3 (FE master)",
+   "23:38:28 EVENT break: doris-3 is down",
+   "23:40:06 EVENT restore: start doris-3",
+   "23:41:07 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 15,
+   "writes_fail": 0,
+   "selects_ok": 11,
+   "selects_fail": 0,
+   "lines": 26
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "started": "23:37:30",
+  "ended": null,
+  "ops": 199,
+  "failed": 3,
+  "failed_by_type": {
+   "SELECT": 1,
+   "INSERT": 2
+  },
+  "reconnects": 2,
+  "windows": [
+   {
+    "start": "23:38:08",
+    "end": "23:38:42",
+    "secs": 34
+   }
+  ],
+  "total_impact_secs": 34,
+  "events": [
+   "23:38:04 EVENT break: vm stop on doris-3 (FE master)",
+   "23:38:28 EVENT break: doris-3 is down",
+   "23:40:06 EVENT restore: start doris-3",
+   "23:41:07 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 17,
+   "writes_fail": 0,
+   "selects_ok": 10,
+   "selects_fail": 0,
+   "lines": 27
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "started": "23:37:30",
+  "ended": null,
+  "ops": 210,
+  "failed": 5,
+  "failed_by_type": {
+   "SELECT": 5
+  },
+  "reconnects": 5,
+  "windows": [
+   {
+    "start": "23:38:08",
+    "end": "23:38:37",
+    "secs": 29
+   }
+  ],
+  "total_impact_secs": 29,
+  "events": [
+   "23:38:04 EVENT break: vm stop on doris-3 (FE master)",
+   "23:38:28 EVENT break: doris-3 is down",
+   "23:40:06 EVENT restore: start doris-3",
+   "23:41:07 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 29,
+   "selects_fail": 0,
+   "lines": 29
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常"
+ },
+ "alive": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10012 via doris-1",
+ "faults": ""
+}

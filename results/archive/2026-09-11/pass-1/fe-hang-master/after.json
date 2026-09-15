@@ -1,0 +1,90 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "started": "00:15:45",
+  "ended": null,
+  "ops": 80,
+  "failed": 15,
+  "failed_by_type": {
+   "INSERT": 15
+  },
+  "reconnects": 15,
+  "windows": [
+   {
+    "start": "00:16:30",
+    "end": "00:18:40",
+    "secs": 130
+   }
+  ],
+  "total_impact_secs": 130,
+  "events": [
+   "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+   "00:18:37 EVENT restore: resume fe on doris-3",
+   "00:18:44 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 15,
+   "writes_fail": 0,
+   "selects_ok": 11,
+   "selects_fail": 0,
+   "lines": 26
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "started": "00:15:45",
+  "ended": null,
+  "ops": 63,
+  "failed": 0,
+  "failed_by_type": {},
+  "reconnects": 0,
+  "windows": [],
+  "total_impact_secs": 0,
+  "events": [
+   "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+   "00:18:37 EVENT restore: resume fe on doris-3",
+   "00:18:44 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 15,
+   "writes_fail": 0,
+   "selects_ok": 11,
+   "selects_fail": 0,
+   "lines": 26
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "started": "00:15:45",
+  "ended": null,
+  "ops": 82,
+  "failed": 0,
+  "failed_by_type": {},
+  "reconnects": 0,
+  "windows": [],
+  "total_impact_secs": 0,
+  "events": [
+   "00:16:19 EVENT break: fe hang on doris-3 (FE master)",
+   "00:18:37 EVENT restore: resume fe on doris-3",
+   "00:18:44 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 29,
+   "selects_fail": 0,
+   "lines": 29
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常"
+ },
+ "alive": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10037 via doris-1",
+ "faults": ""
+}

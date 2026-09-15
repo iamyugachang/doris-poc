@@ -75,22 +75,22 @@ Client VM（同 VPC）三個探測同時跑，每秒一步 INSERT→UPSERT→SEL
 ./demo.sh stop               # 省錢；或 ./demo.sh down 全刪
 ```
 
-## 故障矩陣結果（2026-09-11，16 格 × 3 輪 = 48 次執行）
+## 故障矩陣結果（2026-09-15，16 格 × 3 輪 = 48 次執行）
 
 | 故障（三輪最差等級） | mysql | jdbc | arrow-flight |
 |---|---|---|---|
-| 停 master VM／停 follower VM | 讀寫正常 0～37s | 讀寫正常 1～39s | 讀取正常 0～30s |
-| master FE crash / dead | 讀寫正常 0～28s | 讀寫正常 1～29s | 讀取正常 6～9s |
-| follower FE crash | 讀寫正常 1～2s | 1～3s | 2～3s |
-| master FE hang（SIGSTOP） | **卡住**：第 1 輪 120s 不選主、第 2/3 輪 63s 後選主 | 卡住 69～136s | 讀取正常但每筆 9s |
-| follower FE hang | 讀寫正常 18～28s | 45～48s | 39s |
-| BE crash / dead / hang | 讀寫正常 6～37s | 6～36s | 1～31s |
+| 停 master VM／停 follower VM | 讀寫正常 0～35s | 讀寫正常 0～33s | 讀取正常 0～36s |
+| master FE crash / dead | 讀寫正常 0～25s | 讀寫正常 1～29s | 讀取正常 0～9s |
+| follower FE crash | 讀寫正常 1～4s | 0～2s | 3～5s |
+| master FE hang（SIGSTOP） | **卡住**：兩輪 120s 內不選主、一輪 73s 後選主 | 卡住 83～139s | 讀取正常 72～136s |
+| follower FE hang | 讀寫正常 18～26s | 45～54s | 38～40s |
+| BE crash / dead / hang | 讀寫正常 0～36s | 0～37s | 0～37s |
 | VM 停 + 另一台 FE dead（FE 1/3） | **不可用** | 不可用 | 讀取失敗 |
 | VM 停 + 另一台 BE dead（BE 1/3） | **只讀** | 只讀 | 讀取正常 |
-| 兩台 VM 停 | 不可用 | 卡住 | 讀取失敗 |
-| 交錯（VM 停 + BE dead + FE dead） | 不可用／只讀（看僅存 FE 是否 master） | 同左 | 讀取失敗／正常 |
+| 兩台 VM 停 | 不可用 | 不可用 | 讀取卡住 |
+| 交錯（VM 停 + BE dead + FE dead） | 只讀（僅存 FE 是 master） | 不可用 | 讀取失敗 |
 
-48 次執行 0 筆資料不一致；每次 restore 後都回到 3 FE / 3 BE、12 副本 OK。中斷秒數 = 失敗視窗（第一次失敗到下一次成功）與卡頓（連續操作間隔 > 5 秒）的聯集，含 client 自己的逾時（connect 3s、read/write 8s）。
+48 次執行 0 筆資料不一致；每次 restore 後都回到 3 FE / 3 BE、12 副本 OK。中斷秒數 = 失敗視窗（第一次失敗到下一次成功）與卡頓（連續操作間隔 > 5 秒）的聯集，含 client 自己的逾時（connect 3s、read/write 8s）。本次 asia-east1-c 缺 e2-standard-4，doris-3 以 n2 / n2d-standard-4 執行（見 `results/run-notes.md`）；上一次（2026-09-11）結果在 `results/archive/`。
 
 ## 目錄
 

@@ -9,14 +9,14 @@
  "steps": [
   "--target vm --on master"
  ],
- "started": "03:10:55",
- "restore_at": "03:13:33",
- "ended": "03:14:55",
+ "started": "18:03:03",
+ "restore_at": "18:05:45",
+ "ended": "18:07:04",
  "healthy_after": true,
  "breaks": [
   {
    "step": "--target vm --on master",
-   "at": "03:11:57",
+   "at": "18:04:07",
    "rc": 0
   }
  ],
@@ -24,79 +24,437 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 26,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:40",
+     "start": "18:03:47",
+     "end": "18:03:51",
      "secs": 4
+    },
+    {
+     "start": "18:03:52",
+     "end": "18:03:54",
+     "secs": 2
+    },
+    {
+     "start": "18:03:55",
+     "end": "18:03:55",
+     "secs": 0
+    },
+    {
+     "start": "18:03:56",
+     "end": "18:04:02",
+     "secs": 6
+    },
+    {
+     "start": "18:04:03",
+     "end": "18:04:04",
+     "secs": 1
+    },
+    {
+     "start": "18:04:14",
+     "end": "18:04:14",
+     "secs": 0
+    },
+    {
+     "start": "18:04:15",
+     "end": "18:04:18",
+     "secs": 3
+    },
+    {
+     "start": "18:04:19",
+     "end": "18:04:19",
+     "secs": 0
+    },
+    {
+     "start": "18:04:20",
+     "end": "18:04:20",
+     "secs": 0
+    },
+    {
+     "start": "18:04:22",
+     "end": "18:04:22",
+     "secs": 0
+    },
+    {
+     "start": "18:04:23",
+     "end": "18:04:23",
+     "secs": 0
+    },
+    {
+     "start": "18:04:24",
+     "end": "18:04:24",
+     "secs": 0
+    },
+    {
+     "start": "18:04:25",
+     "end": "18:04:25",
+     "secs": 0
+    },
+    {
+     "start": "18:04:26",
+     "end": "18:04:26",
+     "secs": 0
+    },
+    {
+     "start": "18:04:27",
+     "end": "18:04:27",
+     "secs": 0
+    },
+    {
+     "start": "18:04:28",
+     "end": "18:04:28",
+     "secs": 0
+    },
+    {
+     "start": "18:04:29",
+     "end": "18:04:29",
+     "secs": 0
+    },
+    {
+     "start": "18:04:30",
+     "end": "18:04:30",
+     "secs": 0
+    },
+    {
+     "start": "18:04:32",
+     "end": "18:04:32",
+     "secs": 0
+    },
+    {
+     "start": "18:04:33",
+     "end": "18:04:33",
+     "secs": 0
+    },
+    {
+     "start": "18:04:34",
+     "end": "18:04:34",
+     "secs": 0
+    },
+    {
+     "start": "18:04:35",
+     "end": "18:04:35",
+     "secs": 0
+    },
+    {
+     "start": "18:04:36",
+     "end": "18:04:36",
+     "secs": 0
+    },
+    {
+     "start": "18:04:37",
+     "end": "18:04:37",
+     "secs": 0
+    },
+    {
+     "start": "18:04:38",
+     "end": "18:04:38",
+     "secs": 0
+    },
+    {
+     "start": "18:04:39",
+     "end": "18:04:39",
+     "secs": 0
+    },
+    {
+     "start": "18:04:40",
+     "end": "18:04:40",
+     "secs": 0
+    },
+    {
+     "start": "18:04:42",
+     "end": "18:04:42",
+     "secs": 0
+    },
+    {
+     "start": "18:04:43",
+     "end": "18:04:43",
+     "secs": 0
+    },
+    {
+     "start": "18:04:44",
+     "end": "18:04:44",
+     "secs": 0
+    },
+    {
+     "start": "18:04:45",
+     "end": "18:04:45",
+     "secs": 0
+    },
+    {
+     "start": "18:04:46",
+     "end": "18:04:46",
+     "secs": 0
+    },
+    {
+     "start": "18:04:47",
+     "end": "18:04:47",
+     "secs": 0
     }
    ],
-   "failed": 1,
+   "failed": 55,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 12,
+    "UPSERT": 1,
+    "INSERT": 42
    },
-   "reconnects": 1,
+   "reconnects": 44,
    "window_ops": {
     "writes_ok": 18,
     "writes_fail": 0,
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 150
+    "span_secs": 153
    },
    "read_only_client": false
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 20,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:40",
+     "start": "18:03:47",
+     "end": "18:03:51",
      "secs": 4
+    },
+    {
+     "start": "18:03:52",
+     "end": "18:03:52",
+     "secs": 0
+    },
+    {
+     "start": "18:03:53",
+     "end": "18:03:55",
+     "secs": 2
+    },
+    {
+     "start": "18:03:56",
+     "end": "18:03:56",
+     "secs": 0
+    },
+    {
+     "start": "18:03:58",
+     "end": "18:03:58",
+     "secs": 0
+    },
+    {
+     "start": "18:03:59",
+     "end": "18:03:59",
+     "secs": 0
+    },
+    {
+     "start": "18:04:00",
+     "end": "18:04:00",
+     "secs": 0
+    },
+    {
+     "start": "18:04:01",
+     "end": "18:04:02",
+     "secs": 1
+    },
+    {
+     "start": "18:04:03",
+     "end": "18:04:12",
+     "secs": 9
+    },
+    {
+     "start": "18:04:13",
+     "end": "18:04:16",
+     "secs": 3
+    },
+    {
+     "start": "18:04:17",
+     "end": "18:04:17",
+     "secs": 0
+    },
+    {
+     "start": "18:04:18",
+     "end": "18:04:18",
+     "secs": 0
+    },
+    {
+     "start": "18:04:19",
+     "end": "18:04:19",
+     "secs": 0
+    },
+    {
+     "start": "18:04:20",
+     "end": "18:04:20",
+     "secs": 0
+    },
+    {
+     "start": "18:04:21",
+     "end": "18:04:21",
+     "secs": 0
+    },
+    {
+     "start": "18:04:22",
+     "end": "18:04:22",
+     "secs": 0
+    },
+    {
+     "start": "18:04:23",
+     "end": "18:04:23",
+     "secs": 0
+    },
+    {
+     "start": "18:04:25",
+     "end": "18:04:25",
+     "secs": 0
+    },
+    {
+     "start": "18:04:26",
+     "end": "18:04:26",
+     "secs": 0
+    },
+    {
+     "start": "18:04:27",
+     "end": "18:04:27",
+     "secs": 0
+    },
+    {
+     "start": "18:04:28",
+     "end": "18:04:28",
+     "secs": 0
+    },
+    {
+     "start": "18:04:29",
+     "end": "18:04:29",
+     "secs": 0
+    },
+    {
+     "start": "18:04:30",
+     "end": "18:04:30",
+     "secs": 0
+    },
+    {
+     "start": "18:04:31",
+     "end": "18:04:31",
+     "secs": 0
+    },
+    {
+     "start": "18:04:32",
+     "end": "18:04:32",
+     "secs": 0
+    },
+    {
+     "start": "18:04:33",
+     "end": "18:04:33",
+     "secs": 0
+    },
+    {
+     "start": "18:04:34",
+     "end": "18:04:34",
+     "secs": 0
+    },
+    {
+     "start": "18:04:35",
+     "end": "18:04:35",
+     "secs": 0
+    },
+    {
+     "start": "18:04:36",
+     "end": "18:04:36",
+     "secs": 0
+    },
+    {
+     "start": "18:04:37",
+     "end": "18:04:38",
+     "secs": 1
+    },
+    {
+     "start": "18:04:39",
+     "end": "18:04:39",
+     "secs": 0
+    },
+    {
+     "start": "18:04:40",
+     "end": "18:04:40",
+     "secs": 0
+    },
+    {
+     "start": "18:04:41",
+     "end": "18:04:41",
+     "secs": 0
+    },
+    {
+     "start": "18:04:42",
+     "end": "18:04:42",
+     "secs": 0
+    },
+    {
+     "start": "18:04:43",
+     "end": "18:04:43",
+     "secs": 0
+    },
+    {
+     "start": "18:04:44",
+     "end": "18:04:44",
+     "secs": 0
+    },
+    {
+     "start": "18:04:45",
+     "end": "18:04:45",
+     "secs": 0
+    },
+    {
+     "start": "18:04:46",
+     "end": "18:04:46",
+     "secs": 0
+    },
+    {
+     "start": "18:04:47",
+     "end": "18:04:47",
+     "secs": 0
     }
    ],
-   "failed": 2,
+   "failed": 51,
    "failed_by_type": {
-    "DELETE": 1,
-    "SELECT": 1
+    "UPSERT": 1,
+    "INSERT": 44,
+    "SELECT": 6
    },
-   "reconnects": 1,
+   "reconnects": 45,
    "window_ops": {
     "writes_ok": 18,
     "writes_fail": 0,
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 152
+    "span_secs": 155
    },
    "read_only_client": false
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 2,
+   "total_impact_secs": 30,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:38",
-     "secs": 2
+     "start": "18:03:52",
+     "end": "18:04:06",
+     "secs": 14
+    },
+    {
+     "start": "18:04:07",
+     "end": "18:04:17",
+     "secs": 10
     }
    ],
-   "failed": 1,
+   "failed": 22,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 22
    },
-   "reconnects": 1,
+   "reconnects": 22,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
     "selects_ok": 30,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 153
+    "span_secs": 157
    },
    "read_only_client": true
   }
@@ -105,74 +463,432 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 26,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:40",
+     "start": "18:03:47",
+     "end": "18:03:51",
      "secs": 4
+    },
+    {
+     "start": "18:03:52",
+     "end": "18:03:54",
+     "secs": 2
+    },
+    {
+     "start": "18:03:55",
+     "end": "18:03:55",
+     "secs": 0
+    },
+    {
+     "start": "18:03:56",
+     "end": "18:04:02",
+     "secs": 6
+    },
+    {
+     "start": "18:04:03",
+     "end": "18:04:04",
+     "secs": 1
+    },
+    {
+     "start": "18:04:14",
+     "end": "18:04:14",
+     "secs": 0
+    },
+    {
+     "start": "18:04:15",
+     "end": "18:04:18",
+     "secs": 3
+    },
+    {
+     "start": "18:04:19",
+     "end": "18:04:19",
+     "secs": 0
+    },
+    {
+     "start": "18:04:20",
+     "end": "18:04:20",
+     "secs": 0
+    },
+    {
+     "start": "18:04:22",
+     "end": "18:04:22",
+     "secs": 0
+    },
+    {
+     "start": "18:04:23",
+     "end": "18:04:23",
+     "secs": 0
+    },
+    {
+     "start": "18:04:24",
+     "end": "18:04:24",
+     "secs": 0
+    },
+    {
+     "start": "18:04:25",
+     "end": "18:04:25",
+     "secs": 0
+    },
+    {
+     "start": "18:04:26",
+     "end": "18:04:26",
+     "secs": 0
+    },
+    {
+     "start": "18:04:27",
+     "end": "18:04:27",
+     "secs": 0
+    },
+    {
+     "start": "18:04:28",
+     "end": "18:04:28",
+     "secs": 0
+    },
+    {
+     "start": "18:04:29",
+     "end": "18:04:29",
+     "secs": 0
+    },
+    {
+     "start": "18:04:30",
+     "end": "18:04:30",
+     "secs": 0
+    },
+    {
+     "start": "18:04:32",
+     "end": "18:04:32",
+     "secs": 0
+    },
+    {
+     "start": "18:04:33",
+     "end": "18:04:33",
+     "secs": 0
+    },
+    {
+     "start": "18:04:34",
+     "end": "18:04:34",
+     "secs": 0
+    },
+    {
+     "start": "18:04:35",
+     "end": "18:04:35",
+     "secs": 0
+    },
+    {
+     "start": "18:04:36",
+     "end": "18:04:36",
+     "secs": 0
+    },
+    {
+     "start": "18:04:37",
+     "end": "18:04:37",
+     "secs": 0
+    },
+    {
+     "start": "18:04:38",
+     "end": "18:04:38",
+     "secs": 0
+    },
+    {
+     "start": "18:04:39",
+     "end": "18:04:39",
+     "secs": 0
+    },
+    {
+     "start": "18:04:40",
+     "end": "18:04:40",
+     "secs": 0
+    },
+    {
+     "start": "18:04:42",
+     "end": "18:04:42",
+     "secs": 0
+    },
+    {
+     "start": "18:04:43",
+     "end": "18:04:43",
+     "secs": 0
+    },
+    {
+     "start": "18:04:44",
+     "end": "18:04:44",
+     "secs": 0
+    },
+    {
+     "start": "18:04:45",
+     "end": "18:04:45",
+     "secs": 0
+    },
+    {
+     "start": "18:04:46",
+     "end": "18:04:46",
+     "secs": 0
+    },
+    {
+     "start": "18:04:47",
+     "end": "18:04:47",
+     "secs": 0
     }
    ],
-   "failed": 1,
+   "failed": 55,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 12,
+    "UPSERT": 1,
+    "INSERT": 42
    },
-   "reconnects": 1,
+   "reconnects": 44,
    "events": [
-    "03:11:33 EVENT break: vm stop on doris-3 (FE master)",
-    "03:11:57 EVENT break: doris-3 is down",
-    "03:13:35 EVENT restore: start doris-3",
-    "03:14:24 EVENT restore: cluster healthy"
+    "18:03:43 EVENT break: vm stop on doris-3 (FE master)",
+    "18:04:07 EVENT break: doris-3 is down",
+    "18:05:46 EVENT restore: start doris-3",
+    "18:06:33 EVENT restore: cluster healthy"
    ]
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 20,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:40",
+     "start": "18:03:47",
+     "end": "18:03:51",
      "secs": 4
+    },
+    {
+     "start": "18:03:52",
+     "end": "18:03:52",
+     "secs": 0
+    },
+    {
+     "start": "18:03:53",
+     "end": "18:03:55",
+     "secs": 2
+    },
+    {
+     "start": "18:03:56",
+     "end": "18:03:56",
+     "secs": 0
+    },
+    {
+     "start": "18:03:58",
+     "end": "18:03:58",
+     "secs": 0
+    },
+    {
+     "start": "18:03:59",
+     "end": "18:03:59",
+     "secs": 0
+    },
+    {
+     "start": "18:04:00",
+     "end": "18:04:00",
+     "secs": 0
+    },
+    {
+     "start": "18:04:01",
+     "end": "18:04:02",
+     "secs": 1
+    },
+    {
+     "start": "18:04:03",
+     "end": "18:04:12",
+     "secs": 9
+    },
+    {
+     "start": "18:04:13",
+     "end": "18:04:16",
+     "secs": 3
+    },
+    {
+     "start": "18:04:17",
+     "end": "18:04:17",
+     "secs": 0
+    },
+    {
+     "start": "18:04:18",
+     "end": "18:04:18",
+     "secs": 0
+    },
+    {
+     "start": "18:04:19",
+     "end": "18:04:19",
+     "secs": 0
+    },
+    {
+     "start": "18:04:20",
+     "end": "18:04:20",
+     "secs": 0
+    },
+    {
+     "start": "18:04:21",
+     "end": "18:04:21",
+     "secs": 0
+    },
+    {
+     "start": "18:04:22",
+     "end": "18:04:22",
+     "secs": 0
+    },
+    {
+     "start": "18:04:23",
+     "end": "18:04:23",
+     "secs": 0
+    },
+    {
+     "start": "18:04:25",
+     "end": "18:04:25",
+     "secs": 0
+    },
+    {
+     "start": "18:04:26",
+     "end": "18:04:26",
+     "secs": 0
+    },
+    {
+     "start": "18:04:27",
+     "end": "18:04:27",
+     "secs": 0
+    },
+    {
+     "start": "18:04:28",
+     "end": "18:04:28",
+     "secs": 0
+    },
+    {
+     "start": "18:04:29",
+     "end": "18:04:29",
+     "secs": 0
+    },
+    {
+     "start": "18:04:30",
+     "end": "18:04:30",
+     "secs": 0
+    },
+    {
+     "start": "18:04:31",
+     "end": "18:04:31",
+     "secs": 0
+    },
+    {
+     "start": "18:04:32",
+     "end": "18:04:32",
+     "secs": 0
+    },
+    {
+     "start": "18:04:33",
+     "end": "18:04:33",
+     "secs": 0
+    },
+    {
+     "start": "18:04:34",
+     "end": "18:04:34",
+     "secs": 0
+    },
+    {
+     "start": "18:04:35",
+     "end": "18:04:35",
+     "secs": 0
+    },
+    {
+     "start": "18:04:36",
+     "end": "18:04:36",
+     "secs": 0
+    },
+    {
+     "start": "18:04:37",
+     "end": "18:04:38",
+     "secs": 1
+    },
+    {
+     "start": "18:04:39",
+     "end": "18:04:39",
+     "secs": 0
+    },
+    {
+     "start": "18:04:40",
+     "end": "18:04:40",
+     "secs": 0
+    },
+    {
+     "start": "18:04:41",
+     "end": "18:04:41",
+     "secs": 0
+    },
+    {
+     "start": "18:04:42",
+     "end": "18:04:42",
+     "secs": 0
+    },
+    {
+     "start": "18:04:43",
+     "end": "18:04:43",
+     "secs": 0
+    },
+    {
+     "start": "18:04:44",
+     "end": "18:04:44",
+     "secs": 0
+    },
+    {
+     "start": "18:04:45",
+     "end": "18:04:45",
+     "secs": 0
+    },
+    {
+     "start": "18:04:46",
+     "end": "18:04:46",
+     "secs": 0
+    },
+    {
+     "start": "18:04:47",
+     "end": "18:04:47",
+     "secs": 0
     }
    ],
-   "failed": 2,
+   "failed": 51,
    "failed_by_type": {
-    "DELETE": 1,
-    "SELECT": 1
+    "UPSERT": 1,
+    "INSERT": 44,
+    "SELECT": 6
    },
-   "reconnects": 1,
+   "reconnects": 45,
    "events": [
-    "03:11:33 EVENT break: vm stop on doris-3 (FE master)",
-    "03:11:57 EVENT break: doris-3 is down",
-    "03:13:35 EVENT restore: start doris-3",
-    "03:14:24 EVENT restore: cluster healthy"
+    "18:03:43 EVENT break: vm stop on doris-3 (FE master)",
+    "18:04:07 EVENT break: doris-3 is down",
+    "18:05:46 EVENT restore: start doris-3",
+    "18:06:33 EVENT restore: cluster healthy"
    ]
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 2,
+   "total_impact_secs": 30,
    "windows": [
     {
-     "start": "03:11:36",
-     "end": "03:11:38",
-     "secs": 2
+     "start": "18:03:52",
+     "end": "18:04:06",
+     "secs": 14
+    },
+    {
+     "start": "18:04:07",
+     "end": "18:04:17",
+     "secs": 10
     }
    ],
-   "failed": 1,
+   "failed": 22,
    "failed_by_type": {
-    "SELECT": 1
+    "SELECT": 22
    },
-   "reconnects": 1,
+   "reconnects": 22,
    "events": [
-    "03:11:33 EVENT break: vm stop on doris-3 (FE master)",
-    "03:11:57 EVENT break: doris-3 is down",
-    "03:13:35 EVENT restore: start doris-3",
-    "03:14:24 EVENT restore: cluster healthy"
+    "18:03:43 EVENT break: vm stop on doris-3 (FE master)",
+    "18:04:07 EVENT break: doris-3 is down",
+    "18:05:46 EVENT restore: start doris-3",
+    "18:06:33 EVENT restore: cluster healthy"
    ]
   }
  },
- "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10062 via doris-1",
- "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10064 via doris-1"
+ "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10211 via doris-1",
+ "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10211 via doris-1"
 }

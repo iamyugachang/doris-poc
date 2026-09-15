@@ -1,0 +1,4 @@
+- 執行：2026-09-15 15:58～20:16，三輪 × 16 格 = 48 次；設計依 specs.html 現版（實驗內容與假設）。
+- 偏差：當天 asia-east1-c 的 e2-standard-4 缺貨，doris-3 以 n2-standard-4（第 1 輪前 14 格）與 n2d-standard-4（其餘）執行；doris-1/2 維持 e2-standard-4。故障行為只看 FE/BE 程序與 VM 開關，機型不影響結論。
+- 第 1 輪第 14～16 格因 doris-3 在 restore 時遇到 zone 缺貨起不來，等到有機器後 restore 再重跑；執行器已改成 restore 不收斂時每 2 分鐘重試，不在壞掉的叢集上跑下一格。
+- 上一次（2026-09-11）的結果保留在 results/archive/2026-09-11/。

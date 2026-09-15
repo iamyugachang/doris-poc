@@ -1,0 +1,104 @@
+{
+ "mysql": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
+  "started": "23:54:04",
+  "ended": null,
+  "ops": 133,
+  "failed": 2,
+  "failed_by_type": {
+   "DELETE": 1,
+   "INSERT": 1
+  },
+  "reconnects": 2,
+  "windows": [
+   {
+    "start": "23:55:10",
+    "end": "23:55:21",
+    "secs": 11
+   }
+  ],
+  "total_impact_secs": 11,
+  "events": [
+   "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+   "23:56:17 EVENT restore: verify fe on doris-2",
+   "23:56:23 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 15,
+   "writes_fail": 0,
+   "selects_ok": 11,
+   "selects_fail": 0,
+   "lines": 26
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "jdbc": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
+  "started": "23:54:04",
+  "ended": null,
+  "ops": 132,
+  "failed": 2,
+  "failed_by_type": {
+   "DELETE": 2
+  },
+  "reconnects": 2,
+  "windows": [
+   {
+    "start": "23:54:40",
+    "end": "23:54:42",
+    "secs": 2
+   },
+   {
+    "start": "23:55:12",
+    "end": "23:55:21",
+    "secs": 9
+   }
+  ],
+  "total_impact_secs": 11,
+  "events": [
+   "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+   "23:56:17 EVENT restore: verify fe on doris-2",
+   "23:56:23 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": false,
+  "window_ops": {
+   "writes_ok": 16,
+   "writes_fail": 0,
+   "selects_ok": 11,
+   "selects_fail": 0,
+   "lines": 27
+  },
+  "level": "rw",
+  "level_zh": "讀寫正常"
+ },
+ "flight": {
+  "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
+  "started": "23:54:04",
+  "ended": null,
+  "ops": 152,
+  "failed": 0,
+  "failed_by_type": {},
+  "reconnects": 0,
+  "windows": [],
+  "total_impact_secs": 0,
+  "events": [
+   "23:54:38 EVENT break: fe crash on doris-2 (FE master)",
+   "23:56:17 EVENT restore: verify fe on doris-2",
+   "23:56:23 EVENT restore: cluster healthy"
+  ],
+  "read_only_client": true,
+  "window_ops": {
+   "writes_ok": 0,
+   "writes_fail": 0,
+   "selects_ok": 29,
+   "selects_fail": 0,
+   "lines": 29
+  },
+  "level": "read-ok",
+  "level_zh": "讀取正常"
+ },
+ "alive": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1",
+ "faults": ""
+}

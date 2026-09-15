@@ -2,51 +2,61 @@
  "mysql": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
   "phase": null,
-  "started": "03:50:06",
+  "started": "18:42:25",
   "ended": null,
-  "ops": 129,
-  "failed": 3,
+  "ops": 122,
+  "failed": 4,
   "failed_by_type": {
    "SELECT": 1,
-   "INSERT": 2
+   "INSERT": 3
   },
-  "reconnects": 3,
+  "reconnects": 4,
   "windows": [
    {
-    "start": "03:50:50",
-    "end": "03:50:59",
+    "start": "18:43:09",
+    "end": "18:43:18",
     "secs": 9
    },
    {
-    "start": "03:51:08",
-    "end": "03:51:08",
+    "start": "18:43:27",
+    "end": "18:43:27",
+    "secs": 0
+   },
+   {
+    "start": "18:43:36",
+    "end": "18:43:36",
     "secs": 0
    }
   ],
   "fail_window_secs": 9,
   "gaps": [
    {
-    "from": "03:50:41",
-    "to": "03:50:50",
+    "from": "18:43:00",
+    "to": "18:43:09",
     "secs": 9
    },
    {
-    "from": "03:50:50",
-    "to": "03:50:59",
+    "from": "18:43:09",
+    "to": "18:43:18",
     "secs": 9
    },
    {
-    "from": "03:50:59",
-    "to": "03:51:08",
+    "from": "18:43:18",
+    "to": "18:43:27",
+    "secs": 9
+   },
+   {
+    "from": "18:43:27",
+    "to": "18:43:36",
     "secs": 9
    }
   ],
-  "stall_secs": 27,
+  "stall_secs": 36,
   "max_gap_secs": 9,
-  "impact_secs": 27,
-  "total_impact_secs": 27,
+  "impact_secs": 36,
+  "total_impact_secs": 36,
   "events": [
-   "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+   "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
   ],
   "read_only_client": false,
   "window_ops": {
@@ -55,58 +65,68 @@
    "selects_ok": 12,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 158
+   "span_secs": 157
   },
   "level": "rw",
   "level_zh": "讀寫正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "during",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 97,
-   "failed": 3,
+   "ops": 90,
+   "failed": 4,
    "failed_by_type": {
     "SELECT": 1,
-    "INSERT": 2
+    "INSERT": 3
    },
-   "reconnects": 3,
+   "reconnects": 4,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:50:59",
+     "start": "18:43:09",
+     "end": "18:43:18",
      "secs": 9
     },
     {
-     "start": "03:51:08",
-     "end": "03:51:08",
+     "start": "18:43:27",
+     "end": "18:43:27",
+     "secs": 0
+    },
+    {
+     "start": "18:43:36",
+     "end": "18:43:36",
      "secs": 0
     }
    ],
    "fail_window_secs": 9,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:00",
+     "to": "18:43:09",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:09",
+     "to": "18:43:18",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:08",
+     "from": "18:43:18",
+     "to": "18:43:27",
+     "secs": 9
+    },
+    {
+     "from": "18:43:27",
+     "to": "18:43:36",
      "secs": 9
     }
    ],
-   "stall_secs": 27,
+   "stall_secs": 36,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 36,
+   "total_impact_secs": 36,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
@@ -115,7 +135,7 @@
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 124
+    "span_secs": 123
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -123,51 +143,61 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "after",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 129,
-   "failed": 3,
+   "ops": 122,
+   "failed": 4,
    "failed_by_type": {
     "SELECT": 1,
-    "INSERT": 2
+    "INSERT": 3
    },
-   "reconnects": 4,
+   "reconnects": 5,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:50:59",
+     "start": "18:43:09",
+     "end": "18:43:18",
      "secs": 9
     },
     {
-     "start": "03:51:08",
-     "end": "03:51:08",
+     "start": "18:43:27",
+     "end": "18:43:27",
+     "secs": 0
+    },
+    {
+     "start": "18:43:36",
+     "end": "18:43:36",
      "secs": 0
     }
    ],
    "fail_window_secs": 9,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:00",
+     "to": "18:43:09",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:09",
+     "to": "18:43:18",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:08",
+     "from": "18:43:18",
+     "to": "18:43:27",
+     "secs": 9
+    },
+    {
+     "from": "18:43:27",
+     "to": "18:43:36",
      "secs": 9
     }
    ],
-   "stall_secs": 27,
+   "stall_secs": 36,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 36,
+   "total_impact_secs": 36,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
@@ -176,7 +206,7 @@
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 158
+    "span_secs": 157
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -185,56 +215,56 @@
  "jdbc": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
   "phase": null,
-  "started": "03:50:06",
+  "started": "18:42:25",
   "ended": null,
-  "ops": 131,
-  "failed": 3,
+  "ops": 122,
+  "failed": 4,
   "failed_by_type": {
-   "DELETE": 1,
+   "SELECT": 2,
    "INSERT": 2
   },
   "reconnects": 3,
   "windows": [
    {
-    "start": "03:50:50",
-    "end": "03:50:50",
-    "secs": 0
+    "start": "18:43:10",
+    "end": "18:43:19",
+    "secs": 9
    },
    {
-    "start": "03:50:59",
-    "end": "03:50:59",
-    "secs": 0
-   },
-   {
-    "start": "03:51:08",
-    "end": "03:51:08",
-    "secs": 0
+    "start": "18:43:28",
+    "end": "18:43:37",
+    "secs": 9
    }
   ],
-  "fail_window_secs": 0,
+  "fail_window_secs": 18,
   "gaps": [
    {
-    "from": "03:50:41",
-    "to": "03:50:50",
+    "from": "18:43:01",
+    "to": "18:43:10",
     "secs": 9
    },
    {
-    "from": "03:50:50",
-    "to": "03:50:59",
+    "from": "18:43:10",
+    "to": "18:43:19",
     "secs": 9
    },
    {
-    "from": "03:50:59",
-    "to": "03:51:08",
+    "from": "18:43:19",
+    "to": "18:43:28",
     "secs": 9
+   },
+   {
+    "from": "18:43:28",
+    "to": "18:43:36",
+    "secs": 8
    }
   ],
-  "stall_secs": 27,
+  "stall_secs": 35,
   "max_gap_secs": 9,
-  "impact_secs": 27,
-  "total_impact_secs": 27,
+  "impact_secs": 36,
+  "total_impact_secs": 36,
   "events": [
-   "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+   "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
   ],
   "read_only_client": false,
   "window_ops": {
@@ -243,72 +273,72 @@
    "selects_ok": 12,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 160
+   "span_secs": 159
   },
   "level": "rw",
   "level_zh": "讀寫正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "during",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 100,
-   "failed": 3,
+   "ops": 90,
+   "failed": 4,
    "failed_by_type": {
-    "DELETE": 1,
+    "SELECT": 2,
     "INSERT": 2
    },
    "reconnects": 3,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:50:50",
-     "secs": 0
+     "start": "18:43:10",
+     "end": "18:43:19",
+     "secs": 9
     },
     {
-     "start": "03:50:59",
-     "end": "03:50:59",
-     "secs": 0
-    },
-    {
-     "start": "03:51:08",
-     "end": "03:51:08",
-     "secs": 0
+     "start": "18:43:28",
+     "end": "18:43:37",
+     "secs": 9
     }
    ],
-   "fail_window_secs": 0,
+   "fail_window_secs": 18,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:01",
+     "to": "18:43:10",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:10",
+     "to": "18:43:19",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:08",
+     "from": "18:43:19",
+     "to": "18:43:28",
      "secs": 9
+    },
+    {
+     "from": "18:43:28",
+     "to": "18:43:36",
+     "secs": 8
     }
    ],
-   "stall_secs": 27,
+   "stall_secs": 35,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 36,
+   "total_impact_secs": 36,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 18,
+    "writes_ok": 17,
     "writes_fail": 0,
-    "selects_ok": 11,
+    "selects_ok": 12,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 126
+    "span_secs": 125
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -316,65 +346,65 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "after",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 131,
-   "failed": 3,
+   "ops": 122,
+   "failed": 4,
    "failed_by_type": {
-    "DELETE": 1,
+    "SELECT": 2,
     "INSERT": 2
    },
    "reconnects": 4,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:50:50",
-     "secs": 0
+     "start": "18:43:10",
+     "end": "18:43:19",
+     "secs": 9
     },
     {
-     "start": "03:50:59",
-     "end": "03:50:59",
-     "secs": 0
-    },
-    {
-     "start": "03:51:08",
-     "end": "03:51:08",
-     "secs": 0
+     "start": "18:43:28",
+     "end": "18:43:37",
+     "secs": 9
     }
    ],
-   "fail_window_secs": 0,
+   "fail_window_secs": 18,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:01",
+     "to": "18:43:10",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:10",
+     "to": "18:43:19",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:08",
+     "from": "18:43:19",
+     "to": "18:43:28",
      "secs": 9
+    },
+    {
+     "from": "18:43:28",
+     "to": "18:43:36",
+     "secs": 8
     }
    ],
-   "stall_secs": 27,
+   "stall_secs": 35,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 36,
+   "total_impact_secs": 36,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 18,
+    "writes_ok": 17,
     "writes_fail": 0,
-    "selects_ok": 11,
+    "selects_ok": 12,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 160
+    "span_secs": 159
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -383,45 +413,50 @@
  "flight": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
   "phase": null,
-  "started": "03:50:06",
+  "started": "18:42:25",
   "ended": null,
-  "ops": 132,
-  "failed": 3,
+  "ops": 123,
+  "failed": 4,
   "failed_by_type": {
-   "SELECT": 3
+   "SELECT": 4
   },
-  "reconnects": 3,
+  "reconnects": 4,
   "windows": [
    {
-    "start": "03:50:50",
-    "end": "03:51:08",
-    "secs": 18
+    "start": "18:43:09",
+    "end": "18:43:37",
+    "secs": 28
    }
   ],
-  "fail_window_secs": 18,
+  "fail_window_secs": 28,
   "gaps": [
    {
-    "from": "03:50:41",
-    "to": "03:50:50",
+    "from": "18:43:00",
+    "to": "18:43:09",
     "secs": 9
    },
    {
-    "from": "03:50:50",
-    "to": "03:50:59",
+    "from": "18:43:09",
+    "to": "18:43:18",
     "secs": 9
    },
    {
-    "from": "03:50:59",
-    "to": "03:51:07",
-    "secs": 8
+    "from": "18:43:18",
+    "to": "18:43:27",
+    "secs": 9
+   },
+   {
+    "from": "18:43:27",
+    "to": "18:43:36",
+    "secs": 9
    }
   ],
-  "stall_secs": 26,
+  "stall_secs": 36,
   "max_gap_secs": 9,
-  "impact_secs": 27,
-  "total_impact_secs": 27,
+  "impact_secs": 37,
+  "total_impact_secs": 37,
   "events": [
-   "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+   "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
   ],
   "read_only_client": true,
   "window_ops": {
@@ -430,61 +465,66 @@
    "selects_ok": 30,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 161
+   "span_secs": 160
   },
   "level": "read-ok",
   "level_zh": "讀取正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "during",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 100,
-   "failed": 3,
+   "ops": 91,
+   "failed": 4,
    "failed_by_type": {
-    "SELECT": 3
+    "SELECT": 4
    },
-   "reconnects": 3,
+   "reconnects": 4,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:51:08",
-     "secs": 18
+     "start": "18:43:09",
+     "end": "18:43:37",
+     "secs": 28
     }
    ],
-   "fail_window_secs": 18,
+   "fail_window_secs": 28,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:00",
+     "to": "18:43:09",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:09",
+     "to": "18:43:18",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:07",
-     "secs": 8
+     "from": "18:43:18",
+     "to": "18:43:27",
+     "secs": 9
+    },
+    {
+     "from": "18:43:27",
+     "to": "18:43:36",
+     "secs": 9
     }
    ],
-   "stall_secs": 26,
+   "stall_secs": 36,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 37,
+   "total_impact_secs": 37,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": true,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
-    "selects_ok": 29,
+    "selects_ok": 30,
     "selects_fail": 0,
-    "lines": 29,
-    "span_secs": 127
+    "lines": 30,
+    "span_secs": 126
    },
    "level": "read-ok",
    "level_zh": "讀取正常"
@@ -492,59 +532,64 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "after",
-   "started": "03:50:06",
+   "started": "18:42:25",
    "ended": null,
-   "ops": 132,
-   "failed": 3,
+   "ops": 123,
+   "failed": 4,
    "failed_by_type": {
-    "SELECT": 3
+    "SELECT": 4
    },
-   "reconnects": 4,
+   "reconnects": 5,
    "windows": [
     {
-     "start": "03:50:50",
-     "end": "03:51:08",
-     "secs": 18
+     "start": "18:43:09",
+     "end": "18:43:37",
+     "secs": 28
     }
    ],
-   "fail_window_secs": 18,
+   "fail_window_secs": 28,
    "gaps": [
     {
-     "from": "03:50:41",
-     "to": "03:50:50",
+     "from": "18:43:00",
+     "to": "18:43:09",
      "secs": 9
     },
     {
-     "from": "03:50:50",
-     "to": "03:50:59",
+     "from": "18:43:09",
+     "to": "18:43:18",
      "secs": 9
     },
     {
-     "from": "03:50:59",
-     "to": "03:51:07",
-     "secs": 8
+     "from": "18:43:18",
+     "to": "18:43:27",
+     "secs": 9
+    },
+    {
+     "from": "18:43:27",
+     "to": "18:43:36",
+     "secs": 9
     }
    ],
-   "stall_secs": 26,
+   "stall_secs": 36,
    "max_gap_secs": 9,
-   "impact_secs": 27,
-   "total_impact_secs": 27,
+   "impact_secs": 37,
+   "total_impact_secs": 37,
    "events": [
-    "03:50:40 EVENT break: be hang on doris-1 (FE follower)"
+    "18:42:59 EVENT break: be hang on doris-1 (FE follower)"
    ],
    "read_only_client": true,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
-    "selects_ok": 29,
+    "selects_ok": 30,
     "selects_fail": 0,
-    "lines": 29,
-    "span_secs": 161
+    "lines": 30,
+    "span_secs": 160
    },
    "level": "read-ok",
    "level_zh": "讀取正常"
   }
  },
- "alive": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10091 via doris-1",
- "faults": "03:50:40 be hang doris-1"
+ "alive": "FE 3/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10234 via doris-1",
+ "faults": "18:42:59 be hang doris-1"
 }

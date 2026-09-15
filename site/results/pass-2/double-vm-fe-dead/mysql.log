@@ -1,266 +1,284 @@
-03:53:45 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
-03:53:45 connected to doris-1 (10.140.0.2)
-03:53:45 #1 OK INSERT id=1700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:46 #2 OK UPSERT id=1700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:47 #3 OK SELECT id=1700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:49 #4 OK DELETE id=1700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:50 #5 OK SELECT id=1700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:51 #6 OK INSERT id=1700251 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:52 #7 OK UPSERT id=1700251 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:53 #8 OK SELECT id=1700251 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:54 #9 OK DELETE id=1700251 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:55 #10 OK SELECT id=1700251 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:56 #11 OK INSERT id=1700252 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:57 #12 OK UPSERT id=1700252 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:58 #13 OK SELECT id=1700252 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:59 #14 OK DELETE id=1700252 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:00 #15 OK SELECT id=1700252 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:01 #16 OK INSERT id=1700253 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:02 #17 OK UPSERT id=1700253 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:03 #18 OK SELECT id=1700253 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:04 #19 OK DELETE id=1700253 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:05 #20 OK SELECT id=1700253 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:07 #21 OK INSERT id=1700254 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:08 #22 OK UPSERT id=1700254 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:09 #23 OK SELECT id=1700254 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:10 #24 OK DELETE id=1700254 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:11 #25 OK SELECT id=1700254 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:12 #26 OK INSERT id=1700255 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:13 #27 OK UPSERT id=1700255 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:14 #28 OK SELECT id=1700255 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:15 #29 OK DELETE id=1700255 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:16 #30 OK SELECT id=1700255 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:17 #31 OK INSERT id=1700256 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:18 #32 OK UPSERT id=1700256 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:19 #33 OK SELECT id=1700256 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:20 EVENT break: vm stop on doris-3 (FE master)
-03:54:20 #34 OK DELETE id=1700256 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:21 #35 OK SELECT id=1700256 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:22 #36 OK INSERT id=1700257 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:23 #37 FAIL UPSERT id=1700257 via doris-1: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-03:54:24 #37 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-03:54:25 connected to doris-1 (10.140.0.2)
-03:54:25 #38 FAIL INSERT id=1700258 via doris-1: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-03:54:25 #38 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-03:54:34 connected to doris-1 (10.140.0.2)
-03:54:34 #39 FAIL INSERT id=1700259 via doris-1: InterfaceError: (0, '')
-03:54:34 #39 OK SELECT(check) id=1 via doris-1
-03:54:35 connected to doris-1 (10.140.0.2)
-03:54:35 #40 FAIL INSERT id=1700260 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), s
-03:54:35 #40 OK SELECT(check) id=1 via doris-1
-03:54:36 connected to doris-1 (10.140.0.2)
-03:54:36 #41 FAIL INSERT id=1700261 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), s
-03:54:44 #41 FAIL SELECT(check) id=1 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:54:45 EVENT break: doris-3 is down
-03:54:45 connected to doris-1 (10.140.0.2)
-03:54:45 #42 FAIL INSERT id=1700262 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), s
-03:54:53 #42 FAIL SELECT(check) id=1 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:54:54 connected to doris-1 (10.140.0.2)
-03:54:54 #43 OK INSERT id=1700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
-03:54:55 #44 OK UPSERT id=1700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:56 #45 OK SELECT id=1700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:57 #46 OK DELETE id=1700263 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:58 #47 OK SELECT id=1700263 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:00 #48 OK INSERT id=1700264 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:01 #49 OK UPSERT id=1700264 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:02 #50 OK SELECT id=1700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:03 #51 OK DELETE id=1700264 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:04 #52 OK SELECT id=1700264 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:05 #53 OK INSERT id=1700265 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:06 #54 OK UPSERT id=1700265 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:07 #55 OK SELECT id=1700265 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:08 #56 OK DELETE id=1700265 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:09 #57 OK SELECT id=1700265 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:10 #58 OK INSERT id=1700266 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:12 #59 OK UPSERT id=1700266 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:13 #60 OK SELECT id=1700266 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:14 #61 OK DELETE id=1700266 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:15 #62 OK SELECT id=1700266 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:16 #63 OK INSERT id=1700267 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:17 #64 OK UPSERT id=1700267 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:17 EVENT break: fe dead on doris-1 (FE follower)
-03:55:18 #65 OK SELECT id=1700267 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:19 #66 OK DELETE id=1700267 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:20 #67 FAIL SELECT id=1700267 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query')
-03:55:21 connected to doris-2 (10.140.0.3)
-03:55:29 #68 FAIL INSERT id=1700268 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:55:37 #68 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:55:38 connected to doris-2 (10.140.0.3)
-03:55:46 #69 FAIL INSERT id=1700269 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:55:54 #69 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:55:55 connected to doris-2 (10.140.0.3)
-03:56:03 #70 FAIL INSERT id=1700270 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:12 #70 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:13 connected to doris-2 (10.140.0.3)
-03:56:21 #71 FAIL INSERT id=1700271 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:29 #71 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:30 connected to doris-2 (10.140.0.3)
-03:56:38 #72 FAIL INSERT id=1700272 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:46 #72 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:56:47 connected to doris-2 (10.140.0.3)
-03:56:55 #73 FAIL INSERT id=1700273 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:03 #73 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:04 EVENT restore: systemctl start doris-fe on doris-1
-03:57:04 connected to doris-2 (10.140.0.3)
-03:57:08 EVENT restore: start doris-3
-03:57:12 #74 FAIL INSERT id=1700274 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:20 #74 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:21 connected to doris-2 (10.140.0.3)
-03:57:29 #75 FAIL INSERT id=1700275 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:30 #75 OK SELECT(check) id=1 via doris-1
-03:57:31 connected to doris-1 (10.140.0.2)
-03:57:39 #76 FAIL INSERT id=1700276 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:39 #76 OK SELECT(check) id=1 via doris-1
-03:57:40 connected to doris-1 (10.140.0.2)
-03:57:48 #77 FAIL INSERT id=1700277 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:48 #77 OK SELECT(check) id=1 via doris-1
-03:57:49 connected to doris-1 (10.140.0.2)
-03:57:57 #78 FAIL INSERT id=1700278 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:57:57 #78 OK SELECT(check) id=1 via doris-1
-03:57:58 connected to doris-1 (10.140.0.2)
-03:58:06 #79 FAIL INSERT id=1700279 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:06 #79 OK SELECT(check) id=1 via doris-1
-03:58:07 connected to doris-1 (10.140.0.2)
-03:58:15 #80 FAIL INSERT id=1700280 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:15 #80 OK SELECT(check) id=1 via doris-1
-03:58:16 connected to doris-1 (10.140.0.2)
-03:58:24 #81 FAIL INSERT id=1700281 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:24 #81 OK SELECT(check) id=1 via doris-1
-03:58:25 connected to doris-1 (10.140.0.2)
-03:58:33 #82 FAIL INSERT id=1700282 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:33 #82 OK SELECT(check) id=1 via doris-1
-03:58:34 connected to doris-1 (10.140.0.2)
-03:58:42 #83 FAIL INSERT id=1700283 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:43 #83 OK SELECT(check) id=1 via doris-1
-03:58:44 connected to doris-1 (10.140.0.2)
-03:58:52 #84 FAIL INSERT id=1700284 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:58:52 #84 OK SELECT(check) id=1 via doris-1
-03:58:53 connected to doris-1 (10.140.0.2)
-03:59:01 #85 FAIL INSERT id=1700285 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:01 #85 OK SELECT(check) id=1 via doris-1
-03:59:02 connected to doris-1 (10.140.0.2)
-03:59:10 #86 FAIL INSERT id=1700286 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:10 #86 OK SELECT(check) id=1 via doris-1
-03:59:11 connected to doris-1 (10.140.0.2)
-03:59:19 #87 FAIL INSERT id=1700287 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:19 #87 OK SELECT(check) id=1 via doris-1
-03:59:20 connected to doris-1 (10.140.0.2)
-03:59:28 #88 FAIL INSERT id=1700288 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:28 #88 OK SELECT(check) id=1 via doris-1
-03:59:29 connected to doris-1 (10.140.0.2)
-03:59:37 #89 FAIL INSERT id=1700289 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:37 #89 OK SELECT(check) id=1 via doris-1
-03:59:38 connected to doris-1 (10.140.0.2)
-03:59:46 #90 FAIL INSERT id=1700290 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:46 #90 OK SELECT(check) id=1 via doris-1
-03:59:47 connected to doris-1 (10.140.0.2)
-03:59:55 #91 FAIL INSERT id=1700291 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-03:59:55 #91 OK SELECT(check) id=1 via doris-1
-03:59:56 connected to doris-1 (10.140.0.2)
-04:00:04 #92 FAIL INSERT id=1700292 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:04 #92 OK SELECT(check) id=1 via doris-1
-04:00:06 connected to doris-1 (10.140.0.2)
-04:00:14 #93 FAIL INSERT id=1700293 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:14 #93 OK SELECT(check) id=1 via doris-1
-04:00:15 connected to doris-1 (10.140.0.2)
-04:00:23 #94 FAIL INSERT id=1700294 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:23 #94 OK SELECT(check) id=1 via doris-1
-04:00:24 connected to doris-1 (10.140.0.2)
-04:00:32 #95 FAIL INSERT id=1700295 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:32 #95 OK SELECT(check) id=1 via doris-1
-04:00:33 connected to doris-1 (10.140.0.2)
-04:00:41 #96 FAIL INSERT id=1700296 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:41 #96 OK SELECT(check) id=1 via doris-1
-04:00:42 connected to doris-1 (10.140.0.2)
-04:00:50 #97 FAIL INSERT id=1700297 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:50 #97 OK SELECT(check) id=1 via doris-1
-04:00:51 connected to doris-1 (10.140.0.2)
-04:00:59 #98 FAIL INSERT id=1700298 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:00:59 #98 OK SELECT(check) id=1 via doris-1
-04:01:00 connected to doris-1 (10.140.0.2)
-04:01:06 #99 FAIL INSERT id=1700299 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), s
-04:01:06 #99 OK SELECT(check) id=1 via doris-1
-04:01:07 connected to doris-1 (10.140.0.2)
-04:01:07 #100 FAIL INSERT id=1700300 via doris-1: OperationalError: (1105, 'Exception, msg: Node catalog is not ready, please wait for a while. To master progress: .\nFrontends: 
-04:01:07 #100 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'Exception, msg: Node catalog is not ready, please wait for a while. To master prog
-04:01:09 connected to doris-1 (10.140.0.2)
-04:01:17 #101 FAIL INSERT id=1700301 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:01:17 #101 OK SELECT(check) id=1 via doris-1
-04:01:18 connected to doris-1 (10.140.0.2)
-04:01:18 #102 FAIL INSERT id=1700302 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = Failed to commit txn 36045, cause tablet 1789045666396 succ replica num 1
-04:01:18 #102 OK SELECT(check) id=1 via doris-1
-04:01:19 connected to doris-1 (10.140.0.2)
-04:01:19 #103 FAIL INSERT id=1700303 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = Failed to commit txn 36047, cause tablet 1789045666400 succ replica num 1
-04:01:19 #103 OK SELECT(check) id=1 via doris-1
-04:01:20 connected to doris-1 (10.140.0.2)
-04:01:20 #104 FAIL INSERT id=1700304 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = Failed to commit txn 36049, cause tablet 1789045666404 succ replica num 1
-04:01:20 #104 OK SELECT(check) id=1 via doris-1
-04:01:21 connected to doris-1 (10.140.0.2)
-04:01:21 #105 FAIL INSERT id=1700305 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = Failed to commit txn 36051, cause tablet 1789045666408 succ replica num 1
-04:01:21 #105 OK SELECT(check) id=1 via doris-1
-04:01:22 connected to doris-1 (10.140.0.2)
-04:01:22 #106 OK INSERT id=1700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
-04:01:23 #107 OK UPSERT id=1700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:25 #108 OK SELECT id=1700306 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:26 #109 OK DELETE id=1700306 via doris-1 rows=10096 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:27 #110 OK SELECT id=1700306 via doris-1 rows=10096 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:28 #111 OK INSERT id=1700307 via doris-1 rows=10097 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:29 #112 OK UPSERT id=1700307 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:30 #113 OK SELECT id=1700307 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:31 #114 OK DELETE id=1700307 via doris-1 rows=10097 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:32 #115 OK SELECT id=1700307 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:33 #116 OK INSERT id=1700308 via doris-1 rows=10097 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:34 #117 OK UPSERT id=1700308 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:36 #118 OK SELECT id=1700308 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:37 #119 OK DELETE id=1700308 via doris-1 rows=10097 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:38 #120 OK SELECT id=1700308 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:47 #121 FAIL INSERT id=1700309 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-04:01:47 #121 OK SELECT(check) id=1 via doris-1
-04:01:48 connected to doris-1 (10.140.0.2)
-04:01:48 #122 OK INSERT id=1700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
-04:01:49 #123 OK UPSERT id=1700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:50 #124 OK SELECT id=1700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:51 #125 OK DELETE id=1700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:52 #126 OK SELECT id=1700310 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:53 #127 OK INSERT id=1700311 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:55 #128 OK UPSERT id=1700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:56 #129 OK SELECT id=1700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:57 #130 OK DELETE id=1700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:58 #131 OK SELECT id=1700311 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:59 #132 OK INSERT id=1700312 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:00 #133 OK UPSERT id=1700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:01 #134 OK SELECT id=1700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:02 #135 OK DELETE id=1700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:03 #136 OK SELECT id=1700312 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:04 #137 OK INSERT id=1700313 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:05 #138 OK UPSERT id=1700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:06 #139 OK SELECT id=1700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:08 #140 OK DELETE id=1700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 #141 OK SELECT id=1700313 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 EVENT restore: cluster healthy
-04:02:10 #142 OK INSERT id=1700314 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:11 #143 OK UPSERT id=1700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:12 #144 OK SELECT id=1700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:13 #145 OK DELETE id=1700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:14 #146 OK SELECT id=1700314 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:15 #147 OK INSERT id=1700315 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:16 #148 OK UPSERT id=1700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:17 #149 OK SELECT id=1700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:18 #150 OK DELETE id=1700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:19 #151 OK SELECT id=1700315 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:20 #152 OK INSERT id=1700316 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:22 #153 OK UPSERT id=1700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:23 #154 OK SELECT id=1700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:24 #155 OK DELETE id=1700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:25 #156 OK SELECT id=1700316 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:26 #157 OK INSERT id=1700317 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:27 #158 OK UPSERT id=1700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:28 #159 OK SELECT id=1700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:29 #160 OK DELETE id=1700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:30 #161 OK SELECT id=1700317 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:31 #162 OK INSERT id=1700318 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:32 #163 OK UPSERT id=1700318 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:33 #164 OK SELECT id=1700318 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:34 #165 OK DELETE id=1700318 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:36 #166 OK SELECT id=1700318 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:37 #167 OK INSERT id=1700319 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:46:04 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+18:46:04 connected to doris-1 (10.140.0.2)
+18:46:04 #1 OK INSERT id=1691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:05 #2 OK UPSERT id=1691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:06 #3 OK SELECT id=1691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:07 #4 OK DELETE id=1691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:08 #5 OK SELECT id=1691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:09 #6 OK INSERT id=1691641 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:10 #7 OK UPSERT id=1691641 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:11 #8 OK SELECT id=1691641 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:12 #9 OK DELETE id=1691641 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:13 #10 OK SELECT id=1691641 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:14 #11 OK INSERT id=1691642 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:15 #12 OK UPSERT id=1691642 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:16 #13 OK SELECT id=1691642 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:17 #14 OK DELETE id=1691642 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:18 #15 OK SELECT id=1691642 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:20 #16 OK INSERT id=1691643 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:21 #17 OK UPSERT id=1691643 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:22 #18 OK SELECT id=1691643 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:23 #19 OK DELETE id=1691643 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:24 #20 OK SELECT id=1691643 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:25 #21 OK INSERT id=1691644 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:26 #22 OK UPSERT id=1691644 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:27 #23 OK SELECT id=1691644 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:28 #24 OK DELETE id=1691644 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:29 #25 OK SELECT id=1691644 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:30 #26 OK INSERT id=1691645 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:31 #27 OK UPSERT id=1691645 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:32 #28 OK SELECT id=1691645 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:33 #29 OK DELETE id=1691645 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:34 #30 OK SELECT id=1691645 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:35 #31 OK INSERT id=1691646 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:36 #32 OK UPSERT id=1691646 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:37 #33 OK SELECT id=1691646 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:38 EVENT break: vm stop on doris-2 (FE master)
+18:46:39 #34 OK DELETE id=1691646 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:40 #35 OK SELECT id=1691646 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:41 #36 FAIL INSERT id=1691647 via doris-1: OperationalError: (1105, 'ForwardToMasterException, msg: forward to master FE TNetworkAddress(hostname:10.140.0.3, port:9020), s
+18:46:41 #36 OK SELECT(check) id=1 via doris-1
+18:46:42 connected to doris-1 (10.140.0.2)
+18:46:42 #37 OK INSERT id=1691648 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+18:46:43 #38 FAIL UPSERT id=1691648 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:46:43 #38 OK SELECT(check) id=1 via doris-1
+18:46:44 connected to doris-1 (10.140.0.2)
+18:46:44 #39 FAIL INSERT id=1691649 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:46:44 #39 OK SELECT(check) id=1 via doris-1
+18:46:45 connected to doris-1 (10.140.0.2)
+18:46:45 #40 FAIL INSERT id=1691650 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:46:45 #40 OK SELECT(check) id=1 via doris-1
+18:46:46 connected to doris-1 (10.140.0.2)
+18:46:46 #41 FAIL INSERT id=1691651 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+18:46:47 #41 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:48 connected to doris-1 (10.140.0.2)
+18:46:48 #42 FAIL INSERT id=1691652 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+18:46:48 #42 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:49 connected to doris-1 (10.140.0.2)
+18:46:49 #43 FAIL INSERT id=1691653 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:46:49 #43 OK SELECT(check) id=1 via doris-1
+18:46:50 connected to doris-1 (10.140.0.2)
+18:46:50 #44 FAIL INSERT id=1691654 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+18:46:50 #44 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:51 connected to doris-1 (10.140.0.2)
+18:46:51 #45 FAIL INSERT id=1691655 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:46:51 #45 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:52 connected to doris-1 (10.140.0.2)
+18:46:52 #46 FAIL INSERT id=1691656 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:46:52 #46 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:53 connected to doris-1 (10.140.0.2)
+18:46:53 #47 FAIL INSERT id=1691657 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+18:46:53 #47 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:54 connected to doris-1 (10.140.0.2)
+18:46:54 #48 FAIL INSERT id=1691658 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:46:54 #48 OK SELECT(check) id=1 via doris-1
+18:46:56 connected to doris-1 (10.140.0.2)
+18:46:56 #49 FAIL INSERT id=1691659 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:46:56 #49 OK SELECT(check) id=1 via doris-1
+18:46:57 connected to doris-1 (10.140.0.2)
+18:46:57 #50 FAIL INSERT id=1691660 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+18:46:57 #50 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:46:58 connected to doris-1 (10.140.0.2)
+18:46:58 #51 FAIL INSERT id=1691661 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:46:58 #51 OK SELECT(check) id=1 via doris-1
+18:46:59 connected to doris-1 (10.140.0.2)
+18:46:59 #52 FAIL INSERT id=1691662 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+18:46:59 #52 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:00 connected to doris-1 (10.140.0.2)
+18:47:00 #53 FAIL INSERT id=1691663 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:47:00 #53 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:01 connected to doris-1 (10.140.0.2)
+18:47:01 #54 FAIL INSERT id=1691664 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+18:47:01 #54 OK SELECT(check) id=1 via doris-1
+18:47:01 EVENT break: doris-2 is down
+18:47:02 connected to doris-1 (10.140.0.2)
+18:47:02 #55 FAIL INSERT id=1691665 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:47:02 #55 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:03 connected to doris-1 (10.140.0.2)
+18:47:03 #56 FAIL INSERT id=1691666 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:47:03 #56 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:05 connected to doris-1 (10.140.0.2)
+18:47:05 #57 FAIL INSERT id=1691667 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:47:05 #57 OK SELECT(check) id=1 via doris-1
+18:47:06 connected to doris-1 (10.140.0.2)
+18:47:06 #58 FAIL INSERT id=1691668 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:47:06 #58 OK SELECT(check) id=1 via doris-1
+18:47:07 connected to doris-1 (10.140.0.2)
+18:47:07 #59 FAIL INSERT id=1691669 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:47:07 #59 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:08 connected to doris-1 (10.140.0.2)
+18:47:08 #60 FAIL INSERT id=1691670 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:47:08 #60 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:09 connected to doris-1 (10.140.0.2)
+18:47:09 #61 FAIL INSERT id=1691671 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:47:09 #61 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:47:10 connected to doris-1 (10.140.0.2)
+18:47:10 #62 FAIL INSERT id=1691672 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+18:47:10 #62 OK SELECT(check) id=1 via doris-1
+18:47:11 connected to doris-1 (10.140.0.2)
+18:47:11 #63 FAIL INSERT id=1691673 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:11 #63 OK SELECT(check) id=1 via doris-1
+18:47:12 connected to doris-1 (10.140.0.2)
+18:47:12 #64 FAIL INSERT id=1691674 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:12 #64 OK SELECT(check) id=1 via doris-1
+18:47:13 connected to doris-1 (10.140.0.2)
+18:47:14 #65 FAIL INSERT id=1691675 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:14 #65 OK SELECT(check) id=1 via doris-1
+18:47:15 connected to doris-1 (10.140.0.2)
+18:47:15 #66 FAIL INSERT id=1691676 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:15 #66 OK SELECT(check) id=1 via doris-1
+18:47:16 connected to doris-1 (10.140.0.2)
+18:47:16 #67 FAIL INSERT id=1691677 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:16 #67 OK SELECT(check) id=1 via doris-1
+18:47:17 connected to doris-1 (10.140.0.2)
+18:47:17 #68 FAIL INSERT id=1691678 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:17 #68 OK SELECT(check) id=1 via doris-1
+18:47:18 connected to doris-1 (10.140.0.2)
+18:47:18 #69 FAIL INSERT id=1691679 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:18 #69 OK SELECT(check) id=1 via doris-1
+18:47:19 connected to doris-1 (10.140.0.2)
+18:47:19 #70 FAIL INSERT id=1691680 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:19 #70 OK SELECT(check) id=1 via doris-1
+18:47:20 connected to doris-1 (10.140.0.2)
+18:47:20 #71 FAIL INSERT id=1691681 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:20 #71 OK SELECT(check) id=1 via doris-1
+18:47:21 connected to doris-1 (10.140.0.2)
+18:47:21 #72 FAIL INSERT id=1691682 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:21 #72 OK SELECT(check) id=1 via doris-1
+18:47:22 connected to doris-1 (10.140.0.2)
+18:47:22 #73 FAIL INSERT id=1691683 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:22 #73 OK SELECT(check) id=1 via doris-1
+18:47:23 connected to doris-1 (10.140.0.2)
+18:47:23 #74 FAIL INSERT id=1691684 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:23 #74 OK SELECT(check) id=1 via doris-1
+18:47:24 connected to doris-1 (10.140.0.2)
+18:47:24 #75 FAIL INSERT id=1691685 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:25 #75 OK SELECT(check) id=1 via doris-1
+18:47:26 connected to doris-1 (10.140.0.2)
+18:47:26 #76 FAIL INSERT id=1691686 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:26 #76 OK SELECT(check) id=1 via doris-1
+18:47:27 connected to doris-1 (10.140.0.2)
+18:47:27 #77 FAIL INSERT id=1691687 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:27 #77 OK SELECT(check) id=1 via doris-1
+18:47:28 connected to doris-1 (10.140.0.2)
+18:47:28 #78 FAIL INSERT id=1691688 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:28 #78 OK SELECT(check) id=1 via doris-1
+18:47:29 connected to doris-1 (10.140.0.2)
+18:47:29 #79 FAIL INSERT id=1691689 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:29 #79 OK SELECT(check) id=1 via doris-1
+18:47:30 connected to doris-1 (10.140.0.2)
+18:47:30 #80 FAIL INSERT id=1691690 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:30 #80 OK SELECT(check) id=1 via doris-1
+18:47:31 connected to doris-1 (10.140.0.2)
+18:47:31 #81 FAIL INSERT id=1691691 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:31 #81 OK SELECT(check) id=1 via doris-1
+18:47:32 connected to doris-1 (10.140.0.2)
+18:47:32 #82 FAIL INSERT id=1691692 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:32 #82 OK SELECT(check) id=1 via doris-1
+18:47:33 connected to doris-1 (10.140.0.2)
+18:47:33 #83 FAIL INSERT id=1691693 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:33 #83 OK SELECT(check) id=1 via doris-1
+18:47:33 EVENT break: fe dead on doris-1 (FE follower)
+18:47:34 connected to doris-1 (10.140.0.2)
+18:47:34 #84 FAIL INSERT id=1691694 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:35 #84 OK SELECT(check) id=1 via doris-1
+18:47:36 connected to doris-1 (10.140.0.2)
+18:47:36 #85 FAIL INSERT id=1691695 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:47:36 #85 OK SELECT(check) id=1 via doris-1
+18:47:40 connected to doris-3 (10.140.0.4)
+18:47:48 #86 FAIL INSERT id=1691696 via doris-3: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:47:59 #86 FAIL SELECT(check) id=1 via doris-3: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:48:03 connected to doris-3 (10.140.0.4)
+18:48:11 #87 FAIL INSERT id=1691697 via doris-3: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:48:22 #87 FAIL SELECT(check) id=1 via doris-3: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:48:26 #88 FAIL INSERT id=1691698 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:48:29 #88 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:48:33 #89 FAIL INSERT id=1691699 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:48:36 #89 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:48:41 #90 FAIL INSERT id=1691700 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:48:44 #90 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:48:48 #91 FAIL INSERT id=1691701 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:48:51 #91 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:48:55 #92 FAIL INSERT id=1691702 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:48:58 #92 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:02 #93 FAIL INSERT id=1691703 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:05 #93 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:09 #94 FAIL INSERT id=1691704 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:12 #94 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:17 #95 FAIL INSERT id=1691705 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:18 EVENT restore: systemctl start doris-fe on doris-1
+18:49:20 #95 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:22 EVENT restore: start doris-2
+18:49:24 #96 FAIL INSERT id=1691706 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:27 #96 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:31 #97 FAIL INSERT id=1691707 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:34 #97 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:38 #98 FAIL INSERT id=1691708 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:41 #98 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:45 #99 FAIL INSERT id=1691709 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:45 #99 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:47 #100 FAIL INSERT id=1691710 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:47 #100 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:48 #101 FAIL INSERT id=1691711 via doris-3: OperationalError: (2003, "Can't connect to MySQL server on '10.140.0.4' ([Errno 111] Connection refused)")
+18:49:48 #101 FAIL SELECT(check) id=1 via -: RuntimeError: no FE reachable
+18:49:49 connected to doris-3 (10.140.0.4)
+18:49:49 #102 FAIL INSERT id=1691712 via doris-3: OperationalError: (1105, 'errCode = 2, detailMessage = No backend available as scan node, please check the status of your backen
+18:49:49 #102 FAIL SELECT(check) id=1 via doris-3: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
+18:49:52 connected to doris-1 (10.140.0.2)
+18:49:52 #103 FAIL INSERT id=1691713 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
+18:49:53 #103 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
+18:49:54 connected to doris-1 (10.140.0.2)
+18:49:54 #104 FAIL INSERT id=1691714 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
+18:49:54 #104 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
+18:49:55 connected to doris-1 (10.140.0.2)
+18:49:56 #105 OK INSERT id=1691715 via doris-1 rows=10237 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+18:49:57 #106 OK UPSERT id=1691715 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:49:58 #107 OK SELECT id=1691715 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:49:59 #108 OK DELETE id=1691715 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:00 #109 OK SELECT id=1691715 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:02 #110 OK INSERT id=1691716 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:03 #111 OK UPSERT id=1691716 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:04 #112 OK SELECT id=1691716 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:05 #113 OK DELETE id=1691716 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:06 #114 OK SELECT id=1691716 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:15 #115 FAIL INSERT id=1691717 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:50:15 #115 OK SELECT(check) id=1 via doris-1
+18:50:16 connected to doris-1 (10.140.0.2)
+18:50:24 #116 FAIL INSERT id=1691718 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:50:24 #116 OK SELECT(check) id=1 via doris-1
+18:50:25 connected to doris-1 (10.140.0.2)
+18:50:25 #117 OK INSERT id=1691719 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
+18:50:27 #118 OK UPSERT id=1691719 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:28 #119 OK SELECT id=1691719 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:29 #120 OK DELETE id=1691719 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:30 #121 OK SELECT id=1691719 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 #122 OK INSERT id=1691720 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 EVENT restore: cluster healthy
+18:50:32 #123 OK UPSERT id=1691720 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:33 #124 OK SELECT id=1691720 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:34 #125 OK DELETE id=1691720 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:35 #126 OK SELECT id=1691720 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:37 #127 OK INSERT id=1691721 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:38 #128 OK UPSERT id=1691721 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:39 #129 OK SELECT id=1691721 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:40 #130 OK DELETE id=1691721 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:41 #131 OK SELECT id=1691721 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:42 #132 OK INSERT id=1691722 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:43 #133 OK UPSERT id=1691722 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:44 #134 OK SELECT id=1691722 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:45 #135 OK DELETE id=1691722 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:46 #136 OK SELECT id=1691722 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:47 #137 OK INSERT id=1691723 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:49 #138 OK UPSERT id=1691723 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:50 #139 OK SELECT id=1691723 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:51 #140 OK DELETE id=1691723 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:52 #141 OK SELECT id=1691723 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:53 #142 OK INSERT id=1691724 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:54 #143 OK UPSERT id=1691724 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:55 #144 OK SELECT id=1691724 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:56 #145 OK DELETE id=1691724 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:57 #146 OK SELECT id=1691724 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:58 #147 OK INSERT id=1691725 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:59 #148 OK UPSERT id=1691725 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:00 #149 OK SELECT id=1691725 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:02 #150 OK DELETE id=1691725 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]

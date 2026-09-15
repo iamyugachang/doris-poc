@@ -8,113 +8,373 @@
   "--target vm --on master",
   "--target fe --mode dead --on follower"
  ],
- "started": "00:49:23",
- "restore_at": "00:52:40",
- "ended": "00:54:23",
+ "started": "16:48:18",
+ "restore_at": "16:51:37",
+ "ended": "16:53:00",
  "healthy_after": true,
  "breaks": [
   {
    "step": "--target vm --on master",
-   "at": "00:50:25",
+   "at": "16:49:22",
    "rc": 0
   },
   {
    "step": "--target fe --mode dead --on follower",
-   "at": "00:51:01",
+   "at": "16:49:59",
    "rc": 0
   }
  ],
  "during": {
   "mysql": {
-   "level": "rw",
-   "level_zh": "讀寫正常",
-   "total_impact_secs": 48,
+   "level": "ro",
+   "level_zh": "只讀",
+   "total_impact_secs": 73,
    "windows": [
     {
-     "start": "00:51:00",
+     "start": "16:49:01",
+     "end": "16:49:13",
+     "secs": 12
+    },
+    {
+     "start": "16:49:14",
+     "end": "16:49:14",
+     "secs": 0
+    },
+    {
+     "start": "16:49:15",
+     "end": "16:49:15",
+     "secs": 0
+    },
+    {
+     "start": "16:49:16",
+     "end": "16:49:19",
+     "secs": 3
+    },
+    {
+     "start": "16:49:28",
+     "end": "16:49:28",
+     "secs": 0
+    },
+    {
+     "start": "16:49:29",
+     "end": "16:49:29",
+     "secs": 0
+    },
+    {
+     "start": "16:49:30",
+     "end": "16:49:31",
+     "secs": 1
+    },
+    {
+     "start": "16:49:32",
+     "end": "16:49:33",
+     "secs": 1
+    },
+    {
+     "start": "16:49:34",
+     "end": "16:49:35",
+     "secs": 1
+    },
+    {
+     "start": "16:49:36",
+     "end": "16:49:36",
+     "secs": 0
+    },
+    {
+     "start": "16:49:37",
+     "end": "16:49:37",
+     "secs": 0
+    },
+    {
+     "start": "16:49:38",
+     "end": "16:49:38",
+     "secs": 0
+    },
+    {
+     "start": "16:49:39",
+     "end": "16:49:39",
+     "secs": 0
+    },
+    {
+     "start": "16:49:40",
+     "end": "16:49:40",
+     "secs": 0
+    },
+    {
+     "start": "16:49:41",
+     "end": "16:49:41",
+     "secs": 0
+    },
+    {
+     "start": "16:49:42",
+     "end": "16:49:42",
+     "secs": 0
+    },
+    {
+     "start": "16:49:43",
+     "end": "16:49:43",
+     "secs": 0
+    },
+    {
+     "start": "16:49:45",
+     "end": "16:49:45",
+     "secs": 0
+    },
+    {
+     "start": "16:49:46",
+     "end": "16:49:46",
+     "secs": 0
+    },
+    {
+     "start": "16:49:47",
+     "end": "16:49:47",
+     "secs": 0
+    },
+    {
+     "start": "16:49:48",
+     "end": "16:49:48",
+     "secs": 0
+    },
+    {
+     "start": "16:49:49",
+     "end": "16:49:49",
+     "secs": 0
+    },
+    {
+     "start": "16:49:50",
+     "end": "16:49:50",
+     "secs": 0
+    },
+    {
+     "start": "16:49:51",
+     "end": "16:49:51",
+     "secs": 0
+    },
+    {
+     "start": "16:49:52",
+     "end": "16:49:52",
+     "secs": 0
+    },
+    {
+     "start": "16:49:53",
+     "end": "16:49:53",
+     "secs": 0
+    },
+    {
+     "start": "16:49:55",
+     "end": "16:49:55",
+     "secs": 0
+    },
+    {
+     "start": "16:49:56",
+     "end": "16:49:56",
+     "secs": 0
+    },
+    {
+     "start": "16:50:08",
      "end": null,
      "secs": null
     }
    ],
-   "failed": 15,
+   "failed": 59,
    "failed_by_type": {
-    "DELETE": 1,
-    "INSERT": 14
+    "INSERT": 44,
+    "SELECT": 15
    },
-   "reconnects": 4,
+   "reconnects": 36,
    "window_ops": {
-    "writes_ok": 9,
+    "writes_ok": 0,
     "writes_fail": 15,
-    "selects_ok": 6,
-    "selects_fail": 0,
+    "selects_ok": 7,
+    "selects_fail": 8,
     "lines": 30,
-    "span_secs": 183
+    "span_secs": 186
    },
    "read_only_client": false
   },
   "jdbc": {
-   "level": "rw",
-   "level_zh": "讀寫正常",
-   "total_impact_secs": 49,
+   "level": "ro",
+   "level_zh": "只讀",
+   "total_impact_secs": 73,
    "windows": [
     {
-     "start": "00:50:04",
-     "end": "00:50:08",
-     "secs": 4
+     "start": "16:49:13",
+     "end": "16:49:13",
+     "secs": 0
     },
     {
-     "start": "00:51:02",
+     "start": "16:49:14",
+     "end": "16:49:17",
+     "secs": 3
+    },
+    {
+     "start": "16:49:18",
+     "end": "16:49:32",
+     "secs": 14
+    },
+    {
+     "start": "16:49:33",
+     "end": "16:49:33",
+     "secs": 0
+    },
+    {
+     "start": "16:49:34",
+     "end": "16:49:34",
+     "secs": 0
+    },
+    {
+     "start": "16:49:35",
+     "end": "16:49:35",
+     "secs": 0
+    },
+    {
+     "start": "16:49:37",
+     "end": "16:49:37",
+     "secs": 0
+    },
+    {
+     "start": "16:49:38",
+     "end": "16:49:38",
+     "secs": 0
+    },
+    {
+     "start": "16:49:39",
+     "end": "16:49:39",
+     "secs": 0
+    },
+    {
+     "start": "16:49:40",
+     "end": "16:49:40",
+     "secs": 0
+    },
+    {
+     "start": "16:49:41",
+     "end": "16:49:41",
+     "secs": 0
+    },
+    {
+     "start": "16:49:42",
+     "end": "16:49:42",
+     "secs": 0
+    },
+    {
+     "start": "16:49:43",
+     "end": "16:49:43",
+     "secs": 0
+    },
+    {
+     "start": "16:49:44",
+     "end": "16:49:44",
+     "secs": 0
+    },
+    {
+     "start": "16:49:45",
+     "end": "16:49:45",
+     "secs": 0
+    },
+    {
+     "start": "16:49:46",
+     "end": "16:49:46",
+     "secs": 0
+    },
+    {
+     "start": "16:49:47",
+     "end": "16:49:47",
+     "secs": 0
+    },
+    {
+     "start": "16:49:48",
+     "end": "16:49:48",
+     "secs": 0
+    },
+    {
+     "start": "16:49:49",
+     "end": "16:49:49",
+     "secs": 0
+    },
+    {
+     "start": "16:49:51",
+     "end": "16:49:51",
+     "secs": 0
+    },
+    {
+     "start": "16:49:52",
+     "end": "16:49:52",
+     "secs": 0
+    },
+    {
+     "start": "16:49:53",
+     "end": "16:49:53",
+     "secs": 0
+    },
+    {
+     "start": "16:49:54",
+     "end": "16:49:54",
+     "secs": 0
+    },
+    {
+     "start": "16:49:55",
+     "end": "16:49:55",
+     "secs": 0
+    },
+    {
+     "start": "16:49:56",
+     "end": "16:49:56",
+     "secs": 0
+    },
+    {
+     "start": "16:50:11",
      "end": null,
      "secs": null
     }
    ],
-   "failed": 5,
+   "failed": 38,
    "failed_by_type": {
-    "SELECT": 2,
-    "INSERT": 3
+    "INSERT": 32,
+    "SELECT": 6
    },
-   "reconnects": 4,
+   "reconnects": 31,
    "window_ops": {
-    "writes_ok": 16,
-    "writes_fail": 3,
-    "selects_ok": 10,
+    "writes_ok": 0,
+    "writes_fail": 15,
+    "selects_ok": 14,
     "selects_fail": 1,
     "lines": 30,
-    "span_secs": 140
+    "span_secs": 136
    },
    "read_only_client": false
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 65,
+   "total_impact_secs": 121,
    "windows": [
     {
-     "start": "00:50:04",
-     "end": "00:50:05",
-     "secs": 1
+     "start": "16:49:04",
+     "end": "16:49:20",
+     "secs": 16
     },
     {
-     "start": "00:51:00",
-     "end": "00:51:22",
-     "secs": 22
+     "start": "16:49:21",
+     "end": "16:49:33",
+     "secs": 12
     },
     {
-     "start": "00:51:50",
+     "start": "16:49:53",
      "end": null,
      "secs": null
     }
    ],
-   "failed": 5,
+   "failed": 33,
    "failed_by_type": {
-    "SELECT": 5
+    "SELECT": 33
    },
-   "reconnects": 2,
+   "reconnects": 29,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
-    "selects_ok": 26,
-    "selects_fail": 4,
+    "selects_ok": 19,
+    "selects_fail": 11,
     "lines": 30,
     "span_secs": 185
    },
@@ -125,96 +385,368 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 139,
+   "total_impact_secs": 172,
    "windows": [
     {
-     "start": "00:51:00",
-     "end": "00:53:19",
-     "secs": 139
+     "start": "16:49:01",
+     "end": "16:49:13",
+     "secs": 12
+    },
+    {
+     "start": "16:49:14",
+     "end": "16:49:14",
+     "secs": 0
+    },
+    {
+     "start": "16:49:15",
+     "end": "16:49:15",
+     "secs": 0
+    },
+    {
+     "start": "16:49:16",
+     "end": "16:49:19",
+     "secs": 3
+    },
+    {
+     "start": "16:49:28",
+     "end": "16:49:28",
+     "secs": 0
+    },
+    {
+     "start": "16:49:29",
+     "end": "16:49:29",
+     "secs": 0
+    },
+    {
+     "start": "16:49:30",
+     "end": "16:49:31",
+     "secs": 1
+    },
+    {
+     "start": "16:49:32",
+     "end": "16:49:33",
+     "secs": 1
+    },
+    {
+     "start": "16:49:34",
+     "end": "16:49:35",
+     "secs": 1
+    },
+    {
+     "start": "16:49:36",
+     "end": "16:49:36",
+     "secs": 0
+    },
+    {
+     "start": "16:49:37",
+     "end": "16:49:37",
+     "secs": 0
+    },
+    {
+     "start": "16:49:38",
+     "end": "16:49:38",
+     "secs": 0
+    },
+    {
+     "start": "16:49:39",
+     "end": "16:49:39",
+     "secs": 0
+    },
+    {
+     "start": "16:49:40",
+     "end": "16:49:40",
+     "secs": 0
+    },
+    {
+     "start": "16:49:41",
+     "end": "16:49:41",
+     "secs": 0
+    },
+    {
+     "start": "16:49:42",
+     "end": "16:49:42",
+     "secs": 0
+    },
+    {
+     "start": "16:49:43",
+     "end": "16:49:43",
+     "secs": 0
+    },
+    {
+     "start": "16:49:45",
+     "end": "16:49:45",
+     "secs": 0
+    },
+    {
+     "start": "16:49:46",
+     "end": "16:49:46",
+     "secs": 0
+    },
+    {
+     "start": "16:49:47",
+     "end": "16:49:47",
+     "secs": 0
+    },
+    {
+     "start": "16:49:48",
+     "end": "16:49:48",
+     "secs": 0
+    },
+    {
+     "start": "16:49:49",
+     "end": "16:49:49",
+     "secs": 0
+    },
+    {
+     "start": "16:49:50",
+     "end": "16:49:50",
+     "secs": 0
+    },
+    {
+     "start": "16:49:51",
+     "end": "16:49:51",
+     "secs": 0
+    },
+    {
+     "start": "16:49:52",
+     "end": "16:49:52",
+     "secs": 0
+    },
+    {
+     "start": "16:49:53",
+     "end": "16:49:53",
+     "secs": 0
+    },
+    {
+     "start": "16:49:55",
+     "end": "16:49:55",
+     "secs": 0
+    },
+    {
+     "start": "16:49:56",
+     "end": "16:49:56",
+     "secs": 0
+    },
+    {
+     "start": "16:50:08",
+     "end": "16:52:12",
+     "secs": 124
+    },
+    {
+     "start": "16:52:26",
+     "end": "16:52:26",
+     "secs": 0
     }
    ],
-   "failed": 32,
+   "failed": 80,
    "failed_by_type": {
-    "DELETE": 1,
-    "INSERT": 31
+    "INSERT": 54,
+    "SELECT": 25,
+    "UPSERT": 1
    },
-   "reconnects": 8,
+   "reconnects": 38,
    "events": [
-    "00:50:00 EVENT break: vm stop on doris-2 (FE master)",
-    "00:50:25 EVENT break: doris-2 is down",
-    "00:50:57 EVENT break: fe dead on doris-1 (FE follower)",
-    "00:52:42 EVENT restore: systemctl start doris-fe on doris-1",
-    "00:52:47 EVENT restore: start doris-2",
-    "00:53:53 EVENT restore: cluster healthy"
+    "16:48:58 EVENT break: vm stop on doris-2 (FE master)",
+    "16:49:22 EVENT break: doris-2 is down",
+    "16:49:54 EVENT break: fe dead on doris-1 (FE follower)",
+    "16:51:39 EVENT restore: systemctl start doris-fe on doris-1",
+    "16:51:43 EVENT restore: start doris-2",
+    "16:52:29 EVENT restore: cluster healthy"
    ]
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 141,
+   "total_impact_secs": 179,
    "windows": [
     {
-     "start": "00:50:04",
-     "end": "00:50:08",
-     "secs": 4
+     "start": "16:49:13",
+     "end": "16:49:13",
+     "secs": 0
     },
     {
-     "start": "00:51:02",
-     "end": "00:53:19",
-     "secs": 137
+     "start": "16:49:14",
+     "end": "16:49:17",
+     "secs": 3
+    },
+    {
+     "start": "16:49:18",
+     "end": "16:49:32",
+     "secs": 14
+    },
+    {
+     "start": "16:49:33",
+     "end": "16:49:33",
+     "secs": 0
+    },
+    {
+     "start": "16:49:34",
+     "end": "16:49:34",
+     "secs": 0
+    },
+    {
+     "start": "16:49:35",
+     "end": "16:49:35",
+     "secs": 0
+    },
+    {
+     "start": "16:49:37",
+     "end": "16:49:37",
+     "secs": 0
+    },
+    {
+     "start": "16:49:38",
+     "end": "16:49:38",
+     "secs": 0
+    },
+    {
+     "start": "16:49:39",
+     "end": "16:49:39",
+     "secs": 0
+    },
+    {
+     "start": "16:49:40",
+     "end": "16:49:40",
+     "secs": 0
+    },
+    {
+     "start": "16:49:41",
+     "end": "16:49:41",
+     "secs": 0
+    },
+    {
+     "start": "16:49:42",
+     "end": "16:49:42",
+     "secs": 0
+    },
+    {
+     "start": "16:49:43",
+     "end": "16:49:43",
+     "secs": 0
+    },
+    {
+     "start": "16:49:44",
+     "end": "16:49:44",
+     "secs": 0
+    },
+    {
+     "start": "16:49:45",
+     "end": "16:49:45",
+     "secs": 0
+    },
+    {
+     "start": "16:49:46",
+     "end": "16:49:46",
+     "secs": 0
+    },
+    {
+     "start": "16:49:47",
+     "end": "16:49:47",
+     "secs": 0
+    },
+    {
+     "start": "16:49:48",
+     "end": "16:49:48",
+     "secs": 0
+    },
+    {
+     "start": "16:49:49",
+     "end": "16:49:49",
+     "secs": 0
+    },
+    {
+     "start": "16:49:51",
+     "end": "16:49:51",
+     "secs": 0
+    },
+    {
+     "start": "16:49:52",
+     "end": "16:49:52",
+     "secs": 0
+    },
+    {
+     "start": "16:49:53",
+     "end": "16:49:53",
+     "secs": 0
+    },
+    {
+     "start": "16:49:54",
+     "end": "16:49:54",
+     "secs": 0
+    },
+    {
+     "start": "16:49:55",
+     "end": "16:49:55",
+     "secs": 0
+    },
+    {
+     "start": "16:49:56",
+     "end": "16:49:56",
+     "secs": 0
+    },
+    {
+     "start": "16:50:11",
+     "end": "16:52:17",
+     "secs": 126
+    },
+    {
+     "start": "16:52:26",
+     "end": "16:52:26",
+     "secs": 0
     }
    ],
-   "failed": 8,
+   "failed": 40,
    "failed_by_type": {
-    "SELECT": 2,
-    "INSERT": 6
+    "INSERT": 32,
+    "SELECT": 7,
+    "UPSERT": 1
    },
-   "reconnects": 5,
+   "reconnects": 33,
    "events": [
-    "00:50:00 EVENT break: vm stop on doris-2 (FE master)",
-    "00:50:25 EVENT break: doris-2 is down",
-    "00:50:57 EVENT break: fe dead on doris-1 (FE follower)",
-    "00:52:42 EVENT restore: systemctl start doris-fe on doris-1",
-    "00:52:47 EVENT restore: start doris-2",
-    "00:53:53 EVENT restore: cluster healthy"
+    "16:48:58 EVENT break: vm stop on doris-2 (FE master)",
+    "16:49:22 EVENT break: doris-2 is down",
+    "16:49:54 EVENT break: fe dead on doris-1 (FE follower)",
+    "16:51:39 EVENT restore: systemctl start doris-fe on doris-1",
+    "16:51:43 EVENT restore: start doris-2",
+    "16:52:29 EVENT restore: cluster healthy"
    ]
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 112,
+   "total_impact_secs": 168,
    "windows": [
     {
-     "start": "00:50:04",
-     "end": "00:50:05",
-     "secs": 1
+     "start": "16:49:04",
+     "end": "16:49:20",
+     "secs": 16
     },
     {
-     "start": "00:51:00",
-     "end": "00:51:22",
-     "secs": 22
+     "start": "16:49:21",
+     "end": "16:49:33",
+     "secs": 12
     },
     {
-     "start": "00:51:50",
-     "end": "00:53:19",
-     "secs": 89
+     "start": "16:49:53",
+     "end": "16:52:13",
+     "secs": 140
     }
    ],
-   "failed": 14,
+   "failed": 40,
    "failed_by_type": {
-    "SELECT": 14
+    "SELECT": 40
    },
-   "reconnects": 7,
+   "reconnects": 30,
    "events": [
-    "00:50:00 EVENT break: vm stop on doris-2 (FE master)",
-    "00:50:25 EVENT break: doris-2 is down",
-    "00:50:57 EVENT break: fe dead on doris-1 (FE follower)",
-    "00:52:42 EVENT restore: systemctl start doris-fe on doris-1",
-    "00:52:47 EVENT restore: start doris-2",
-    "00:53:53 EVENT restore: cluster healthy"
+    "16:48:58 EVENT break: vm stop on doris-2 (FE master)",
+    "16:49:22 EVENT break: doris-2 is down",
+    "16:49:54 EVENT break: fe dead on doris-1 (FE follower)",
+    "16:51:39 EVENT restore: systemctl start doris-fe on doris-1",
+    "16:51:43 EVENT restore: start doris-2",
+    "16:52:29 EVENT restore: cluster healthy"
    ]
   }
  },
- "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Connection refused)\"))",
- "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10052 via doris-1"
+ "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '34.80.24.53' ([Errno 111] Connection refused)\"))",
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10191 via doris-1"
 }

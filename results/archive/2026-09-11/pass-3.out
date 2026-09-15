@@ -1,0 +1,486 @@
+
+[1;36m== start all VMs (terraform vm_status=RUNNING) ==[0m  [2m04:20:05[0m
+[0m[1mdata.google_project.this: Reading...[0m[0m
+[0m[1mgoogle_project_service.apis["compute.googleapis.com"]: Refreshing state... [id=doris-poc/compute.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["cloudbuild.googleapis.com"]: Refreshing state... [id=doris-poc/cloudbuild.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["artifactregistry.googleapis.com"]: Refreshing state... [id=doris-poc/artifactregistry.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["run.googleapis.com"]: Refreshing state... [id=doris-poc/run.googleapis.com][0m
+[0m[1mdata.google_project.this: Read complete after 1s [id=projects/doris-poc][0m
+[0m[1mgoogle_compute_instance.doris[2]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-c/instances/doris-3][0m
+[0m[1mgoogle_compute_instance.doris[0]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-1][0m
+[0m[1mgoogle_compute_instance.client: Refreshing state... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-client][0m
+[0m[1mgoogle_compute_instance.doris[1]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-b/instances/doris-2][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_compute_instance.client[0m will be updated in-place
+[0m  [33m~[0m[0m resource "google_compute_instance" "client" {
+      [33m~[0m[0m desired_status             = "TERMINATED" [33m->[0m[0m "RUNNING"
+        id                         = "projects/doris-poc/zones/asia-east1-a/instances/doris-client"
+        name                       = "doris-client"
+        tags                       = []
+        [90m# (25 unchanged attributes hidden)[0m[0m
+
+        [90m# (5 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # google_compute_instance.doris[0][0m will be updated in-place
+[0m  [33m~[0m[0m resource "google_compute_instance" "doris" {
+      [33m~[0m[0m desired_status             = "TERMINATED" [33m->[0m[0m "RUNNING"
+        id                         = "projects/doris-poc/zones/asia-east1-a/instances/doris-1"
+        name                       = "doris-1"
+        tags                       = [
+            "doris",
+        ]
+        [90m# (25 unchanged attributes hidden)[0m[0m
+
+        [90m# (5 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # google_compute_instance.doris[1][0m will be updated in-place
+[0m  [33m~[0m[0m resource "google_compute_instance" "doris" {
+      [33m~[0m[0m desired_status             = "TERMINATED" [33m->[0m[0m "RUNNING"
+        id                         = "projects/doris-poc/zones/asia-east1-b/instances/doris-2"
+        name                       = "doris-2"
+        tags                       = [
+            "doris",
+        ]
+        [90m# (25 unchanged attributes hidden)[0m[0m
+
+        [90m# (5 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # google_compute_instance.doris[2][0m will be updated in-place
+[0m  [33m~[0m[0m resource "google_compute_instance" "doris" {
+      [33m~[0m[0m desired_status             = "TERMINATED" [33m->[0m[0m "RUNNING"
+        id                         = "projects/doris-poc/zones/asia-east1-c/instances/doris-3"
+        name                       = "doris-3"
+        tags                       = [
+            "doris",
+        ]
+        [90m# (25 unchanged attributes hidden)[0m[0m
+
+        [90m# (5 unchanged blocks hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 4 to change, 0 to destroy.
+
+Changes to Outputs:
+  [33m~[0m[0m client = {
+      [33m~[0m[0m external_ip = "104.155.203.141" [33m->[0m[0m ""
+        name        = "doris-client"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+  [33m~[0m[0m nodes  = [
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "35.221.241.215" [33m->[0m[0m ""
+            name        = "doris-1"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "104.199.213.69" [33m->[0m[0m ""
+            name        = "doris-2"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "34.80.234.205" [33m->[0m[0m ""
+            name        = "doris-3"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+    ]
+[0m[1mgoogle_compute_instance.client: Modifying... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-client][0m[0m
+[0m[1mgoogle_compute_instance.doris[2]: Modifying... [id=projects/doris-poc/zones/asia-east1-c/instances/doris-3][0m[0m
+[0m[1mgoogle_compute_instance.doris[0]: Modifying... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-1][0m[0m
+[0m[1mgoogle_compute_instance.doris[1]: Modifying... [id=projects/doris-poc/zones/asia-east1-b/instances/doris-2][0m[0m
+[0m[1mgoogle_compute_instance.client: Still modifying... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-client, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_instance.doris[2]: Still modifying... [id=projects/doris-poc/zones/asia-east1-c/instances/doris-3, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_instance.doris[1]: Still modifying... [id=projects/doris-poc/zones/asia-east1-b/instances/doris-2, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_instance.doris[0]: Still modifying... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-1, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_instance.doris[2]: Modifications complete after 10s [id=projects/doris-poc/zones/asia-east1-c/instances/doris-3][0m
+[0m[1mgoogle_compute_instance.doris[0]: Modifications complete after 10s [id=projects/doris-poc/zones/asia-east1-a/instances/doris-1][0m
+[0m[1mgoogle_compute_instance.doris[1]: Modifications complete after 10s [id=projects/doris-poc/zones/asia-east1-b/instances/doris-2][0m
+[0m[1mgoogle_compute_instance.client: Modifications complete after 11s [id=projects/doris-poc/zones/asia-east1-a/instances/doris-client][0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mResource targeting is in effect[0m
+[33m│[0m [0m
+[33m│[0m [0m[0mYou are creating a plan with the -target option, which means that the
+[33m│[0m [0mresult of this plan may not represent all of the changes requested by the
+[33m│[0m [0mcurrent configuration.
+[33m│[0m [0m
+[33m│[0m [0mThe -target option is not for routine use, and is provided only for
+[33m│[0m [0mexceptional situations such as recovering from errors or mistakes, or when
+[33m│[0m [0mTerraform specifically suggests to use it as part of an error message.
+[33m╵[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mApplied changes may be incomplete[0m
+[33m│[0m [0m
+[33m│[0m [0m[0mThe plan was created with the -target option in effect, so some changes
+[33m│[0m [0mrequested in the configuration may have been ignored and the output values
+[33m│[0m [0mmay not be fully updated. Run the following command to verify that no other
+[33m│[0m [0mchanges are pending:
+[33m│[0m [0m    terraform plan
+[33m│[0m [0m
+[33m│[0m [0mNote that the -target option is not suitable for routine use, and is
+[33m│[0m [0mprovided only for exceptional situations such as recovering from errors or
+[33m│[0m [0mmistakes, or when Terraform specifically suggests to use it as part of an
+[33m│[0m [0merror message.
+[33m╵[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 4 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mclient = {
+  "external_ip" = ""
+  "internal_ip" = "10.140.0.5"
+  "name" = "doris-client"
+  "zone" = "asia-east1-a"
+}
+inventory = "./../ansible/inventory.ini"
+nodes = [
+  {
+    "external_ip" = ""
+    "internal_ip" = "10.140.0.2"
+    "name" = "doris-1"
+    "zone" = "asia-east1-a"
+  },
+  {
+    "external_ip" = ""
+    "internal_ip" = "10.140.0.3"
+    "name" = "doris-2"
+    "zone" = "asia-east1-b"
+  },
+  {
+    "external_ip" = ""
+    "internal_ip" = "10.140.0.4"
+    "name" = "doris-3"
+    "zone" = "asia-east1-c"
+  },
+]
+[0m[1mdata.google_project.this: Reading...[0m[0m
+[0m[1mgoogle_project_service.apis["cloudbuild.googleapis.com"]: Refreshing state... [id=doris-poc/cloudbuild.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["artifactregistry.googleapis.com"]: Refreshing state... [id=doris-poc/artifactregistry.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["run.googleapis.com"]: Refreshing state... [id=doris-poc/run.googleapis.com][0m
+[0m[1mgoogle_project_service.apis["compute.googleapis.com"]: Refreshing state... [id=doris-poc/compute.googleapis.com][0m
+[0m[1mgoogle_compute_firewall.operator: Refreshing state... [id=projects/doris-poc/global/firewalls/doris-client-from-me][0m
+[0m[1mdata.google_project.this: Read complete after 2s [id=projects/doris-poc][0m
+[0m[1mgoogle_compute_instance.client: Refreshing state... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-client][0m
+[0m[1mgoogle_compute_instance.doris[0]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-a/instances/doris-1][0m
+[0m[1mgoogle_compute_instance.doris[2]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-c/instances/doris-3][0m
+[0m[1mgoogle_compute_instance.doris[1]: Refreshing state... [id=projects/doris-poc/zones/asia-east1-b/instances/doris-2][0m
+[0m[1mlocal_file.inventory: Refreshing state... [id=bd6c23f2c8f14e20d97610359570b38f6dcf1e93][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # local_file.inventory[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "inventory" {
+      [33m~[0m[0m content              = <<-EOT [31m# forces replacement[0m[0m
+            # generated by terraform apply — do not edit
+            [doris]
+          [31m-[0m[0m doris-1 ansible_host=35.185.162.157 internal_ip=10.140.0.2 zone=asia-east1-a fe_seed=true
+          [32m+[0m[0m doris-1 ansible_host=34.80.84.237 internal_ip=10.140.0.2 zone=asia-east1-a fe_seed=true
+          [31m-[0m[0m doris-2 ansible_host=35.221.241.215 internal_ip=10.140.0.3 zone=asia-east1-b fe_seed=false
+          [32m+[0m[0m doris-2 ansible_host=34.80.150.141 internal_ip=10.140.0.3 zone=asia-east1-b fe_seed=false
+          [31m-[0m[0m doris-3 ansible_host=34.80.150.141 internal_ip=10.140.0.4 zone=asia-east1-c fe_seed=false
+          [32m+[0m[0m doris-3 ansible_host=35.185.162.157 internal_ip=10.140.0.4 zone=asia-east1-c fe_seed=false
+            
+            [client]
+            doris-client ansible_host=104.155.203.141 internal_ip=10.140.0.5 zone=asia-east1-a
+            
+            [all:vars]
+            ansible_user=yugachang
+            ansible_ssh_private_key_file=~/.ssh/google_compute_engine
+            seed_internal_ip=10.140.0.2
+        EOT
+      [33m~[0m[0m content_base64sha256 = "w081WrgywGpED0h+GmlhxgfFKPdkBJbQ/4e3P0ZWUXw=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "lw/i6KESULoh9Nim5oSs6tqRN0GPRoLYp/Na3hCPO5Il5W0ZgztOlze8FRRILqQinqm6jsOQ/Q2soqXOxCz/bw==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "72544720e29f3014c938256ea1b7438b" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "bd6c23f2c8f14e20d97610359570b38f6dcf1e93" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "c34f355ab832c06a440f487e1a6961c607c528f7640496d0ff87b73f4656517c" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "970fe2e8a11250ba21f4d8a6e684aceada9137418f4682d8a7f35ade108f3b9225e56d19833b4e9737bc1514482ea4229ea9ba8ec390fd0daca2a5cec42cff6f" -> (known after apply)
+      [33m~[0m[0m id                   = "bd6c23f2c8f14e20d97610359570b38f6dcf1e93" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m1 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  [33m~[0m[0m client    = {
+      [33m~[0m[0m external_ip = "" [33m->[0m[0m "104.155.203.141"
+        name        = "doris-client"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+  [33m~[0m[0m nodes     = [
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "" [33m->[0m[0m "34.80.84.237"
+            name        = "doris-1"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "" [33m->[0m[0m "34.80.150.141"
+            name        = "doris-2"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+      [33m~[0m[0m {
+          [33m~[0m[0m external_ip = "" [33m->[0m[0m "35.185.162.157"
+            name        = "doris-3"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        },
+    ]
+[0m[1mlocal_file.inventory: Destroying... [id=bd6c23f2c8f14e20d97610359570b38f6dcf1e93][0m[0m
+[0m[1mlocal_file.inventory: Destruction complete after 0s[0m
+[0m[1mlocal_file.inventory: Creating...[0m[0m
+[0m[1mlocal_file.inventory: Creation complete after 0s [id=56ffcd4aebecdda8feadc264d2e7ccd025802fe7][0m
+[0m[1m[32m
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mclient = {
+  "external_ip" = "104.155.203.141"
+  "internal_ip" = "10.140.0.5"
+  "name" = "doris-client"
+  "zone" = "asia-east1-a"
+}
+inventory = "./../ansible/inventory.ini"
+nodes = [
+  {
+    "external_ip" = "34.80.84.237"
+    "internal_ip" = "10.140.0.2"
+    "name" = "doris-1"
+    "zone" = "asia-east1-a"
+  },
+  {
+    "external_ip" = "34.80.150.141"
+    "internal_ip" = "10.140.0.3"
+    "name" = "doris-2"
+    "zone" = "asia-east1-b"
+  },
+  {
+    "external_ip" = "35.185.162.157"
+    "internal_ip" = "10.140.0.4"
+    "name" = "doris-3"
+    "zone" = "asia-east1-c"
+  },
+]
+  NAME     ZONE           INTERNAL     EXTERNAL
+  doris-1  asia-east1-a   10.140.0.2   34.80.84.237
+  doris-2  asia-east1-b   10.140.0.3   34.80.150.141
+  doris-3  asia-east1-c   10.140.0.4   35.185.162.157
+  waiting (1s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Co
+  waiting (7s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Co
+  waiting (12s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Co
+  waiting (17s): SystemExit: no FE reachable: (2003, "Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Co
+  waiting (25s): doris-1(fe), doris-1(be), replicas={'DEAD': 4, 'OK': 8}
+healthy after 34s
+hatest.events (UNIQUE KEY, 3 replicas) rows=10113
+(queried via doris-1 34.80.84.237)
+FE:
+  doris-1  10.140.0.2   follower alive=true  journal=25143
+  doris-2  10.140.0.3   follower alive=true  journal=25143
+  doris-3  10.140.0.4   MASTER   alive=true  journal=25146
+BE:
+  doris-1  10.140.0.2   alive=true  tablets=22
+  doris-2  10.140.0.3   alive=true  tablets=25
+  doris-3  10.140.0.4   alive=true  tablets=27
+replicas hatest.events: {'OK': 12}   rows=10113
+04:21:10 ##### pass 3 start: 16 scenario(s) ['vm-stop-3clients', 'vm-stop-master-direct', 'vm-stop-master-follower', 'vm-stop-follower', 'fe-crash-master', 'fe-crash-follower', 'fe-dead-master', 'fe-hang-master', 'fe-hang-follower', 'be-crash', 'be-dead', 'be-hang', 'double-vm-fe-dead', 'double-vm-be-dead', 'double-two-vms', 'double-crossed']
+04:21:10 $ /home/yugachang/workspace/doris-poc/venv/bin/python /home/yugachang/workspace/doris-poc/cluster.py wait /home/yugachang/workspace/doris-poc/.state/hosts.tsv 300
+04:21:10   cluster healthy (before pass)
+04:21:10 === [vm-stop-3clients] 三個 client 同時觀察 VM 停機  steps=['--target vm --on master']
+04:21:10 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:21:16   wait 30s (baseline)
+04:21:46 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+04:22:13   wait 90s (observe)
+04:23:43 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:23:49   during: mysql=讀寫正常 (27s), jdbc=讀寫正常 (34s), flight=讀取正常 (30s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10116 via doris-1
+04:23:49 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:24:45   wait 25s (settle)
+04:25:10 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:25:16   after:  mysql=讀寫正常 fails=6 impact=27s, jdbc=讀寫正常 fails=7 impact=34s, flight=讀取正常 fails=5 impact=30s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10116 via doris-1  healthy=True
+04:25:16 === [vm-stop-master-direct] master 所在 VM 停機，client 直連 master  steps=['--target vm --on master']
+04:25:16 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order master-first
+04:25:22   wait 30s (baseline)
+04:25:52 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+04:26:19   wait 90s (observe)
+04:27:49 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:27:55   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (1s), flight=讀取正常 (2s)  alive=FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10117 via doris-1
+04:27:55 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:28:42   wait 25s (settle)
+04:29:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:29:13   after:  mysql=讀寫正常 fails=1 impact=0s, jdbc=讀寫正常 fails=1 impact=1s, flight=讀取正常 fails=1 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10118 via doris-1  healthy=True
+04:29:13 === [vm-stop-master-follower] master 所在 VM 停機，client 連在 follower  steps=['--target vm --on master']
+04:29:13 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh --order follower-first
+04:29:18   wait 30s (baseline)
+04:29:48 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+04:30:14   wait 90s (observe)
+04:31:44 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:31:50   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (2s), flight=讀取正常 (1s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10120 via doris-1
+04:31:50 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:32:58   wait 25s (settle)
+04:33:23 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:33:28   after:  mysql=讀寫正常 fails=1 impact=0s, jdbc=讀寫正常 fails=1 impact=2s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10119 via doris-1  healthy=True
+04:33:28 === [vm-stop-follower] follower 所在 VM 停機  steps=['--target vm --on follower']
+04:33:28 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:33:35   wait 30s (baseline)
+04:34:05 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+04:34:32   wait 90s (observe)
+04:36:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:36:10   during: mysql=讀寫正常 (12s), jdbc=讀寫正常 (14s), flight=讀取正常 (18s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10124 via doris-2
+04:36:10 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:37:02   wait 25s (settle)
+04:37:27 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:37:33   after:  mysql=讀寫正常 fails=2 impact=12s, jdbc=讀寫正常 fails=2 impact=14s, flight=讀取正常 fails=1 impact=18s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10123 via doris-1  healthy=True
+04:37:33 === [fe-crash-master] master FE crash（kill -9，systemd 自動拉起）  steps=['--target fe --mode crash --on master']
+04:37:33 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:37:39   wait 30s (baseline)
+04:38:09 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on master
+04:38:29   wait 90s (observe)
+04:39:59 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:40:05   during: mysql=讀寫正常 (24s), jdbc=讀寫正常 (23s), flight=讀取正常 (8s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10130 via doris-1
+04:40:05 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:40:14   wait 25s (settle)
+04:40:39 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:40:45   after:  mysql=讀寫正常 fails=6 impact=24s, jdbc=讀寫正常 fails=4 impact=23s, flight=讀取正常 fails=1 impact=8s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10131 via doris-1  healthy=True
+04:40:45 === [fe-crash-follower] follower FE crash  steps=['--target fe --mode crash --on follower']
+04:40:45 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:40:51   wait 30s (baseline)
+04:41:21 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode crash --on follower
+04:41:42   wait 90s (observe)
+04:43:12 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:43:17   during: mysql=讀寫正常 (2s), jdbc=讀寫正常 (2s), flight=讀取正常 (3s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10133 via doris-1
+04:43:17 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:43:24   wait 25s (settle)
+04:43:49 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:43:54   after:  mysql=讀寫正常 fails=1 impact=2s, jdbc=讀寫正常 fails=1 impact=2s, flight=讀取正常 fails=1 impact=3s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10132 via doris-1  healthy=True
+04:43:54 === [fe-dead-master] master FE dead（systemctl stop，不自動起）  steps=['--target fe --mode dead --on master']
+04:43:54 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:44:00   wait 30s (baseline)
+04:44:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on master
+04:44:37   wait 90s (observe)
+04:46:07 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:46:13   during: mysql=讀寫正常 (0s), jdbc=讀寫正常 (1s), flight=讀取正常 (9s)  alive=FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1
+04:46:13 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:46:41   wait 25s (settle)
+04:47:06 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:47:11   after:  mysql=讀寫正常 fails=0 impact=0s, jdbc=讀寫正常 fails=2 impact=1s, flight=讀取正常 fails=0 impact=9s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1  healthy=True
+04:47:11 === [fe-hang-master] master FE hang（kill -STOP）  steps=['--target fe --mode hang --on master']
+04:47:11 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:47:17   wait 30s (baseline)
+04:47:47 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on master
+04:47:51   wait 120s (observe)
+04:49:51 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:49:58   during: mysql=讀寫正常 (64s), jdbc=讀寫正常 (69s), flight=讀取正常 (63s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10136 via doris-1
+04:49:58 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:50:06   wait 25s (settle)
+04:50:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:50:37   after:  mysql=讀寫正常 fails=7 impact=64s, jdbc=讀寫正常 fails=0 impact=69s, flight=讀取正常 fails=0 impact=63s  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1  healthy=True
+04:50:37 === [fe-hang-follower] follower FE hang  steps=['--target fe --mode hang --on follower']
+04:50:37 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:50:43   wait 30s (baseline)
+04:51:13 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode hang --on follower
+04:51:17   wait 90s (observe)
+04:52:47 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:52:59   during: mysql=讀寫正常 (20s), jdbc=讀寫正常 (39s), flight=讀取正常 (39s)  alive=FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10138 via doris-2
+04:52:59 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:53:06   wait 25s (settle)
+04:53:31 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:53:36   after:  mysql=讀寫正常 fails=1 impact=20s, jdbc=讀寫正常 fails=1 impact=48s, flight=讀取正常 fails=1 impact=39s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10138 via doris-1  healthy=True
+04:53:36 === [be-crash] BE crash（systemd 自動拉起）  steps=['--target be --mode crash --on follower']
+04:53:36 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:53:41   wait 30s (baseline)
+04:54:11 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode crash --on follower
+04:54:32   wait 90s (observe)
+04:56:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:56:08   during: mysql=讀寫正常 (16s), jdbc=讀寫正常 (15s), flight=讀取正常 (1s)  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10139 via doris-1
+04:56:08 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:56:14   wait 25s (settle)
+04:56:39 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:56:45   after:  mysql=讀寫正常 fails=1 impact=16s, jdbc=讀寫正常 fails=2 impact=15s, flight=讀取正常 fails=1 impact=1s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
+04:56:45 === [be-dead] BE dead  steps=['--target be --mode dead --on follower']
+04:56:45 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+04:56:51   wait 30s (baseline)
+04:57:21 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+04:57:27   wait 90s (observe)
+04:58:57 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+04:59:03   during: mysql=讀寫正常 (7s), jdbc=讀寫正常 (7s), flight=讀取正常 (2s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10139 via doris-1
+04:59:03 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+04:59:30   wait 25s (settle)
+04:59:55 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:00:02   after:  mysql=讀寫正常 fails=1 impact=7s, jdbc=讀寫正常 fails=1 impact=7s, flight=讀取正常 fails=2 impact=2s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
+05:00:02 === [be-hang] BE hang（kill -STOP）  steps=['--target be --mode hang --on follower']
+05:00:02 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+05:00:09   wait 30s (baseline)
+05:00:39 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode hang --on follower
+05:00:43   wait 120s (observe)
+05:02:43 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:02:48   during: mysql=讀寫正常 (37s), jdbc=讀寫正常 (36s), flight=讀取正常 (31s)  alive=FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10141 via doris-1
+05:02:48 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+05:03:10   wait 25s (settle)
+05:03:35 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:03:41   after:  mysql=讀寫正常 fails=4 impact=37s, jdbc=讀寫正常 fails=4 impact=36s, flight=讀取正常 fails=4 impact=31s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10141 via doris-1  healthy=True
+05:03:41 === [double-vm-fe-dead] VM 停 + 另一台 FE dead（FE 剩 1/3）  steps=['--target vm --on master', '--target fe --mode dead --on follower']
+05:03:41 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+05:03:46   wait 30s (baseline)
+05:04:16 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+05:04:43   wait 30s (gap between breaks)
+05:05:13 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on follower
+05:05:20   wait 90s (observe)
+05:06:50 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:07:02   during: mysql=讀寫正常 (86s), jdbc=讀寫正常 (95s), flight=讀取正常 (92s)  alive=FE 2/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2
+05:07:02 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+05:11:32   wait 25s (settle)
+05:11:57 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:12:04   after:  mysql=讀寫正常 fails=58 impact=348s, jdbc=讀寫正常 fails=52 impact=355s, flight=讀取正常 fails=27 impact=144s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10144 via doris-1  healthy=True
+05:12:04 === [double-vm-be-dead] VM 停 + 另一台 BE dead（BE 剩 1/3）  steps=['--target vm --on master', '--target be --mode dead --on follower']
+05:12:04 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+05:12:09   wait 30s (baseline)
+05:12:39 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+05:13:05   wait 30s (gap between breaks)
+05:13:35 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on follower
+05:13:42   wait 90s (observe)
+05:15:12 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:15:18   during: mysql=只讀 (45s), jdbc=只讀 (55s), flight=讀取正常 (59s)  alive=FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10147 via doris-1
+05:15:18 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+05:16:12   wait 25s (settle)
+05:16:37 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:16:42   after:  mysql=讀寫正常 fails=131 impact=47s, jdbc=讀寫正常 fails=144 impact=56s, flight=讀取正常 fails=34 impact=59s  alive=FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10147 via doris-1  healthy=True
+05:16:42 === [double-two-vms] 兩台 VM 停（FE 1/3、BE 1/3）  steps=['--target vm --on master', '--target vm --on follower']
+05:16:42 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+05:16:48   wait 30s (baseline)
+05:17:18 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on master
+05:17:46   wait 30s (gap between breaks)
+05:18:16 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on follower
+05:18:41   wait 90s (observe)
+05:20:11 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:20:23   during: mysql=讀寫正常 (117s), jdbc=讀寫正常 (62s), flight=讀取正常 (87s)  alive=FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, "Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)"))
+05:20:23 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+05:21:46   wait 25s (settle)
+05:22:11 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:22:16   after:  mysql=讀寫正常 fails=30 impact=171s, jdbc=讀寫正常 fails=5 impact=168s, flight=讀取正常 fails=7 impact=168s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10153 via doris-1  healthy=True
+05:22:16 === [double-crossed] 交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）  steps=['--target vm --on doris-1', '--target be --mode dead --on doris-2', '--target fe --mode dead --on doris-3']
+05:22:16 $ /home/yugachang/workspace/doris-poc/demo.sh monitor --fresh
+05:22:22   wait 30s (baseline)
+05:22:52 $ /home/yugachang/workspace/doris-poc/demo.sh break --target vm --on doris-1
+05:23:20   wait 30s (gap between breaks)
+05:23:50 $ /home/yugachang/workspace/doris-poc/demo.sh break --target be --mode dead --on doris-2
+05:24:00   wait 30s (gap between breaks)
+05:24:30 $ /home/yugachang/workspace/doris-poc/demo.sh break --target fe --mode dead --on doris-3
+05:24:39   wait 90s (observe)
+05:26:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:26:18   during: mysql=只讀 (86s), jdbc=只讀 (28s), flight=讀取正常 (117s)  alive=alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+05:26:18 $ /home/yugachang/workspace/doris-poc/demo.sh restore
+05:27:37   wait 25s (settle)
+05:28:02 $ /home/yugachang/workspace/doris-poc/demo.sh measure --json
+05:28:09   after:  mysql=讀寫正常 fails=57 impact=163s, jdbc=讀寫正常 fails=63 impact=198s, flight=讀取正常 fails=25 impact=198s  alive=FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10160 via doris-1  healthy=True
+05:28:09 $ /home/yugachang/workspace/doris-poc/demo.sh measure
+05:28:16 $ /home/yugachang/workspace/doris-poc/demo.sh stop
+05:29:01 ##### pass 3 done: 16/16 scenarios

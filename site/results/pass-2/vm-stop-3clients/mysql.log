@@ -1,221 +1,299 @@
-03:10:58 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
-03:10:58 connected to doris-1 (10.140.0.2)
-03:10:59 #1 OK INSERT id=1674580 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:00 #2 OK UPSERT id=1674580 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:01 #3 OK SELECT id=1674580 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:02 #4 OK DELETE id=1674580 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:03 #5 OK SELECT id=1674580 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:05 #6 OK INSERT id=1674581 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:06 #7 OK UPSERT id=1674581 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:07 #8 OK SELECT id=1674581 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:08 #9 OK DELETE id=1674581 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:09 #10 OK SELECT id=1674581 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:10 #11 OK INSERT id=1674582 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:11 #12 OK UPSERT id=1674582 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:12 #13 OK SELECT id=1674582 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:13 #14 OK DELETE id=1674582 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:14 #15 OK SELECT id=1674582 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:16 #16 OK INSERT id=1674583 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:17 #17 OK UPSERT id=1674583 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:18 #18 OK SELECT id=1674583 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:19 #19 OK DELETE id=1674583 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:20 #20 OK SELECT id=1674583 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:21 #21 OK INSERT id=1674584 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:22 #22 OK UPSERT id=1674584 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:23 #23 OK SELECT id=1674584 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:24 #24 OK DELETE id=1674584 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:25 #25 OK SELECT id=1674584 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:26 #26 OK INSERT id=1674585 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:28 #27 OK UPSERT id=1674585 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:29 #28 OK SELECT id=1674585 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:30 #29 OK DELETE id=1674585 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:31 #30 OK SELECT id=1674585 via doris-1 rows=10061 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:32 #31 OK INSERT id=1674586 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:33 EVENT break: vm stop on doris-3 (FE master)
-03:11:33 #32 OK UPSERT id=1674586 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:34 #33 OK SELECT id=1674586 via doris-1 rows=10063 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:35 #34 OK DELETE id=1674586 via doris-1 rows=10062 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:11:36 #35 FAIL SELECT id=1674586 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, h
-03:11:37 connected to doris-1 (10.140.0.2)
-03:11:40 #36 OK INSERT id=1674587 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
-03:11:41 #37 OK UPSERT id=1674587 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:42 #38 OK SELECT id=1674587 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:43 #39 OK DELETE id=1674587 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:44 #40 OK SELECT id=1674587 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:46 #41 OK INSERT id=1674588 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:47 #42 OK UPSERT id=1674588 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:48 #43 OK SELECT id=1674588 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:49 #44 OK DELETE id=1674588 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:50 #45 OK SELECT id=1674588 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:51 #46 OK INSERT id=1674589 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:52 #47 OK UPSERT id=1674589 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:53 #48 OK SELECT id=1674589 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:54 #49 OK DELETE id=1674589 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:55 #50 OK SELECT id=1674589 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:57 #51 OK INSERT id=1674590 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:57 EVENT break: doris-3 is down
-03:11:58 #52 OK UPSERT id=1674590 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:11:59 #53 OK SELECT id=1674590 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:00 #54 OK DELETE id=1674590 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:01 #55 OK SELECT id=1674590 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:02 #56 OK INSERT id=1674591 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:03 #57 OK UPSERT id=1674591 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:04 #58 OK SELECT id=1674591 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:05 #59 OK DELETE id=1674591 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:06 #60 OK SELECT id=1674591 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:07 #61 OK INSERT id=1674592 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:09 #62 OK UPSERT id=1674592 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:10 #63 OK SELECT id=1674592 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:11 #64 OK DELETE id=1674592 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:12 #65 OK SELECT id=1674592 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:13 #66 OK INSERT id=1674593 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:14 #67 OK UPSERT id=1674593 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:15 #68 OK SELECT id=1674593 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:16 #69 OK DELETE id=1674593 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:17 #70 OK SELECT id=1674593 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:18 #71 OK INSERT id=1674594 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:19 #72 OK UPSERT id=1674594 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:20 #73 OK SELECT id=1674594 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:22 #74 OK DELETE id=1674594 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:23 #75 OK SELECT id=1674594 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:24 #76 OK INSERT id=1674595 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:25 #77 OK UPSERT id=1674595 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:26 #78 OK SELECT id=1674595 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:27 #79 OK DELETE id=1674595 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:28 #80 OK SELECT id=1674595 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:29 #81 OK INSERT id=1674596 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:30 #82 OK UPSERT id=1674596 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:31 #83 OK SELECT id=1674596 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:32 #84 OK DELETE id=1674596 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:33 #85 OK SELECT id=1674596 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:34 #86 OK INSERT id=1674597 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:35 #87 OK UPSERT id=1674597 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:36 #88 OK SELECT id=1674597 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:38 #89 OK DELETE id=1674597 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:39 #90 OK SELECT id=1674597 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:40 #91 OK INSERT id=1674598 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:41 #92 OK UPSERT id=1674598 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:42 #93 OK SELECT id=1674598 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:43 #94 OK DELETE id=1674598 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:44 #95 OK SELECT id=1674598 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:45 #96 OK INSERT id=1674599 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:46 #97 OK UPSERT id=1674599 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:47 #98 OK SELECT id=1674599 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:48 #99 OK DELETE id=1674599 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:49 #100 OK SELECT id=1674599 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:50 #101 OK INSERT id=1674600 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:51 #102 OK UPSERT id=1674600 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:53 #103 OK SELECT id=1674600 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:54 #104 OK DELETE id=1674600 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:55 #105 OK SELECT id=1674600 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:56 #106 OK INSERT id=1674601 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:57 #107 OK UPSERT id=1674601 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:58 #108 OK SELECT id=1674601 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:12:59 #109 OK DELETE id=1674601 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:00 #110 OK SELECT id=1674601 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:01 #111 OK INSERT id=1674602 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:02 #112 OK UPSERT id=1674602 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:03 #113 OK SELECT id=1674602 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:04 #114 OK DELETE id=1674602 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:05 #115 OK SELECT id=1674602 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:07 #116 OK INSERT id=1674603 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:08 #117 OK UPSERT id=1674603 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:09 #118 OK SELECT id=1674603 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:10 #119 OK DELETE id=1674603 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:11 #120 OK SELECT id=1674603 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:12 #121 OK INSERT id=1674604 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:13 #122 OK UPSERT id=1674604 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:14 #123 OK SELECT id=1674604 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:15 #124 OK DELETE id=1674604 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:16 #125 OK SELECT id=1674604 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:17 #126 OK INSERT id=1674605 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:18 #127 OK UPSERT id=1674605 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:19 #128 OK SELECT id=1674605 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:20 #129 OK DELETE id=1674605 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:21 #130 OK SELECT id=1674605 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:22 #131 OK INSERT id=1674606 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:24 #132 OK UPSERT id=1674606 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:25 #133 OK SELECT id=1674606 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:26 #134 OK DELETE id=1674606 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:27 #135 OK SELECT id=1674606 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:28 #136 OK INSERT id=1674607 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:29 #137 OK UPSERT id=1674607 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:30 #138 OK SELECT id=1674607 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:31 #139 OK DELETE id=1674607 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:32 #140 OK SELECT id=1674607 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:33 #141 OK INSERT id=1674608 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:34 #142 OK UPSERT id=1674608 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:35 EVENT restore: start doris-3
-03:13:35 #143 OK SELECT id=1674608 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:36 #144 OK DELETE id=1674608 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:37 #145 OK SELECT id=1674608 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:39 #146 OK INSERT id=1674609 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:40 #147 OK UPSERT id=1674609 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:41 #148 OK SELECT id=1674609 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:42 #149 OK DELETE id=1674609 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:43 #150 OK SELECT id=1674609 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:44 #151 OK INSERT id=1674610 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:45 #152 OK UPSERT id=1674610 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:46 #153 OK SELECT id=1674610 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:47 #154 OK DELETE id=1674610 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:48 #155 OK SELECT id=1674610 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:49 #156 OK INSERT id=1674611 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:50 #157 OK UPSERT id=1674611 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:51 #158 OK SELECT id=1674611 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:52 #159 OK DELETE id=1674611 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:53 #160 OK SELECT id=1674611 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:54 #161 OK INSERT id=1674612 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:56 #162 OK UPSERT id=1674612 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:57 #163 OK SELECT id=1674612 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:58 #164 OK DELETE id=1674612 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:13:59 #165 OK SELECT id=1674612 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:00 #166 OK INSERT id=1674613 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:01 #167 OK UPSERT id=1674613 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:02 #168 OK SELECT id=1674613 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:03 #169 OK DELETE id=1674613 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:04 #170 OK SELECT id=1674613 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:05 #171 OK INSERT id=1674614 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:06 #172 OK UPSERT id=1674614 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:07 #173 OK SELECT id=1674614 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:08 #174 OK DELETE id=1674614 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:09 #175 OK SELECT id=1674614 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:10 #176 OK INSERT id=1674615 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:11 #177 OK UPSERT id=1674615 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:12 #178 OK SELECT id=1674615 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:14 #179 OK DELETE id=1674615 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:15 #180 OK SELECT id=1674615 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:16 #181 OK INSERT id=1674616 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:14:17 #182 OK UPSERT id=1674616 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:18 #183 OK SELECT id=1674616 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:19 #184 OK DELETE id=1674616 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:20 #185 OK SELECT id=1674616 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:21 #186 OK INSERT id=1674617 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:22 #187 OK UPSERT id=1674617 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:23 #188 OK SELECT id=1674617 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:24 #189 OK DELETE id=1674617 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:24 EVENT restore: cluster healthy
-03:14:25 #190 OK SELECT id=1674617 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:26 #191 OK INSERT id=1674618 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:28 #192 OK UPSERT id=1674618 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:29 #193 OK SELECT id=1674618 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:30 #194 OK DELETE id=1674618 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:31 #195 OK SELECT id=1674618 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:32 #196 OK INSERT id=1674619 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:33 #197 OK UPSERT id=1674619 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:34 #198 OK SELECT id=1674619 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:35 #199 OK DELETE id=1674619 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:36 #200 OK SELECT id=1674619 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:37 #201 OK INSERT id=1674620 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:38 #202 OK UPSERT id=1674620 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:39 #203 OK SELECT id=1674620 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:40 #204 OK DELETE id=1674620 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:41 #205 OK SELECT id=1674620 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:42 #206 OK INSERT id=1674621 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:44 #207 OK UPSERT id=1674621 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:45 #208 OK SELECT id=1674621 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:46 #209 OK DELETE id=1674621 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:47 #210 OK SELECT id=1674621 via doris-1 rows=10062 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:48 #211 OK INSERT id=1674622 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:49 #212 OK UPSERT id=1674622 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:50 #213 OK SELECT id=1674622 via doris-1 rows=10064 [doris-1:f:up doris-2:M:up doris-3:f:up]
-03:14:51 #214 OK DELETE id=1674622 via doris-1 rows=10063 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:03:06 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+18:03:06 connected to doris-1 (10.140.0.2)
+18:03:07 #1 OK INSERT id=1665860 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:08 #2 OK UPSERT id=1665860 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:09 #3 OK SELECT id=1665860 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:10 #4 OK DELETE id=1665860 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:11 #5 OK SELECT id=1665860 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:12 #6 OK INSERT id=1665861 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:13 #7 OK UPSERT id=1665861 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:14 #8 OK SELECT id=1665861 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:16 #9 OK DELETE id=1665861 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:17 #10 OK SELECT id=1665861 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:18 #11 OK INSERT id=1665862 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:19 #12 OK UPSERT id=1665862 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:20 #13 OK SELECT id=1665862 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:21 #14 OK DELETE id=1665862 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:22 #15 OK SELECT id=1665862 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:23 #16 OK INSERT id=1665863 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:24 #17 OK UPSERT id=1665863 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:25 #18 OK SELECT id=1665863 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:26 #19 OK DELETE id=1665863 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:28 #20 OK SELECT id=1665863 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:29 #21 OK INSERT id=1665864 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:30 #22 OK UPSERT id=1665864 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:31 #23 OK SELECT id=1665864 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:32 #24 OK DELETE id=1665864 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:33 #25 OK SELECT id=1665864 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:34 #26 OK INSERT id=1665865 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:35 #27 OK UPSERT id=1665865 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:36 #28 OK SELECT id=1665865 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:37 #29 OK DELETE id=1665865 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:38 #30 OK SELECT id=1665865 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:39 #31 OK INSERT id=1665866 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:40 #32 OK UPSERT id=1665866 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:42 #33 OK SELECT id=1665866 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:43 #34 OK DELETE id=1665866 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:43 EVENT break: vm stop on doris-3 (FE master)
+18:03:44 #35 OK SELECT id=1665866 via doris-1 rows=10206 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:45 #36 OK INSERT id=1665867 via doris-1 rows=10207 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:46 #37 OK UPSERT id=1665867 via doris-1 rows=10208 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:03:47 #38 FAIL SELECT id=1665867 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, h
+18:03:48 connected to doris-1 (10.140.0.2)
+18:03:51 #39 OK INSERT id=1665868 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
+18:03:52 #40 FAIL UPSERT id=1665868 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:52 #40 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:03:53 connected to doris-1 (10.140.0.2)
+18:03:53 #41 FAIL INSERT id=1665869 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:53 #41 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:03:54 connected to doris-1 (10.140.0.2)
+18:03:54 #42 FAIL INSERT id=1665870 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:54 #42 OK SELECT(check) id=1 via doris-1
+18:03:55 connected to doris-1 (10.140.0.2)
+18:03:55 #43 FAIL INSERT id=1665871 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:55 #43 OK SELECT(check) id=1 via doris-1
+18:03:56 connected to doris-1 (10.140.0.2)
+18:03:56 #44 FAIL INSERT id=1665872 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:03:56 #44 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:03:58 connected to doris-1 (10.140.0.2)
+18:03:58 #45 FAIL INSERT id=1665873 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:58 #45 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:03:59 connected to doris-1 (10.140.0.2)
+18:03:59 #46 FAIL INSERT id=1665874 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:03:59 #46 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:00 connected to doris-1 (10.140.0.2)
+18:04:00 #47 FAIL INSERT id=1665875 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:04:00 #47 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:01 connected to doris-1 (10.140.0.2)
+18:04:01 #48 FAIL INSERT id=1665876 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666400: fai
+18:04:01 #48 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:02 connected to doris-1 (10.140.0.2)
+18:04:02 #49 FAIL INSERT id=1665877 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:04:02 #49 OK SELECT(check) id=1 via doris-1
+18:04:03 connected to doris-1 (10.140.0.2)
+18:04:03 #50 FAIL INSERT id=1665878 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:04:03 #50 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:04 connected to doris-1 (10.140.0.2)
+18:04:04 #51 FAIL INSERT id=1665879 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666404: fai
+18:04:04 #51 OK SELECT(check) id=1 via doris-1
+18:04:06 connected to doris-1 (10.140.0.2)
+18:04:07 EVENT break: doris-3 is down
+18:04:14 #52 FAIL INSERT id=1665880 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+18:04:14 #52 OK SELECT(check) id=1 via doris-1
+18:04:15 connected to doris-1 (10.140.0.2)
+18:04:15 #53 FAIL INSERT id=1665881 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:04:15 #53 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:16 connected to doris-1 (10.140.0.2)
+18:04:16 #54 FAIL INSERT id=1665882 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.3)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666408: fai
+18:04:16 #54 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:17 connected to doris-1 (10.140.0.2)
+18:04:17 #55 FAIL INSERT id=1665883 via doris-1: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.2')
+18:04:17 #55 FAIL SELECT(check) id=1 via doris-1: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+18:04:18 connected to doris-1 (10.140.0.2)
+18:04:18 #56 FAIL INSERT id=1665884 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:18 #56 OK SELECT(check) id=1 via doris-1
+18:04:19 connected to doris-1 (10.140.0.2)
+18:04:19 #57 FAIL INSERT id=1665885 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:19 #57 OK SELECT(check) id=1 via doris-1
+18:04:20 connected to doris-1 (10.140.0.2)
+18:04:20 #58 FAIL INSERT id=1665886 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:20 #58 OK SELECT(check) id=1 via doris-1
+18:04:21 connected to doris-1 (10.140.0.2)
+18:04:22 #59 FAIL INSERT id=1665887 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:22 #59 OK SELECT(check) id=1 via doris-1
+18:04:23 connected to doris-1 (10.140.0.2)
+18:04:23 #60 FAIL INSERT id=1665888 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:23 #60 OK SELECT(check) id=1 via doris-1
+18:04:24 connected to doris-1 (10.140.0.2)
+18:04:24 #61 FAIL INSERT id=1665889 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:24 #61 OK SELECT(check) id=1 via doris-1
+18:04:25 connected to doris-1 (10.140.0.2)
+18:04:25 #62 FAIL INSERT id=1665890 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:25 #62 OK SELECT(check) id=1 via doris-1
+18:04:26 connected to doris-1 (10.140.0.2)
+18:04:26 #63 FAIL INSERT id=1665891 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:26 #63 OK SELECT(check) id=1 via doris-1
+18:04:27 connected to doris-1 (10.140.0.2)
+18:04:27 #64 FAIL INSERT id=1665892 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:27 #64 OK SELECT(check) id=1 via doris-1
+18:04:28 connected to doris-1 (10.140.0.2)
+18:04:28 #65 FAIL INSERT id=1665893 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:28 #65 OK SELECT(check) id=1 via doris-1
+18:04:29 connected to doris-1 (10.140.0.2)
+18:04:29 #66 FAIL INSERT id=1665894 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:29 #66 OK SELECT(check) id=1 via doris-1
+18:04:30 connected to doris-1 (10.140.0.2)
+18:04:30 #67 FAIL INSERT id=1665895 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:30 #67 OK SELECT(check) id=1 via doris-1
+18:04:32 connected to doris-1 (10.140.0.2)
+18:04:32 #68 FAIL INSERT id=1665896 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:32 #68 OK SELECT(check) id=1 via doris-1
+18:04:33 connected to doris-1 (10.140.0.2)
+18:04:33 #69 FAIL INSERT id=1665897 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:33 #69 OK SELECT(check) id=1 via doris-1
+18:04:34 connected to doris-1 (10.140.0.2)
+18:04:34 #70 FAIL INSERT id=1665898 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:34 #70 OK SELECT(check) id=1 via doris-1
+18:04:35 connected to doris-1 (10.140.0.2)
+18:04:35 #71 FAIL INSERT id=1665899 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:35 #71 OK SELECT(check) id=1 via doris-1
+18:04:36 connected to doris-1 (10.140.0.2)
+18:04:36 #72 FAIL INSERT id=1665900 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:36 #72 OK SELECT(check) id=1 via doris-1
+18:04:37 connected to doris-1 (10.140.0.2)
+18:04:37 #73 FAIL INSERT id=1665901 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:37 #73 OK SELECT(check) id=1 via doris-1
+18:04:38 connected to doris-1 (10.140.0.2)
+18:04:38 #74 FAIL INSERT id=1665902 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:38 #74 OK SELECT(check) id=1 via doris-1
+18:04:39 connected to doris-1 (10.140.0.2)
+18:04:39 #75 FAIL INSERT id=1665903 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:39 #75 OK SELECT(check) id=1 via doris-1
+18:04:40 connected to doris-1 (10.140.0.2)
+18:04:40 #76 FAIL INSERT id=1665904 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:40 #76 OK SELECT(check) id=1 via doris-1
+18:04:41 connected to doris-1 (10.140.0.2)
+18:04:42 #77 FAIL INSERT id=1665905 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:42 #77 OK SELECT(check) id=1 via doris-1
+18:04:43 connected to doris-1 (10.140.0.2)
+18:04:43 #78 FAIL INSERT id=1665906 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:43 #78 OK SELECT(check) id=1 via doris-1
+18:04:44 connected to doris-1 (10.140.0.2)
+18:04:44 #79 FAIL INSERT id=1665907 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:44 #79 OK SELECT(check) id=1 via doris-1
+18:04:45 connected to doris-1 (10.140.0.2)
+18:04:45 #80 FAIL INSERT id=1665908 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:45 #80 OK SELECT(check) id=1 via doris-1
+18:04:46 connected to doris-1 (10.140.0.2)
+18:04:46 #81 FAIL INSERT id=1665909 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:46 #81 OK SELECT(check) id=1 via doris-1
+18:04:47 connected to doris-1 (10.140.0.2)
+18:04:47 #82 FAIL INSERT id=1665910 via doris-1: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+18:04:47 #82 OK SELECT(check) id=1 via doris-1
+18:04:48 connected to doris-1 (10.140.0.2)
+18:04:48 #83 OK INSERT id=1665911 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
+18:04:49 #84 OK UPSERT id=1665911 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:50 #85 OK SELECT id=1665911 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:51 #86 OK DELETE id=1665911 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:53 #87 OK SELECT id=1665911 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:54 #88 OK INSERT id=1665912 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:55 #89 OK UPSERT id=1665912 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:56 #90 OK SELECT id=1665912 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:57 #91 OK DELETE id=1665912 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:58 #92 OK SELECT id=1665912 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:04:59 #93 OK INSERT id=1665913 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:00 #94 OK UPSERT id=1665913 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:01 #95 OK SELECT id=1665913 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:02 #96 OK DELETE id=1665913 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:03 #97 OK SELECT id=1665913 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:04 #98 OK INSERT id=1665914 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:05 #99 OK UPSERT id=1665914 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:06 #100 OK SELECT id=1665914 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:08 #101 OK DELETE id=1665914 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:09 #102 OK SELECT id=1665914 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:10 #103 OK INSERT id=1665915 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:11 #104 OK UPSERT id=1665915 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:12 #105 OK SELECT id=1665915 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:13 #106 OK DELETE id=1665915 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:14 #107 OK SELECT id=1665915 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:15 #108 OK INSERT id=1665916 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:16 #109 OK UPSERT id=1665916 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:17 #110 OK SELECT id=1665916 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:18 #111 OK DELETE id=1665916 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:19 #112 OK SELECT id=1665916 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:20 #113 OK INSERT id=1665917 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:21 #114 OK UPSERT id=1665917 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:22 #115 OK SELECT id=1665917 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:24 #116 OK DELETE id=1665917 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:25 #117 OK SELECT id=1665917 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:26 #118 OK INSERT id=1665918 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:27 #119 OK UPSERT id=1665918 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:28 #120 OK SELECT id=1665918 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:29 #121 OK DELETE id=1665918 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:30 #122 OK SELECT id=1665918 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:31 #123 OK INSERT id=1665919 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:32 #124 OK UPSERT id=1665919 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:33 #125 OK SELECT id=1665919 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:34 #126 OK DELETE id=1665919 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:35 #127 OK SELECT id=1665919 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:36 #128 OK INSERT id=1665920 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:37 #129 OK UPSERT id=1665920 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:39 #130 OK SELECT id=1665920 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:40 #131 OK DELETE id=1665920 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:41 #132 OK SELECT id=1665920 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:42 #133 OK INSERT id=1665921 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:43 #134 OK UPSERT id=1665921 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:44 #135 OK SELECT id=1665921 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:45 #136 OK DELETE id=1665921 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:46 EVENT restore: start doris-3
+18:05:46 #137 OK SELECT id=1665921 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:47 #138 OK INSERT id=1665922 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:48 #139 OK UPSERT id=1665922 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:49 #140 OK SELECT id=1665922 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:50 #141 OK DELETE id=1665922 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:51 #142 OK SELECT id=1665922 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:52 #143 OK INSERT id=1665923 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:54 #144 OK UPSERT id=1665923 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:55 #145 OK SELECT id=1665923 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:56 #146 OK DELETE id=1665923 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:57 #147 OK SELECT id=1665923 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:58 #148 OK INSERT id=1665924 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:05:59 #149 OK UPSERT id=1665924 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:00 #150 OK SELECT id=1665924 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:01 #151 OK DELETE id=1665924 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:02 #152 OK SELECT id=1665924 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:03 #153 OK INSERT id=1665925 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:04 #154 OK UPSERT id=1665925 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:05 #155 OK SELECT id=1665925 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:06 #156 OK DELETE id=1665925 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:07 #157 OK SELECT id=1665925 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:08 #158 OK INSERT id=1665926 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:09 #159 OK UPSERT id=1665926 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:11 #160 OK SELECT id=1665926 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:12 #161 OK DELETE id=1665926 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:13 #162 OK SELECT id=1665926 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:14 #163 OK INSERT id=1665927 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:15 #164 OK UPSERT id=1665927 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:16 #165 OK SELECT id=1665927 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:17 #166 OK DELETE id=1665927 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:18 #167 OK SELECT id=1665927 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:19 #168 OK INSERT id=1665928 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:20 #169 OK UPSERT id=1665928 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
+18:06:21 #170 OK SELECT id=1665928 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:22 #171 OK DELETE id=1665928 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:23 #172 OK SELECT id=1665928 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:24 #173 OK INSERT id=1665929 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:26 #174 OK UPSERT id=1665929 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:27 #175 OK SELECT id=1665929 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:28 #176 OK DELETE id=1665929 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:29 #177 OK SELECT id=1665929 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:30 #178 OK INSERT id=1665930 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:31 #179 OK UPSERT id=1665930 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:32 #180 OK SELECT id=1665930 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:33 #181 OK DELETE id=1665930 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:33 EVENT restore: cluster healthy
+18:06:34 #182 OK SELECT id=1665930 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:35 #183 OK INSERT id=1665931 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:36 #184 OK UPSERT id=1665931 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:38 #185 OK SELECT id=1665931 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:39 #186 OK DELETE id=1665931 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:40 #187 OK SELECT id=1665931 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:41 #188 OK INSERT id=1665932 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:42 #189 OK UPSERT id=1665932 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:43 #190 OK SELECT id=1665932 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:44 #191 OK DELETE id=1665932 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:45 #192 OK SELECT id=1665932 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:46 #193 OK INSERT id=1665933 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:47 #194 OK UPSERT id=1665933 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:48 #195 OK SELECT id=1665933 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:49 #196 OK DELETE id=1665933 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:50 #197 OK SELECT id=1665933 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:51 #198 OK INSERT id=1665934 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:53 #199 OK UPSERT id=1665934 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:54 #200 OK SELECT id=1665934 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:55 #201 OK DELETE id=1665934 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:56 #202 OK SELECT id=1665934 via doris-1 rows=10209 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:57 #203 OK INSERT id=1665935 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:58 #204 OK UPSERT id=1665935 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:06:59 #205 OK SELECT id=1665935 via doris-1 rows=10211 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:07:00 #206 OK DELETE id=1665935 via doris-1 rows=10210 [doris-1:f:up doris-2:M:up doris-3:f:up]

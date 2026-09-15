@@ -1,0 +1,8265 @@
+{
+ "be-crash": {
+  "scenario": "BE crash（systemd 自動拉起）",
+  "also": [],
+  "steps": [
+   "--target be --mode crash --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/be-crash",
+   "results/pass-2/be-crash",
+   "results/pass-3/be-crash"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 19,
+      "fail_secs": 10,
+      "stall": 17,
+      "max_gap": 9,
+      "impact_total": 19,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "00:22:52",
+        "end": "00:23:00",
+        "secs": 8
+       },
+       {
+        "start": "00:23:18",
+        "end": "00:23:20",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 18,
+      "fail_secs": 9,
+      "stall": 17,
+      "max_gap": 9,
+      "impact_total": 18,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "03:44:16",
+        "end": "03:44:24",
+        "secs": 8
+       },
+       {
+        "start": "03:44:42",
+        "end": "03:44:43",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 16,
+      "fail_secs": 0,
+      "stall": 16,
+      "max_gap": 9,
+      "impact_total": 16,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:54:41",
+        "end": "04:54:41",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 16,
+    "impact_max": 19
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 20,
+      "fail_secs": 2,
+      "stall": 18,
+      "max_gap": 9,
+      "impact_total": 20,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "DELETE": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:23:18",
+        "end": "00:23:20",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 18,
+      "fail_secs": 0,
+      "stall": 18,
+      "max_gap": 10,
+      "impact_total": 18,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "DELETE": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "03:44:16",
+        "end": "03:44:16",
+        "secs": 0
+       },
+       {
+        "start": "03:44:43",
+        "end": "03:44:43",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 15,
+      "fail_secs": 6,
+      "stall": 15,
+      "max_gap": 9,
+      "impact_total": 15,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "04:54:17",
+        "end": "04:54:23",
+        "secs": 6
+       },
+       {
+        "start": "04:54:41",
+        "end": "04:54:41",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 15,
+    "impact_max": 20
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "00:22:52",
+        "end": "00:22:54",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:44:16",
+        "end": "03:44:17",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:54:17",
+        "end": "04:54:18",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 1,
+    "impact_max": 2
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 6,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10040 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 5,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10086 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 5,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10139 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "be-dead": {
+  "scenario": "BE dead",
+  "also": [],
+  "steps": [
+   "--target be --mode dead --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/be-dead",
+   "results/pass-2/be-dead",
+   "results/pass-3/be-dead"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 6,
+      "fail_secs": 0,
+      "stall": 6,
+      "max_gap": 6,
+      "impact_total": 7,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:27:50",
+        "end": "00:27:51",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 9,
+      "fail_secs": 0,
+      "stall": 9,
+      "max_gap": 9,
+      "impact_total": 9,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:47:34",
+        "end": "03:47:34",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 7,
+      "fail_secs": 0,
+      "stall": 7,
+      "max_gap": 7,
+      "impact_total": 7,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:57:26",
+        "end": "04:57:26",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 6,
+    "impact_max": 9
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 6,
+      "fail_secs": 6,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 6,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "00:26:04",
+        "end": "00:26:10",
+        "secs": 6
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 8,
+      "fail_secs": 8,
+      "stall": 8,
+      "max_gap": 8,
+      "impact_total": 8,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:47:26",
+        "end": "03:47:34",
+        "secs": 8
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 7,
+      "fail_secs": 7,
+      "stall": 7,
+      "max_gap": 7,
+      "impact_total": 7,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:57:26",
+        "end": "04:57:33",
+        "secs": 7
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 6,
+    "impact_max": 8
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:26:05",
+        "end": "00:26:06",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:47:26",
+        "end": "03:47:27",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "04:57:26",
+        "end": "04:57:28",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 1,
+    "impact_max": 2
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 23,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10044 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 27,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10089 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 26,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10139 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "be-hang": {
+  "scenario": "BE hang（kill -STOP）",
+  "also": [],
+  "steps": [
+   "--target be --mode hang --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/be-hang",
+   "results/pass-2/be-hang",
+   "results/pass-3/be-hang"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 28,
+      "fail_secs": 19,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 28,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "00:29:24",
+        "end": "00:29:43",
+        "secs": 19
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 27,
+      "fail_secs": 9,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 27,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "03:50:50",
+        "end": "03:50:59",
+        "secs": 9
+       },
+       {
+        "start": "03:51:08",
+        "end": "03:51:08",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 37,
+      "fail_secs": 19,
+      "stall": 36,
+      "max_gap": 10,
+      "impact_total": 37,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "05:00:51",
+        "end": "05:01:01",
+        "secs": 10
+       },
+       {
+        "start": "05:01:10",
+        "end": "05:01:19",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 27,
+    "impact_max": 37
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 28,
+      "fail_secs": 19,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 28,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "00:29:25",
+        "end": "00:29:44",
+        "secs": 19
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 27,
+      "fail_secs": 0,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 27,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "DELETE": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "03:50:50",
+        "end": "03:50:50",
+        "secs": 0
+       },
+       {
+        "start": "03:50:59",
+        "end": "03:50:59",
+        "secs": 0
+       },
+       {
+        "start": "03:51:08",
+        "end": "03:51:08",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 36,
+      "fail_secs": 18,
+      "stall": 36,
+      "max_gap": 9,
+      "impact_total": 36,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "05:00:51",
+        "end": "05:01:09",
+        "secs": 18
+       },
+       {
+        "start": "05:01:18",
+        "end": "05:01:18",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 27,
+    "impact_max": 36
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 31,
+      "fail_secs": 22,
+      "stall": 25,
+      "max_gap": 9,
+      "impact_total": 31,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "SELECT": 4
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "00:29:24",
+        "end": "00:29:46",
+        "secs": 22
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 27,
+      "fail_secs": 18,
+      "stall": 26,
+      "max_gap": 9,
+      "impact_total": 27,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 3
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "03:50:50",
+        "end": "03:51:08",
+        "secs": 18
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 31,
+      "fail_secs": 22,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 31,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "SELECT": 4
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "05:00:51",
+        "end": "05:01:13",
+        "secs": 22
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 27,
+    "impact_max": 31
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 21,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10045 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 21,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10091 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 20,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10141 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "double-crossed": {
+  "scenario": "交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）",
+  "also": [],
+  "steps": [
+   "--target vm --on doris-1",
+   "--target be --mode dead --on doris-2",
+   "--target fe --mode dead --on doris-3"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/double-crossed",
+   "results/pass-2/double-crossed",
+   "results/pass-3/double-crossed"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": true,
+      "impact": 146,
+      "fail_secs": 185,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 185,
+      "impact_restore": 0,
+      "failed": 52,
+      "failed_by_type": {
+       "SELECT": 1,
+       "UPSERT": 1,
+       "INSERT": 50
+      },
+      "reconnects": 52,
+      "windows": [
+       {
+        "start": "01:05:05",
+        "end": "01:05:08",
+        "secs": 3
+       },
+       {
+        "start": "01:06:04",
+        "end": "01:09:06",
+        "secs": 182
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 82,
+      "fail_secs": 82,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 129,
+      "impact_restore": 0,
+      "failed": 33,
+      "failed_by_type": {
+       "UPSERT": 2,
+       "DELETE": 1,
+       "INSERT": 26,
+       "SELECT": 4
+      },
+      "reconnects": 29,
+      "windows": [
+       {
+        "start": "04:13:38",
+        "end": "04:13:41",
+        "secs": 3
+       },
+       {
+        "start": "04:14:37",
+        "end": "04:14:41",
+        "secs": 4
+       },
+       {
+        "start": "04:14:45",
+        "end": "04:15:17",
+        "secs": 32
+       },
+       {
+        "start": "04:15:21",
+        "end": "04:15:24",
+        "secs": 3
+       },
+       {
+        "start": "04:15:28",
+        "end": "04:15:31",
+        "secs": 3
+       },
+       {
+        "start": "04:15:35",
+        "end": "04:15:38",
+        "secs": 3
+       },
+       {
+        "start": "04:15:42",
+        "end": "04:15:45",
+        "secs": 3
+       },
+       {
+        "start": "04:15:49",
+        "end": "04:15:52",
+        "secs": 3
+       },
+       {
+        "start": "04:15:56",
+        "end": "04:16:00",
+        "secs": 4
+       },
+       {
+        "start": "04:16:04",
+        "end": "04:16:07",
+        "secs": 3
+       },
+       {
+        "start": "04:16:11",
+        "end": "04:16:14",
+        "secs": 3
+       },
+       {
+        "start": "04:16:18",
+        "end": "04:16:21",
+        "secs": 3
+       },
+       {
+        "start": "04:16:25",
+        "end": "04:16:28",
+        "secs": 3
+       },
+       {
+        "start": "04:16:32",
+        "end": "04:16:35",
+        "secs": 3
+       },
+       {
+        "start": "04:16:39",
+        "end": "04:16:42",
+        "secs": 3
+       },
+       {
+        "start": "04:16:47",
+        "end": "04:16:50",
+        "secs": 3
+       },
+       {
+        "start": "04:16:54",
+        "end": "04:16:57",
+        "secs": 3
+       },
+       {
+        "start": "04:17:01",
+        "end": "04:17:04",
+        "secs": 3
+       },
+       {
+        "start": "04:17:08",
+        "end": "04:17:11",
+        "secs": 3
+       },
+       {
+        "start": "04:17:15",
+        "end": "04:17:18",
+        "secs": 3
+       },
+       {
+        "start": "04:17:22",
+        "end": "04:17:25",
+        "secs": 3
+       },
+       {
+        "start": "04:17:40",
+        "end": "04:17:40",
+        "secs": 0
+       },
+       {
+        "start": "04:17:49",
+        "end": "04:17:49",
+        "secs": 0
+       },
+       {
+        "start": "04:17:58",
+        "end": "04:17:58",
+        "secs": 0
+       },
+       {
+        "start": "04:18:07",
+        "end": "04:18:07",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 107,
+      "fail_secs": 121,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 163,
+      "impact_restore": 0,
+      "failed": 57,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "DELETE": 2,
+       "SELECT": 22,
+       "INSERT": 32
+      },
+      "reconnects": 35,
+      "windows": [
+       {
+        "start": "05:22:59",
+        "end": "05:23:02",
+        "secs": 3
+       },
+       {
+        "start": "05:23:58",
+        "end": "05:24:16",
+        "secs": 18
+       },
+       {
+        "start": "05:24:20",
+        "end": "05:24:23",
+        "secs": 3
+       },
+       {
+        "start": "05:24:27",
+        "end": "05:24:30",
+        "secs": 3
+       },
+       {
+        "start": "05:24:34",
+        "end": "05:24:37",
+        "secs": 3
+       },
+       {
+        "start": "05:24:42",
+        "end": "05:24:45",
+        "secs": 3
+       },
+       {
+        "start": "05:24:49",
+        "end": "05:25:06",
+        "secs": 17
+       },
+       {
+        "start": "05:25:10",
+        "end": "05:25:28",
+        "secs": 18
+       },
+       {
+        "start": "05:25:32",
+        "end": "05:25:50",
+        "secs": 18
+       },
+       {
+        "start": "05:25:54",
+        "end": "05:26:12",
+        "secs": 18
+       },
+       {
+        "start": "05:26:16",
+        "end": "05:26:33",
+        "secs": 17
+       },
+       {
+        "start": "05:26:37",
+        "end": "05:27:10",
+        "secs": 33
+       },
+       {
+        "start": "05:27:32",
+        "end": "05:27:32",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "down",
+    "worst_zh": "不可用",
+    "impact_min": 82,
+    "impact_max": 146
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": true,
+      "impact": 148,
+      "fail_secs": 187,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 187,
+      "impact_restore": 0,
+      "failed": 52,
+      "failed_by_type": {
+       "DELETE": 2,
+       "INSERT": 50
+      },
+      "reconnects": 17,
+      "windows": [
+       {
+        "start": "01:05:07",
+        "end": "01:05:12",
+        "secs": 5
+       },
+       {
+        "start": "01:06:04",
+        "end": "01:09:06",
+        "secs": 182
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 133,
+      "fail_secs": 162,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 190,
+      "impact_restore": 0,
+      "failed": 52,
+      "failed_by_type": {
+       "INSERT": 30,
+       "SELECT": 22
+      },
+      "reconnects": 10,
+      "windows": [
+       {
+        "start": "04:13:41",
+        "end": "04:13:44",
+        "secs": 3
+       },
+       {
+        "start": "04:14:38",
+        "end": "04:14:48",
+        "secs": 10
+       },
+       {
+        "start": "04:14:52",
+        "end": "04:15:02",
+        "secs": 10
+       },
+       {
+        "start": "04:15:06",
+        "end": "04:15:16",
+        "secs": 10
+       },
+       {
+        "start": "04:15:20",
+        "end": "04:17:29",
+        "secs": 129
+       },
+       {
+        "start": "04:17:47",
+        "end": "04:17:47",
+        "secs": 0
+       },
+       {
+        "start": "04:17:56",
+        "end": "04:17:57",
+        "secs": 1
+       },
+       {
+        "start": "04:18:06",
+        "end": "04:18:06",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 133,
+      "fail_secs": 180,
+      "stall": 9,
+      "max_gap": 9,
+      "impact_total": 198,
+      "impact_restore": 0,
+      "failed": 63,
+      "failed_by_type": {
+       "INSERT": 33,
+       "SELECT": 29,
+       "DELETE": 1
+      },
+      "reconnects": 14,
+      "windows": [
+       {
+        "start": "05:23:01",
+        "end": "05:23:04",
+        "secs": 3
+       },
+       {
+        "start": "05:24:06",
+        "end": "05:24:09",
+        "secs": 3
+       },
+       {
+        "start": "05:24:13",
+        "end": "05:24:23",
+        "secs": 10
+       },
+       {
+        "start": "05:24:27",
+        "end": "05:24:30",
+        "secs": 3
+       },
+       {
+        "start": "05:24:34",
+        "end": "05:27:15",
+        "secs": 161
+       },
+       {
+        "start": "05:27:32",
+        "end": "05:27:32",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "down",
+    "worst_zh": "不可用",
+    "impact_min": 133,
+    "impact_max": 148
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 146,
+      "fail_secs": 186,
+      "stall": 143,
+      "max_gap": 22,
+      "impact_total": 186,
+      "impact_restore": 0,
+      "failed": 23,
+      "failed_by_type": {
+       "SELECT": 23
+      },
+      "reconnects": 23,
+      "windows": [
+       {
+        "start": "01:05:05",
+        "end": "01:05:08",
+        "secs": 3
+       },
+       {
+        "start": "01:06:04",
+        "end": "01:09:07",
+        "secs": 183
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 146,
+      "fail_secs": 179,
+      "stall": 142,
+      "max_gap": 21,
+      "impact_total": 179,
+      "impact_restore": 0,
+      "failed": 15,
+      "failed_by_type": {
+       "SELECT": 15
+      },
+      "reconnects": 15,
+      "windows": [
+       {
+        "start": "04:13:38",
+        "end": "04:13:42",
+        "secs": 4
+       },
+       {
+        "start": "04:14:38",
+        "end": "04:17:33",
+        "secs": 175
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 142,
+      "fail_secs": 198,
+      "stall": 139,
+      "max_gap": 25,
+      "impact_total": 198,
+      "impact_restore": 0,
+      "failed": 25,
+      "failed_by_type": {
+       "SELECT": 25
+      },
+      "reconnects": 25,
+      "windows": [
+       {
+        "start": "05:22:59",
+        "end": "05:23:02",
+        "secs": 3
+       },
+       {
+        "start": "05:23:58",
+        "end": "05:24:45",
+        "secs": 47
+       },
+       {
+        "start": "05:24:46",
+        "end": "05:25:08",
+        "secs": 22
+       },
+       {
+        "start": "05:25:09",
+        "end": "05:27:15",
+        "secs": 126
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-down",
+    "worst_zh": "讀取失敗",
+    "impact_min": 142,
+    "impact_max": 146
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 54,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 75,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 78,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "alive check failed: OperationalError: (1105, 'Exception, msg: Failed to get master client.')"
+   }
+  ],
+  "overall_per_pass": [
+   "down",
+   "down",
+   "down"
+  ],
+  "overall": "down"
+ },
+ "double-two-vms": {
+  "scenario": "兩台 VM 停（FE 1/3、BE 1/3）",
+  "also": [],
+  "steps": [
+   "--target vm --on master",
+   "--target vm --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/double-two-vms",
+   "results/pass-2/double-two-vms",
+   "results/pass-3/double-two-vms"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": true,
+      "impact": 128,
+      "fail_secs": 184,
+      "stall": 124,
+      "max_gap": 15,
+      "impact_total": 184,
+      "impact_restore": 0,
+      "failed": 38,
+      "failed_by_type": {
+       "INSERT": 37,
+       "DELETE": 1
+      },
+      "reconnects": 7,
+      "windows": [
+       {
+        "start": "00:59:43",
+        "end": "00:59:47",
+        "secs": 4
+       },
+       {
+        "start": "01:00:38",
+        "end": "01:03:38",
+        "secs": 180
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 154,
+      "fail_secs": 155,
+      "stall": 153,
+      "max_gap": 16,
+      "impact_total": 196,
+      "impact_restore": 0,
+      "failed": 42,
+      "failed_by_type": {
+       "INSERT": 23,
+       "SELECT": 19
+      },
+      "reconnects": 13,
+      "windows": [
+       {
+        "start": "04:08:07",
+        "end": "04:08:34",
+        "secs": 27
+       },
+       {
+        "start": "04:09:02",
+        "end": "04:09:34",
+        "secs": 32
+       },
+       {
+        "start": "04:09:50",
+        "end": "04:09:56",
+        "secs": 6
+       },
+       {
+        "start": "04:10:11",
+        "end": "04:10:17",
+        "secs": 6
+       },
+       {
+        "start": "04:10:27",
+        "end": "04:11:51",
+        "secs": 84
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 129,
+      "fail_secs": 171,
+      "stall": 124,
+      "max_gap": 15,
+      "impact_total": 171,
+      "impact_restore": 0,
+      "failed": 30,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "SELECT": 15,
+       "DELETE": 1,
+       "INSERT": 13
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "05:17:24",
+        "end": "05:17:29",
+        "secs": 5
+       },
+       {
+        "start": "05:18:20",
+        "end": "05:21:06",
+        "secs": 166
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "down",
+    "worst_zh": "不可用",
+    "impact_min": 128,
+    "impact_max": 154
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "stalled",
+      "level_zh": "卡住（無回應）",
+      "no_select_evidence": true,
+      "impact": 126,
+      "fail_secs": 182,
+      "stall": 121,
+      "max_gap": 91,
+      "impact_total": 182,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 2
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "00:59:42",
+        "end": "00:59:47",
+        "secs": 5
+       },
+       {
+        "start": "01:00:41",
+        "end": "01:03:38",
+        "secs": 177
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "stalled",
+      "level_zh": "卡住（無回應）",
+      "no_select_evidence": true,
+      "impact": 150,
+      "fail_secs": 85,
+      "stall": 149,
+      "max_gap": 47,
+      "impact_total": 192,
+      "impact_restore": 0,
+      "failed": 15,
+      "failed_by_type": {
+       "SELECT": 7,
+       "INSERT": 7,
+       "UPSERT": 1
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "04:08:07",
+        "end": "04:08:34",
+        "secs": 27
+       },
+       {
+        "start": "04:09:06",
+        "end": "04:09:58",
+        "secs": 52
+       },
+       {
+        "start": "04:10:16",
+        "end": "04:10:22",
+        "secs": 6
+       },
+       {
+        "start": "04:11:45",
+        "end": "04:11:51",
+        "secs": 6
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "stalled",
+      "level_zh": "卡住（無回應）",
+      "no_select_evidence": true,
+      "impact": 126,
+      "fail_secs": 168,
+      "stall": 121,
+      "max_gap": 64,
+      "impact_total": 168,
+      "impact_restore": 0,
+      "failed": 5,
+      "failed_by_type": {
+       "INSERT": 3,
+       "SELECT": 2
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "05:17:24",
+        "end": "05:17:29",
+        "secs": 5
+       },
+       {
+        "start": "05:18:23",
+        "end": "05:21:06",
+        "secs": 163
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "stalled",
+    "worst_zh": "卡住（無回應）",
+    "impact_min": 126,
+    "impact_max": 150
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 124,
+      "fail_secs": 180,
+      "stall": 123,
+      "max_gap": 41,
+      "impact_total": 180,
+      "impact_restore": 0,
+      "failed": 22,
+      "failed_by_type": {
+       "SELECT": 22
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "00:59:43",
+        "end": "00:59:44",
+        "secs": 1
+       },
+       {
+        "start": "01:00:39",
+        "end": "01:03:38",
+        "secs": 179
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 101,
+      "fail_secs": 143,
+      "stall": 99,
+      "max_gap": 41,
+      "impact_total": 143,
+      "impact_restore": 0,
+      "failed": 12,
+      "failed_by_type": {
+       "SELECT": 12
+      },
+      "reconnects": 10,
+      "windows": [
+       {
+        "start": "04:08:07",
+        "end": "04:08:36",
+        "secs": 29
+       },
+       {
+        "start": "04:09:02",
+        "end": "04:09:32",
+        "secs": 30
+       },
+       {
+        "start": "04:10:27",
+        "end": "04:11:51",
+        "secs": 84
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-stalled",
+      "level_zh": "讀取卡住",
+      "no_select_evidence": true,
+      "impact": 126,
+      "fail_secs": 168,
+      "stall": 124,
+      "max_gap": 47,
+      "impact_total": 168,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "SELECT": 7
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "05:17:24",
+        "end": "05:17:26",
+        "secs": 2
+       },
+       {
+        "start": "05:18:20",
+        "end": "05:21:06",
+        "secs": 166
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-down",
+    "worst_zh": "讀取失敗",
+    "impact_min": 101,
+    "impact_max": 126
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 69,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)\"))"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 77,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)\"))"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 82,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '34.80.234.205' ([Errno 111] Connection refused)\"))"
+   }
+  ],
+  "overall_per_pass": [
+   "down",
+   "down",
+   "down"
+  ],
+  "overall": "down"
+ },
+ "double-vm-be-dead": {
+  "scenario": "VM 停 + 另一台 BE dead（BE 剩 1/3）",
+  "also": [
+   "逐步恢復雙重故障"
+  ],
+  "steps": [
+   "--target vm --on master",
+   "--target be --mode dead --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/double-vm-be-dead",
+   "results/pass-2/double-vm-be-dead",
+   "results/pass-3/double-vm-be-dead"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "ro",
+      "level_zh": "只讀（由 flight 推斷）",
+      "no_select_evidence": true,
+      "impact": 99,
+      "fail_secs": 126,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 126,
+      "impact_restore": 0,
+      "failed": 118,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 117
+      },
+      "reconnects": 118,
+      "windows": [
+       {
+        "start": "00:55:59",
+        "end": "00:58:05",
+        "secs": 126
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 42,
+      "fail_secs": 24,
+      "stall": 26,
+      "max_gap": 9,
+      "impact_total": 43,
+      "impact_restore": 0,
+      "failed": 134,
+      "failed_by_type": {
+       "INSERT": 120,
+       "SELECT": 14
+      },
+      "reconnects": 121,
+      "windows": [
+       {
+        "start": "04:03:22",
+        "end": "04:03:23",
+        "secs": 1
+       },
+       {
+        "start": "04:03:32",
+        "end": "04:03:32",
+        "secs": 0
+       },
+       {
+        "start": "04:03:41",
+        "end": "04:03:50",
+        "secs": 9
+       },
+       {
+        "start": "04:04:17",
+        "end": "04:04:20",
+        "secs": 3
+       },
+       {
+        "start": "04:04:21",
+        "end": "04:04:22",
+        "secs": 1
+       },
+       {
+        "start": "04:04:24",
+        "end": "04:04:24",
+        "secs": 0
+       },
+       {
+        "start": "04:04:25",
+        "end": "04:04:26",
+        "secs": 1
+       },
+       {
+        "start": "04:04:27",
+        "end": "04:04:27",
+        "secs": 0
+       },
+       {
+        "start": "04:04:28",
+        "end": "04:04:28",
+        "secs": 0
+       },
+       {
+        "start": "04:04:29",
+        "end": "04:04:32",
+        "secs": 3
+       },
+       {
+        "start": "04:04:33",
+        "end": "04:04:33",
+        "secs": 0
+       },
+       {
+        "start": "04:04:34",
+        "end": "04:04:34",
+        "secs": 0
+       },
+       {
+        "start": "04:04:35",
+        "end": "04:04:35",
+        "secs": 0
+       },
+       {
+        "start": "04:04:36",
+        "end": "04:04:37",
+        "secs": 1
+       },
+       {
+        "start": "04:04:38",
+        "end": "04:04:40",
+        "secs": 2
+       },
+       {
+        "start": "04:04:41",
+        "end": "04:04:41",
+        "secs": 0
+       },
+       {
+        "start": "04:04:42",
+        "end": "04:04:45",
+        "secs": 3
+       },
+       {
+        "start": "04:04:46",
+        "end": "04:04:46",
+        "secs": 0
+       },
+       {
+        "start": "04:04:47",
+        "end": "04:04:47",
+        "secs": 0
+       },
+       {
+        "start": "04:04:49",
+        "end": "04:04:49",
+        "secs": 0
+       },
+       {
+        "start": "04:04:50",
+        "end": "04:04:50",
+        "secs": 0
+       },
+       {
+        "start": "04:04:51",
+        "end": "04:04:51",
+        "secs": 0
+       },
+       {
+        "start": "04:04:52",
+        "end": "04:04:52",
+        "secs": 0
+       },
+       {
+        "start": "04:04:53",
+        "end": "04:04:53",
+        "secs": 0
+       },
+       {
+        "start": "04:04:54",
+        "end": "04:04:54",
+        "secs": 0
+       },
+       {
+        "start": "04:04:55",
+        "end": "04:04:55",
+        "secs": 0
+       },
+       {
+        "start": "04:04:56",
+        "end": "04:04:56",
+        "secs": 0
+       },
+       {
+        "start": "04:04:57",
+        "end": "04:04:57",
+        "secs": 0
+       },
+       {
+        "start": "04:04:59",
+        "end": "04:04:59",
+        "secs": 0
+       },
+       {
+        "start": "04:05:00",
+        "end": "04:05:00",
+        "secs": 0
+       },
+       {
+        "start": "04:05:01",
+        "end": "04:05:01",
+        "secs": 0
+       },
+       {
+        "start": "04:05:02",
+        "end": "04:05:02",
+        "secs": 0
+       },
+       {
+        "start": "04:05:03",
+        "end": "04:05:03",
+        "secs": 0
+       },
+       {
+        "start": "04:05:04",
+        "end": "04:05:04",
+        "secs": 0
+       },
+       {
+        "start": "04:05:05",
+        "end": "04:05:05",
+        "secs": 0
+       },
+       {
+        "start": "04:05:06",
+        "end": "04:05:06",
+        "secs": 0
+       },
+       {
+        "start": "04:05:07",
+        "end": "04:05:07",
+        "secs": 0
+       },
+       {
+        "start": "04:05:09",
+        "end": "04:05:09",
+        "secs": 0
+       },
+       {
+        "start": "04:05:10",
+        "end": "04:05:10",
+        "secs": 0
+       },
+       {
+        "start": "04:05:11",
+        "end": "04:05:11",
+        "secs": 0
+       },
+       {
+        "start": "04:05:12",
+        "end": "04:05:12",
+        "secs": 0
+       },
+       {
+        "start": "04:05:13",
+        "end": "04:05:13",
+        "secs": 0
+       },
+       {
+        "start": "04:05:14",
+        "end": "04:05:14",
+        "secs": 0
+       },
+       {
+        "start": "04:05:15",
+        "end": "04:05:15",
+        "secs": 0
+       },
+       {
+        "start": "04:05:16",
+        "end": "04:05:16",
+        "secs": 0
+       },
+       {
+        "start": "04:05:17",
+        "end": "04:05:17",
+        "secs": 0
+       },
+       {
+        "start": "04:05:19",
+        "end": "04:05:19",
+        "secs": 0
+       },
+       {
+        "start": "04:05:20",
+        "end": "04:05:20",
+        "secs": 0
+       },
+       {
+        "start": "04:05:21",
+        "end": "04:05:21",
+        "secs": 0
+       },
+       {
+        "start": "04:05:22",
+        "end": "04:05:22",
+        "secs": 0
+       },
+       {
+        "start": "04:05:23",
+        "end": "04:05:23",
+        "secs": 0
+       },
+       {
+        "start": "04:05:24",
+        "end": "04:05:24",
+        "secs": 0
+       },
+       {
+        "start": "04:05:25",
+        "end": "04:05:25",
+        "secs": 0
+       },
+       {
+        "start": "04:05:26",
+        "end": "04:05:26",
+        "secs": 0
+       },
+       {
+        "start": "04:05:27",
+        "end": "04:05:27",
+        "secs": 0
+       },
+       {
+        "start": "04:05:29",
+        "end": "04:05:29",
+        "secs": 0
+       },
+       {
+        "start": "04:05:30",
+        "end": "04:05:30",
+        "secs": 0
+       },
+       {
+        "start": "04:05:31",
+        "end": "04:05:31",
+        "secs": 0
+       },
+       {
+        "start": "04:05:32",
+        "end": "04:05:32",
+        "secs": 0
+       },
+       {
+        "start": "04:05:33",
+        "end": "04:05:33",
+        "secs": 0
+       },
+       {
+        "start": "04:05:34",
+        "end": "04:05:34",
+        "secs": 0
+       },
+       {
+        "start": "04:05:35",
+        "end": "04:05:35",
+        "secs": 0
+       },
+       {
+        "start": "04:05:36",
+        "end": "04:05:36",
+        "secs": 0
+       },
+       {
+        "start": "04:05:37",
+        "end": "04:05:37",
+        "secs": 0
+       },
+       {
+        "start": "04:05:39",
+        "end": "04:05:39",
+        "secs": 0
+       },
+       {
+        "start": "04:05:40",
+        "end": "04:05:40",
+        "secs": 0
+       },
+       {
+        "start": "04:05:41",
+        "end": "04:05:41",
+        "secs": 0
+       },
+       {
+        "start": "04:05:42",
+        "end": "04:05:42",
+        "secs": 0
+       },
+       {
+        "start": "04:05:43",
+        "end": "04:05:43",
+        "secs": 0
+       },
+       {
+        "start": "04:05:44",
+        "end": "04:05:44",
+        "secs": 0
+       },
+       {
+        "start": "04:05:45",
+        "end": "04:05:45",
+        "secs": 0
+       },
+       {
+        "start": "04:05:46",
+        "end": "04:05:46",
+        "secs": 0
+       },
+       {
+        "start": "04:05:47",
+        "end": "04:05:47",
+        "secs": 0
+       },
+       {
+        "start": "04:05:49",
+        "end": "04:05:49",
+        "secs": 0
+       },
+       {
+        "start": "04:05:50",
+        "end": "04:05:50",
+        "secs": 0
+       },
+       {
+        "start": "04:05:51",
+        "end": "04:05:51",
+        "secs": 0
+       },
+       {
+        "start": "04:05:52",
+        "end": "04:05:52",
+        "secs": 0
+       },
+       {
+        "start": "04:05:53",
+        "end": "04:05:53",
+        "secs": 0
+       },
+       {
+        "start": "04:05:54",
+        "end": "04:05:54",
+        "secs": 0
+       },
+       {
+        "start": "04:05:55",
+        "end": "04:05:55",
+        "secs": 0
+       },
+       {
+        "start": "04:05:56",
+        "end": "04:05:56",
+        "secs": 0
+       },
+       {
+        "start": "04:05:57",
+        "end": "04:05:57",
+        "secs": 0
+       },
+       {
+        "start": "04:05:59",
+        "end": "04:05:59",
+        "secs": 0
+       },
+       {
+        "start": "04:06:00",
+        "end": "04:06:00",
+        "secs": 0
+       },
+       {
+        "start": "04:06:01",
+        "end": "04:06:01",
+        "secs": 0
+       },
+       {
+        "start": "04:06:02",
+        "end": "04:06:02",
+        "secs": 0
+       },
+       {
+        "start": "04:06:03",
+        "end": "04:06:03",
+        "secs": 0
+       },
+       {
+        "start": "04:06:04",
+        "end": "04:06:04",
+        "secs": 0
+       },
+       {
+        "start": "04:06:05",
+        "end": "04:06:05",
+        "secs": 0
+       },
+       {
+        "start": "04:06:06",
+        "end": "04:06:06",
+        "secs": 0
+       },
+       {
+        "start": "04:06:07",
+        "end": "04:06:07",
+        "secs": 0
+       },
+       {
+        "start": "04:06:08",
+        "end": "04:06:09",
+        "secs": 1
+       },
+       {
+        "start": "04:06:10",
+        "end": "04:06:10",
+        "secs": 0
+       },
+       {
+        "start": "04:06:11",
+        "end": "04:06:11",
+        "secs": 0
+       },
+       {
+        "start": "04:06:12",
+        "end": "04:06:12",
+        "secs": 0
+       },
+       {
+        "start": "04:06:13",
+        "end": "04:06:13",
+        "secs": 0
+       },
+       {
+        "start": "04:06:14",
+        "end": "04:06:14",
+        "secs": 0
+       },
+       {
+        "start": "04:06:15",
+        "end": "04:06:15",
+        "secs": 0
+       },
+       {
+        "start": "04:06:16",
+        "end": "04:06:16",
+        "secs": 0
+       },
+       {
+        "start": "04:06:17",
+        "end": "04:06:17",
+        "secs": 0
+       },
+       {
+        "start": "04:06:19",
+        "end": "04:06:19",
+        "secs": 0
+       },
+       {
+        "start": "04:06:20",
+        "end": "04:06:20",
+        "secs": 0
+       },
+       {
+        "start": "04:06:21",
+        "end": "04:06:21",
+        "secs": 0
+       },
+       {
+        "start": "04:06:22",
+        "end": "04:06:22",
+        "secs": 0
+       },
+       {
+        "start": "04:06:23",
+        "end": "04:06:23",
+        "secs": 0
+       },
+       {
+        "start": "04:06:24",
+        "end": "04:06:24",
+        "secs": 0
+       },
+       {
+        "start": "04:06:25",
+        "end": "04:06:25",
+        "secs": 0
+       },
+       {
+        "start": "04:06:26",
+        "end": "04:06:26",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 45,
+      "fail_secs": 36,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 47,
+      "impact_restore": 0,
+      "failed": 131,
+      "failed_by_type": {
+       "SELECT": 14,
+       "INSERT": 117
+      },
+      "reconnects": 119,
+      "windows": [
+       {
+        "start": "05:12:44",
+        "end": "05:12:45",
+        "secs": 1
+       },
+       {
+        "start": "05:12:46",
+        "end": "05:12:46",
+        "secs": 0
+       },
+       {
+        "start": "05:12:55",
+        "end": "05:13:13",
+        "secs": 18
+       },
+       {
+        "start": "05:13:40",
+        "end": "05:13:42",
+        "secs": 2
+       },
+       {
+        "start": "05:13:43",
+        "end": "05:13:43",
+        "secs": 0
+       },
+       {
+        "start": "05:13:44",
+        "end": "05:13:45",
+        "secs": 1
+       },
+       {
+        "start": "05:13:46",
+        "end": "05:13:47",
+        "secs": 1
+       },
+       {
+        "start": "05:13:48",
+        "end": "05:13:48",
+        "secs": 0
+       },
+       {
+        "start": "05:13:49",
+        "end": "05:13:53",
+        "secs": 4
+       },
+       {
+        "start": "05:13:54",
+        "end": "05:13:55",
+        "secs": 1
+       },
+       {
+        "start": "05:13:56",
+        "end": "05:13:56",
+        "secs": 0
+       },
+       {
+        "start": "05:13:57",
+        "end": "05:13:57",
+        "secs": 0
+       },
+       {
+        "start": "05:13:58",
+        "end": "05:13:58",
+        "secs": 0
+       },
+       {
+        "start": "05:13:59",
+        "end": "05:14:00",
+        "secs": 1
+       },
+       {
+        "start": "05:14:01",
+        "end": "05:14:01",
+        "secs": 0
+       },
+       {
+        "start": "05:14:02",
+        "end": "05:14:04",
+        "secs": 2
+       },
+       {
+        "start": "05:14:05",
+        "end": "05:14:06",
+        "secs": 1
+       },
+       {
+        "start": "05:14:08",
+        "end": "05:14:10",
+        "secs": 2
+       },
+       {
+        "start": "05:14:11",
+        "end": "05:14:11",
+        "secs": 0
+       },
+       {
+        "start": "05:14:12",
+        "end": "05:14:12",
+        "secs": 0
+       },
+       {
+        "start": "05:14:13",
+        "end": "05:14:13",
+        "secs": 0
+       },
+       {
+        "start": "05:14:14",
+        "end": "05:14:15",
+        "secs": 1
+       },
+       {
+        "start": "05:14:16",
+        "end": "05:14:16",
+        "secs": 0
+       },
+       {
+        "start": "05:14:17",
+        "end": "05:14:17",
+        "secs": 0
+       },
+       {
+        "start": "05:14:18",
+        "end": "05:14:18",
+        "secs": 0
+       },
+       {
+        "start": "05:14:19",
+        "end": "05:14:19",
+        "secs": 0
+       },
+       {
+        "start": "05:14:20",
+        "end": "05:14:20",
+        "secs": 0
+       },
+       {
+        "start": "05:14:21",
+        "end": "05:14:21",
+        "secs": 0
+       },
+       {
+        "start": "05:14:22",
+        "end": "05:14:22",
+        "secs": 0
+       },
+       {
+        "start": "05:14:24",
+        "end": "05:14:24",
+        "secs": 0
+       },
+       {
+        "start": "05:14:25",
+        "end": "05:14:25",
+        "secs": 0
+       },
+       {
+        "start": "05:14:26",
+        "end": "05:14:26",
+        "secs": 0
+       },
+       {
+        "start": "05:14:27",
+        "end": "05:14:27",
+        "secs": 0
+       },
+       {
+        "start": "05:14:28",
+        "end": "05:14:28",
+        "secs": 0
+       },
+       {
+        "start": "05:14:29",
+        "end": "05:14:29",
+        "secs": 0
+       },
+       {
+        "start": "05:14:30",
+        "end": "05:14:30",
+        "secs": 0
+       },
+       {
+        "start": "05:14:32",
+        "end": "05:14:32",
+        "secs": 0
+       },
+       {
+        "start": "05:14:33",
+        "end": "05:14:33",
+        "secs": 0
+       },
+       {
+        "start": "05:14:34",
+        "end": "05:14:34",
+        "secs": 0
+       },
+       {
+        "start": "05:14:35",
+        "end": "05:14:35",
+        "secs": 0
+       },
+       {
+        "start": "05:14:36",
+        "end": "05:14:36",
+        "secs": 0
+       },
+       {
+        "start": "05:14:37",
+        "end": "05:14:37",
+        "secs": 0
+       },
+       {
+        "start": "05:14:38",
+        "end": "05:14:38",
+        "secs": 0
+       },
+       {
+        "start": "05:14:39",
+        "end": "05:14:40",
+        "secs": 1
+       },
+       {
+        "start": "05:14:41",
+        "end": "05:14:41",
+        "secs": 0
+       },
+       {
+        "start": "05:14:42",
+        "end": "05:14:42",
+        "secs": 0
+       },
+       {
+        "start": "05:14:43",
+        "end": "05:14:43",
+        "secs": 0
+       },
+       {
+        "start": "05:14:44",
+        "end": "05:14:44",
+        "secs": 0
+       },
+       {
+        "start": "05:14:45",
+        "end": "05:14:45",
+        "secs": 0
+       },
+       {
+        "start": "05:14:46",
+        "end": "05:14:46",
+        "secs": 0
+       },
+       {
+        "start": "05:14:47",
+        "end": "05:14:47",
+        "secs": 0
+       },
+       {
+        "start": "05:14:49",
+        "end": "05:14:49",
+        "secs": 0
+       },
+       {
+        "start": "05:14:50",
+        "end": "05:14:50",
+        "secs": 0
+       },
+       {
+        "start": "05:14:51",
+        "end": "05:14:51",
+        "secs": 0
+       },
+       {
+        "start": "05:14:52",
+        "end": "05:14:52",
+        "secs": 0
+       },
+       {
+        "start": "05:14:53",
+        "end": "05:14:53",
+        "secs": 0
+       },
+       {
+        "start": "05:14:54",
+        "end": "05:14:54",
+        "secs": 0
+       },
+       {
+        "start": "05:14:55",
+        "end": "05:14:55",
+        "secs": 0
+       },
+       {
+        "start": "05:14:57",
+        "end": "05:14:57",
+        "secs": 0
+       },
+       {
+        "start": "05:14:58",
+        "end": "05:14:58",
+        "secs": 0
+       },
+       {
+        "start": "05:14:59",
+        "end": "05:14:59",
+        "secs": 0
+       },
+       {
+        "start": "05:15:00",
+        "end": "05:15:00",
+        "secs": 0
+       },
+       {
+        "start": "05:15:01",
+        "end": "05:15:01",
+        "secs": 0
+       },
+       {
+        "start": "05:15:02",
+        "end": "05:15:02",
+        "secs": 0
+       },
+       {
+        "start": "05:15:03",
+        "end": "05:15:03",
+        "secs": 0
+       },
+       {
+        "start": "05:15:04",
+        "end": "05:15:04",
+        "secs": 0
+       },
+       {
+        "start": "05:15:06",
+        "end": "05:15:06",
+        "secs": 0
+       },
+       {
+        "start": "05:15:07",
+        "end": "05:15:07",
+        "secs": 0
+       },
+       {
+        "start": "05:15:08",
+        "end": "05:15:08",
+        "secs": 0
+       },
+       {
+        "start": "05:15:09",
+        "end": "05:15:09",
+        "secs": 0
+       },
+       {
+        "start": "05:15:10",
+        "end": "05:15:10",
+        "secs": 0
+       },
+       {
+        "start": "05:15:11",
+        "end": "05:15:11",
+        "secs": 0
+       },
+       {
+        "start": "05:15:12",
+        "end": "05:15:12",
+        "secs": 0
+       },
+       {
+        "start": "05:15:14",
+        "end": "05:15:14",
+        "secs": 0
+       },
+       {
+        "start": "05:15:15",
+        "end": "05:15:15",
+        "secs": 0
+       },
+       {
+        "start": "05:15:16",
+        "end": "05:15:16",
+        "secs": 0
+       },
+       {
+        "start": "05:15:17",
+        "end": "05:15:17",
+        "secs": 0
+       },
+       {
+        "start": "05:15:18",
+        "end": "05:15:18",
+        "secs": 0
+       },
+       {
+        "start": "05:15:19",
+        "end": "05:15:19",
+        "secs": 0
+       },
+       {
+        "start": "05:15:20",
+        "end": "05:15:20",
+        "secs": 0
+       },
+       {
+        "start": "05:15:21",
+        "end": "05:15:22",
+        "secs": 1
+       },
+       {
+        "start": "05:15:23",
+        "end": "05:15:23",
+        "secs": 0
+       },
+       {
+        "start": "05:15:24",
+        "end": "05:15:24",
+        "secs": 0
+       },
+       {
+        "start": "05:15:25",
+        "end": "05:15:25",
+        "secs": 0
+       },
+       {
+        "start": "05:15:26",
+        "end": "05:15:26",
+        "secs": 0
+       },
+       {
+        "start": "05:15:27",
+        "end": "05:15:27",
+        "secs": 0
+       },
+       {
+        "start": "05:15:28",
+        "end": "05:15:28",
+        "secs": 0
+       },
+       {
+        "start": "05:15:30",
+        "end": "05:15:30",
+        "secs": 0
+       },
+       {
+        "start": "05:15:31",
+        "end": "05:15:31",
+        "secs": 0
+       },
+       {
+        "start": "05:15:32",
+        "end": "05:15:32",
+        "secs": 0
+       },
+       {
+        "start": "05:15:33",
+        "end": "05:15:33",
+        "secs": 0
+       },
+       {
+        "start": "05:15:34",
+        "end": "05:15:34",
+        "secs": 0
+       },
+       {
+        "start": "05:15:35",
+        "end": "05:15:35",
+        "secs": 0
+       },
+       {
+        "start": "05:15:36",
+        "end": "05:15:36",
+        "secs": 0
+       },
+       {
+        "start": "05:15:37",
+        "end": "05:15:38",
+        "secs": 1
+       },
+       {
+        "start": "05:15:39",
+        "end": "05:15:39",
+        "secs": 0
+       },
+       {
+        "start": "05:15:40",
+        "end": "05:15:40",
+        "secs": 0
+       },
+       {
+        "start": "05:15:41",
+        "end": "05:15:41",
+        "secs": 0
+       },
+       {
+        "start": "05:15:42",
+        "end": "05:15:42",
+        "secs": 0
+       },
+       {
+        "start": "05:15:43",
+        "end": "05:15:43",
+        "secs": 0
+       },
+       {
+        "start": "05:15:44",
+        "end": "05:15:44",
+        "secs": 0
+       },
+       {
+        "start": "05:15:45",
+        "end": "05:15:45",
+        "secs": 0
+       },
+       {
+        "start": "05:15:47",
+        "end": "05:15:47",
+        "secs": 0
+       },
+       {
+        "start": "05:15:48",
+        "end": "05:15:48",
+        "secs": 0
+       },
+       {
+        "start": "05:15:49",
+        "end": "05:15:49",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "ro",
+    "worst_zh": "只讀",
+    "impact_min": 42,
+    "impact_max": 99
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "ro",
+      "level_zh": "只讀（由 flight 推斷）",
+      "no_select_evidence": true,
+      "impact": 103,
+      "fail_secs": 131,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 131,
+      "impact_restore": 0,
+      "failed": 122,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 120
+      },
+      "reconnects": 122,
+      "windows": [
+       {
+        "start": "00:55:04",
+        "end": "00:55:08",
+        "secs": 4
+       },
+       {
+        "start": "00:55:59",
+        "end": "00:58:06",
+        "secs": 127
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 48,
+      "fail_secs": 48,
+      "stall": 31,
+      "max_gap": 31,
+      "impact_total": 49,
+      "impact_restore": 0,
+      "failed": 136,
+      "failed_by_type": {
+       "SELECT": 15,
+       "INSERT": 121
+      },
+      "reconnects": 121,
+      "windows": [
+       {
+        "start": "04:03:22",
+        "end": "04:03:54",
+        "secs": 32
+       },
+       {
+        "start": "04:04:17",
+        "end": "04:04:17",
+        "secs": 0
+       },
+       {
+        "start": "04:04:18",
+        "end": "04:04:22",
+        "secs": 4
+       },
+       {
+        "start": "04:04:23",
+        "end": "04:04:23",
+        "secs": 0
+       },
+       {
+        "start": "04:04:24",
+        "end": "04:04:24",
+        "secs": 0
+       },
+       {
+        "start": "04:04:25",
+        "end": "04:04:27",
+        "secs": 2
+       },
+       {
+        "start": "04:04:28",
+        "end": "04:04:30",
+        "secs": 2
+       },
+       {
+        "start": "04:04:32",
+        "end": "04:04:32",
+        "secs": 0
+       },
+       {
+        "start": "04:04:33",
+        "end": "04:04:33",
+        "secs": 0
+       },
+       {
+        "start": "04:04:34",
+        "end": "04:04:35",
+        "secs": 1
+       },
+       {
+        "start": "04:04:36",
+        "end": "04:04:36",
+        "secs": 0
+       },
+       {
+        "start": "04:04:37",
+        "end": "04:04:37",
+        "secs": 0
+       },
+       {
+        "start": "04:04:38",
+        "end": "04:04:38",
+        "secs": 0
+       },
+       {
+        "start": "04:04:39",
+        "end": "04:04:39",
+        "secs": 0
+       },
+       {
+        "start": "04:04:40",
+        "end": "04:04:44",
+        "secs": 4
+       },
+       {
+        "start": "04:04:45",
+        "end": "04:04:47",
+        "secs": 2
+       },
+       {
+        "start": "04:04:48",
+        "end": "04:04:48",
+        "secs": 0
+       },
+       {
+        "start": "04:04:49",
+        "end": "04:04:49",
+        "secs": 0
+       },
+       {
+        "start": "04:04:50",
+        "end": "04:04:51",
+        "secs": 1
+       },
+       {
+        "start": "04:04:52",
+        "end": "04:04:52",
+        "secs": 0
+       },
+       {
+        "start": "04:04:53",
+        "end": "04:04:53",
+        "secs": 0
+       },
+       {
+        "start": "04:04:54",
+        "end": "04:04:54",
+        "secs": 0
+       },
+       {
+        "start": "04:04:55",
+        "end": "04:04:55",
+        "secs": 0
+       },
+       {
+        "start": "04:04:56",
+        "end": "04:04:56",
+        "secs": 0
+       },
+       {
+        "start": "04:04:57",
+        "end": "04:04:57",
+        "secs": 0
+       },
+       {
+        "start": "04:04:58",
+        "end": "04:04:58",
+        "secs": 0
+       },
+       {
+        "start": "04:04:59",
+        "end": "04:04:59",
+        "secs": 0
+       },
+       {
+        "start": "04:05:00",
+        "end": "04:05:00",
+        "secs": 0
+       },
+       {
+        "start": "04:05:01",
+        "end": "04:05:01",
+        "secs": 0
+       },
+       {
+        "start": "04:05:02",
+        "end": "04:05:02",
+        "secs": 0
+       },
+       {
+        "start": "04:05:04",
+        "end": "04:05:04",
+        "secs": 0
+       },
+       {
+        "start": "04:05:05",
+        "end": "04:05:05",
+        "secs": 0
+       },
+       {
+        "start": "04:05:06",
+        "end": "04:05:06",
+        "secs": 0
+       },
+       {
+        "start": "04:05:07",
+        "end": "04:05:07",
+        "secs": 0
+       },
+       {
+        "start": "04:05:08",
+        "end": "04:05:08",
+        "secs": 0
+       },
+       {
+        "start": "04:05:09",
+        "end": "04:05:09",
+        "secs": 0
+       },
+       {
+        "start": "04:05:10",
+        "end": "04:05:10",
+        "secs": 0
+       },
+       {
+        "start": "04:05:11",
+        "end": "04:05:11",
+        "secs": 0
+       },
+       {
+        "start": "04:05:12",
+        "end": "04:05:12",
+        "secs": 0
+       },
+       {
+        "start": "04:05:13",
+        "end": "04:05:13",
+        "secs": 0
+       },
+       {
+        "start": "04:05:14",
+        "end": "04:05:14",
+        "secs": 0
+       },
+       {
+        "start": "04:05:16",
+        "end": "04:05:16",
+        "secs": 0
+       },
+       {
+        "start": "04:05:17",
+        "end": "04:05:17",
+        "secs": 0
+       },
+       {
+        "start": "04:05:18",
+        "end": "04:05:18",
+        "secs": 0
+       },
+       {
+        "start": "04:05:19",
+        "end": "04:05:19",
+        "secs": 0
+       },
+       {
+        "start": "04:05:20",
+        "end": "04:05:20",
+        "secs": 0
+       },
+       {
+        "start": "04:05:21",
+        "end": "04:05:21",
+        "secs": 0
+       },
+       {
+        "start": "04:05:22",
+        "end": "04:05:22",
+        "secs": 0
+       },
+       {
+        "start": "04:05:23",
+        "end": "04:05:23",
+        "secs": 0
+       },
+       {
+        "start": "04:05:24",
+        "end": "04:05:24",
+        "secs": 0
+       },
+       {
+        "start": "04:05:25",
+        "end": "04:05:25",
+        "secs": 0
+       },
+       {
+        "start": "04:05:26",
+        "end": "04:05:26",
+        "secs": 0
+       },
+       {
+        "start": "04:05:27",
+        "end": "04:05:27",
+        "secs": 0
+       },
+       {
+        "start": "04:05:29",
+        "end": "04:05:29",
+        "secs": 0
+       },
+       {
+        "start": "04:05:30",
+        "end": "04:05:30",
+        "secs": 0
+       },
+       {
+        "start": "04:05:31",
+        "end": "04:05:31",
+        "secs": 0
+       },
+       {
+        "start": "04:05:32",
+        "end": "04:05:32",
+        "secs": 0
+       },
+       {
+        "start": "04:05:33",
+        "end": "04:05:33",
+        "secs": 0
+       },
+       {
+        "start": "04:05:34",
+        "end": "04:05:34",
+        "secs": 0
+       },
+       {
+        "start": "04:05:35",
+        "end": "04:05:35",
+        "secs": 0
+       },
+       {
+        "start": "04:05:36",
+        "end": "04:05:36",
+        "secs": 0
+       },
+       {
+        "start": "04:05:37",
+        "end": "04:05:37",
+        "secs": 0
+       },
+       {
+        "start": "04:05:38",
+        "end": "04:05:38",
+        "secs": 0
+       },
+       {
+        "start": "04:05:39",
+        "end": "04:05:39",
+        "secs": 0
+       },
+       {
+        "start": "04:05:40",
+        "end": "04:05:40",
+        "secs": 0
+       },
+       {
+        "start": "04:05:42",
+        "end": "04:05:42",
+        "secs": 0
+       },
+       {
+        "start": "04:05:43",
+        "end": "04:05:43",
+        "secs": 0
+       },
+       {
+        "start": "04:05:44",
+        "end": "04:05:44",
+        "secs": 0
+       },
+       {
+        "start": "04:05:45",
+        "end": "04:05:45",
+        "secs": 0
+       },
+       {
+        "start": "04:05:46",
+        "end": "04:05:46",
+        "secs": 0
+       },
+       {
+        "start": "04:05:47",
+        "end": "04:05:47",
+        "secs": 0
+       },
+       {
+        "start": "04:05:48",
+        "end": "04:05:48",
+        "secs": 0
+       },
+       {
+        "start": "04:05:49",
+        "end": "04:05:49",
+        "secs": 0
+       },
+       {
+        "start": "04:05:50",
+        "end": "04:05:50",
+        "secs": 0
+       },
+       {
+        "start": "04:05:51",
+        "end": "04:05:51",
+        "secs": 0
+       },
+       {
+        "start": "04:05:52",
+        "end": "04:05:52",
+        "secs": 0
+       },
+       {
+        "start": "04:05:53",
+        "end": "04:05:53",
+        "secs": 0
+       },
+       {
+        "start": "04:05:55",
+        "end": "04:05:55",
+        "secs": 0
+       },
+       {
+        "start": "04:05:56",
+        "end": "04:05:56",
+        "secs": 0
+       },
+       {
+        "start": "04:05:57",
+        "end": "04:05:57",
+        "secs": 0
+       },
+       {
+        "start": "04:05:58",
+        "end": "04:05:58",
+        "secs": 0
+       },
+       {
+        "start": "04:05:59",
+        "end": "04:05:59",
+        "secs": 0
+       },
+       {
+        "start": "04:06:00",
+        "end": "04:06:00",
+        "secs": 0
+       },
+       {
+        "start": "04:06:01",
+        "end": "04:06:01",
+        "secs": 0
+       },
+       {
+        "start": "04:06:02",
+        "end": "04:06:02",
+        "secs": 0
+       },
+       {
+        "start": "04:06:03",
+        "end": "04:06:03",
+        "secs": 0
+       },
+       {
+        "start": "04:06:04",
+        "end": "04:06:04",
+        "secs": 0
+       },
+       {
+        "start": "04:06:05",
+        "end": "04:06:05",
+        "secs": 0
+       },
+       {
+        "start": "04:06:06",
+        "end": "04:06:06",
+        "secs": 0
+       },
+       {
+        "start": "04:06:08",
+        "end": "04:06:08",
+        "secs": 0
+       },
+       {
+        "start": "04:06:09",
+        "end": "04:06:09",
+        "secs": 0
+       },
+       {
+        "start": "04:06:10",
+        "end": "04:06:10",
+        "secs": 0
+       },
+       {
+        "start": "04:06:11",
+        "end": "04:06:11",
+        "secs": 0
+       },
+       {
+        "start": "04:06:12",
+        "end": "04:06:12",
+        "secs": 0
+       },
+       {
+        "start": "04:06:13",
+        "end": "04:06:13",
+        "secs": 0
+       },
+       {
+        "start": "04:06:14",
+        "end": "04:06:14",
+        "secs": 0
+       },
+       {
+        "start": "04:06:15",
+        "end": "04:06:15",
+        "secs": 0
+       },
+       {
+        "start": "04:06:16",
+        "end": "04:06:16",
+        "secs": 0
+       },
+       {
+        "start": "04:06:17",
+        "end": "04:06:17",
+        "secs": 0
+       },
+       {
+        "start": "04:06:18",
+        "end": "04:06:18",
+        "secs": 0
+       },
+       {
+        "start": "04:06:19",
+        "end": "04:06:19",
+        "secs": 0
+       },
+       {
+        "start": "04:06:20",
+        "end": "04:06:21",
+        "secs": 1
+       },
+       {
+        "start": "04:06:22",
+        "end": "04:06:22",
+        "secs": 0
+       },
+       {
+        "start": "04:06:23",
+        "end": "04:06:23",
+        "secs": 0
+       },
+       {
+        "start": "04:06:24",
+        "end": "04:06:24",
+        "secs": 0
+       },
+       {
+        "start": "04:06:25",
+        "end": "04:06:25",
+        "secs": 0
+       },
+       {
+        "start": "04:06:26",
+        "end": "04:06:26",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "ro",
+      "level_zh": "只讀",
+      "no_select_evidence": false,
+      "impact": 55,
+      "fail_secs": 55,
+      "stall": 31,
+      "max_gap": 31,
+      "impact_total": 56,
+      "impact_restore": 0,
+      "failed": 144,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 19,
+       "INSERT": 124
+      },
+      "reconnects": 124,
+      "windows": [
+       {
+        "start": "05:12:44",
+        "end": "05:13:17",
+        "secs": 33
+       },
+       {
+        "start": "05:13:40",
+        "end": "05:13:41",
+        "secs": 1
+       },
+       {
+        "start": "05:13:42",
+        "end": "05:13:42",
+        "secs": 0
+       },
+       {
+        "start": "05:13:43",
+        "end": "05:13:45",
+        "secs": 2
+       },
+       {
+        "start": "05:13:46",
+        "end": "05:13:46",
+        "secs": 0
+       },
+       {
+        "start": "05:13:47",
+        "end": "05:13:53",
+        "secs": 6
+       },
+       {
+        "start": "05:13:54",
+        "end": "05:13:55",
+        "secs": 1
+       },
+       {
+        "start": "05:13:56",
+        "end": "05:14:01",
+        "secs": 5
+       },
+       {
+        "start": "05:14:02",
+        "end": "05:14:02",
+        "secs": 0
+       },
+       {
+        "start": "05:14:03",
+        "end": "05:14:03",
+        "secs": 0
+       },
+       {
+        "start": "05:14:04",
+        "end": "05:14:04",
+        "secs": 0
+       },
+       {
+        "start": "05:14:05",
+        "end": "05:14:09",
+        "secs": 4
+       },
+       {
+        "start": "05:14:10",
+        "end": "05:14:10",
+        "secs": 0
+       },
+       {
+        "start": "05:14:11",
+        "end": "05:14:11",
+        "secs": 0
+       },
+       {
+        "start": "05:14:12",
+        "end": "05:14:13",
+        "secs": 1
+       },
+       {
+        "start": "05:14:14",
+        "end": "05:14:14",
+        "secs": 0
+       },
+       {
+        "start": "05:14:15",
+        "end": "05:14:15",
+        "secs": 0
+       },
+       {
+        "start": "05:14:16",
+        "end": "05:14:16",
+        "secs": 0
+       },
+       {
+        "start": "05:14:17",
+        "end": "05:14:17",
+        "secs": 0
+       },
+       {
+        "start": "05:14:18",
+        "end": "05:14:18",
+        "secs": 0
+       },
+       {
+        "start": "05:14:19",
+        "end": "05:14:19",
+        "secs": 0
+       },
+       {
+        "start": "05:14:20",
+        "end": "05:14:20",
+        "secs": 0
+       },
+       {
+        "start": "05:14:21",
+        "end": "05:14:21",
+        "secs": 0
+       },
+       {
+        "start": "05:14:22",
+        "end": "05:14:22",
+        "secs": 0
+       },
+       {
+        "start": "05:14:23",
+        "end": "05:14:23",
+        "secs": 0
+       },
+       {
+        "start": "05:14:24",
+        "end": "05:14:24",
+        "secs": 0
+       },
+       {
+        "start": "05:14:25",
+        "end": "05:14:25",
+        "secs": 0
+       },
+       {
+        "start": "05:14:26",
+        "end": "05:14:26",
+        "secs": 0
+       },
+       {
+        "start": "05:14:27",
+        "end": "05:14:27",
+        "secs": 0
+       },
+       {
+        "start": "05:14:28",
+        "end": "05:14:29",
+        "secs": 1
+       },
+       {
+        "start": "05:14:30",
+        "end": "05:14:30",
+        "secs": 0
+       },
+       {
+        "start": "05:14:31",
+        "end": "05:14:31",
+        "secs": 0
+       },
+       {
+        "start": "05:14:32",
+        "end": "05:14:32",
+        "secs": 0
+       },
+       {
+        "start": "05:14:33",
+        "end": "05:14:33",
+        "secs": 0
+       },
+       {
+        "start": "05:14:34",
+        "end": "05:14:34",
+        "secs": 0
+       },
+       {
+        "start": "05:14:35",
+        "end": "05:14:35",
+        "secs": 0
+       },
+       {
+        "start": "05:14:36",
+        "end": "05:14:36",
+        "secs": 0
+       },
+       {
+        "start": "05:14:37",
+        "end": "05:14:37",
+        "secs": 0
+       },
+       {
+        "start": "05:14:38",
+        "end": "05:14:38",
+        "secs": 0
+       },
+       {
+        "start": "05:14:39",
+        "end": "05:14:39",
+        "secs": 0
+       },
+       {
+        "start": "05:14:40",
+        "end": "05:14:40",
+        "secs": 0
+       },
+       {
+        "start": "05:14:41",
+        "end": "05:14:41",
+        "secs": 0
+       },
+       {
+        "start": "05:14:42",
+        "end": "05:14:42",
+        "secs": 0
+       },
+       {
+        "start": "05:14:43",
+        "end": "05:14:43",
+        "secs": 0
+       },
+       {
+        "start": "05:14:44",
+        "end": "05:14:45",
+        "secs": 1
+       },
+       {
+        "start": "05:14:46",
+        "end": "05:14:46",
+        "secs": 0
+       },
+       {
+        "start": "05:14:47",
+        "end": "05:14:47",
+        "secs": 0
+       },
+       {
+        "start": "05:14:48",
+        "end": "05:14:48",
+        "secs": 0
+       },
+       {
+        "start": "05:14:49",
+        "end": "05:14:49",
+        "secs": 0
+       },
+       {
+        "start": "05:14:50",
+        "end": "05:14:50",
+        "secs": 0
+       },
+       {
+        "start": "05:14:51",
+        "end": "05:14:51",
+        "secs": 0
+       },
+       {
+        "start": "05:14:52",
+        "end": "05:14:52",
+        "secs": 0
+       },
+       {
+        "start": "05:14:53",
+        "end": "05:14:53",
+        "secs": 0
+       },
+       {
+        "start": "05:14:54",
+        "end": "05:14:54",
+        "secs": 0
+       },
+       {
+        "start": "05:14:55",
+        "end": "05:14:55",
+        "secs": 0
+       },
+       {
+        "start": "05:14:56",
+        "end": "05:14:56",
+        "secs": 0
+       },
+       {
+        "start": "05:14:57",
+        "end": "05:14:57",
+        "secs": 0
+       },
+       {
+        "start": "05:14:58",
+        "end": "05:14:58",
+        "secs": 0
+       },
+       {
+        "start": "05:14:59",
+        "end": "05:14:59",
+        "secs": 0
+       },
+       {
+        "start": "05:15:00",
+        "end": "05:15:00",
+        "secs": 0
+       },
+       {
+        "start": "05:15:02",
+        "end": "05:15:02",
+        "secs": 0
+       },
+       {
+        "start": "05:15:03",
+        "end": "05:15:03",
+        "secs": 0
+       },
+       {
+        "start": "05:15:04",
+        "end": "05:15:04",
+        "secs": 0
+       },
+       {
+        "start": "05:15:05",
+        "end": "05:15:05",
+        "secs": 0
+       },
+       {
+        "start": "05:15:06",
+        "end": "05:15:06",
+        "secs": 0
+       },
+       {
+        "start": "05:15:07",
+        "end": "05:15:07",
+        "secs": 0
+       },
+       {
+        "start": "05:15:08",
+        "end": "05:15:08",
+        "secs": 0
+       },
+       {
+        "start": "05:15:09",
+        "end": "05:15:09",
+        "secs": 0
+       },
+       {
+        "start": "05:15:10",
+        "end": "05:15:10",
+        "secs": 0
+       },
+       {
+        "start": "05:15:11",
+        "end": "05:15:11",
+        "secs": 0
+       },
+       {
+        "start": "05:15:12",
+        "end": "05:15:12",
+        "secs": 0
+       },
+       {
+        "start": "05:15:13",
+        "end": "05:15:13",
+        "secs": 0
+       },
+       {
+        "start": "05:15:14",
+        "end": "05:15:14",
+        "secs": 0
+       },
+       {
+        "start": "05:15:15",
+        "end": "05:15:15",
+        "secs": 0
+       },
+       {
+        "start": "05:15:16",
+        "end": "05:15:16",
+        "secs": 0
+       },
+       {
+        "start": "05:15:17",
+        "end": "05:15:17",
+        "secs": 0
+       },
+       {
+        "start": "05:15:19",
+        "end": "05:15:19",
+        "secs": 0
+       },
+       {
+        "start": "05:15:20",
+        "end": "05:15:20",
+        "secs": 0
+       },
+       {
+        "start": "05:15:21",
+        "end": "05:15:21",
+        "secs": 0
+       },
+       {
+        "start": "05:15:22",
+        "end": "05:15:22",
+        "secs": 0
+       },
+       {
+        "start": "05:15:23",
+        "end": "05:15:23",
+        "secs": 0
+       },
+       {
+        "start": "05:15:24",
+        "end": "05:15:24",
+        "secs": 0
+       },
+       {
+        "start": "05:15:25",
+        "end": "05:15:25",
+        "secs": 0
+       },
+       {
+        "start": "05:15:26",
+        "end": "05:15:26",
+        "secs": 0
+       },
+       {
+        "start": "05:15:27",
+        "end": "05:15:27",
+        "secs": 0
+       },
+       {
+        "start": "05:15:28",
+        "end": "05:15:28",
+        "secs": 0
+       },
+       {
+        "start": "05:15:29",
+        "end": "05:15:29",
+        "secs": 0
+       },
+       {
+        "start": "05:15:30",
+        "end": "05:15:30",
+        "secs": 0
+       },
+       {
+        "start": "05:15:31",
+        "end": "05:15:31",
+        "secs": 0
+       },
+       {
+        "start": "05:15:32",
+        "end": "05:15:32",
+        "secs": 0
+       },
+       {
+        "start": "05:15:33",
+        "end": "05:15:33",
+        "secs": 0
+       },
+       {
+        "start": "05:15:34",
+        "end": "05:15:34",
+        "secs": 0
+       },
+       {
+        "start": "05:15:35",
+        "end": "05:15:36",
+        "secs": 1
+       },
+       {
+        "start": "05:15:37",
+        "end": "05:15:37",
+        "secs": 0
+       },
+       {
+        "start": "05:15:38",
+        "end": "05:15:38",
+        "secs": 0
+       },
+       {
+        "start": "05:15:39",
+        "end": "05:15:39",
+        "secs": 0
+       },
+       {
+        "start": "05:15:40",
+        "end": "05:15:40",
+        "secs": 0
+       },
+       {
+        "start": "05:15:41",
+        "end": "05:15:41",
+        "secs": 0
+       },
+       {
+        "start": "05:15:42",
+        "end": "05:15:42",
+        "secs": 0
+       },
+       {
+        "start": "05:15:43",
+        "end": "05:15:43",
+        "secs": 0
+       },
+       {
+        "start": "05:15:44",
+        "end": "05:15:44",
+        "secs": 0
+       },
+       {
+        "start": "05:15:45",
+        "end": "05:15:45",
+        "secs": 0
+       },
+       {
+        "start": "05:15:46",
+        "end": "05:15:46",
+        "secs": 0
+       },
+       {
+        "start": "05:15:47",
+        "end": "05:15:47",
+        "secs": 0
+       },
+       {
+        "start": "05:15:48",
+        "end": "05:15:48",
+        "secs": 0
+       },
+       {
+        "start": "05:15:49",
+        "end": "05:15:49",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "ro",
+    "worst_zh": "只讀",
+    "impact_min": 48,
+    "impact_max": 103
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 40,
+      "fail_secs": 67,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 67,
+      "impact_restore": 0,
+      "failed": 63,
+      "failed_by_type": {
+       "SELECT": 63
+      },
+      "reconnects": 63,
+      "windows": [
+       {
+        "start": "00:55:05",
+        "end": "00:55:07",
+        "secs": 2
+       },
+       {
+        "start": "00:55:59",
+        "end": "00:56:36",
+        "secs": 37
+       },
+       {
+        "start": "00:57:37",
+        "end": "00:58:05",
+        "secs": 28
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 61,
+      "fail_secs": 92,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 92,
+      "impact_restore": 0,
+      "failed": 65,
+      "failed_by_type": {
+       "SELECT": 65
+      },
+      "reconnects": 65,
+      "windows": [
+       {
+        "start": "04:03:22",
+        "end": "04:03:51",
+        "secs": 29
+       },
+       {
+        "start": "04:04:17",
+        "end": "04:04:47",
+        "secs": 30
+       },
+       {
+        "start": "04:05:55",
+        "end": "04:06:28",
+        "secs": 33
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 59,
+      "fail_secs": 59,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 59,
+      "impact_restore": 0,
+      "failed": 34,
+      "failed_by_type": {
+       "SELECT": 34
+      },
+      "reconnects": 34,
+      "windows": [
+       {
+        "start": "05:12:45",
+        "end": "05:13:14",
+        "secs": 29
+       },
+       {
+        "start": "05:13:40",
+        "end": "05:14:10",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 40,
+    "impact_max": 61
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 52,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10054 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 57,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10099 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 52,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 1/3 replicas {'DEAD': 8, 'OK': 4} rows=10147 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "ro",
+   "ro",
+   "ro"
+  ],
+  "overall": "ro"
+ },
+ "double-vm-fe-dead": {
+  "scenario": "VM 停 + 另一台 FE dead（FE 剩 1/3）",
+  "also": [],
+  "steps": [
+   "--target vm --on master",
+   "--target fe --mode dead --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/double-vm-fe-dead",
+   "results/pass-2/double-vm-fe-dead",
+   "results/pass-3/double-vm-fe-dead"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": true,
+      "impact": 102,
+      "fail_secs": 139,
+      "stall": 48,
+      "max_gap": 12,
+      "impact_total": 139,
+      "impact_restore": 0,
+      "failed": 32,
+      "failed_by_type": {
+       "DELETE": 1,
+       "INSERT": 31
+      },
+      "reconnects": 8,
+      "windows": [
+       {
+        "start": "00:51:00",
+        "end": "00:53:19",
+        "secs": 139
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 133,
+      "fail_secs": 159,
+      "stall": 129,
+      "max_gap": 9,
+      "impact_total": 394,
+      "impact_restore": 0,
+      "failed": 58,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "SELECT": 13,
+       "INSERT": 44
+      },
+      "reconnects": 46,
+      "windows": [
+       {
+        "start": "03:54:23",
+        "end": "03:54:34",
+        "secs": 11
+       },
+       {
+        "start": "03:54:35",
+        "end": "03:54:35",
+        "secs": 0
+       },
+       {
+        "start": "03:54:36",
+        "end": "03:54:54",
+        "secs": 18
+       },
+       {
+        "start": "03:55:20",
+        "end": "03:57:30",
+        "secs": 130
+       },
+       {
+        "start": "03:57:39",
+        "end": "03:57:39",
+        "secs": 0
+       },
+       {
+        "start": "03:57:48",
+        "end": "03:57:48",
+        "secs": 0
+       },
+       {
+        "start": "03:57:57",
+        "end": "03:57:57",
+        "secs": 0
+       },
+       {
+        "start": "03:58:06",
+        "end": "03:58:06",
+        "secs": 0
+       },
+       {
+        "start": "03:58:15",
+        "end": "03:58:15",
+        "secs": 0
+       },
+       {
+        "start": "03:58:24",
+        "end": "03:58:24",
+        "secs": 0
+       },
+       {
+        "start": "03:58:33",
+        "end": "03:58:33",
+        "secs": 0
+       },
+       {
+        "start": "03:58:42",
+        "end": "03:58:43",
+        "secs": 1
+       },
+       {
+        "start": "03:58:52",
+        "end": "03:58:52",
+        "secs": 0
+       },
+       {
+        "start": "03:59:01",
+        "end": "03:59:01",
+        "secs": 0
+       },
+       {
+        "start": "03:59:10",
+        "end": "03:59:10",
+        "secs": 0
+       },
+       {
+        "start": "03:59:19",
+        "end": "03:59:19",
+        "secs": 0
+       },
+       {
+        "start": "03:59:28",
+        "end": "03:59:28",
+        "secs": 0
+       },
+       {
+        "start": "03:59:37",
+        "end": "03:59:37",
+        "secs": 0
+       },
+       {
+        "start": "03:59:46",
+        "end": "03:59:46",
+        "secs": 0
+       },
+       {
+        "start": "03:59:55",
+        "end": "03:59:55",
+        "secs": 0
+       },
+       {
+        "start": "04:00:04",
+        "end": "04:00:04",
+        "secs": 0
+       },
+       {
+        "start": "04:00:14",
+        "end": "04:00:14",
+        "secs": 0
+       },
+       {
+        "start": "04:00:23",
+        "end": "04:00:23",
+        "secs": 0
+       },
+       {
+        "start": "04:00:32",
+        "end": "04:00:32",
+        "secs": 0
+       },
+       {
+        "start": "04:00:41",
+        "end": "04:00:41",
+        "secs": 0
+       },
+       {
+        "start": "04:00:50",
+        "end": "04:00:50",
+        "secs": 0
+       },
+       {
+        "start": "04:00:59",
+        "end": "04:00:59",
+        "secs": 0
+       },
+       {
+        "start": "04:01:06",
+        "end": "04:01:06",
+        "secs": 0
+       },
+       {
+        "start": "04:01:07",
+        "end": "04:01:17",
+        "secs": 10
+       },
+       {
+        "start": "04:01:18",
+        "end": "04:01:18",
+        "secs": 0
+       },
+       {
+        "start": "04:01:19",
+        "end": "04:01:19",
+        "secs": 0
+       },
+       {
+        "start": "04:01:20",
+        "end": "04:01:20",
+        "secs": 0
+       },
+       {
+        "start": "04:01:21",
+        "end": "04:01:21",
+        "secs": 0
+       },
+       {
+        "start": "04:01:47",
+        "end": "04:01:47",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 106,
+      "fail_secs": 121,
+      "stall": 106,
+      "max_gap": 9,
+      "impact_total": 348,
+      "impact_restore": 0,
+      "failed": 58,
+      "failed_by_type": {
+       "INSERT": 51,
+       "SELECT": 7
+      },
+      "reconnects": 51,
+      "windows": [
+       {
+        "start": "05:04:21",
+        "end": "05:04:21",
+        "secs": 0
+       },
+       {
+        "start": "05:04:23",
+        "end": "05:04:23",
+        "secs": 0
+       },
+       {
+        "start": "05:04:24",
+        "end": "05:04:24",
+        "secs": 0
+       },
+       {
+        "start": "05:05:18",
+        "end": "05:05:18",
+        "secs": 0
+       },
+       {
+        "start": "05:05:27",
+        "end": "05:07:28",
+        "secs": 121
+       },
+       {
+        "start": "05:07:37",
+        "end": "05:07:37",
+        "secs": 0
+       },
+       {
+        "start": "05:07:46",
+        "end": "05:07:46",
+        "secs": 0
+       },
+       {
+        "start": "05:07:56",
+        "end": "05:07:56",
+        "secs": 0
+       },
+       {
+        "start": "05:08:05",
+        "end": "05:08:05",
+        "secs": 0
+       },
+       {
+        "start": "05:08:14",
+        "end": "05:08:14",
+        "secs": 0
+       },
+       {
+        "start": "05:08:23",
+        "end": "05:08:23",
+        "secs": 0
+       },
+       {
+        "start": "05:08:32",
+        "end": "05:08:32",
+        "secs": 0
+       },
+       {
+        "start": "05:08:41",
+        "end": "05:08:41",
+        "secs": 0
+       },
+       {
+        "start": "05:08:50",
+        "end": "05:08:50",
+        "secs": 0
+       },
+       {
+        "start": "05:08:59",
+        "end": "05:09:00",
+        "secs": 1
+       },
+       {
+        "start": "05:09:09",
+        "end": "05:09:09",
+        "secs": 0
+       },
+       {
+        "start": "05:09:18",
+        "end": "05:09:18",
+        "secs": 0
+       },
+       {
+        "start": "05:09:27",
+        "end": "05:09:27",
+        "secs": 0
+       },
+       {
+        "start": "05:09:36",
+        "end": "05:09:36",
+        "secs": 0
+       },
+       {
+        "start": "05:09:45",
+        "end": "05:09:45",
+        "secs": 0
+       },
+       {
+        "start": "05:09:54",
+        "end": "05:09:54",
+        "secs": 0
+       },
+       {
+        "start": "05:10:03",
+        "end": "05:10:03",
+        "secs": 0
+       },
+       {
+        "start": "05:10:13",
+        "end": "05:10:13",
+        "secs": 0
+       },
+       {
+        "start": "05:10:22",
+        "end": "05:10:22",
+        "secs": 0
+       },
+       {
+        "start": "05:10:31",
+        "end": "05:10:31",
+        "secs": 0
+       },
+       {
+        "start": "05:10:40",
+        "end": "05:10:40",
+        "secs": 0
+       },
+       {
+        "start": "05:10:49",
+        "end": "05:10:49",
+        "secs": 0
+       },
+       {
+        "start": "05:10:58",
+        "end": "05:10:58",
+        "secs": 0
+       },
+       {
+        "start": "05:11:04",
+        "end": "05:11:05",
+        "secs": 1
+       },
+       {
+        "start": "05:11:06",
+        "end": "05:11:06",
+        "secs": 0
+       },
+       {
+        "start": "05:11:09",
+        "end": "05:11:09",
+        "secs": 0
+       },
+       {
+        "start": "05:11:11",
+        "end": "05:11:11",
+        "secs": 0
+       },
+       {
+        "start": "05:11:12",
+        "end": "05:11:12",
+        "secs": 0
+       },
+       {
+        "start": "05:11:13",
+        "end": "05:11:13",
+        "secs": 0
+       },
+       {
+        "start": "05:11:14",
+        "end": "05:11:14",
+        "secs": 0
+       },
+       {
+        "start": "05:11:16",
+        "end": "05:11:16",
+        "secs": 0
+       },
+       {
+        "start": "05:11:17",
+        "end": "05:11:17",
+        "secs": 0
+       },
+       {
+        "start": "05:11:18",
+        "end": "05:11:18",
+        "secs": 0
+       },
+       {
+        "start": "05:11:19",
+        "end": "05:11:19",
+        "secs": 0
+       },
+       {
+        "start": "05:11:20",
+        "end": "05:11:20",
+        "secs": 0
+       },
+       {
+        "start": "05:11:21",
+        "end": "05:11:22",
+        "secs": 1
+       },
+       {
+        "start": "05:11:23",
+        "end": "05:11:23",
+        "secs": 0
+       },
+       {
+        "start": "05:11:24",
+        "end": "05:11:24",
+        "secs": 0
+       },
+       {
+        "start": "05:11:25",
+        "end": "05:11:25",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "down",
+    "worst_zh": "不可用",
+    "impact_min": 102,
+    "impact_max": 133
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "stalled",
+      "level_zh": "卡住（無回應）",
+      "no_select_evidence": true,
+      "impact": 104,
+      "fail_secs": 141,
+      "stall": 100,
+      "max_gap": 55,
+      "impact_total": 141,
+      "impact_restore": 0,
+      "failed": 8,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 6
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "00:50:04",
+        "end": "00:50:08",
+        "secs": 4
+       },
+       {
+        "start": "00:51:02",
+        "end": "00:53:19",
+        "secs": 137
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 139,
+      "fail_secs": 152,
+      "stall": 137,
+      "max_gap": 32,
+      "impact_total": 397,
+      "impact_restore": 0,
+      "failed": 53,
+      "failed_by_type": {
+       "INSERT": 45,
+       "SELECT": 8
+      },
+      "reconnects": 43,
+      "windows": [
+       {
+        "start": "03:54:23",
+        "end": "03:54:57",
+        "secs": 34
+       },
+       {
+        "start": "03:55:19",
+        "end": "03:55:19",
+        "secs": 0
+       },
+       {
+        "start": "03:55:32",
+        "end": "03:57:30",
+        "secs": 118
+       },
+       {
+        "start": "03:57:39",
+        "end": "03:57:39",
+        "secs": 0
+       },
+       {
+        "start": "03:57:48",
+        "end": "03:57:48",
+        "secs": 0
+       },
+       {
+        "start": "03:57:57",
+        "end": "03:57:57",
+        "secs": 0
+       },
+       {
+        "start": "03:58:06",
+        "end": "03:58:06",
+        "secs": 0
+       },
+       {
+        "start": "03:58:15",
+        "end": "03:58:15",
+        "secs": 0
+       },
+       {
+        "start": "03:58:24",
+        "end": "03:58:24",
+        "secs": 0
+       },
+       {
+        "start": "03:58:33",
+        "end": "03:58:33",
+        "secs": 0
+       },
+       {
+        "start": "03:58:42",
+        "end": "03:58:42",
+        "secs": 0
+       },
+       {
+        "start": "03:58:52",
+        "end": "03:58:52",
+        "secs": 0
+       },
+       {
+        "start": "03:59:01",
+        "end": "03:59:01",
+        "secs": 0
+       },
+       {
+        "start": "03:59:10",
+        "end": "03:59:10",
+        "secs": 0
+       },
+       {
+        "start": "03:59:19",
+        "end": "03:59:19",
+        "secs": 0
+       },
+       {
+        "start": "03:59:28",
+        "end": "03:59:28",
+        "secs": 0
+       },
+       {
+        "start": "03:59:37",
+        "end": "03:59:37",
+        "secs": 0
+       },
+       {
+        "start": "03:59:46",
+        "end": "03:59:46",
+        "secs": 0
+       },
+       {
+        "start": "03:59:55",
+        "end": "03:59:55",
+        "secs": 0
+       },
+       {
+        "start": "04:00:04",
+        "end": "04:00:04",
+        "secs": 0
+       },
+       {
+        "start": "04:00:13",
+        "end": "04:00:13",
+        "secs": 0
+       },
+       {
+        "start": "04:00:22",
+        "end": "04:00:22",
+        "secs": 0
+       },
+       {
+        "start": "04:00:32",
+        "end": "04:00:32",
+        "secs": 0
+       },
+       {
+        "start": "04:00:41",
+        "end": "04:00:41",
+        "secs": 0
+       },
+       {
+        "start": "04:00:50",
+        "end": "04:00:50",
+        "secs": 0
+       },
+       {
+        "start": "04:00:59",
+        "end": "04:00:59",
+        "secs": 0
+       },
+       {
+        "start": "04:01:06",
+        "end": "04:01:11",
+        "secs": 5
+       },
+       {
+        "start": "04:01:12",
+        "end": "04:01:12",
+        "secs": 0
+       },
+       {
+        "start": "04:01:13",
+        "end": "04:01:13",
+        "secs": 0
+       },
+       {
+        "start": "04:01:14",
+        "end": "04:01:14",
+        "secs": 0
+       },
+       {
+        "start": "04:01:15",
+        "end": "04:01:15",
+        "secs": 0
+       },
+       {
+        "start": "04:01:16",
+        "end": "04:01:16",
+        "secs": 0
+       },
+       {
+        "start": "04:01:18",
+        "end": "04:01:18",
+        "secs": 0
+       },
+       {
+        "start": "04:01:19",
+        "end": "04:01:19",
+        "secs": 0
+       },
+       {
+        "start": "04:01:20",
+        "end": "04:01:20",
+        "secs": 0
+       },
+       {
+        "start": "04:01:21",
+        "end": "04:01:21",
+        "secs": 0
+       },
+       {
+        "start": "04:01:49",
+        "end": "04:01:49",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "down",
+      "level_zh": "不可用",
+      "no_select_evidence": false,
+      "impact": 108,
+      "fail_secs": 132,
+      "stall": 106,
+      "max_gap": 12,
+      "impact_total": 355,
+      "impact_restore": 0,
+      "failed": 52,
+      "failed_by_type": {
+       "SELECT": 8,
+       "INSERT": 44
+      },
+      "reconnects": 46,
+      "windows": [
+       {
+        "start": "05:04:21",
+        "end": "05:04:23",
+        "secs": 2
+       },
+       {
+        "start": "05:05:18",
+        "end": "05:07:28",
+        "secs": 130
+       },
+       {
+        "start": "05:07:37",
+        "end": "05:07:37",
+        "secs": 0
+       },
+       {
+        "start": "05:07:46",
+        "end": "05:07:46",
+        "secs": 0
+       },
+       {
+        "start": "05:07:56",
+        "end": "05:07:56",
+        "secs": 0
+       },
+       {
+        "start": "05:08:05",
+        "end": "05:08:05",
+        "secs": 0
+       },
+       {
+        "start": "05:08:14",
+        "end": "05:08:14",
+        "secs": 0
+       },
+       {
+        "start": "05:08:23",
+        "end": "05:08:23",
+        "secs": 0
+       },
+       {
+        "start": "05:08:32",
+        "end": "05:08:32",
+        "secs": 0
+       },
+       {
+        "start": "05:08:41",
+        "end": "05:08:41",
+        "secs": 0
+       },
+       {
+        "start": "05:08:50",
+        "end": "05:08:50",
+        "secs": 0
+       },
+       {
+        "start": "05:08:59",
+        "end": "05:08:59",
+        "secs": 0
+       },
+       {
+        "start": "05:09:08",
+        "end": "05:09:08",
+        "secs": 0
+       },
+       {
+        "start": "05:09:17",
+        "end": "05:09:17",
+        "secs": 0
+       },
+       {
+        "start": "05:09:26",
+        "end": "05:09:26",
+        "secs": 0
+       },
+       {
+        "start": "05:09:35",
+        "end": "05:09:35",
+        "secs": 0
+       },
+       {
+        "start": "05:09:44",
+        "end": "05:09:45",
+        "secs": 1
+       },
+       {
+        "start": "05:09:54",
+        "end": "05:09:54",
+        "secs": 0
+       },
+       {
+        "start": "05:10:03",
+        "end": "05:10:03",
+        "secs": 0
+       },
+       {
+        "start": "05:10:12",
+        "end": "05:10:12",
+        "secs": 0
+       },
+       {
+        "start": "05:10:21",
+        "end": "05:10:21",
+        "secs": 0
+       },
+       {
+        "start": "05:10:30",
+        "end": "05:10:30",
+        "secs": 0
+       },
+       {
+        "start": "05:10:39",
+        "end": "05:10:39",
+        "secs": 0
+       },
+       {
+        "start": "05:10:48",
+        "end": "05:10:48",
+        "secs": 0
+       },
+       {
+        "start": "05:10:57",
+        "end": "05:10:57",
+        "secs": 0
+       },
+       {
+        "start": "05:11:04",
+        "end": "05:11:11",
+        "secs": 7
+       },
+       {
+        "start": "05:11:12",
+        "end": "05:11:12",
+        "secs": 0
+       },
+       {
+        "start": "05:11:13",
+        "end": "05:11:13",
+        "secs": 0
+       },
+       {
+        "start": "05:11:14",
+        "end": "05:11:14",
+        "secs": 0
+       },
+       {
+        "start": "05:11:15",
+        "end": "05:11:15",
+        "secs": 0
+       },
+       {
+        "start": "05:11:17",
+        "end": "05:11:17",
+        "secs": 0
+       },
+       {
+        "start": "05:11:18",
+        "end": "05:11:18",
+        "secs": 0
+       },
+       {
+        "start": "05:11:19",
+        "end": "05:11:19",
+        "secs": 0
+       },
+       {
+        "start": "05:11:20",
+        "end": "05:11:20",
+        "secs": 0
+       },
+       {
+        "start": "05:11:21",
+        "end": "05:11:21",
+        "secs": 0
+       },
+       {
+        "start": "05:11:22",
+        "end": "05:11:22",
+        "secs": 0
+       },
+       {
+        "start": "05:11:23",
+        "end": "05:11:23",
+        "secs": 0
+       },
+       {
+        "start": "05:11:25",
+        "end": "05:11:25",
+        "secs": 0
+       },
+       {
+        "start": "05:11:26",
+        "end": "05:11:26",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "down",
+    "worst_zh": "不可用",
+    "impact_min": 104,
+    "impact_max": 139
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 75,
+      "fail_secs": 112,
+      "stall": 74,
+      "max_gap": 22,
+      "impact_total": 112,
+      "impact_restore": 0,
+      "failed": 14,
+      "failed_by_type": {
+       "SELECT": 14
+      },
+      "reconnects": 7,
+      "windows": [
+       {
+        "start": "00:50:04",
+        "end": "00:50:05",
+        "secs": 1
+       },
+       {
+        "start": "00:51:00",
+        "end": "00:51:22",
+        "secs": 22
+       },
+       {
+        "start": "00:51:50",
+        "end": "00:53:19",
+        "secs": 89
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 134,
+      "fail_secs": 160,
+      "stall": 132,
+      "max_gap": 10,
+      "impact_total": 172,
+      "impact_restore": 0,
+      "failed": 26,
+      "failed_by_type": {
+       "SELECT": 26
+      },
+      "reconnects": 26,
+      "windows": [
+       {
+        "start": "03:54:24",
+        "end": "03:54:53",
+        "secs": 29
+       },
+       {
+        "start": "03:55:19",
+        "end": "03:57:30",
+        "secs": 131
+       },
+       {
+        "start": "04:01:12",
+        "end": "04:01:18",
+        "secs": 6
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-down",
+      "level_zh": "讀取失敗",
+      "no_select_evidence": false,
+      "impact": 107,
+      "fail_secs": 132,
+      "stall": 106,
+      "max_gap": 10,
+      "impact_total": 144,
+      "impact_restore": 0,
+      "failed": 27,
+      "failed_by_type": {
+       "SELECT": 27
+      },
+      "reconnects": 27,
+      "windows": [
+       {
+        "start": "05:04:21",
+        "end": "05:04:22",
+        "secs": 1
+       },
+       {
+        "start": "05:05:18",
+        "end": "05:07:29",
+        "secs": 131
+       },
+       {
+        "start": "05:11:10",
+        "end": "05:11:17",
+        "secs": 7
+       },
+       {
+        "start": "05:11:21",
+        "end": "05:11:26",
+        "secs": 5
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-down",
+    "worst_zh": "讀取失敗",
+    "impact_min": 75,
+    "impact_max": 134
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 71,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '35.185.162.157' ([Errno 111] Connection refused)\"))"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 305,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 1/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 268,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2"
+   }
+  ],
+  "overall_per_pass": [
+   "down",
+   "down",
+   "down"
+  ],
+  "overall": "down"
+ },
+ "fe-crash-follower": {
+  "scenario": "follower FE crash",
+  "also": [],
+  "steps": [
+   "--target fe --mode crash --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/fe-crash-follower",
+   "results/pass-2/fe-crash-follower",
+   "results/pass-3/fe-crash-follower"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:57:35",
+        "end": "23:57:37",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:31:27",
+        "end": "03:31:28",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:41:26",
+        "end": "04:41:28",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 1,
+    "impact_max": 2
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 3,
+      "fail_secs": 3,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 3,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:57:34",
+        "end": "23:57:37",
+        "secs": 3
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "DELETE": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:31:27",
+        "end": "03:31:28",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:41:26",
+        "end": "04:41:28",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 1,
+    "impact_max": 3
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:57:35",
+        "end": "23:57:37",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:31:27",
+        "end": "03:31:29",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 3,
+      "fail_secs": 3,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 3,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:41:26",
+        "end": "04:41:29",
+        "secs": 3
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 2,
+    "impact_max": 3
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 5,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 5,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10073 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 5,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10133 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "fe-crash-master": {
+  "scenario": "master FE crash（kill -9，systemd 自動拉起）",
+  "also": [
+   "crash 後的自動恢復"
+  ],
+  "steps": [
+   "--target fe --mode crash --on master"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/fe-crash-master",
+   "results/pass-2/fe-crash-master",
+   "results/pass-3/fe-crash-master"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 26,
+      "fail_secs": 11,
+      "stall": 24,
+      "max_gap": 9,
+      "impact_total": 26,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "DELETE": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "23:55:10",
+        "end": "23:55:21",
+        "secs": 11
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 18,
+      "fail_secs": 0,
+      "stall": 18,
+      "max_gap": 9,
+      "impact_total": 18,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "INSERT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "03:28:27",
+        "end": "03:28:27",
+        "secs": 0
+       },
+       {
+        "start": "03:28:52",
+        "end": "03:28:52",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 24,
+      "fail_secs": 5,
+      "stall": 19,
+      "max_gap": 10,
+      "impact_total": 24,
+      "impact_restore": 0,
+      "failed": 6,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 4
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "04:38:19",
+        "end": "04:38:24",
+        "secs": 5
+       },
+       {
+        "start": "04:38:35",
+        "end": "04:38:35",
+        "secs": 0
+       },
+       {
+        "start": "04:38:45",
+        "end": "04:38:45",
+        "secs": 0
+       },
+       {
+        "start": "04:38:54",
+        "end": "04:38:54",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 18,
+    "impact_max": 26
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 29,
+      "fail_secs": 11,
+      "stall": 27,
+      "max_gap": 11,
+      "impact_total": 29,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "DELETE": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "23:54:40",
+        "end": "23:54:42",
+        "secs": 2
+       },
+       {
+        "start": "23:55:12",
+        "end": "23:55:21",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 22,
+      "fail_secs": 11,
+      "stall": 11,
+      "max_gap": 11,
+      "impact_total": 22,
+      "impact_restore": 0,
+      "failed": 11,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 5,
+       "INSERT": 5
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "03:28:17",
+        "end": "03:28:27",
+        "secs": 10
+       },
+       {
+        "start": "03:28:53",
+        "end": "03:28:54",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 23,
+      "fail_secs": 3,
+      "stall": 20,
+      "max_gap": 11,
+      "impact_total": 23,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "DELETE": 2,
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "04:38:14",
+        "end": "04:38:16",
+        "secs": 2
+       },
+       {
+        "start": "04:38:20",
+        "end": "04:38:20",
+        "secs": 0
+       },
+       {
+        "start": "04:38:45",
+        "end": "04:38:46",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 22,
+    "impact_max": 29
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 6,
+      "fail_secs": 0,
+      "stall": 6,
+      "max_gap": 6,
+      "impact_total": 6,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 6,
+      "fail_secs": 0,
+      "stall": 6,
+      "max_gap": 6,
+      "impact_total": 6,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 8,
+      "fail_secs": 1,
+      "stall": 7,
+      "max_gap": 7,
+      "impact_total": 8,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:38:20",
+        "end": "04:38:21",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 6,
+    "impact_max": 8
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 6,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10027 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 6,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10070 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 6,
+    "systemd_secs": 9,
+    "healthy_after": true,
+    "alive_during": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10130 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "fe-dead-master": {
+  "scenario": "master FE dead（systemctl stop，不自動起）",
+  "also": [],
+  "steps": [
+   "--target fe --mode dead --on master"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/fe-dead-master",
+   "results/pass-2/fe-dead-master",
+   "results/pass-3/fe-dead-master"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 28,
+      "fail_secs": 12,
+      "stall": 25,
+      "max_gap": 9,
+      "impact_total": 28,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "00:00:57",
+        "end": "00:01:09",
+        "secs": 12
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 22,
+      "fail_secs": 4,
+      "stall": 18,
+      "max_gap": 9,
+      "impact_total": 22,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "INSERT": 3,
+       "SELECT": 1
+      },
+      "reconnects": 4,
+      "windows": [
+       {
+        "start": "03:34:36",
+        "end": "03:34:36",
+        "secs": 0
+       },
+       {
+        "start": "03:34:42",
+        "end": "03:34:46",
+        "secs": 4
+       },
+       {
+        "start": "03:35:05",
+        "end": "03:35:05",
+        "secs": 0
+       },
+       {
+        "start": "03:35:14",
+        "end": "03:35:14",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 0,
+    "impact_max": 28
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 27,
+      "fail_secs": 18,
+      "stall": 24,
+      "max_gap": 9,
+      "impact_total": 27,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "00:00:32",
+        "end": "00:00:38",
+        "secs": 6
+       },
+       {
+        "start": "00:00:57",
+        "end": "00:01:09",
+        "secs": 12
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 22,
+      "fail_secs": 4,
+      "stall": 18,
+      "max_gap": 9,
+      "impact_total": 22,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "03:34:42",
+        "end": "03:34:46",
+        "secs": 4
+       },
+       {
+        "start": "03:35:05",
+        "end": "03:35:05",
+        "secs": 0
+       },
+       {
+        "start": "03:35:14",
+        "end": "03:35:14",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:44:35",
+        "end": "04:44:36",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 1,
+    "impact_max": 27
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 6,
+      "fail_secs": 0,
+      "stall": 6,
+      "max_gap": 6,
+      "impact_total": 6,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 7,
+      "fail_secs": 1,
+      "stall": 6,
+      "max_gap": 6,
+      "impact_total": 7,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:34:42",
+        "end": "03:34:43",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 9,
+      "fail_secs": 0,
+      "stall": 9,
+      "max_gap": 9,
+      "impact_total": 9,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 6,
+    "impact_max": 9
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 16,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10033 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 26,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10077 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 26,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10134 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "fe-hang-follower": {
+  "scenario": "follower FE hang",
+  "also": [],
+  "steps": [
+   "--target fe --mode hang --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/fe-hang-follower",
+   "results/pass-2/fe-hang-follower",
+   "results/pass-3/fe-hang-follower"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 18,
+      "fail_secs": 9,
+      "stall": 18,
+      "max_gap": 9,
+      "impact_total": 18,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:20:02",
+        "end": "00:20:11",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 28,
+      "fail_secs": 9,
+      "stall": 28,
+      "max_gap": 10,
+      "impact_total": 28,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:41:26",
+        "end": "03:41:35",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 20,
+      "fail_secs": 11,
+      "stall": 20,
+      "max_gap": 11,
+      "impact_total": 20,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:51:25",
+        "end": "04:51:36",
+        "secs": 11
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 18,
+    "impact_max": 28
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 45,
+      "fail_secs": 9,
+      "stall": 45,
+      "max_gap": 9,
+      "impact_total": 45,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:20:03",
+        "end": "00:20:12",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 48,
+      "fail_secs": 9,
+      "stall": 48,
+      "max_gap": 12,
+      "impact_total": 48,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:41:29",
+        "end": "03:41:38",
+        "secs": 9
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 48,
+      "fail_secs": 10,
+      "stall": 48,
+      "max_gap": 11,
+      "impact_total": 48,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:51:28",
+        "end": "04:51:38",
+        "secs": 10
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 45,
+    "impact_max": 48
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 39,
+      "fail_secs": 30,
+      "stall": 39,
+      "max_gap": 30,
+      "impact_total": 39,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "00:20:02",
+        "end": "00:20:32",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 39,
+      "fail_secs": 30,
+      "stall": 39,
+      "max_gap": 30,
+      "impact_total": 39,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:41:26",
+        "end": "03:41:56",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 39,
+      "fail_secs": 30,
+      "stall": 39,
+      "max_gap": 30,
+      "impact_total": 39,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:51:26",
+        "end": "04:51:56",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 39,
+    "impact_max": 39
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 5,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10039 via doris-2"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 5,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10082 via doris-2"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 5,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10138 via doris-2"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "fe-hang-master": {
+  "scenario": "master FE hang（kill -STOP）",
+  "also": [],
+  "steps": [
+   "--target fe --mode hang --on master"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/fe-hang-master",
+   "results/pass-2/fe-hang-master",
+   "results/pass-3/fe-hang-master"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "ro",
+      "level_zh": "只讀（由 flight 推斷）",
+      "no_select_evidence": true,
+      "impact": 136,
+      "fail_secs": 130,
+      "stall": 136,
+      "max_gap": 10,
+      "impact_total": 139,
+      "impact_restore": 0,
+      "failed": 15,
+      "failed_by_type": {
+       "INSERT": 15
+      },
+      "reconnects": 15,
+      "windows": [
+       {
+        "start": "00:16:30",
+        "end": "00:18:40",
+        "secs": 130
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 63,
+      "fail_secs": 0,
+      "stall": 63,
+      "max_gap": 9,
+      "impact_total": 63,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "INSERT": 7
+      },
+      "reconnects": 7,
+      "windows": [
+       {
+        "start": "03:38:01",
+        "end": "03:38:01",
+        "secs": 0
+       },
+       {
+        "start": "03:38:10",
+        "end": "03:38:10",
+        "secs": 0
+       },
+       {
+        "start": "03:38:19",
+        "end": "03:38:19",
+        "secs": 0
+       },
+       {
+        "start": "03:38:28",
+        "end": "03:38:28",
+        "secs": 0
+       },
+       {
+        "start": "03:38:37",
+        "end": "03:38:37",
+        "secs": 0
+       },
+       {
+        "start": "03:38:46",
+        "end": "03:38:46",
+        "secs": 0
+       },
+       {
+        "start": "03:38:55",
+        "end": "03:38:55",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 64,
+      "fail_secs": 1,
+      "stall": 63,
+      "max_gap": 9,
+      "impact_total": 64,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "INSERT": 7
+      },
+      "reconnects": 7,
+      "windows": [
+       {
+        "start": "04:48:00",
+        "end": "04:48:00",
+        "secs": 0
+       },
+       {
+        "start": "04:48:09",
+        "end": "04:48:09",
+        "secs": 0
+       },
+       {
+        "start": "04:48:18",
+        "end": "04:48:18",
+        "secs": 0
+       },
+       {
+        "start": "04:48:27",
+        "end": "04:48:27",
+        "secs": 0
+       },
+       {
+        "start": "04:48:36",
+        "end": "04:48:37",
+        "secs": 1
+       },
+       {
+        "start": "04:48:46",
+        "end": "04:48:46",
+        "secs": 0
+       },
+       {
+        "start": "04:48:55",
+        "end": "04:48:55",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "ro",
+    "worst_zh": "只讀",
+    "impact_min": 63,
+    "impact_max": 136
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "stalled",
+      "level_zh": "卡住（無回應）",
+      "no_select_evidence": true,
+      "impact": 136,
+      "fail_secs": 0,
+      "stall": 136,
+      "max_gap": 136,
+      "impact_total": 138,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 69,
+      "fail_secs": 0,
+      "stall": 69,
+      "max_gap": 51,
+      "impact_total": 69,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 69,
+      "fail_secs": 0,
+      "stall": 69,
+      "max_gap": 52,
+      "impact_total": 69,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "stalled",
+    "worst_zh": "卡住（無回應）",
+    "impact_min": 69,
+    "impact_max": 136
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 136,
+      "fail_secs": 0,
+      "stall": 136,
+      "max_gap": 10,
+      "impact_total": 136,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 63,
+      "fail_secs": 0,
+      "stall": 63,
+      "max_gap": 9,
+      "impact_total": 63,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 63,
+      "fail_secs": 0,
+      "stall": 63,
+      "max_gap": 9,
+      "impact_total": 63,
+      "impact_restore": 0,
+      "failed": 0,
+      "failed_by_type": {},
+      "reconnects": 0,
+      "windows": [],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 63,
+    "impact_max": 136
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 7,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": null
+   },
+   {
+    "pass": 2,
+    "restore_secs": 6,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10079 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 7,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10136 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "stalled",
+   "rw",
+   "rw"
+  ],
+  "overall": "stalled"
+ },
+ "vm-stop-3clients": {
+  "scenario": "三個 client 同時觀察 VM 停機",
+  "also": [
+   "停機 VM 重新啟動"
+  ],
+  "steps": [
+   "--target vm --on master"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/vm-stop-3clients",
+   "results/pass-2/vm-stop-3clients",
+   "results/pass-3/vm-stop-3clients"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 29,
+      "fail_secs": 29,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 29,
+      "impact_restore": 0,
+      "failed": 5,
+      "failed_by_type": {
+       "INSERT": 5
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "23:38:08",
+        "end": "23:38:37",
+        "secs": 29
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 4,
+      "fail_secs": 4,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 4,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:11:36",
+        "end": "03:11:40",
+        "secs": 4
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 27,
+      "fail_secs": 18,
+      "stall": 26,
+      "max_gap": 9,
+      "impact_total": 27,
+      "impact_restore": 0,
+      "failed": 6,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 4
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "04:21:53",
+        "end": "04:21:54",
+        "secs": 1
+       },
+       {
+        "start": "04:21:55",
+        "end": "04:22:12",
+        "secs": 17
+       },
+       {
+        "start": "04:22:21",
+        "end": "04:22:21",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 4,
+    "impact_max": 29
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 34,
+      "fail_secs": 34,
+      "stall": 32,
+      "max_gap": 32,
+      "impact_total": 34,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "23:38:08",
+        "end": "23:38:42",
+        "secs": 34
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 4,
+      "fail_secs": 4,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 4,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:11:36",
+        "end": "03:11:40",
+        "secs": 4
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 34,
+      "fail_secs": 34,
+      "stall": 31,
+      "max_gap": 31,
+      "impact_total": 34,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "DELETE": 1,
+       "SELECT": 3,
+       "INSERT": 3
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "04:21:52",
+        "end": "04:22:26",
+        "secs": 34
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 4,
+    "impact_max": 34
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 29,
+      "fail_secs": 29,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 29,
+      "impact_restore": 0,
+      "failed": 5,
+      "failed_by_type": {
+       "SELECT": 5
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "23:38:08",
+        "end": "23:38:37",
+        "secs": 29
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:11:36",
+        "end": "03:11:38",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 30,
+      "fail_secs": 30,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 30,
+      "impact_restore": 0,
+      "failed": 5,
+      "failed_by_type": {
+       "SELECT": 5
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "04:21:53",
+        "end": "04:22:23",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 2,
+    "impact_max": 30
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 61,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10013 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 49,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10062 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 54,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10116 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "vm-stop-follower": {
+  "scenario": "follower 所在 VM 停機",
+  "also": [],
+  "steps": [
+   "--target vm --on follower"
+  ],
+  "order": null,
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/vm-stop-follower",
+   "results/pass-2/vm-stop-follower",
+   "results/pass-3/vm-stop-follower"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 25,
+      "fail_secs": 25,
+      "stall": 21,
+      "max_gap": 12,
+      "impact_total": 25,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "UPSERT": 1,
+       "INSERT": 2
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "23:50:43",
+        "end": "23:51:08",
+        "secs": 25
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:24:03",
+        "end": "03:24:03",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 12,
+      "fail_secs": 3,
+      "stall": 9,
+      "max_gap": 9,
+      "impact_total": 12,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "INSERT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "04:34:11",
+        "end": "04:34:11",
+        "secs": 0
+       },
+       {
+        "start": "04:34:20",
+        "end": "04:34:23",
+        "secs": 3
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 0,
+    "impact_max": 25
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 19,
+      "fail_secs": 19,
+      "stall": 16,
+      "max_gap": 16,
+      "impact_total": 19,
+      "impact_restore": 0,
+      "failed": 3,
+      "failed_by_type": {
+       "INSERT": 3
+      },
+      "reconnects": 3,
+      "windows": [
+       {
+        "start": "23:50:42",
+        "end": "23:51:01",
+        "secs": 19
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:24:02",
+        "end": "03:24:04",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 14,
+      "fail_secs": 14,
+      "stall": 11,
+      "max_gap": 11,
+      "impact_total": 14,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 1
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "04:34:11",
+        "end": "04:34:25",
+        "secs": 14
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 2,
+    "impact_max": 19
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 20,
+      "fail_secs": 2,
+      "stall": 18,
+      "max_gap": 18,
+      "impact_total": 20,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:50:42",
+        "end": "23:50:44",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:24:02",
+        "end": "03:24:04",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 18,
+      "fail_secs": 18,
+      "stall": 18,
+      "max_gap": 18,
+      "impact_total": 18,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:34:11",
+        "end": "04:34:29",
+        "secs": 18
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 2,
+    "impact_max": 20
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 45,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10023 via doris-2"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 60,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10068 via doris-2"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 49,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10124 via doris-2"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "vm-stop-master-direct": {
+  "scenario": "master 所在 VM 停機，client 直連 master",
+  "also": [],
+  "steps": [
+   "--target vm --on master"
+  ],
+  "order": "master-first",
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/vm-stop-master-direct",
+   "results/pass-2/vm-stop-master-direct",
+   "results/pass-3/vm-stop-master-direct"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 37,
+      "fail_secs": 37,
+      "stall": 35,
+      "max_gap": 12,
+      "impact_total": 71,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 4,
+       "DELETE": 1,
+       "UPSERT": 1
+      },
+      "reconnects": 7,
+      "windows": [
+       {
+        "start": "23:42:19",
+        "end": "23:42:56",
+        "secs": 37
+       },
+       {
+        "start": "23:45:00",
+        "end": "23:45:12",
+        "secs": 12
+       },
+       {
+        "start": "23:45:21",
+        "end": "23:45:25",
+        "secs": 4
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:15:37",
+        "end": "03:15:37",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:25:58",
+        "end": "04:25:58",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 0,
+    "impact_max": 37
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 39,
+      "fail_secs": 39,
+      "stall": 34,
+      "max_gap": 22,
+      "impact_total": 73,
+      "impact_restore": 0,
+      "failed": 6,
+      "failed_by_type": {
+       "SELECT": 1,
+       "INSERT": 4,
+       "UPSERT": 1
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "23:42:19",
+        "end": "23:42:58",
+        "secs": 39
+       },
+       {
+        "start": "23:45:00",
+        "end": "23:45:12",
+        "secs": 12
+       },
+       {
+        "start": "23:45:21",
+        "end": "23:45:25",
+        "secs": 4
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 4,
+      "fail_secs": 4,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 4,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:15:37",
+        "end": "03:15:41",
+        "secs": 4
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:25:59",
+        "end": "04:26:00",
+        "secs": 1
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 1,
+    "impact_max": 39
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 30,
+      "fail_secs": 30,
+      "stall": 29,
+      "max_gap": 29,
+      "impact_total": 30,
+      "impact_restore": 0,
+      "failed": 2,
+      "failed_by_type": {
+       "SELECT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "23:42:19",
+        "end": "23:42:49",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "DELETE": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "03:15:37",
+        "end": "03:15:37",
+        "secs": 0
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:25:59",
+        "end": "04:26:01",
+        "secs": 2
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 0,
+    "impact_max": 30
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 70,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10016 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 61,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10067 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 46,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10117 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ },
+ "vm-stop-master-follower": {
+  "scenario": "master 所在 VM 停機，client 連在 follower",
+  "also": [],
+  "steps": [
+   "--target vm --on master"
+  ],
+  "order": "follower-first",
+  "passes": [
+   1,
+   2,
+   3
+  ],
+  "dirs": [
+   "results/pass-1/vm-stop-master-follower",
+   "results/pass-2/vm-stop-master-follower",
+   "results/pass-3/vm-stop-master-follower"
+  ],
+  "clients": {
+   "mysql": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "UPSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:46:41",
+        "end": "23:46:43",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 28,
+      "fail_secs": 10,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 28,
+      "impact_restore": 0,
+      "failed": 7,
+      "failed_by_type": {
+       "INSERT": 5,
+       "SELECT": 2
+      },
+      "reconnects": 5,
+      "windows": [
+       {
+        "start": "03:19:57",
+        "end": "03:20:07",
+        "secs": 10
+       },
+       {
+        "start": "03:20:16",
+        "end": "03:20:16",
+        "secs": 0
+       },
+       {
+        "start": "03:20:25",
+        "end": "03:20:25",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 0,
+      "fail_secs": 0,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 0,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:29:54",
+        "end": "04:29:54",
+        "secs": 0
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 0,
+    "impact_max": 28
+   },
+   "jdbc": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "INSERT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:46:41",
+        "end": "23:46:43",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 2,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 32,
+      "fail_secs": 32,
+      "stall": 31,
+      "max_gap": 31,
+      "impact_total": 32,
+      "impact_restore": 0,
+      "failed": 4,
+      "failed_by_type": {
+       "SELECT": 2,
+       "INSERT": 2
+      },
+      "reconnects": 2,
+      "windows": [
+       {
+        "start": "03:19:57",
+        "end": "03:20:29",
+        "secs": 32
+       }
+      ],
+      "after_level": "rw"
+     },
+     {
+      "pass": 3,
+      "level": "rw",
+      "level_zh": "讀寫正常",
+      "no_select_evidence": false,
+      "impact": 2,
+      "fail_secs": 2,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 2,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:29:54",
+        "end": "04:29:56",
+        "secs": 2
+       }
+      ],
+      "after_level": "rw"
+     }
+    ],
+    "worst": "rw",
+    "worst_zh": "讀寫正常",
+    "impact_min": 2,
+    "impact_max": 32
+   },
+   "flight": {
+    "passes": [
+     {
+      "pass": 1,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "23:46:41",
+        "end": "23:46:42",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 2,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 30,
+      "fail_secs": 30,
+      "stall": 27,
+      "max_gap": 9,
+      "impact_total": 30,
+      "impact_restore": 0,
+      "failed": 6,
+      "failed_by_type": {
+       "SELECT": 6
+      },
+      "reconnects": 6,
+      "windows": [
+       {
+        "start": "03:19:57",
+        "end": "03:20:27",
+        "secs": 30
+       }
+      ],
+      "after_level": "read-ok"
+     },
+     {
+      "pass": 3,
+      "level": "read-ok",
+      "level_zh": "讀取正常",
+      "no_select_evidence": false,
+      "impact": 1,
+      "fail_secs": 1,
+      "stall": 0,
+      "max_gap": 0,
+      "impact_total": 1,
+      "impact_restore": 0,
+      "failed": 1,
+      "failed_by_type": {
+       "SELECT": 1
+      },
+      "reconnects": 1,
+      "windows": [
+       {
+        "start": "04:29:54",
+        "end": "04:29:55",
+        "secs": 1
+       }
+      ],
+      "after_level": "read-ok"
+     }
+    ],
+    "worst": "read-ok",
+    "worst_zh": "讀取正常",
+    "impact_min": 1,
+    "impact_max": 30
+   }
+  },
+  "recovery": [
+   {
+    "pass": 1,
+    "restore_secs": 48,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10020 via doris-1"
+   },
+   {
+    "pass": 2,
+    "restore_secs": 55,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10067 via doris-1"
+   },
+   {
+    "pass": 3,
+    "restore_secs": 65,
+    "systemd_secs": null,
+    "healthy_after": true,
+    "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10120 via doris-1"
+   }
+  ],
+  "overall_per_pass": [
+   "rw",
+   "rw",
+   "rw"
+  ],
+  "overall": "rw"
+ }
+}

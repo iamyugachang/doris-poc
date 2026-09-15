@@ -1,235 +1,254 @@
-05:22:20 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
-05:22:20 connected to doris-1 (10.140.0.2)
-05:22:20 #1 OK INSERT id=1753400 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:21 #2 OK UPSERT id=1753400 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:22 #3 OK SELECT id=1753400 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:23 #4 OK DELETE id=1753400 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:24 #5 OK SELECT id=1753400 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:25 #6 OK INSERT id=1753401 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:27 #7 OK UPSERT id=1753401 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:28 #8 OK SELECT id=1753401 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:29 #9 OK DELETE id=1753401 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:30 #10 OK SELECT id=1753401 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:31 #11 OK INSERT id=1753402 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:32 #12 OK UPSERT id=1753402 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:33 #13 OK SELECT id=1753402 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:34 #14 OK DELETE id=1753402 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:35 #15 OK SELECT id=1753402 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:36 #16 OK INSERT id=1753403 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:37 #17 OK UPSERT id=1753403 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:38 #18 OK SELECT id=1753403 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:39 #19 OK DELETE id=1753403 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:41 #20 OK SELECT id=1753403 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:42 #21 OK INSERT id=1753404 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:43 #22 OK UPSERT id=1753404 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:44 #23 OK SELECT id=1753404 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:45 #24 OK DELETE id=1753404 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:46 #25 OK SELECT id=1753404 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:47 #26 OK INSERT id=1753405 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:48 #27 OK UPSERT id=1753405 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:49 #28 OK SELECT id=1753405 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:50 #29 OK DELETE id=1753405 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:51 #30 OK SELECT id=1753405 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:52 #31 OK INSERT id=1753406 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:53 #32 OK UPSERT id=1753406 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:54 #33 OK SELECT id=1753406 via doris-1 rows=10156 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:55 EVENT break: vm stop on doris-1 (FE follower)
-05:22:56 #34 OK DELETE id=1753406 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:57 #35 OK SELECT id=1753406 via doris-1 rows=10154 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:58 #36 OK INSERT id=1753407 via doris-1 rows=10155 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:22:59 #37 FAIL UPSERT id=1753407 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query')
-05:23:02 #37 OK SELECT(check) id=1 via doris-2
-05:23:06 connected to doris-2 (10.140.0.3)
-05:23:06 #38 OK INSERT id=1753408 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up] (recovered)
-05:23:07 #39 OK UPSERT id=1753408 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:08 #40 OK SELECT id=1753408 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:09 #41 OK DELETE id=1753408 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:10 #42 OK SELECT id=1753408 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:11 #43 OK INSERT id=1753409 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:12 #44 OK UPSERT id=1753409 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:14 #45 OK SELECT id=1753409 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:15 #46 OK DELETE id=1753409 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:16 #47 OK SELECT id=1753409 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:17 #48 OK INSERT id=1753410 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:18 #49 OK UPSERT id=1753410 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:19 #50 OK SELECT id=1753410 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:20 #51 OK DELETE id=1753410 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:20 EVENT break: doris-1 is down
-05:23:21 #52 OK SELECT id=1753410 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:22 #53 OK INSERT id=1753411 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:23 #54 OK UPSERT id=1753411 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:24 #55 OK SELECT id=1753411 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:26 #56 OK DELETE id=1753411 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:27 #57 OK SELECT id=1753411 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:28 #58 OK INSERT id=1753412 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:29 #59 OK UPSERT id=1753412 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:30 #60 OK SELECT id=1753412 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:31 #61 OK DELETE id=1753412 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:32 #62 OK SELECT id=1753412 via doris-2 rows=10155 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:33 #63 OK INSERT id=1753413 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:34 #64 OK UPSERT id=1753413 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:35 #65 OK SELECT id=1753413 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:36 #66 OK DELETE id=1753413 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:37 #67 OK SELECT id=1753413 via doris-2 rows=10155 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:39 #68 OK INSERT id=1753414 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:40 #69 OK UPSERT id=1753414 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:41 #70 OK SELECT id=1753414 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:42 #71 OK DELETE id=1753414 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:43 #72 OK SELECT id=1753414 via doris-2 rows=10155 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:44 #73 OK INSERT id=1753415 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:45 #74 OK UPSERT id=1753415 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:46 #75 OK SELECT id=1753415 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:47 #76 OK DELETE id=1753415 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:48 #77 OK SELECT id=1753415 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:49 #78 OK INSERT id=1753416 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:50 #79 OK UPSERT id=1753416 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:52 #80 OK SELECT id=1753416 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:53 #81 OK DELETE id=1753416 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:54 #82 OK SELECT id=1753416 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:55 #83 OK INSERT id=1753417 via doris-2 rows=10157 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:55 EVENT break: be dead on doris-2 (FE follower)
-05:23:56 #84 OK UPSERT id=1753417 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:57 #85 OK SELECT id=1753417 via doris-2 rows=10156 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
-05:23:58 #86 FAIL DELETE id=1753417 via doris-2: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3')
-05:24:01 #86 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:24:05 connected to doris-2 (10.140.0.3)
-05:24:05 #87 FAIL INSERT id=1753418 via doris-2: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3')
-05:24:08 #87 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:24:12 connected to doris-2 (10.140.0.3)
-05:24:12 #88 FAIL INSERT id=1753419 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
-05:24:16 #88 OK SELECT(check) id=1 via doris-2
-05:24:20 connected to doris-2 (10.140.0.3)
-05:24:20 #89 FAIL INSERT id=1753420 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
-05:24:23 #89 OK SELECT(check) id=1 via doris-2
-05:24:27 connected to doris-2 (10.140.0.3)
-05:24:27 #90 FAIL INSERT id=1753421 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
-05:24:30 #90 OK SELECT(check) id=1 via doris-2
-05:24:34 connected to doris-2 (10.140.0.3)
-05:24:34 #91 FAIL INSERT id=1753422 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
-05:24:35 EVENT break: fe dead on doris-3 (FE master)
-05:24:37 #91 OK SELECT(check) id=1 via doris-2
-05:24:41 connected to doris-2 (10.140.0.3)
-05:24:42 #92 FAIL INSERT id=1753423 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:24:45 #92 OK SELECT(check) id=1 via doris-2
-05:24:49 connected to doris-2 (10.140.0.3)
-05:24:49 #93 FAIL INSERT id=1753424 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:24:52 #93 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:24:56 connected to doris-2 (10.140.0.3)
-05:24:56 #94 FAIL INSERT id=1753425 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:24:59 #94 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:25:03 connected to doris-2 (10.140.0.3)
-05:25:03 #95 FAIL INSERT id=1753426 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:06 #95 OK SELECT(check) id=1 via doris-2
-05:25:10 connected to doris-2 (10.140.0.3)
-05:25:10 #96 FAIL INSERT id=1753427 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:14 #96 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:25:18 connected to doris-2 (10.140.0.3)
-05:25:18 #97 FAIL INSERT id=1753428 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:21 #97 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:25:25 connected to doris-2 (10.140.0.3)
-05:25:25 #98 FAIL INSERT id=1753429 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:28 #98 OK SELECT(check) id=1 via doris-2
-05:25:32 connected to doris-2 (10.140.0.3)
-05:25:32 #99 FAIL INSERT id=1753430 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:35 #99 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:25:40 connected to doris-2 (10.140.0.3)
-05:25:40 #100 FAIL INSERT id=1753431 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:43 #100 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:25:47 connected to doris-2 (10.140.0.3)
-05:25:47 #101 FAIL INSERT id=1753432 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:50 #101 OK SELECT(check) id=1 via doris-2
-05:25:54 connected to doris-2 (10.140.0.3)
-05:25:54 #102 FAIL INSERT id=1753433 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:25:57 #102 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:01 connected to doris-2 (10.140.0.3)
-05:26:01 #103 FAIL INSERT id=1753434 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:04 #103 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:08 connected to doris-2 (10.140.0.3)
-05:26:08 #104 FAIL INSERT id=1753435 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:12 #104 OK SELECT(check) id=1 via doris-2
-05:26:16 connected to doris-2 (10.140.0.3)
-05:26:16 #105 FAIL INSERT id=1753436 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:19 #105 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:19 EVENT restore: systemctl start doris-fe on doris-3
-05:26:23 connected to doris-2 (10.140.0.3)
-05:26:23 #106 FAIL INSERT id=1753437 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:25 EVENT restore: systemctl start doris-be on doris-2
-05:26:26 #106 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:30 EVENT restore: start doris-1
-05:26:30 connected to doris-2 (10.140.0.3)
-05:26:30 #107 FAIL INSERT id=1753438 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:33 #107 OK SELECT(check) id=1 via doris-2
-05:26:37 connected to doris-2 (10.140.0.3)
-05:26:37 #108 FAIL INSERT id=1753439 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:41 #108 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:45 connected to doris-2 (10.140.0.3)
-05:26:45 #109 FAIL INSERT id=1753440 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:48 #109 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:50 connected to doris-2 (10.140.0.3)
-05:26:50 #110 FAIL INSERT id=1753441 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:50 #110 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:51 connected to doris-2 (10.140.0.3)
-05:26:51 #111 FAIL INSERT id=1753442 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:51 #111 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
-05:26:52 connected to doris-2 (10.140.0.3)
-05:26:52 #112 FAIL INSERT id=1753443 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
-05:26:53 #112 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:26:54 connected to doris-2 (10.140.0.3)
-05:26:56 #113 FAIL INSERT id=1753444 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
-05:26:56 #113 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:26:57 connected to doris-2 (10.140.0.3)
-05:26:57 #114 FAIL INSERT id=1753445 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
-05:26:57 #114 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:26:58 connected to doris-2 (10.140.0.3)
-05:26:58 #115 FAIL INSERT id=1753446 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
-05:26:58 #115 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:27:00 connected to doris-2 (10.140.0.3)
-05:27:00 #116 FAIL INSERT id=1753447 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
-05:27:00 #116 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:27:01 connected to doris-2 (10.140.0.3)
-05:27:01 #117 FAIL INSERT id=1753448 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 0 < l
-05:27:01 #117 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = tablet 1789045666408 has no queryable replicas. err: 
-05:27:02 connected to doris-2 (10.140.0.3)
-05:27:10 #118 FAIL INSERT id=1753449 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-05:27:10 #118 OK SELECT(check) id=1 via doris-2
-05:27:13 connected to doris-1 (10.140.0.2)
-05:27:15 #119 OK INSERT id=1753450 via doris-1 rows=10160 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
-05:27:16 #120 OK UPSERT id=1753450 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:17 #121 OK SELECT id=1753450 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:18 #122 OK DELETE id=1753450 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:20 #123 OK SELECT id=1753450 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:21 #124 OK INSERT id=1753451 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:22 #125 OK UPSERT id=1753451 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:23 #126 OK SELECT id=1753451 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:32 #127 FAIL DELETE id=1753451 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
-05:27:32 #127 OK SELECT(check) id=1 via doris-1
-05:27:33 connected to doris-1 (10.140.0.2)
-05:27:33 #128 OK INSERT id=1753452 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up] (recovered)
-05:27:34 #129 OK UPSERT id=1753452 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:35 #130 OK SELECT id=1753452 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:37 #131 OK DELETE id=1753452 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:37 EVENT restore: cluster healthy
-05:27:38 #132 OK SELECT id=1753452 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:39 #133 OK INSERT id=1753453 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:40 #134 OK UPSERT id=1753453 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:41 #135 OK SELECT id=1753453 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:42 #136 OK DELETE id=1753453 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:43 #137 OK SELECT id=1753453 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:44 #138 OK INSERT id=1753454 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:45 #139 OK UPSERT id=1753454 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:46 #140 OK SELECT id=1753454 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:48 #141 OK DELETE id=1753454 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:49 #142 OK SELECT id=1753454 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:50 #143 OK INSERT id=1753455 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:51 #144 OK UPSERT id=1753455 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:52 #145 OK SELECT id=1753455 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:53 #146 OK DELETE id=1753455 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:54 #147 OK SELECT id=1753455 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:55 #148 OK INSERT id=1753456 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:56 #149 OK UPSERT id=1753456 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:58 #150 OK SELECT id=1753456 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:27:59 #151 OK DELETE id=1753456 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:28:00 #152 OK SELECT id=1753456 via doris-1 rows=10159 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:28:01 #153 OK INSERT id=1753457 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:28:02 #154 OK UPSERT id=1753457 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
-05:28:03 #155 OK SELECT id=1753457 via doris-1 rows=10161 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:31 PROBE start proto=mysql hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+20:09:31 connected to doris-1 (10.140.0.2)
+20:09:31 #1 OK INSERT id=1741710 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:32 #2 OK UPSERT id=1741710 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:33 #3 OK SELECT id=1741710 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:34 #4 OK DELETE id=1741710 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:35 #5 OK SELECT id=1741710 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:37 #6 OK INSERT id=1741711 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:38 #7 OK UPSERT id=1741711 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:39 #8 OK SELECT id=1741711 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:40 #9 OK DELETE id=1741711 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:41 #10 OK SELECT id=1741711 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:42 #11 OK INSERT id=1741712 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:43 #12 OK UPSERT id=1741712 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:44 #13 OK SELECT id=1741712 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:45 #14 OK DELETE id=1741712 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:46 #15 OK SELECT id=1741712 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:47 #16 OK INSERT id=1741713 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:48 #17 OK UPSERT id=1741713 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:49 #18 OK SELECT id=1741713 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:51 #19 OK DELETE id=1741713 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:52 #20 OK SELECT id=1741713 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:53 #21 OK INSERT id=1741714 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:54 #22 OK UPSERT id=1741714 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:55 #23 OK SELECT id=1741714 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:56 #24 OK DELETE id=1741714 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:57 #25 OK SELECT id=1741714 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:58 #26 OK INSERT id=1741715 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:09:59 #27 OK UPSERT id=1741715 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:00 #28 OK SELECT id=1741715 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:01 #29 OK DELETE id=1741715 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:02 #30 OK SELECT id=1741715 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:03 #31 OK INSERT id=1741716 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:04 #32 OK UPSERT id=1741716 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:05 EVENT break: vm stop on doris-1 (FE follower)
+20:10:05 #33 OK SELECT id=1741716 via doris-1 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:07 #34 OK DELETE id=1741716 via doris-1 rows=10276 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:08 #35 OK SELECT id=1741716 via doris-1 rows=10275 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:10:09 #36 FAIL INSERT id=1741717 via doris-1: OperationalError: (2013, 'Lost connection to MySQL server during query')
+20:10:18 #36 FAIL SELECT(check) id=1 via doris-2: OperationalError: (2013, 'Lost connection to MySQL server during query (timed out)')
+20:10:22 connected to doris-2 (10.140.0.3)
+20:10:22 #37 OK INSERT id=1741718 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up] (recovered)
+20:10:23 #38 OK UPSERT id=1741718 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:24 #39 OK SELECT id=1741718 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:26 #40 OK DELETE id=1741718 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:27 #41 OK SELECT id=1741718 via doris-2 rows=10275 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:28 #42 OK INSERT id=1741719 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:29 #43 OK UPSERT id=1741719 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:30 #44 OK SELECT id=1741719 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:30 EVENT break: doris-1 is down
+20:10:31 #45 OK DELETE id=1741719 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:32 #46 OK SELECT id=1741719 via doris-2 rows=10275 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:33 #47 OK INSERT id=1741720 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:35 #48 OK UPSERT id=1741720 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:36 #49 OK SELECT id=1741720 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:37 #50 OK DELETE id=1741720 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:38 #51 OK SELECT id=1741720 via doris-2 rows=10275 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:39 #52 OK INSERT id=1741721 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:40 #53 OK UPSERT id=1741721 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:41 #54 OK SELECT id=1741721 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:42 #55 OK DELETE id=1741721 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:43 #56 OK SELECT id=1741721 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:44 #57 OK INSERT id=1741722 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:46 #58 OK UPSERT id=1741722 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:47 #59 OK SELECT id=1741722 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:48 #60 OK DELETE id=1741722 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:49 #61 OK SELECT id=1741722 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:50 #62 OK INSERT id=1741723 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:51 #63 OK UPSERT id=1741723 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:52 #64 OK SELECT id=1741723 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:53 #65 OK DELETE id=1741723 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:54 #66 OK SELECT id=1741723 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:55 #67 OK INSERT id=1741724 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:56 #68 OK UPSERT id=1741724 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:57 #69 OK SELECT id=1741724 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:10:58 #70 OK DELETE id=1741724 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:00 #71 OK SELECT id=1741724 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:01 #72 OK INSERT id=1741725 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:02 #73 OK UPSERT id=1741725 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:03 #74 OK SELECT id=1741725 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:04 #75 OK DELETE id=1741725 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:05 #76 OK SELECT id=1741725 via doris-2 rows=10275 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:05 EVENT break: be dead on doris-2 (FE follower)
+20:11:06 #77 OK INSERT id=1741726 via doris-2 rows=10276 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:07 #78 OK UPSERT id=1741726 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:11:08 #79 FAIL SELECT id=1741726 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, h
+20:11:12 connected to doris-2 (10.140.0.3)
+20:11:12 #80 FAIL INSERT id=1741727 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = (10.140.0.4)[INTERNAL_ERROR]failed to open DeltaWriter 1789045666396: fai
+20:11:15 #80 OK SELECT(check) id=1 via doris-2
+20:11:20 connected to doris-2 (10.140.0.3)
+20:11:20 #81 FAIL INSERT id=1741728 via doris-2: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3')
+20:11:23 #81 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+20:11:27 connected to doris-2 (10.140.0.3)
+20:11:27 #82 FAIL INSERT id=1741729 via doris-2: OperationalError: (1105, 'send fragments failed. io.grpc.StatusRuntimeException: UNAVAILABLE: io exception, host: 10.140.0.3')
+20:11:30 #82 OK SELECT(check) id=1 via doris-2
+20:11:34 connected to doris-2 (10.140.0.3)
+20:11:34 #83 FAIL INSERT id=1741730 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:11:37 #83 FAIL SELECT(check) id=1 via doris-2: OperationalError: (1105, 'RpcException, msg: send fragments failed. io.grpc.StatusRuntimeException: UNAVAILA
+20:11:41 connected to doris-2 (10.140.0.3)
+20:11:41 #84 FAIL INSERT id=1741731 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:11:44 #84 OK SELECT(check) id=1 via doris-2
+20:11:45 EVENT break: fe dead on doris-3 (FE master)
+20:11:48 connected to doris-2 (10.140.0.3)
+20:11:48 #85 FAIL INSERT id=1741732 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:11:51 #85 OK SELECT(check) id=1 via doris-2
+20:11:55 connected to doris-2 (10.140.0.3)
+20:11:56 #86 FAIL INSERT id=1741733 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:11:59 #86 OK SELECT(check) id=1 via doris-2
+20:12:03 connected to doris-2 (10.140.0.3)
+20:12:03 #87 FAIL INSERT id=1741734 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:06 #87 OK SELECT(check) id=1 via doris-2
+20:12:10 connected to doris-2 (10.140.0.3)
+20:12:10 #88 FAIL INSERT id=1741735 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:13 #88 OK SELECT(check) id=1 via doris-2
+20:12:17 connected to doris-2 (10.140.0.3)
+20:12:17 #89 FAIL INSERT id=1741736 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:20 #89 OK SELECT(check) id=1 via doris-2
+20:12:24 connected to doris-2 (10.140.0.3)
+20:12:24 #90 FAIL INSERT id=1741737 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:27 #90 OK SELECT(check) id=1 via doris-2
+20:12:31 connected to doris-2 (10.140.0.3)
+20:12:31 #91 FAIL INSERT id=1741738 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:34 #91 OK SELECT(check) id=1 via doris-2
+20:12:38 connected to doris-2 (10.140.0.3)
+20:12:38 #92 FAIL INSERT id=1741739 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:41 #92 OK SELECT(check) id=1 via doris-2
+20:12:46 connected to doris-2 (10.140.0.3)
+20:12:46 #93 FAIL INSERT id=1741740 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:49 #93 OK SELECT(check) id=1 via doris-2
+20:12:53 connected to doris-2 (10.140.0.3)
+20:12:53 #94 FAIL INSERT id=1741741 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:12:56 #94 OK SELECT(check) id=1 via doris-2
+20:13:00 connected to doris-2 (10.140.0.3)
+20:13:00 #95 FAIL INSERT id=1741742 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:03 #95 OK SELECT(check) id=1 via doris-2
+20:13:07 connected to doris-2 (10.140.0.3)
+20:13:07 #96 FAIL INSERT id=1741743 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:10 #96 OK SELECT(check) id=1 via doris-2
+20:13:14 connected to doris-2 (10.140.0.3)
+20:13:14 #97 FAIL INSERT id=1741744 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:17 #97 OK SELECT(check) id=1 via doris-2
+20:13:21 connected to doris-2 (10.140.0.3)
+20:13:21 #98 FAIL INSERT id=1741745 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:24 #98 OK SELECT(check) id=1 via doris-2
+20:13:28 connected to doris-2 (10.140.0.3)
+20:13:28 #99 FAIL INSERT id=1741746 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:30 EVENT restore: systemctl start doris-fe on doris-3
+20:13:31 #99 OK SELECT(check) id=1 via doris-2
+20:13:34 EVENT restore: systemctl start doris-be on doris-2
+20:13:36 connected to doris-2 (10.140.0.3)
+20:13:36 #100 FAIL INSERT id=1741747 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:39 #100 OK SELECT(check) id=1 via doris-2
+20:13:43 connected to doris-2 (10.140.0.3)
+20:13:43 #101 FAIL INSERT id=1741748 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:44 EVENT restore: start doris-1
+20:13:46 #101 OK SELECT(check) id=1 via doris-2
+20:13:50 connected to doris-2 (10.140.0.3)
+20:13:50 #102 FAIL INSERT id=1741749 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:13:53 #102 OK SELECT(check) id=1 via doris-2
+20:13:57 connected to doris-2 (10.140.0.3)
+20:13:57 #103 FAIL INSERT id=1741750 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:14:00 #103 OK SELECT(check) id=1 via doris-2
+20:14:04 connected to doris-2 (10.140.0.3)
+20:14:04 #104 FAIL INSERT id=1741751 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:14:05 #104 OK SELECT(check) id=1 via doris-2
+20:14:06 connected to doris-2 (10.140.0.3)
+20:14:06 #105 FAIL INSERT id=1741752 via doris-2: OperationalError: (1105, 'Exception, msg: Failed to get master client.')
+20:14:06 #105 OK SELECT(check) id=1 via doris-2
+20:14:08 connected to doris-2 (10.140.0.3)
+20:14:08 #106 FAIL INSERT id=1741753 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:08 #106 OK SELECT(check) id=1 via doris-2
+20:14:09 connected to doris-2 (10.140.0.3)
+20:14:09 #107 FAIL INSERT id=1741754 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:09 #107 OK SELECT(check) id=1 via doris-2
+20:14:10 connected to doris-2 (10.140.0.3)
+20:14:10 #108 FAIL INSERT id=1741755 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:10 #108 OK SELECT(check) id=1 via doris-2
+20:14:11 connected to doris-2 (10.140.0.3)
+20:14:11 #109 FAIL INSERT id=1741756 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:11 #109 OK SELECT(check) id=1 via doris-2
+20:14:13 connected to doris-2 (10.140.0.3)
+20:14:13 #110 FAIL INSERT id=1741757 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:13 #110 OK SELECT(check) id=1 via doris-2
+20:14:14 connected to doris-2 (10.140.0.3)
+20:14:14 #111 FAIL INSERT id=1741758 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:14 #111 OK SELECT(check) id=1 via doris-2
+20:14:15 connected to doris-2 (10.140.0.3)
+20:14:15 #112 FAIL INSERT id=1741759 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:15 #112 OK SELECT(check) id=1 via doris-2
+20:14:16 connected to doris-2 (10.140.0.3)
+20:14:16 #113 FAIL INSERT id=1741760 via doris-2: OperationalError: (1105, 'errCode = 2, detailMessage = errCode = 3, detailMessage = tablet 1789045666396 alive replica num 1 < l
+20:14:16 #113 OK SELECT(check) id=1 via doris-2
+20:14:17 connected to doris-2 (10.140.0.3)
+20:14:17 #114 OK INSERT id=1741761 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up] (recovered)
+20:14:18 #115 OK UPSERT id=1741761 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:20 #116 OK SELECT id=1741761 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:21 #117 OK DELETE id=1741761 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:22 #118 OK SELECT id=1741761 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:23 #119 OK INSERT id=1741762 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:24 #120 OK UPSERT id=1741762 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:25 #121 OK SELECT id=1741762 via doris-2 rows=10279 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:26 #122 OK DELETE id=1741762 via doris-2 rows=10277 [doris-1:f:DOWN doris-2:f:up doris-3:M:up]
+20:14:27 #123 OK SELECT id=1741762 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:28 #124 OK INSERT id=1741763 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:29 #125 OK UPSERT id=1741763 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:30 #126 OK SELECT id=1741763 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:31 #127 OK DELETE id=1741763 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:33 #128 OK SELECT id=1741763 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:34 #129 OK INSERT id=1741764 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:35 #130 OK UPSERT id=1741764 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:36 #131 OK SELECT id=1741764 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:37 #132 OK DELETE id=1741764 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:38 #133 OK SELECT id=1741764 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:39 #134 OK INSERT id=1741765 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:40 #135 OK UPSERT id=1741765 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:41 #136 OK SELECT id=1741765 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:42 #137 OK DELETE id=1741765 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:43 #138 OK SELECT id=1741765 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:44 #139 OK INSERT id=1741766 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:46 #140 OK UPSERT id=1741766 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:47 #141 OK SELECT id=1741766 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:48 #142 OK DELETE id=1741766 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:49 #143 OK SELECT id=1741766 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:50 #144 OK INSERT id=1741767 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:51 #145 OK UPSERT id=1741767 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:51 EVENT restore: cluster healthy
+20:14:52 #146 OK SELECT id=1741767 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:53 #147 OK DELETE id=1741767 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:54 #148 OK SELECT id=1741767 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:55 #149 OK INSERT id=1741768 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:56 #150 OK UPSERT id=1741768 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:57 #151 OK SELECT id=1741768 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:14:58 #152 OK DELETE id=1741768 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:00 #153 OK SELECT id=1741768 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:01 #154 OK INSERT id=1741769 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:02 #155 OK UPSERT id=1741769 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:03 #156 OK SELECT id=1741769 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:04 #157 OK DELETE id=1741769 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:05 #158 OK SELECT id=1741769 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:06 #159 OK INSERT id=1741770 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:07 #160 OK UPSERT id=1741770 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:08 #161 OK SELECT id=1741770 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:09 #162 OK DELETE id=1741770 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:10 #163 OK SELECT id=1741770 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:11 #164 OK INSERT id=1741771 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:13 #165 OK UPSERT id=1741771 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:14 #166 OK SELECT id=1741771 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:15 #167 OK DELETE id=1741771 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:16 #168 OK SELECT id=1741771 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:17 #169 OK INSERT id=1741772 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:18 #170 OK UPSERT id=1741772 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:19 #171 OK SELECT id=1741772 via doris-2 rows=10279 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:20 #172 OK DELETE id=1741772 via doris-2 rows=10278 [doris-1:f:up doris-2:f:up doris-3:M:up]
+20:15:21 #173 OK SELECT id=1741772 via doris-2 rows=10277 [doris-1:f:up doris-2:f:up doris-3:M:up]

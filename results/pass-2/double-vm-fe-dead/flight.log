@@ -1,399 +1,202 @@
-03:53:45 PROBE start proto=arrow-flight hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
-03:53:45 connected to doris-1 (10.140.0.2)
-03:53:45 DML unsupported over arrow-flight (InternalError: RuntimeException, msg: getMysqlChannel not in mysql connection (Internal; ExecuteQuery)) — switching to SELECT-only mode
-03:53:46 #1 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:47 #2 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:48 #3 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:49 #4 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:50 #5 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:51 #6 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:52 #7 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:53 #8 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:54 #9 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:55 #10 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:56 #11 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:57 #12 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:58 #13 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:53:59 #14 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:00 #15 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:01 #16 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:02 #17 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:03 #18 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:05 #19 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:06 #20 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:07 #21 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:08 #22 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:09 #23 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:10 #24 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:11 #25 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:12 #26 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:13 #27 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:14 #28 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:15 #29 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:16 #30 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:17 #31 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:18 #32 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:19 #33 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:20 EVENT break: vm stop on doris-3 (FE master)
-03:54:20 #34 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:21 #35 OK SELECT id=3700250 via doris-1 rows=10094 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:23 #36 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:up doris-3:M:up]
-03:54:24 #37 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-03:54:25 connected to doris-1 (10.140.0.2)
-03:54:25 #38 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-03:54:26 connected to doris-1 (10.140.0.2)
-03:54:34 #39 FAIL SELECT id=3700250 via doris-1: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:54:35 connected to doris-1 (10.140.0.2)
-03:54:43 #40 FAIL SELECT id=3700250 via doris-1: OperationalError: TIMEOUT: [FlightSQL] stream terminated by RST_STREAM with error code: CANCEL (DeadlineExceeded; ExecuteQuery).
-03:54:44 connected to doris-1 (10.140.0.2)
-03:54:45 EVENT break: doris-3 is down
-03:54:52 #41 FAIL SELECT id=3700250 via doris-1: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:54:53 connected to doris-1 (10.140.0.2)
-03:54:53 #42 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN] (recovered)
-03:54:54 #43 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:55 #44 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:56 #45 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:57 #46 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:58 #47 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:54:59 #48 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:00 #49 OK SELECT id=3700250 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:01 #50 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:02 #51 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:04 #52 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:05 #53 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:06 #54 OK SELECT id=3700250 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:07 #55 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:08 #56 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:09 #57 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:10 #58 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:11 #59 OK SELECT id=3700250 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:12 #60 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:13 #61 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:14 #62 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:15 #63 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:16 #64 OK SELECT id=3700250 via doris-1 rows=10097 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:17 EVENT break: fe dead on doris-1 (FE follower)
-03:55:17 #65 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:18 #66 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:M:up doris-3:f:DOWN]
-03:55:19 #67 FAIL SELECT id=3700250 via doris-1: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.2:8070: connect: c
-03:55:21 connected to doris-2 (10.140.0.3)
-03:55:29 #68 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:55:30 connected to doris-2 (10.140.0.3)
-03:55:38 #69 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:55:39 connected to doris-2 (10.140.0.3)
-03:55:47 #70 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:55:48 connected to doris-2 (10.140.0.3)
-03:55:56 #71 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:55:57 connected to doris-2 (10.140.0.3)
-03:56:05 #72 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:06 connected to doris-2 (10.140.0.3)
-03:56:14 #73 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:15 connected to doris-2 (10.140.0.3)
-03:56:23 #74 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:24 connected to doris-2 (10.140.0.3)
-03:56:32 #75 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:33 connected to doris-2 (10.140.0.3)
-03:56:41 #76 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:42 connected to doris-2 (10.140.0.3)
-03:56:50 #77 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:56:51 connected to doris-2 (10.140.0.3)
-03:56:59 #78 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:57:00 connected to doris-2 (10.140.0.3)
-03:57:04 EVENT restore: systemctl start doris-fe on doris-1
-03:57:08 EVENT restore: start doris-3
-03:57:08 #79 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:57:09 connected to doris-2 (10.140.0.3)
-03:57:17 #80 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:57:18 connected to doris-2 (10.140.0.3)
-03:57:26 #81 FAIL SELECT id=3700250 via doris-2: OperationalError: TIMEOUT: [FlightSQL] context deadline exceeded (DeadlineExceeded; ExecuteQuery). Vendor code: 4
-03:57:28 connected to doris-1 (10.140.0.2)
-03:57:30 #82 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN] (recovered)
-03:57:31 #83 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:32 #84 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:33 #85 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:35 #86 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:36 #87 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:37 #88 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:38 #89 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:39 #90 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:40 #91 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:41 #92 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:43 #93 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:44 #94 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:45 #95 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:46 #96 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:47 #97 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:48 #98 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:49 #99 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:50 #100 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:51 #101 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:53 #102 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:54 #103 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:55 #104 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:56 #105 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:57 #106 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:58 #107 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:57:59 #108 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:00 #109 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:01 #110 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:02 #111 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:04 #112 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:05 #113 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:06 #114 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:07 #115 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:08 #116 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:09 #117 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:10 #118 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:11 #119 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:12 #120 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:13 #121 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:15 #122 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:16 #123 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:17 #124 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:18 #125 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:19 #126 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:20 #127 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:21 #128 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:22 #129 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:23 #130 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:24 #131 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:26 #132 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:27 #133 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:28 #134 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:29 #135 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:30 #136 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:31 #137 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:32 #138 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:33 #139 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:34 #140 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:35 #141 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:36 #142 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:37 #143 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:39 #144 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:40 #145 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:41 #146 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:42 #147 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:43 #148 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:44 #149 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:45 #150 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:46 #151 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:47 #152 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:48 #153 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:49 #154 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:50 #155 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:52 #156 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:53 #157 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:54 #158 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:55 #159 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:56 #160 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:57 #161 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:58 #162 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:58:59 #163 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:00 #164 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:01 #165 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:02 #166 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:03 #167 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:05 #168 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:06 #169 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:07 #170 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:08 #171 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:09 #172 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:10 #173 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:11 #174 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:12 #175 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:13 #176 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:14 #177 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:15 #178 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:16 #179 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:18 #180 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:19 #181 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:20 #182 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:21 #183 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:22 #184 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:23 #185 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:24 #186 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:25 #187 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:26 #188 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:27 #189 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:28 #190 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:29 #191 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:30 #192 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:31 #193 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:33 #194 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:34 #195 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:35 #196 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:36 #197 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:37 #198 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:38 #199 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:39 #200 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:40 #201 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:41 #202 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:42 #203 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:43 #204 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:44 #205 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:46 #206 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:47 #207 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:48 #208 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:49 #209 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:50 #210 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:51 #211 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:52 #212 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:53 #213 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:54 #214 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:55 #215 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:56 #216 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:57 #217 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:58 #218 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-03:59:59 #219 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:01 #220 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:02 #221 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:03 #222 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:04 #223 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:05 #224 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:06 #225 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:07 #226 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:08 #227 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:09 #228 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:10 #229 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:11 #230 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:12 #231 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:13 #232 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:14 #233 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:16 #234 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:17 #235 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:18 #236 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:19 #237 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:20 #238 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:21 #239 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:22 #240 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:23 #241 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:24 #242 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:25 #243 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:26 #244 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:27 #245 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:28 #246 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:29 #247 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:31 #248 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:32 #249 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:33 #250 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:34 #251 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:35 #252 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:36 #253 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:37 #254 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:38 #255 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:39 #256 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:40 #257 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:41 #258 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:42 #259 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:43 #260 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:44 #261 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:46 #262 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:47 #263 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:48 #264 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:49 #265 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:50 #266 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:51 #267 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:52 #268 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:53 #269 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:54 #270 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:55 #271 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:56 #272 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:57 #273 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:58 #274 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:00:59 #275 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:00 #276 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:02 #277 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:03 #278 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:04 #279 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:05 #280 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:DOWN doris-2:M:up doris-3:f:DOWN]
-04:01:11 #281 OK SELECT id=3700250 via doris-1 rows=10095 [?]
-04:01:12 #282 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:13 connected to doris-1 (10.140.0.2)
-04:01:13 #283 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:14 connected to doris-1 (10.140.0.2)
-04:01:14 #284 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:15 connected to doris-1 (10.140.0.2)
-04:01:15 #285 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:16 connected to doris-1 (10.140.0.2)
-04:01:16 #286 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:17 connected to doris-1 (10.140.0.2)
-04:01:17 #287 FAIL SELECT id=3700250 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
-04:01:18 connected to doris-1 (10.140.0.2)
-04:01:18 #288 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
-04:01:19 #289 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:20 #290 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:21 #291 OK SELECT id=3700250 via doris-1 rows=10095 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:22 #292 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:24 #293 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:25 #294 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:26 #295 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:27 #296 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
-04:01:28 #297 OK SELECT id=3700250 via doris-1 rows=10097 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:29 #298 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:30 #299 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:31 #300 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:32 #301 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:33 #302 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:34 #303 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:35 #304 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:37 #305 OK SELECT id=3700250 via doris-1 rows=10098 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:38 #306 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:39 #307 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:40 #308 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:41 #309 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:42 #310 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:43 #311 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:44 #312 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:45 #313 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:46 #314 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:47 #315 OK SELECT id=3700250 via doris-1 rows=10096 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:48 #316 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:49 #317 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:51 #318 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:52 #319 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:53 #320 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:54 #321 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:55 #322 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:56 #323 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:57 #324 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:58 #325 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:01:59 #326 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:00 #327 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:01 #328 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:02 #329 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:03 #330 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:04 #331 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:06 #332 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:07 #333 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:08 #334 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 #335 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:09 EVENT restore: cluster healthy
-04:02:10 #336 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:11 #337 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:12 #338 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:13 #339 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:14 #340 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:15 #341 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:16 #342 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:17 #343 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:18 #344 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:19 #345 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:21 #346 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:22 #347 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:23 #348 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:24 #349 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:25 #350 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:26 #351 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:27 #352 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:28 #353 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:29 #354 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:30 #355 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:31 #356 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:32 #357 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:33 #358 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:35 #359 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:36 #360 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:37 #361 OK SELECT id=3700250 via doris-1 rows=10100 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:38 #362 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:39 #363 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
-04:02:40 #364 OK SELECT id=3700250 via doris-1 rows=10099 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:46:04 PROBE start proto=arrow-flight hosts=doris-1,doris-2,doris-3 duration=86400s cycle=INSERT>UPSERT>SELECT>DELETE>SELECT
+18:46:04 connected to doris-1 (10.140.0.2)
+18:46:04 DML unsupported over arrow-flight (InternalError: RuntimeException, msg: getMysqlChannel not in mysql connection (Internal; ExecuteQuery)) — switching to SELECT-only mode
+18:46:04 #1 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:05 #2 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:06 #3 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:07 #4 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:08 #5 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:09 #6 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:10 #7 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:11 #8 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:12 #9 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:13 #10 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:14 #11 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:15 #12 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:16 #13 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:18 #14 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:19 #15 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:20 #16 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:21 #17 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:22 #18 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:23 #19 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:24 #20 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:25 #21 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:26 #22 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:27 #23 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:28 #24 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:29 #25 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:30 #26 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:31 #27 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:32 #28 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:33 #29 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:34 #30 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:35 #31 OK SELECT id=3691640 via doris-1 rows=10235 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:36 #32 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:38 #33 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:38 EVENT break: vm stop on doris-2 (FE master)
+18:46:39 #34 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:40 #35 OK SELECT id=3691640 via doris-1 rows=10234 [doris-1:f:up doris-2:M:up doris-3:f:up]
+18:46:43 #36 OK SELECT id=3691640 via doris-1 rows=10234 [?]
+18:46:44 #37 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:45 connected to doris-1 (10.140.0.2)
+18:46:45 #38 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:46 connected to doris-1 (10.140.0.2)
+18:46:46 #39 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:47 connected to doris-1 (10.140.0.2)
+18:46:47 #40 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:48 connected to doris-1 (10.140.0.2)
+18:46:48 #41 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:49 connected to doris-1 (10.140.0.2)
+18:46:49 #42 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:50 connected to doris-1 (10.140.0.2)
+18:46:50 #43 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:51 connected to doris-1 (10.140.0.2)
+18:46:51 #44 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:52 connected to doris-1 (10.140.0.2)
+18:46:52 #45 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:53 connected to doris-1 (10.140.0.2)
+18:46:53 #46 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:54 connected to doris-1 (10.140.0.2)
+18:46:54 #47 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:55 connected to doris-1 (10.140.0.2)
+18:46:55 #48 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:56 connected to doris-1 (10.140.0.2)
+18:46:56 #49 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:46:57 connected to doris-1 (10.140.0.2)
+18:46:59 #50 FAIL SELECT id=3691640 via doris-1: OperationalError: IO: [FlightSQL] error reading from server: EOF (Unavailable; DoGet: endpoint 0: [uri:"grpc+tcp://10.140.0.2:80
+18:47:00 connected to doris-1 (10.140.0.2)
+18:47:00 #51 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:01 connected to doris-1 (10.140.0.2)
+18:47:01 #52 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:01 EVENT break: doris-2 is down
+18:47:02 connected to doris-1 (10.140.0.2)
+18:47:02 #53 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:03 connected to doris-1 (10.140.0.2)
+18:47:03 #54 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:04 connected to doris-1 (10.140.0.2)
+18:47:04 #55 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:05 connected to doris-1 (10.140.0.2)
+18:47:05 #56 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:06 connected to doris-1 (10.140.0.2)
+18:47:06 #57 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:07 connected to doris-1 (10.140.0.2)
+18:47:07 #58 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:08 connected to doris-1 (10.140.0.2)
+18:47:08 #59 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:09 connected to doris-1 (10.140.0.2)
+18:47:09 #60 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:10 connected to doris-1 (10.140.0.2)
+18:47:10 #61 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:11 connected to doris-1 (10.140.0.2)
+18:47:11 #62 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:12 connected to doris-1 (10.140.0.2)
+18:47:12 #63 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+18:47:13 #64 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:14 #65 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:15 #66 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:16 #67 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:17 #68 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:18 #69 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:19 #70 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:21 #71 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:22 #72 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:23 #73 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:24 #74 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:25 #75 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:26 #76 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:27 #77 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:28 #78 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:29 #79 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:30 #80 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:31 #81 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:47:32 #82 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:33 connected to doris-1 (10.140.0.2)
+18:47:33 #83 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:33 EVENT break: fe dead on doris-1 (FE follower)
+18:47:34 connected to doris-1 (10.140.0.2)
+18:47:34 #84 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:35 connected to doris-1 (10.140.0.2)
+18:47:35 #85 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:47:57 connected to doris-3 (10.140.0.4)
+18:48:05 #86 FAIL SELECT id=3691640 via doris-3: OperationalError: TIMEOUT: [FlightSQL] stream terminated by RST_STREAM with error code: CANCEL (DeadlineExceeded; ExecuteQuery).
+18:48:26 #87 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:48:47 #88 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:08 #89 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:18 EVENT restore: systemctl start doris-fe on doris-1
+18:49:22 EVENT restore: start doris-2
+18:49:29 #90 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:45 #91 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:46 #92 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:47 #93 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:48 #94 FAIL SELECT id=3691640 via doris-3: OperationalError: IO: [FlightSQL] connection error: desc = "transport: Error while dialing: dial tcp 10.140.0.4:8070: connect: c
+18:49:50 connected to doris-3 (10.140.0.4)
+18:49:50 #95 FAIL SELECT id=3691640 via doris-3: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:49:52 connected to doris-1 (10.140.0.2)
+18:49:53 #96 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:49:54 connected to doris-1 (10.140.0.2)
+18:49:54 #97 FAIL SELECT id=3691640 via doris-1: InternalError: INTERNAL: [FlightSQL] get flight info statement failed, after executeQueryStatement handleQuery, java.lang.Run
+18:49:55 connected to doris-1 (10.140.0.2)
+18:49:57 #98 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up] (recovered)
+18:49:58 #99 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:49:59 #100 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:01 #101 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:02 #102 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:03 #103 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:04 #104 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:DOWN doris-3:M:up]
+18:50:05 #105 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:06 #106 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:07 #107 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:08 #108 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:10 #109 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:11 #110 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:12 #111 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:13 #112 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:14 #113 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:15 #114 OK SELECT id=3691640 via doris-1 rows=10236 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:16 #115 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:17 #116 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:19 #117 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:20 #118 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:21 #119 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:22 #120 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:23 #121 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:24 #122 OK SELECT id=3691640 via doris-1 rows=10238 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:25 #123 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:26 #124 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:27 #125 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:29 #126 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:30 #127 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 #128 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:31 EVENT restore: cluster healthy
+18:50:32 #129 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:33 #130 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:34 #131 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:35 #132 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:36 #133 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:37 #134 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:38 #135 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:39 #136 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:41 #137 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:42 #138 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:43 #139 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:44 #140 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:45 #141 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:46 #142 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:47 #143 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:48 #144 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:49 #145 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:50 #146 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:51 #147 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:53 #148 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:54 #149 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:55 #150 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:56 #151 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:57 #152 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:58 #153 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:50:59 #154 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:00 #155 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:01 #156 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:02 #157 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:03 #158 OK SELECT id=3691640 via doris-1 rows=10239 [doris-1:f:up doris-2:f:up doris-3:M:up]
+18:51:04 #159 OK SELECT id=3691640 via doris-1 rows=10241 [doris-1:f:up doris-2:f:up doris-3:M:up]

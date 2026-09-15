@@ -7,14 +7,14 @@
  "steps": [
   "--target vm --on follower"
  ],
- "started": "04:33:28",
- "restore_at": "04:36:10",
- "ended": "04:37:33",
+ "started": "19:21:13",
+ "restore_at": "19:23:53",
+ "ended": "19:25:10",
  "healthy_after": true,
  "breaks": [
   {
    "step": "--target vm --on follower",
-   "at": "04:34:32",
+   "at": "19:22:15",
    "rc": 0
   }
  ],
@@ -22,24 +22,45 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 12,
+   "total_impact_secs": 0,
    "windows": [
     {
-     "start": "04:34:11",
-     "end": "04:34:11",
+     "start": "19:21:54",
+     "end": "19:21:54",
      "secs": 0
-    },
-    {
-     "start": "04:34:20",
-     "end": "04:34:23",
-     "secs": 3
     }
    ],
-   "failed": 2,
+   "failed": 1,
    "failed_by_type": {
-    "INSERT": 2
+    "INSERT": 1
    },
-   "reconnects": 2,
+   "reconnects": 1,
+   "window_ops": {
+    "writes_ok": 18,
+    "writes_fail": 0,
+    "selects_ok": 12,
+    "selects_fail": 0,
+    "lines": 30,
+    "span_secs": 149
+   },
+   "read_only_client": false
+  },
+  "jdbc": {
+   "level": "rw",
+   "level_zh": "讀寫正常",
+   "total_impact_secs": 0,
+   "windows": [
+    {
+     "start": "19:21:55",
+     "end": "19:21:55",
+     "secs": 0
+    }
+   ],
+   "failed": 1,
+   "failed_by_type": {
+    "INSERT": 1
+   },
+   "reconnects": 1,
    "window_ops": {
     "writes_ok": 18,
     "writes_fail": 0,
@@ -50,42 +71,15 @@
    },
    "read_only_client": false
   },
-  "jdbc": {
-   "level": "rw",
-   "level_zh": "讀寫正常",
-   "total_impact_secs": 14,
-   "windows": [
-    {
-     "start": "04:34:11",
-     "end": "04:34:25",
-     "secs": 14
-    }
-   ],
-   "failed": 2,
-   "failed_by_type": {
-    "SELECT": 1,
-    "INSERT": 1
-   },
-   "reconnects": 2,
-   "window_ops": {
-    "writes_ok": 18,
-    "writes_fail": 0,
-    "selects_ok": 12,
-    "selects_fail": 0,
-    "lines": 30,
-    "span_secs": 151
-   },
-   "read_only_client": false
-  },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 18,
+   "total_impact_secs": 2,
    "windows": [
     {
-     "start": "04:34:11",
-     "end": "04:34:29",
-     "secs": 18
+     "start": "19:21:54",
+     "end": "19:21:56",
+     "secs": 2
     }
    ],
    "failed": 1,
@@ -108,64 +102,58 @@
   "mysql": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 12,
+   "total_impact_secs": 0,
    "windows": [
     {
-     "start": "04:34:11",
-     "end": "04:34:11",
+     "start": "19:21:54",
+     "end": "19:21:54",
      "secs": 0
-    },
-    {
-     "start": "04:34:20",
-     "end": "04:34:23",
-     "secs": 3
     }
    ],
-   "failed": 2,
+   "failed": 1,
    "failed_by_type": {
-    "INSERT": 2
+    "INSERT": 1
    },
-   "reconnects": 2,
+   "reconnects": 1,
    "events": [
-    "04:34:07 EVENT break: vm stop on doris-1 (FE follower)",
-    "04:34:32 EVENT break: doris-1 is down",
-    "04:36:13 EVENT restore: start doris-1",
-    "04:37:02 EVENT restore: cluster healthy"
+    "19:21:51 EVENT break: vm stop on doris-1 (FE follower)",
+    "19:22:15 EVENT break: doris-1 is down",
+    "19:23:55 EVENT restore: start doris-1",
+    "19:24:38 EVENT restore: cluster healthy"
    ]
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 14,
+   "total_impact_secs": 0,
    "windows": [
     {
-     "start": "04:34:11",
-     "end": "04:34:25",
-     "secs": 14
+     "start": "19:21:55",
+     "end": "19:21:55",
+     "secs": 0
     }
    ],
-   "failed": 2,
+   "failed": 1,
    "failed_by_type": {
-    "SELECT": 1,
     "INSERT": 1
    },
-   "reconnects": 2,
+   "reconnects": 1,
    "events": [
-    "04:34:07 EVENT break: vm stop on doris-1 (FE follower)",
-    "04:34:32 EVENT break: doris-1 is down",
-    "04:36:13 EVENT restore: start doris-1",
-    "04:37:02 EVENT restore: cluster healthy"
+    "19:21:51 EVENT break: vm stop on doris-1 (FE follower)",
+    "19:22:15 EVENT break: doris-1 is down",
+    "19:23:55 EVENT restore: start doris-1",
+    "19:24:38 EVENT restore: cluster healthy"
    ]
   },
   "flight": {
    "level": "read-ok",
    "level_zh": "讀取正常",
-   "total_impact_secs": 18,
+   "total_impact_secs": 2,
    "windows": [
     {
-     "start": "04:34:11",
-     "end": "04:34:29",
-     "secs": 18
+     "start": "19:21:54",
+     "end": "19:21:56",
+     "secs": 2
     }
    ],
    "failed": 1,
@@ -174,13 +162,13 @@
    },
    "reconnects": 1,
    "events": [
-    "04:34:07 EVENT break: vm stop on doris-1 (FE follower)",
-    "04:34:32 EVENT break: doris-1 is down",
-    "04:36:13 EVENT restore: start doris-1",
-    "04:37:02 EVENT restore: cluster healthy"
+    "19:21:51 EVENT break: vm stop on doris-1 (FE follower)",
+    "19:22:15 EVENT break: doris-1 is down",
+    "19:23:55 EVENT restore: start doris-1",
+    "19:24:38 EVENT restore: cluster healthy"
    ]
   }
  },
- "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10124 via doris-2",
- "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10123 via doris-1"
+ "alive_during": "FE 2/3 (master doris-2) BE 2/3 replicas {'DEAD': 4, 'OK': 8} rows=10255 via doris-2",
+ "alive_after": "FE 3/3 (master doris-2) BE 3/3 replicas {'OK': 12} rows=10253 via doris-1"
 }

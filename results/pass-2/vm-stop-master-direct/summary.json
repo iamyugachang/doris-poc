@@ -7,14 +7,14 @@
  "steps": [
   "--target vm --on master"
  ],
- "started": "03:14:55",
- "restore_at": "03:17:41",
- "ended": "03:19:16",
+ "started": "18:07:04",
+ "restore_at": "18:09:43",
+ "ended": "18:11:24",
  "healthy_after": true,
  "breaks": [
   {
    "step": "--target vm --on master",
-   "at": "03:16:06",
+   "at": "18:08:07",
    "rc": 0
   }
  ],
@@ -25,8 +25,8 @@
    "total_impact_secs": 0,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:37",
+     "start": "18:07:46",
+     "end": "18:07:46",
      "secs": 0
     }
    ],
@@ -41,19 +41,19 @@
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 159
+    "span_secs": 150
    },
    "read_only_client": false
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 3,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:41",
-     "secs": 4
+     "start": "18:07:45",
+     "end": "18:07:48",
+     "secs": 3
     }
    ],
    "failed": 1,
@@ -67,7 +67,7 @@
     "selects_ok": 12,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 160
+    "span_secs": 152
    },
    "read_only_client": false
   },
@@ -77,8 +77,8 @@
    "total_impact_secs": 0,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:37",
+     "start": "18:07:46",
+     "end": "18:07:46",
      "secs": 0
     }
    ],
@@ -93,7 +93,7 @@
     "selects_ok": 30,
     "selects_fail": 0,
     "lines": 30,
-    "span_secs": 162
+    "span_secs": 154
    },
    "read_only_client": true
   }
@@ -105,8 +105,8 @@
    "total_impact_secs": 0,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:37",
+     "start": "18:07:46",
+     "end": "18:07:46",
      "secs": 0
     }
    ],
@@ -116,21 +116,21 @@
    },
    "reconnects": 1,
    "events": [
-    "03:15:33 EVENT break: vm stop on doris-2 (FE master)",
-    "03:16:06 EVENT break: doris-2 is down",
-    "03:17:43 EVENT restore: start doris-2",
-    "03:18:44 EVENT restore: cluster healthy"
+    "18:07:42 EVENT break: vm stop on doris-2 (FE master)",
+    "18:08:06 EVENT break: doris-2 is down",
+    "18:09:45 EVENT restore: start doris-2",
+    "18:10:53 EVENT restore: cluster healthy"
    ]
   },
   "jdbc": {
    "level": "rw",
    "level_zh": "讀寫正常",
-   "total_impact_secs": 4,
+   "total_impact_secs": 3,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:41",
-     "secs": 4
+     "start": "18:07:45",
+     "end": "18:07:48",
+     "secs": 3
     }
    ],
    "failed": 1,
@@ -139,10 +139,10 @@
    },
    "reconnects": 1,
    "events": [
-    "03:15:33 EVENT break: vm stop on doris-2 (FE master)",
-    "03:16:06 EVENT break: doris-2 is down",
-    "03:17:43 EVENT restore: start doris-2",
-    "03:18:44 EVENT restore: cluster healthy"
+    "18:07:42 EVENT break: vm stop on doris-2 (FE master)",
+    "18:08:06 EVENT break: doris-2 is down",
+    "18:09:45 EVENT restore: start doris-2",
+    "18:10:53 EVENT restore: cluster healthy"
    ]
   },
   "flight": {
@@ -151,8 +151,8 @@
    "total_impact_secs": 0,
    "windows": [
     {
-     "start": "03:15:37",
-     "end": "03:15:37",
+     "start": "18:07:46",
+     "end": "18:07:46",
      "secs": 0
     }
    ],
@@ -162,13 +162,13 @@
    },
    "reconnects": 1,
    "events": [
-    "03:15:33 EVENT break: vm stop on doris-2 (FE master)",
-    "03:16:06 EVENT break: doris-2 is down",
-    "03:17:43 EVENT restore: start doris-2",
-    "03:18:44 EVENT restore: cluster healthy"
+    "18:07:42 EVENT break: vm stop on doris-2 (FE master)",
+    "18:08:06 EVENT break: doris-2 is down",
+    "18:09:45 EVENT restore: start doris-2",
+    "18:10:53 EVENT restore: cluster healthy"
    ]
   }
  },
- "alive_during": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10067 via doris-1",
- "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10067 via doris-1"
+ "alive_during": "FE 2/3 (master doris-3) BE 2/3 replicas {'OK': 8, 'DEAD': 4} rows=10212 via doris-1",
+ "alive_after": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10213 via doris-1"
 }

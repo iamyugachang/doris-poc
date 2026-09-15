@@ -2,246 +2,476 @@
  "mysql": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
   "phase": null,
-  "started": "03:53:45",
+  "started": "18:46:04",
   "ended": null,
-  "ops": 83,
-  "failed": 21,
+  "ops": 151,
+  "failed": 80,
   "failed_by_type": {
+   "INSERT": 57,
    "UPSERT": 1,
-   "SELECT": 10,
-   "INSERT": 10
+   "SELECT": 22
   },
-  "reconnects": 12,
+  "reconnects": 50,
   "windows": [
    {
-    "start": "03:54:23",
-    "end": "03:54:34",
-    "secs": 11
-   },
-   {
-    "start": "03:54:35",
-    "end": "03:54:35",
+    "start": "18:46:41",
+    "end": "18:46:41",
     "secs": 0
    },
    {
-    "start": "03:54:36",
-    "end": "03:54:54",
-    "secs": 18
+    "start": "18:46:43",
+    "end": "18:46:43",
+    "secs": 0
    },
    {
-    "start": "03:55:20",
+    "start": "18:46:44",
+    "end": "18:46:44",
+    "secs": 0
+   },
+   {
+    "start": "18:46:45",
+    "end": "18:46:45",
+    "secs": 0
+   },
+   {
+    "start": "18:46:46",
+    "end": "18:46:49",
+    "secs": 3
+   },
+   {
+    "start": "18:46:50",
+    "end": "18:46:54",
+    "secs": 4
+   },
+   {
+    "start": "18:46:56",
+    "end": "18:46:56",
+    "secs": 0
+   },
+   {
+    "start": "18:46:57",
+    "end": "18:46:58",
+    "secs": 1
+   },
+   {
+    "start": "18:46:59",
+    "end": "18:47:01",
+    "secs": 2
+   },
+   {
+    "start": "18:47:02",
+    "end": "18:47:05",
+    "secs": 3
+   },
+   {
+    "start": "18:47:06",
+    "end": "18:47:06",
+    "secs": 0
+   },
+   {
+    "start": "18:47:07",
+    "end": "18:47:10",
+    "secs": 3
+   },
+   {
+    "start": "18:47:11",
+    "end": "18:47:11",
+    "secs": 0
+   },
+   {
+    "start": "18:47:12",
+    "end": "18:47:12",
+    "secs": 0
+   },
+   {
+    "start": "18:47:14",
+    "end": "18:47:14",
+    "secs": 0
+   },
+   {
+    "start": "18:47:15",
+    "end": "18:47:15",
+    "secs": 0
+   },
+   {
+    "start": "18:47:16",
+    "end": "18:47:16",
+    "secs": 0
+   },
+   {
+    "start": "18:47:17",
+    "end": "18:47:17",
+    "secs": 0
+   },
+   {
+    "start": "18:47:18",
+    "end": "18:47:18",
+    "secs": 0
+   },
+   {
+    "start": "18:47:19",
+    "end": "18:47:19",
+    "secs": 0
+   },
+   {
+    "start": "18:47:20",
+    "end": "18:47:20",
+    "secs": 0
+   },
+   {
+    "start": "18:47:21",
+    "end": "18:47:21",
+    "secs": 0
+   },
+   {
+    "start": "18:47:22",
+    "end": "18:47:22",
+    "secs": 0
+   },
+   {
+    "start": "18:47:23",
+    "end": "18:47:23",
+    "secs": 0
+   },
+   {
+    "start": "18:47:24",
+    "end": "18:47:25",
+    "secs": 1
+   },
+   {
+    "start": "18:47:26",
+    "end": "18:47:26",
+    "secs": 0
+   },
+   {
+    "start": "18:47:27",
+    "end": "18:47:27",
+    "secs": 0
+   },
+   {
+    "start": "18:47:28",
+    "end": "18:47:28",
+    "secs": 0
+   },
+   {
+    "start": "18:47:29",
+    "end": "18:47:29",
+    "secs": 0
+   },
+   {
+    "start": "18:47:30",
+    "end": "18:47:30",
+    "secs": 0
+   },
+   {
+    "start": "18:47:31",
+    "end": "18:47:31",
+    "secs": 0
+   },
+   {
+    "start": "18:47:32",
+    "end": "18:47:32",
+    "secs": 0
+   },
+   {
+    "start": "18:47:33",
+    "end": "18:47:33",
+    "secs": 0
+   },
+   {
+    "start": "18:47:34",
+    "end": "18:47:35",
+    "secs": 1
+   },
+   {
+    "start": "18:47:36",
+    "end": "18:47:36",
+    "secs": 0
+   },
+   {
+    "start": "18:47:48",
     "end": null,
     "secs": null
    }
   ],
-  "fail_window_secs": 29,
+  "fail_window_secs": 18,
   "gaps": [
    {
-    "from": "03:54:25",
-    "to": "03:54:34",
-    "secs": 9
+    "from": "18:47:36",
+    "to": "18:47:48",
+    "secs": 12
    },
    {
-    "from": "03:54:36",
-    "to": "03:54:44",
-    "secs": 8
+    "from": "18:47:48",
+    "to": "18:47:59",
+    "secs": 11
    },
    {
-    "from": "03:54:45",
-    "to": "03:54:53",
-    "secs": 8
+    "from": "18:47:59",
+    "to": "18:48:11",
+    "secs": 12
    },
    {
-    "from": "03:55:20",
-    "to": "03:55:29",
-    "secs": 9
-   },
-   {
-    "from": "03:55:29",
-    "to": "03:55:37",
-    "secs": 8
-   },
-   {
-    "from": "03:55:37",
-    "to": "03:55:46",
-    "secs": 9
-   },
-   {
-    "from": "03:55:46",
-    "to": "03:55:54",
-    "secs": 8
-   },
-   {
-    "from": "03:55:54",
-    "to": "03:56:03",
-    "secs": 9
-   },
-   {
-    "from": "03:56:03",
-    "to": "03:56:12",
-    "secs": 9
-   },
-   {
-    "from": "03:56:12",
-    "to": "03:56:21",
-    "secs": 9
-   },
-   {
-    "from": "03:56:21",
-    "to": "03:56:29",
-    "secs": 8
-   },
-   {
-    "from": "03:56:29",
-    "to": "03:56:38",
-    "secs": 9
-   },
-   {
-    "from": "03:56:38",
-    "to": "03:56:46",
-    "secs": 8
+    "from": "18:48:11",
+    "to": "18:48:22",
+    "secs": 11
    }
   ],
-  "stall_secs": 111,
-  "max_gap_secs": 9,
-  "impact_secs": 115,
-  "total_impact_secs": 115,
+  "stall_secs": 46,
+  "max_gap_secs": 12,
+  "impact_secs": 64,
+  "total_impact_secs": 64,
   "events": [
-   "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-   "03:54:45 EVENT break: doris-3 is down",
-   "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+   "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+   "18:47:01 EVENT break: doris-2 is down",
+   "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
   ],
   "read_only_client": false,
   "window_ops": {
-   "writes_ok": 12,
-   "writes_fail": 5,
+   "writes_ok": 0,
+   "writes_fail": 15,
    "selects_ok": 7,
-   "selects_fail": 6,
+   "selects_fail": 8,
    "lines": 30,
-   "span_secs": 181
+   "span_secs": 185
   },
-  "level": "rw",
-  "level_zh": "讀寫正常",
+  "level": "ro",
+  "level_zh": "只讀",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "during",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 50,
-   "failed": 21,
+   "ops": 118,
+   "failed": 80,
    "failed_by_type": {
+    "INSERT": 57,
     "UPSERT": 1,
-    "SELECT": 10,
-    "INSERT": 10
+    "SELECT": 22
    },
-   "reconnects": 12,
+   "reconnects": 50,
    "windows": [
     {
-     "start": "03:54:23",
-     "end": "03:54:34",
-     "secs": 11
-    },
-    {
-     "start": "03:54:35",
-     "end": "03:54:35",
+     "start": "18:46:41",
+     "end": "18:46:41",
      "secs": 0
     },
     {
-     "start": "03:54:36",
-     "end": "03:54:54",
-     "secs": 18
+     "start": "18:46:43",
+     "end": "18:46:43",
+     "secs": 0
     },
     {
-     "start": "03:55:20",
+     "start": "18:46:44",
+     "end": "18:46:44",
+     "secs": 0
+    },
+    {
+     "start": "18:46:45",
+     "end": "18:46:45",
+     "secs": 0
+    },
+    {
+     "start": "18:46:46",
+     "end": "18:46:49",
+     "secs": 3
+    },
+    {
+     "start": "18:46:50",
+     "end": "18:46:54",
+     "secs": 4
+    },
+    {
+     "start": "18:46:56",
+     "end": "18:46:56",
+     "secs": 0
+    },
+    {
+     "start": "18:46:57",
+     "end": "18:46:58",
+     "secs": 1
+    },
+    {
+     "start": "18:46:59",
+     "end": "18:47:01",
+     "secs": 2
+    },
+    {
+     "start": "18:47:02",
+     "end": "18:47:05",
+     "secs": 3
+    },
+    {
+     "start": "18:47:06",
+     "end": "18:47:06",
+     "secs": 0
+    },
+    {
+     "start": "18:47:07",
+     "end": "18:47:10",
+     "secs": 3
+    },
+    {
+     "start": "18:47:11",
+     "end": "18:47:11",
+     "secs": 0
+    },
+    {
+     "start": "18:47:12",
+     "end": "18:47:12",
+     "secs": 0
+    },
+    {
+     "start": "18:47:14",
+     "end": "18:47:14",
+     "secs": 0
+    },
+    {
+     "start": "18:47:15",
+     "end": "18:47:15",
+     "secs": 0
+    },
+    {
+     "start": "18:47:16",
+     "end": "18:47:16",
+     "secs": 0
+    },
+    {
+     "start": "18:47:17",
+     "end": "18:47:17",
+     "secs": 0
+    },
+    {
+     "start": "18:47:18",
+     "end": "18:47:18",
+     "secs": 0
+    },
+    {
+     "start": "18:47:19",
+     "end": "18:47:19",
+     "secs": 0
+    },
+    {
+     "start": "18:47:20",
+     "end": "18:47:20",
+     "secs": 0
+    },
+    {
+     "start": "18:47:21",
+     "end": "18:47:21",
+     "secs": 0
+    },
+    {
+     "start": "18:47:22",
+     "end": "18:47:22",
+     "secs": 0
+    },
+    {
+     "start": "18:47:23",
+     "end": "18:47:23",
+     "secs": 0
+    },
+    {
+     "start": "18:47:24",
+     "end": "18:47:25",
+     "secs": 1
+    },
+    {
+     "start": "18:47:26",
+     "end": "18:47:26",
+     "secs": 0
+    },
+    {
+     "start": "18:47:27",
+     "end": "18:47:27",
+     "secs": 0
+    },
+    {
+     "start": "18:47:28",
+     "end": "18:47:28",
+     "secs": 0
+    },
+    {
+     "start": "18:47:29",
+     "end": "18:47:29",
+     "secs": 0
+    },
+    {
+     "start": "18:47:30",
+     "end": "18:47:30",
+     "secs": 0
+    },
+    {
+     "start": "18:47:31",
+     "end": "18:47:31",
+     "secs": 0
+    },
+    {
+     "start": "18:47:32",
+     "end": "18:47:32",
+     "secs": 0
+    },
+    {
+     "start": "18:47:33",
+     "end": "18:47:33",
+     "secs": 0
+    },
+    {
+     "start": "18:47:34",
+     "end": "18:47:35",
+     "secs": 1
+    },
+    {
+     "start": "18:47:36",
+     "end": "18:47:36",
+     "secs": 0
+    },
+    {
+     "start": "18:47:48",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 29,
+   "fail_window_secs": 18,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:34",
-     "secs": 9
+     "from": "18:47:36",
+     "to": "18:47:48",
+     "secs": 12
     },
     {
-     "from": "03:54:36",
-     "to": "03:54:44",
-     "secs": 8
+     "from": "18:47:48",
+     "to": "18:47:59",
+     "secs": 11
     },
     {
-     "from": "03:54:45",
-     "to": "03:54:53",
-     "secs": 8
+     "from": "18:47:59",
+     "to": "18:48:11",
+     "secs": 12
     },
     {
-     "from": "03:55:20",
-     "to": "03:55:29",
-     "secs": 9
-    },
-    {
-     "from": "03:55:29",
-     "to": "03:55:37",
-     "secs": 8
-    },
-    {
-     "from": "03:55:37",
-     "to": "03:55:46",
-     "secs": 9
-    },
-    {
-     "from": "03:55:46",
-     "to": "03:55:54",
-     "secs": 8
-    },
-    {
-     "from": "03:55:54",
-     "to": "03:56:03",
-     "secs": 9
-    },
-    {
-     "from": "03:56:03",
-     "to": "03:56:12",
-     "secs": 9
-    },
-    {
-     "from": "03:56:12",
-     "to": "03:56:21",
-     "secs": 9
-    },
-    {
-     "from": "03:56:21",
-     "to": "03:56:29",
-     "secs": 8
-    },
-    {
-     "from": "03:56:29",
-     "to": "03:56:38",
-     "secs": 9
-    },
-    {
-     "from": "03:56:38",
-     "to": "03:56:46",
-     "secs": 8
+     "from": "18:48:11",
+     "to": "18:48:22",
+     "secs": 11
     }
    ],
-   "stall_secs": 111,
-   "max_gap_secs": 9,
-   "impact_secs": 115,
-   "total_impact_secs": 115,
+   "stall_secs": 46,
+   "max_gap_secs": 12,
+   "impact_secs": 64,
+   "total_impact_secs": 64,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
     "writes_ok": 0,
-    "writes_fail": 2,
+    "writes_fail": 5,
     "selects_ok": 0,
-    "selects_fail": 2,
-    "lines": 4,
-    "span_secs": 146
+    "selects_fail": 4,
+    "lines": 9,
+    "span_secs": 151
    },
    "level": "down",
    "level_zh": "不可用"
@@ -249,123 +479,238 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "after",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 83,
-   "failed": 21,
+   "ops": 151,
+   "failed": 80,
    "failed_by_type": {
+    "INSERT": 57,
     "UPSERT": 1,
-    "SELECT": 10,
-    "INSERT": 10
+    "SELECT": 22
    },
-   "reconnects": 13,
+   "reconnects": 51,
    "windows": [
     {
-     "start": "03:54:23",
-     "end": "03:54:34",
-     "secs": 11
-    },
-    {
-     "start": "03:54:35",
-     "end": "03:54:35",
+     "start": "18:46:41",
+     "end": "18:46:41",
      "secs": 0
     },
     {
-     "start": "03:54:36",
-     "end": "03:54:54",
-     "secs": 18
+     "start": "18:46:43",
+     "end": "18:46:43",
+     "secs": 0
     },
     {
-     "start": "03:55:20",
+     "start": "18:46:44",
+     "end": "18:46:44",
+     "secs": 0
+    },
+    {
+     "start": "18:46:45",
+     "end": "18:46:45",
+     "secs": 0
+    },
+    {
+     "start": "18:46:46",
+     "end": "18:46:49",
+     "secs": 3
+    },
+    {
+     "start": "18:46:50",
+     "end": "18:46:54",
+     "secs": 4
+    },
+    {
+     "start": "18:46:56",
+     "end": "18:46:56",
+     "secs": 0
+    },
+    {
+     "start": "18:46:57",
+     "end": "18:46:58",
+     "secs": 1
+    },
+    {
+     "start": "18:46:59",
+     "end": "18:47:01",
+     "secs": 2
+    },
+    {
+     "start": "18:47:02",
+     "end": "18:47:05",
+     "secs": 3
+    },
+    {
+     "start": "18:47:06",
+     "end": "18:47:06",
+     "secs": 0
+    },
+    {
+     "start": "18:47:07",
+     "end": "18:47:10",
+     "secs": 3
+    },
+    {
+     "start": "18:47:11",
+     "end": "18:47:11",
+     "secs": 0
+    },
+    {
+     "start": "18:47:12",
+     "end": "18:47:12",
+     "secs": 0
+    },
+    {
+     "start": "18:47:14",
+     "end": "18:47:14",
+     "secs": 0
+    },
+    {
+     "start": "18:47:15",
+     "end": "18:47:15",
+     "secs": 0
+    },
+    {
+     "start": "18:47:16",
+     "end": "18:47:16",
+     "secs": 0
+    },
+    {
+     "start": "18:47:17",
+     "end": "18:47:17",
+     "secs": 0
+    },
+    {
+     "start": "18:47:18",
+     "end": "18:47:18",
+     "secs": 0
+    },
+    {
+     "start": "18:47:19",
+     "end": "18:47:19",
+     "secs": 0
+    },
+    {
+     "start": "18:47:20",
+     "end": "18:47:20",
+     "secs": 0
+    },
+    {
+     "start": "18:47:21",
+     "end": "18:47:21",
+     "secs": 0
+    },
+    {
+     "start": "18:47:22",
+     "end": "18:47:22",
+     "secs": 0
+    },
+    {
+     "start": "18:47:23",
+     "end": "18:47:23",
+     "secs": 0
+    },
+    {
+     "start": "18:47:24",
+     "end": "18:47:25",
+     "secs": 1
+    },
+    {
+     "start": "18:47:26",
+     "end": "18:47:26",
+     "secs": 0
+    },
+    {
+     "start": "18:47:27",
+     "end": "18:47:27",
+     "secs": 0
+    },
+    {
+     "start": "18:47:28",
+     "end": "18:47:28",
+     "secs": 0
+    },
+    {
+     "start": "18:47:29",
+     "end": "18:47:29",
+     "secs": 0
+    },
+    {
+     "start": "18:47:30",
+     "end": "18:47:30",
+     "secs": 0
+    },
+    {
+     "start": "18:47:31",
+     "end": "18:47:31",
+     "secs": 0
+    },
+    {
+     "start": "18:47:32",
+     "end": "18:47:32",
+     "secs": 0
+    },
+    {
+     "start": "18:47:33",
+     "end": "18:47:33",
+     "secs": 0
+    },
+    {
+     "start": "18:47:34",
+     "end": "18:47:35",
+     "secs": 1
+    },
+    {
+     "start": "18:47:36",
+     "end": "18:47:36",
+     "secs": 0
+    },
+    {
+     "start": "18:47:48",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 29,
+   "fail_window_secs": 18,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:34",
-     "secs": 9
+     "from": "18:47:36",
+     "to": "18:47:48",
+     "secs": 12
     },
     {
-     "from": "03:54:36",
-     "to": "03:54:44",
-     "secs": 8
+     "from": "18:47:48",
+     "to": "18:47:59",
+     "secs": 11
     },
     {
-     "from": "03:54:45",
-     "to": "03:54:53",
-     "secs": 8
+     "from": "18:47:59",
+     "to": "18:48:11",
+     "secs": 12
     },
     {
-     "from": "03:55:20",
-     "to": "03:55:29",
-     "secs": 9
-    },
-    {
-     "from": "03:55:29",
-     "to": "03:55:37",
-     "secs": 8
-    },
-    {
-     "from": "03:55:37",
-     "to": "03:55:46",
-     "secs": 9
-    },
-    {
-     "from": "03:55:46",
-     "to": "03:55:54",
-     "secs": 8
-    },
-    {
-     "from": "03:55:54",
-     "to": "03:56:03",
-     "secs": 9
-    },
-    {
-     "from": "03:56:03",
-     "to": "03:56:12",
-     "secs": 9
-    },
-    {
-     "from": "03:56:12",
-     "to": "03:56:21",
-     "secs": 9
-    },
-    {
-     "from": "03:56:21",
-     "to": "03:56:29",
-     "secs": 8
-    },
-    {
-     "from": "03:56:29",
-     "to": "03:56:38",
-     "secs": 9
-    },
-    {
-     "from": "03:56:38",
-     "to": "03:56:46",
-     "secs": 8
+     "from": "18:48:11",
+     "to": "18:48:22",
+     "secs": 11
     }
    ],
-   "stall_secs": 111,
-   "max_gap_secs": 9,
-   "impact_secs": 115,
-   "total_impact_secs": 115,
+   "stall_secs": 46,
+   "max_gap_secs": 12,
+   "impact_secs": 64,
+   "total_impact_secs": 64,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
     "writes_ok": 0,
-    "writes_fail": 2,
+    "writes_fail": 5,
     "selects_ok": 0,
-    "selects_fail": 2,
-    "lines": 4,
-    "span_secs": 181
+    "selects_fail": 4,
+    "lines": 9,
+    "span_secs": 185
    },
    "level": "down",
    "level_zh": "不可用"
@@ -374,194 +719,456 @@
  "jdbc": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
   "phase": null,
-  "started": "03:53:45",
+  "started": "18:46:04",
   "ended": null,
-  "ops": 73,
-  "failed": 16,
+  "ops": 117,
+  "failed": 48,
   "failed_by_type": {
-   "INSERT": 9,
+   "UPSERT": 1,
+   "INSERT": 40,
    "SELECT": 7
   },
-  "reconnects": 7,
+  "reconnects": 40,
   "windows": [
    {
-    "start": "03:54:23",
-    "end": "03:54:57",
-    "secs": 34
-   },
-   {
-    "start": "03:55:19",
-    "end": "03:55:19",
+    "start": "18:46:43",
+    "end": "18:46:43",
     "secs": 0
    },
    {
-    "start": "03:55:32",
+    "start": "18:46:44",
+    "end": "18:46:44",
+    "secs": 0
+   },
+   {
+    "start": "18:46:45",
+    "end": "18:46:45",
+    "secs": 0
+   },
+   {
+    "start": "18:46:46",
+    "end": "18:46:47",
+    "secs": 1
+   },
+   {
+    "start": "18:46:48",
+    "end": "18:46:49",
+    "secs": 1
+   },
+   {
+    "start": "18:46:50",
+    "end": "18:46:53",
+    "secs": 3
+   },
+   {
+    "start": "18:46:54",
+    "end": "18:46:55",
+    "secs": 1
+   },
+   {
+    "start": "18:46:56",
+    "end": "18:46:56",
+    "secs": 0
+   },
+   {
+    "start": "18:47:09",
+    "end": "18:47:09",
+    "secs": 0
+   },
+   {
+    "start": "18:47:10",
+    "end": "18:47:11",
+    "secs": 1
+   },
+   {
+    "start": "18:47:12",
+    "end": "18:47:12",
+    "secs": 0
+   },
+   {
+    "start": "18:47:13",
+    "end": "18:47:13",
+    "secs": 0
+   },
+   {
+    "start": "18:47:14",
+    "end": "18:47:14",
+    "secs": 0
+   },
+   {
+    "start": "18:47:15",
+    "end": "18:47:15",
+    "secs": 0
+   },
+   {
+    "start": "18:47:16",
+    "end": "18:47:16",
+    "secs": 0
+   },
+   {
+    "start": "18:47:17",
+    "end": "18:47:17",
+    "secs": 0
+   },
+   {
+    "start": "18:47:18",
+    "end": "18:47:18",
+    "secs": 0
+   },
+   {
+    "start": "18:47:19",
+    "end": "18:47:19",
+    "secs": 0
+   },
+   {
+    "start": "18:47:20",
+    "end": "18:47:20",
+    "secs": 0
+   },
+   {
+    "start": "18:47:21",
+    "end": "18:47:21",
+    "secs": 0
+   },
+   {
+    "start": "18:47:23",
+    "end": "18:47:23",
+    "secs": 0
+   },
+   {
+    "start": "18:47:24",
+    "end": "18:47:24",
+    "secs": 0
+   },
+   {
+    "start": "18:47:25",
+    "end": "18:47:25",
+    "secs": 0
+   },
+   {
+    "start": "18:47:26",
+    "end": "18:47:26",
+    "secs": 0
+   },
+   {
+    "start": "18:47:27",
+    "end": "18:47:27",
+    "secs": 0
+   },
+   {
+    "start": "18:47:28",
+    "end": "18:47:28",
+    "secs": 0
+   },
+   {
+    "start": "18:47:29",
+    "end": "18:47:29",
+    "secs": 0
+   },
+   {
+    "start": "18:47:30",
+    "end": "18:47:30",
+    "secs": 0
+   },
+   {
+    "start": "18:47:31",
+    "end": "18:47:31",
+    "secs": 0
+   },
+   {
+    "start": "18:47:32",
+    "end": "18:47:32",
+    "secs": 0
+   },
+   {
+    "start": "18:47:33",
+    "end": "18:47:33",
+    "secs": 0
+   },
+   {
+    "start": "18:47:34",
+    "end": "18:47:34",
+    "secs": 0
+   },
+   {
+    "start": "18:47:35",
+    "end": "18:47:35",
+    "secs": 0
+   },
+   {
+    "start": "18:47:50",
     "end": null,
     "secs": null
    }
   ],
-  "fail_window_secs": 34,
+  "fail_window_secs": 7,
   "gaps": [
    {
-    "from": "03:54:25",
-    "to": "03:54:57",
-    "secs": 32
-   },
-   {
-    "from": "03:55:19",
-    "to": "03:55:32",
+    "from": "18:46:56",
+    "to": "18:47:09",
     "secs": 13
    },
    {
-    "from": "03:55:32",
-    "to": "03:55:43",
-    "secs": 11
+    "from": "18:47:35",
+    "to": "18:47:50",
+    "secs": 15
    },
    {
-    "from": "03:55:43",
-    "to": "03:55:55",
-    "secs": 12
+    "from": "18:47:50",
+    "to": "18:48:04",
+    "secs": 14
    },
    {
-    "from": "03:55:55",
-    "to": "03:56:06",
-    "secs": 11
-   },
-   {
-    "from": "03:56:06",
-    "to": "03:56:18",
-    "secs": 12
-   },
-   {
-    "from": "03:56:18",
-    "to": "03:56:29",
-    "secs": 11
-   },
-   {
-    "from": "03:56:29",
-    "to": "03:56:41",
-    "secs": 12
-   },
-   {
-    "from": "03:56:41",
-    "to": "03:56:52",
-    "secs": 11
+    "from": "18:48:04",
+    "to": "18:48:19",
+    "secs": 15
    }
   ],
-  "stall_secs": 125,
-  "max_gap_secs": 32,
-  "impact_secs": 127,
-  "total_impact_secs": 127,
+  "stall_secs": 57,
+  "max_gap_secs": 15,
+  "impact_secs": 64,
+  "total_impact_secs": 64,
   "events": [
-   "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-   "03:54:45 EVENT break: doris-3 is down",
-   "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+   "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+   "18:47:01 EVENT break: doris-2 is down",
+   "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
   ],
   "read_only_client": false,
   "window_ops": {
-   "writes_ok": 12,
-   "writes_fail": 5,
-   "selects_ok": 9,
-   "selects_fail": 4,
+   "writes_ok": 0,
+   "writes_fail": 15,
+   "selects_ok": 14,
+   "selects_fail": 1,
    "lines": 30,
-   "span_secs": 187
+   "span_secs": 135
   },
-  "level": "rw",
-  "level_zh": "讀寫正常",
+  "level": "ro",
+  "level_zh": "只讀",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "during",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 41,
-   "failed": 16,
+   "ops": 85,
+   "failed": 48,
    "failed_by_type": {
-    "INSERT": 9,
+    "UPSERT": 1,
+    "INSERT": 40,
     "SELECT": 7
    },
-   "reconnects": 7,
+   "reconnects": 40,
    "windows": [
     {
-     "start": "03:54:23",
-     "end": "03:54:57",
-     "secs": 34
-    },
-    {
-     "start": "03:55:19",
-     "end": "03:55:19",
+     "start": "18:46:43",
+     "end": "18:46:43",
      "secs": 0
     },
     {
-     "start": "03:55:32",
+     "start": "18:46:44",
+     "end": "18:46:44",
+     "secs": 0
+    },
+    {
+     "start": "18:46:45",
+     "end": "18:46:45",
+     "secs": 0
+    },
+    {
+     "start": "18:46:46",
+     "end": "18:46:47",
+     "secs": 1
+    },
+    {
+     "start": "18:46:48",
+     "end": "18:46:49",
+     "secs": 1
+    },
+    {
+     "start": "18:46:50",
+     "end": "18:46:53",
+     "secs": 3
+    },
+    {
+     "start": "18:46:54",
+     "end": "18:46:55",
+     "secs": 1
+    },
+    {
+     "start": "18:46:56",
+     "end": "18:46:56",
+     "secs": 0
+    },
+    {
+     "start": "18:47:09",
+     "end": "18:47:09",
+     "secs": 0
+    },
+    {
+     "start": "18:47:10",
+     "end": "18:47:11",
+     "secs": 1
+    },
+    {
+     "start": "18:47:12",
+     "end": "18:47:12",
+     "secs": 0
+    },
+    {
+     "start": "18:47:13",
+     "end": "18:47:13",
+     "secs": 0
+    },
+    {
+     "start": "18:47:14",
+     "end": "18:47:14",
+     "secs": 0
+    },
+    {
+     "start": "18:47:15",
+     "end": "18:47:15",
+     "secs": 0
+    },
+    {
+     "start": "18:47:16",
+     "end": "18:47:16",
+     "secs": 0
+    },
+    {
+     "start": "18:47:17",
+     "end": "18:47:17",
+     "secs": 0
+    },
+    {
+     "start": "18:47:18",
+     "end": "18:47:18",
+     "secs": 0
+    },
+    {
+     "start": "18:47:19",
+     "end": "18:47:19",
+     "secs": 0
+    },
+    {
+     "start": "18:47:20",
+     "end": "18:47:20",
+     "secs": 0
+    },
+    {
+     "start": "18:47:21",
+     "end": "18:47:21",
+     "secs": 0
+    },
+    {
+     "start": "18:47:23",
+     "end": "18:47:23",
+     "secs": 0
+    },
+    {
+     "start": "18:47:24",
+     "end": "18:47:24",
+     "secs": 0
+    },
+    {
+     "start": "18:47:25",
+     "end": "18:47:25",
+     "secs": 0
+    },
+    {
+     "start": "18:47:26",
+     "end": "18:47:26",
+     "secs": 0
+    },
+    {
+     "start": "18:47:27",
+     "end": "18:47:27",
+     "secs": 0
+    },
+    {
+     "start": "18:47:28",
+     "end": "18:47:28",
+     "secs": 0
+    },
+    {
+     "start": "18:47:29",
+     "end": "18:47:29",
+     "secs": 0
+    },
+    {
+     "start": "18:47:30",
+     "end": "18:47:30",
+     "secs": 0
+    },
+    {
+     "start": "18:47:31",
+     "end": "18:47:31",
+     "secs": 0
+    },
+    {
+     "start": "18:47:32",
+     "end": "18:47:32",
+     "secs": 0
+    },
+    {
+     "start": "18:47:33",
+     "end": "18:47:33",
+     "secs": 0
+    },
+    {
+     "start": "18:47:34",
+     "end": "18:47:34",
+     "secs": 0
+    },
+    {
+     "start": "18:47:35",
+     "end": "18:47:35",
+     "secs": 0
+    },
+    {
+     "start": "18:47:50",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 34,
+   "fail_window_secs": 7,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:57",
-     "secs": 32
-    },
-    {
-     "from": "03:55:19",
-     "to": "03:55:32",
+     "from": "18:46:56",
+     "to": "18:47:09",
      "secs": 13
     },
     {
-     "from": "03:55:32",
-     "to": "03:55:43",
-     "secs": 11
+     "from": "18:47:35",
+     "to": "18:47:50",
+     "secs": 15
     },
     {
-     "from": "03:55:43",
-     "to": "03:55:55",
-     "secs": 12
+     "from": "18:47:50",
+     "to": "18:48:04",
+     "secs": 14
     },
     {
-     "from": "03:55:55",
-     "to": "03:56:06",
-     "secs": 11
-    },
-    {
-     "from": "03:56:06",
-     "to": "03:56:18",
-     "secs": 12
-    },
-    {
-     "from": "03:56:18",
-     "to": "03:56:29",
-     "secs": 11
-    },
-    {
-     "from": "03:56:29",
-     "to": "03:56:41",
-     "secs": 12
-    },
-    {
-     "from": "03:56:41",
-     "to": "03:56:52",
-     "secs": 11
+     "from": "18:48:04",
+     "to": "18:48:19",
+     "secs": 15
     }
    ],
-   "stall_secs": 125,
-   "max_gap_secs": 32,
-   "impact_secs": 127,
-   "total_impact_secs": 127,
+   "stall_secs": 57,
+   "max_gap_secs": 15,
+   "impact_secs": 64,
+   "total_impact_secs": 64,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
     "writes_ok": 0,
-    "writes_fail": 1,
+    "writes_fail": 2,
     "selects_ok": 0,
-    "selects_fail": 2,
+    "selects_fail": 1,
     "lines": 3,
-    "span_secs": 152
+    "span_secs": 101
    },
    "level": "down",
    "level_zh": "不可用"
@@ -569,97 +1176,228 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "after",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 73,
-   "failed": 16,
+   "ops": 117,
+   "failed": 48,
    "failed_by_type": {
-    "INSERT": 9,
+    "UPSERT": 1,
+    "INSERT": 40,
     "SELECT": 7
    },
-   "reconnects": 8,
+   "reconnects": 41,
    "windows": [
     {
-     "start": "03:54:23",
-     "end": "03:54:57",
-     "secs": 34
-    },
-    {
-     "start": "03:55:19",
-     "end": "03:55:19",
+     "start": "18:46:43",
+     "end": "18:46:43",
      "secs": 0
     },
     {
-     "start": "03:55:32",
+     "start": "18:46:44",
+     "end": "18:46:44",
+     "secs": 0
+    },
+    {
+     "start": "18:46:45",
+     "end": "18:46:45",
+     "secs": 0
+    },
+    {
+     "start": "18:46:46",
+     "end": "18:46:47",
+     "secs": 1
+    },
+    {
+     "start": "18:46:48",
+     "end": "18:46:49",
+     "secs": 1
+    },
+    {
+     "start": "18:46:50",
+     "end": "18:46:53",
+     "secs": 3
+    },
+    {
+     "start": "18:46:54",
+     "end": "18:46:55",
+     "secs": 1
+    },
+    {
+     "start": "18:46:56",
+     "end": "18:46:56",
+     "secs": 0
+    },
+    {
+     "start": "18:47:09",
+     "end": "18:47:09",
+     "secs": 0
+    },
+    {
+     "start": "18:47:10",
+     "end": "18:47:11",
+     "secs": 1
+    },
+    {
+     "start": "18:47:12",
+     "end": "18:47:12",
+     "secs": 0
+    },
+    {
+     "start": "18:47:13",
+     "end": "18:47:13",
+     "secs": 0
+    },
+    {
+     "start": "18:47:14",
+     "end": "18:47:14",
+     "secs": 0
+    },
+    {
+     "start": "18:47:15",
+     "end": "18:47:15",
+     "secs": 0
+    },
+    {
+     "start": "18:47:16",
+     "end": "18:47:16",
+     "secs": 0
+    },
+    {
+     "start": "18:47:17",
+     "end": "18:47:17",
+     "secs": 0
+    },
+    {
+     "start": "18:47:18",
+     "end": "18:47:18",
+     "secs": 0
+    },
+    {
+     "start": "18:47:19",
+     "end": "18:47:19",
+     "secs": 0
+    },
+    {
+     "start": "18:47:20",
+     "end": "18:47:20",
+     "secs": 0
+    },
+    {
+     "start": "18:47:21",
+     "end": "18:47:21",
+     "secs": 0
+    },
+    {
+     "start": "18:47:23",
+     "end": "18:47:23",
+     "secs": 0
+    },
+    {
+     "start": "18:47:24",
+     "end": "18:47:24",
+     "secs": 0
+    },
+    {
+     "start": "18:47:25",
+     "end": "18:47:25",
+     "secs": 0
+    },
+    {
+     "start": "18:47:26",
+     "end": "18:47:26",
+     "secs": 0
+    },
+    {
+     "start": "18:47:27",
+     "end": "18:47:27",
+     "secs": 0
+    },
+    {
+     "start": "18:47:28",
+     "end": "18:47:28",
+     "secs": 0
+    },
+    {
+     "start": "18:47:29",
+     "end": "18:47:29",
+     "secs": 0
+    },
+    {
+     "start": "18:47:30",
+     "end": "18:47:30",
+     "secs": 0
+    },
+    {
+     "start": "18:47:31",
+     "end": "18:47:31",
+     "secs": 0
+    },
+    {
+     "start": "18:47:32",
+     "end": "18:47:32",
+     "secs": 0
+    },
+    {
+     "start": "18:47:33",
+     "end": "18:47:33",
+     "secs": 0
+    },
+    {
+     "start": "18:47:34",
+     "end": "18:47:34",
+     "secs": 0
+    },
+    {
+     "start": "18:47:35",
+     "end": "18:47:35",
+     "secs": 0
+    },
+    {
+     "start": "18:47:50",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 34,
+   "fail_window_secs": 7,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:57",
-     "secs": 32
-    },
-    {
-     "from": "03:55:19",
-     "to": "03:55:32",
+     "from": "18:46:56",
+     "to": "18:47:09",
      "secs": 13
     },
     {
-     "from": "03:55:32",
-     "to": "03:55:43",
-     "secs": 11
+     "from": "18:47:35",
+     "to": "18:47:50",
+     "secs": 15
     },
     {
-     "from": "03:55:43",
-     "to": "03:55:55",
-     "secs": 12
+     "from": "18:47:50",
+     "to": "18:48:04",
+     "secs": 14
     },
     {
-     "from": "03:55:55",
-     "to": "03:56:06",
-     "secs": 11
-    },
-    {
-     "from": "03:56:06",
-     "to": "03:56:18",
-     "secs": 12
-    },
-    {
-     "from": "03:56:18",
-     "to": "03:56:29",
-     "secs": 11
-    },
-    {
-     "from": "03:56:29",
-     "to": "03:56:41",
-     "secs": 12
-    },
-    {
-     "from": "03:56:41",
-     "to": "03:56:52",
-     "secs": 11
+     "from": "18:48:04",
+     "to": "18:48:19",
+     "secs": 15
     }
    ],
-   "stall_secs": 125,
-   "max_gap_secs": 32,
-   "impact_secs": 127,
-   "total_impact_secs": 127,
+   "stall_secs": 57,
+   "max_gap_secs": 15,
+   "impact_secs": 64,
+   "total_impact_secs": 64,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": false,
    "window_ops": {
     "writes_ok": 0,
-    "writes_fail": 1,
+    "writes_fail": 2,
     "selects_ok": 0,
-    "selects_fail": 2,
+    "selects_fail": 1,
     "lines": 3,
-    "span_secs": 187
+    "span_secs": 135
    },
    "level": "down",
    "level_zh": "不可用"
@@ -668,102 +1406,57 @@
  "flight": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
   "phase": null,
-  "started": "03:53:45",
+  "started": "18:46:04",
   "ended": null,
-  "ops": 77,
-  "failed": 16,
+  "ops": 89,
+  "failed": 34,
   "failed_by_type": {
-   "SELECT": 16
+   "SELECT": 34
   },
-  "reconnects": 16,
+  "reconnects": 30,
   "windows": [
    {
-    "start": "03:54:24",
-    "end": "03:54:53",
-    "secs": 29
+    "start": "18:46:44",
+    "end": "18:47:12",
+    "secs": 28
    },
    {
-    "start": "03:55:19",
+    "start": "18:47:32",
     "end": null,
     "secs": null
    }
   ],
-  "fail_window_secs": 29,
+  "fail_window_secs": 28,
   "gaps": [
    {
-    "from": "03:54:25",
-    "to": "03:54:34",
-    "secs": 9
+    "from": "18:47:35",
+    "to": "18:48:05",
+    "secs": 30
    },
    {
-    "from": "03:54:34",
-    "to": "03:54:43",
-    "secs": 9
+    "from": "18:48:05",
+    "to": "18:48:26",
+    "secs": 21
    },
    {
-    "from": "03:54:43",
-    "to": "03:54:52",
-    "secs": 9
+    "from": "18:48:26",
+    "to": "18:48:47",
+    "secs": 21
    },
    {
-    "from": "03:55:19",
-    "to": "03:55:29",
-    "secs": 10
-   },
-   {
-    "from": "03:55:29",
-    "to": "03:55:38",
-    "secs": 9
-   },
-   {
-    "from": "03:55:38",
-    "to": "03:55:47",
-    "secs": 9
-   },
-   {
-    "from": "03:55:47",
-    "to": "03:55:56",
-    "secs": 9
-   },
-   {
-    "from": "03:55:56",
-    "to": "03:56:05",
-    "secs": 9
-   },
-   {
-    "from": "03:56:05",
-    "to": "03:56:14",
-    "secs": 9
-   },
-   {
-    "from": "03:56:14",
-    "to": "03:56:23",
-    "secs": 9
-   },
-   {
-    "from": "03:56:23",
-    "to": "03:56:32",
-    "secs": 9
-   },
-   {
-    "from": "03:56:32",
-    "to": "03:56:41",
-    "secs": 9
-   },
-   {
-    "from": "03:56:41",
-    "to": "03:56:50",
-    "secs": 9
+    "from": "18:48:47",
+    "to": "18:49:08",
+    "secs": 21
    }
   ],
-  "stall_secs": 118,
-  "max_gap_secs": 10,
-  "impact_secs": 120,
-  "total_impact_secs": 120,
+  "stall_secs": 93,
+  "max_gap_secs": 30,
+  "impact_secs": 121,
+  "total_impact_secs": 121,
   "events": [
-   "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-   "03:54:45 EVENT break: doris-3 is down",
-   "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+   "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+   "18:47:01 EVENT break: doris-2 is down",
+   "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
   ],
   "read_only_client": true,
   "window_ops": {
@@ -772,117 +1465,72 @@
    "selects_ok": 19,
    "selects_fail": 11,
    "lines": 30,
-   "span_secs": 185
+   "span_secs": 184
   },
   "level": "read-ok",
   "level_zh": "讀取正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "during",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 44,
-   "failed": 16,
+   "ops": 57,
+   "failed": 34,
    "failed_by_type": {
-    "SELECT": 16
+    "SELECT": 34
    },
-   "reconnects": 16,
+   "reconnects": 30,
    "windows": [
     {
-     "start": "03:54:24",
-     "end": "03:54:53",
-     "secs": 29
+     "start": "18:46:44",
+     "end": "18:47:12",
+     "secs": 28
     },
     {
-     "start": "03:55:19",
+     "start": "18:47:32",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 29,
+   "fail_window_secs": 28,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:34",
-     "secs": 9
+     "from": "18:47:35",
+     "to": "18:48:05",
+     "secs": 30
     },
     {
-     "from": "03:54:34",
-     "to": "03:54:43",
-     "secs": 9
+     "from": "18:48:05",
+     "to": "18:48:26",
+     "secs": 21
     },
     {
-     "from": "03:54:43",
-     "to": "03:54:52",
-     "secs": 9
+     "from": "18:48:26",
+     "to": "18:48:47",
+     "secs": 21
     },
     {
-     "from": "03:55:19",
-     "to": "03:55:29",
-     "secs": 10
-    },
-    {
-     "from": "03:55:29",
-     "to": "03:55:38",
-     "secs": 9
-    },
-    {
-     "from": "03:55:38",
-     "to": "03:55:47",
-     "secs": 9
-    },
-    {
-     "from": "03:55:47",
-     "to": "03:55:56",
-     "secs": 9
-    },
-    {
-     "from": "03:55:56",
-     "to": "03:56:05",
-     "secs": 9
-    },
-    {
-     "from": "03:56:05",
-     "to": "03:56:14",
-     "secs": 9
-    },
-    {
-     "from": "03:56:14",
-     "to": "03:56:23",
-     "secs": 9
-    },
-    {
-     "from": "03:56:23",
-     "to": "03:56:32",
-     "secs": 9
-    },
-    {
-     "from": "03:56:32",
-     "to": "03:56:41",
-     "secs": 9
-    },
-    {
-     "from": "03:56:41",
-     "to": "03:56:50",
-     "secs": 9
+     "from": "18:48:47",
+     "to": "18:49:08",
+     "secs": 21
     }
    ],
-   "stall_secs": 118,
-   "max_gap_secs": 10,
-   "impact_secs": 120,
-   "total_impact_secs": 120,
+   "stall_secs": 93,
+   "max_gap_secs": 30,
+   "impact_secs": 121,
+   "total_impact_secs": 121,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": true,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
     "selects_ok": 0,
-    "selects_fail": 4,
-    "lines": 4,
+    "selects_fail": 2,
+    "lines": 2,
     "span_secs": 150
    },
    "level": "read-down",
@@ -891,116 +1539,71 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "after",
-   "started": "03:53:45",
+   "started": "18:46:04",
    "ended": null,
-   "ops": 77,
-   "failed": 16,
+   "ops": 89,
+   "failed": 34,
    "failed_by_type": {
-    "SELECT": 16
+    "SELECT": 34
    },
-   "reconnects": 17,
+   "reconnects": 31,
    "windows": [
     {
-     "start": "03:54:24",
-     "end": "03:54:53",
-     "secs": 29
+     "start": "18:46:44",
+     "end": "18:47:12",
+     "secs": 28
     },
     {
-     "start": "03:55:19",
+     "start": "18:47:32",
      "end": null,
      "secs": null
     }
    ],
-   "fail_window_secs": 29,
+   "fail_window_secs": 28,
    "gaps": [
     {
-     "from": "03:54:25",
-     "to": "03:54:34",
-     "secs": 9
+     "from": "18:47:35",
+     "to": "18:48:05",
+     "secs": 30
     },
     {
-     "from": "03:54:34",
-     "to": "03:54:43",
-     "secs": 9
+     "from": "18:48:05",
+     "to": "18:48:26",
+     "secs": 21
     },
     {
-     "from": "03:54:43",
-     "to": "03:54:52",
-     "secs": 9
+     "from": "18:48:26",
+     "to": "18:48:47",
+     "secs": 21
     },
     {
-     "from": "03:55:19",
-     "to": "03:55:29",
-     "secs": 10
-    },
-    {
-     "from": "03:55:29",
-     "to": "03:55:38",
-     "secs": 9
-    },
-    {
-     "from": "03:55:38",
-     "to": "03:55:47",
-     "secs": 9
-    },
-    {
-     "from": "03:55:47",
-     "to": "03:55:56",
-     "secs": 9
-    },
-    {
-     "from": "03:55:56",
-     "to": "03:56:05",
-     "secs": 9
-    },
-    {
-     "from": "03:56:05",
-     "to": "03:56:14",
-     "secs": 9
-    },
-    {
-     "from": "03:56:14",
-     "to": "03:56:23",
-     "secs": 9
-    },
-    {
-     "from": "03:56:23",
-     "to": "03:56:32",
-     "secs": 9
-    },
-    {
-     "from": "03:56:32",
-     "to": "03:56:41",
-     "secs": 9
-    },
-    {
-     "from": "03:56:41",
-     "to": "03:56:50",
-     "secs": 9
+     "from": "18:48:47",
+     "to": "18:49:08",
+     "secs": 21
     }
    ],
-   "stall_secs": 118,
-   "max_gap_secs": 10,
-   "impact_secs": 120,
-   "total_impact_secs": 120,
+   "stall_secs": 93,
+   "max_gap_secs": 30,
+   "impact_secs": 121,
+   "total_impact_secs": 121,
    "events": [
-    "03:54:20 EVENT break: vm stop on doris-3 (FE master)",
-    "03:54:45 EVENT break: doris-3 is down",
-    "03:55:17 EVENT break: fe dead on doris-1 (FE follower)"
+    "18:46:38 EVENT break: vm stop on doris-2 (FE master)",
+    "18:47:01 EVENT break: doris-2 is down",
+    "18:47:33 EVENT break: fe dead on doris-1 (FE follower)"
    ],
    "read_only_client": true,
    "window_ops": {
     "writes_ok": 0,
     "writes_fail": 0,
     "selects_ok": 0,
-    "selects_fail": 4,
-    "lines": 4,
-    "span_secs": 185
+    "selects_fail": 2,
+    "lines": 2,
+    "span_secs": 184
    },
    "level": "read-down",
    "level_zh": "讀取失敗"
   }
  },
- "alive": "FE 1/3 (master doris-2) BE 2/3 replicas n/a rows=None via doris-2",
- "faults": "03:54:20 vm stop doris-3;03:55:17 fe dead doris-1"
+ "alive": "FE 0/3? BE ?/3 (no FE reachable: no FE reachable: (2003, \"Can't connect to MySQL server on '34.80.24.53' ([Errno 111] Connection refused)\"))",
+ "faults": "18:46:38 vm stop doris-2;18:47:34 fe dead doris-1"
 }

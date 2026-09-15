@@ -1,0 +1,45 @@
+15:20:51 driver start
+15:20:51 pass 1 start
+15:28:24 driver2 start (retrying doris-3 start until zone c has capacity)
+15:28:33 STOCKOUT retry 1/30 (zone asia-east1-c has no e2-standard-4)
+15:30:41 STOCKOUT retry 2/30 (zone asia-east1-c has no e2-standard-4)
+15:32:49 STOCKOUT retry 3/30 (zone asia-east1-c has no e2-standard-4)
+15:34:57 STOCKOUT retry 4/30 (zone asia-east1-c has no e2-standard-4)
+15:37:04 STOCKOUT retry 5/30 (zone asia-east1-c has no e2-standard-4)
+15:39:12 STOCKOUT retry 6/30 (zone asia-east1-c has no e2-standard-4)
+15:41:19 STOCKOUT retry 7/30 (zone asia-east1-c has no e2-standard-4)
+15:43:27 STOCKOUT retry 8/30 (zone asia-east1-c has no e2-standard-4)
+15:45:36 STOCKOUT retry 9/30 (zone asia-east1-c has no e2-standard-4)
+15:47:44 STOCKOUT retry 10/30 (zone asia-east1-c has no e2-standard-4)
+15:49:54 STOCKOUT retry 11/30 (zone asia-east1-c has no e2-standard-4)
+15:52:02 STOCKOUT retry 12/30 (zone asia-east1-c has no e2-standard-4)
+15:54:10 STOCKOUT retry 13/30 (zone asia-east1-c has no e2-standard-4)
+15:56:18 STOCKOUT retry 14/30 (zone asia-east1-c has no e2-standard-4)
+15:58:26 STOCKOUT retry 15/30 (zone asia-east1-c has no e2-standard-4)
+15:58:53 driver3 start (doris-3 -> n2-standard-4 via TF_VAR_machine_type_override)
+15:58:53 pass 1 start
+16:05:20 driver4 start (doris-3 -> n2-standard-4 via TF_VAR_machine_type_override)
+16:05:20 pass 1 start
+17:08:04 driver5 start: waiting for any 4-vCPU type in asia-east1-c for doris-3
+17:08:25 doris-3 started as n2-standard-4
+17:08:25 restore leftover faults
+17:09:13 restore rc=0
+17:09:13 pass 1 resume (3 cells)
+17:24:26 driver6 start: restore until healthy, then resume pass 1 (2 cells), pass 2, pass 3
+17:26:45 STOCKOUT restore try 1/40 not healthy yet
+17:31:05 STOCKOUT restore try 2/40 not healthy yet
+17:35:24 STOCKOUT restore try 3/40 not healthy yet
+17:39:46 STOCKOUT restore try 4/40 not healthy yet
+17:44:06 STOCKOUT restore try 5/40 not healthy yet
+17:48:24 STOCKOUT restore try 6/40 not healthy yet
+17:48:44 driver7 start: rotate machine types for doris-3 until it starts, restore, resume
+17:49:12 doris-3 started as n2d-standard-4
+17:49:46 restore rc=0
+17:49:47 pass 1 resume (2 cells)
+18:02:07 pass 1 exit rc=0
+18:02:07 pass 2 start
+19:07:30 pass 2 exit rc=0
+19:07:30 pass 3 start
+20:16:14 pass 3 exit rc=0
+20:16:16 fill exit rc=0
+20:16:16 DRIVER DONE

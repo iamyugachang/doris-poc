@@ -2,32 +2,32 @@
  "mysql": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
   "phase": null,
-  "started": "04:40:49",
+  "started": "19:28:29",
   "ended": null,
   "ops": 169,
   "failed": 1,
   "failed_by_type": {
-   "INSERT": 1
+   "SELECT": 1
   },
   "reconnects": 1,
   "windows": [
    {
-    "start": "04:41:26",
-    "end": "04:41:28",
-    "secs": 2
+    "start": "19:29:05",
+    "end": "19:29:09",
+    "secs": 4
    }
   ],
-  "fail_window_secs": 2,
+  "fail_window_secs": 4,
   "gaps": [],
   "stall_secs": 0,
   "max_gap_secs": 0,
-  "impact_secs": 2,
-  "total_impact_secs": 2,
+  "impact_secs": 4,
+  "total_impact_secs": 4,
   "events": [
-   "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-   "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-   "04:43:19 EVENT restore: verify fe on doris-1",
-   "04:43:24 EVENT restore: cluster healthy"
+   "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+   "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+   "19:30:58 EVENT restore: verify fe on doris-1",
+   "19:31:06 EVENT restore: cluster healthy"
   ],
   "read_only_client": false,
   "window_ops": {
@@ -36,48 +36,48 @@
    "selects_ok": 12,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 181
+   "span_secs": 184
   },
   "level": "rw",
   "level_zh": "讀寫正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "during",
-   "started": "04:40:49",
+   "started": "19:28:29",
    "ended": null,
-   "ops": 108,
+   "ops": 105,
    "failed": 1,
    "failed_by_type": {
-    "INSERT": 1
+    "SELECT": 1
    },
    "reconnects": 1,
    "windows": [
     {
-     "start": "04:41:26",
-     "end": "04:41:28",
-     "secs": 2
+     "start": "19:29:05",
+     "end": "19:29:09",
+     "secs": 4
     }
    ],
-   "fail_window_secs": 2,
+   "fail_window_secs": 4,
    "gaps": [],
    "stall_secs": 0,
    "max_gap_secs": 0,
-   "impact_secs": 2,
-   "total_impact_secs": 2,
+   "impact_secs": 4,
+   "total_impact_secs": 4,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 17,
+    "writes_ok": 18,
     "writes_fail": 0,
-    "selects_ok": 12,
+    "selects_ok": 11,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 116
+    "span_secs": 115
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -85,9 +85,9 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-mysql.log",
    "phase": "after",
-   "started": "04:40:49",
+   "started": "19:28:29",
    "ended": null,
-   "ops": 25,
+   "ops": 26,
    "failed": 0,
    "failed_by_type": {},
    "reconnects": 0,
@@ -99,19 +99,19 @@
    "impact_secs": 0,
    "total_impact_secs": 0,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 15,
+    "writes_ok": 16,
     "writes_fail": 0,
     "selects_ok": 10,
     "selects_fail": 0,
-    "lines": 25,
-    "span_secs": 26
+    "lines": 26,
+    "span_secs": 27
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -120,9 +120,9 @@
  "jdbc": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
   "phase": null,
-  "started": "04:40:49",
+  "started": "19:28:30",
   "ended": null,
-  "ops": 166,
+  "ops": 167,
   "failed": 1,
   "failed_by_type": {
    "SELECT": 1
@@ -130,22 +130,22 @@
   "reconnects": 1,
   "windows": [
    {
-    "start": "04:41:26",
-    "end": "04:41:28",
-    "secs": 2
+    "start": "19:29:09",
+    "end": "19:29:10",
+    "secs": 1
    }
   ],
-  "fail_window_secs": 2,
+  "fail_window_secs": 1,
   "gaps": [],
   "stall_secs": 0,
   "max_gap_secs": 0,
-  "impact_secs": 2,
-  "total_impact_secs": 2,
+  "impact_secs": 1,
+  "total_impact_secs": 1,
   "events": [
-   "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-   "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-   "04:43:19 EVENT restore: verify fe on doris-1",
-   "04:43:24 EVENT restore: cluster healthy"
+   "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+   "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+   "19:30:58 EVENT restore: verify fe on doris-1",
+   "19:31:06 EVENT restore: cluster healthy"
   ],
   "read_only_client": false,
   "window_ops": {
@@ -154,16 +154,16 @@
    "selects_ok": 12,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 183
+   "span_secs": 184
   },
   "level": "rw",
   "level_zh": "讀寫正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "during",
-   "started": "04:40:49",
+   "started": "19:28:30",
    "ended": null,
-   "ops": 104,
+   "ops": 102,
    "failed": 1,
    "failed_by_type": {
     "SELECT": 1
@@ -171,31 +171,31 @@
    "reconnects": 1,
    "windows": [
     {
-     "start": "04:41:26",
-     "end": "04:41:28",
-     "secs": 2
+     "start": "19:29:09",
+     "end": "19:29:10",
+     "secs": 1
     }
    ],
-   "fail_window_secs": 2,
+   "fail_window_secs": 1,
    "gaps": [],
    "stall_secs": 0,
    "max_gap_secs": 0,
-   "impact_secs": 2,
-   "total_impact_secs": 2,
+   "impact_secs": 1,
+   "total_impact_secs": 1,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 16,
+    "writes_ok": 17,
     "writes_fail": 0,
     "selects_ok": 12,
     "selects_fail": 0,
-    "lines": 28,
-    "span_secs": 116
+    "lines": 29,
+    "span_secs": 115
    },
    "level": "rw",
    "level_zh": "讀寫正常"
@@ -203,7 +203,7 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-jdbc.log",
    "phase": "after",
-   "started": "04:40:49",
+   "started": "19:28:30",
    "ended": null,
    "ops": 27,
    "failed": 0,
@@ -217,16 +217,16 @@
    "impact_secs": 0,
    "total_impact_secs": 0,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": false,
    "window_ops": {
-    "writes_ok": 16,
+    "writes_ok": 17,
     "writes_fail": 0,
-    "selects_ok": 11,
+    "selects_ok": 10,
     "selects_fail": 0,
     "lines": 27,
     "span_secs": 28
@@ -238,7 +238,7 @@
  "flight": {
   "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
   "phase": null,
-  "started": "04:40:49",
+  "started": "19:28:30",
   "ended": null,
   "ops": 171,
   "failed": 1,
@@ -248,22 +248,22 @@
   "reconnects": 1,
   "windows": [
    {
-    "start": "04:41:26",
-    "end": "04:41:29",
-    "secs": 3
+    "start": "19:29:05",
+    "end": "19:29:10",
+    "secs": 5
    }
   ],
-  "fail_window_secs": 3,
+  "fail_window_secs": 5,
   "gaps": [],
   "stall_secs": 0,
   "max_gap_secs": 0,
-  "impact_secs": 3,
-  "total_impact_secs": 3,
+  "impact_secs": 5,
+  "total_impact_secs": 5,
   "events": [
-   "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-   "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-   "04:43:19 EVENT restore: verify fe on doris-1",
-   "04:43:24 EVENT restore: cluster healthy"
+   "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+   "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+   "19:30:58 EVENT restore: verify fe on doris-1",
+   "19:31:06 EVENT restore: cluster healthy"
   ],
   "read_only_client": true,
   "window_ops": {
@@ -272,16 +272,16 @@
    "selects_ok": 30,
    "selects_fail": 0,
    "lines": 30,
-   "span_secs": 184
+   "span_secs": 187
   },
   "level": "read-ok",
   "level_zh": "讀取正常",
   "during": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "during",
-   "started": "04:40:49",
+   "started": "19:28:30",
    "ended": null,
-   "ops": 107,
+   "ops": 103,
    "failed": 1,
    "failed_by_type": {
     "SELECT": 1
@@ -289,22 +289,22 @@
    "reconnects": 1,
    "windows": [
     {
-     "start": "04:41:26",
-     "end": "04:41:29",
-     "secs": 3
+     "start": "19:29:05",
+     "end": "19:29:10",
+     "secs": 5
     }
    ],
-   "fail_window_secs": 3,
+   "fail_window_secs": 5,
    "gaps": [],
    "stall_secs": 0,
    "max_gap_secs": 0,
-   "impact_secs": 3,
-   "total_impact_secs": 3,
+   "impact_secs": 5,
+   "total_impact_secs": 5,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": true,
    "window_ops": {
@@ -313,7 +313,7 @@
     "selects_ok": 29,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 116
+    "span_secs": 115
    },
    "level": "read-ok",
    "level_zh": "讀取正常"
@@ -321,9 +321,9 @@
   "after": {
    "log": "/home/yugachang/workspace/doris-poc/.state/probe-flight.log",
    "phase": "after",
-   "started": "04:40:49",
+   "started": "19:28:30",
    "ended": null,
-   "ops": 29,
+   "ops": 30,
    "failed": 0,
    "failed_by_type": {},
    "reconnects": 0,
@@ -335,10 +335,10 @@
    "impact_secs": 0,
    "total_impact_secs": 0,
    "events": [
-    "04:41:23 EVENT break: fe crash on doris-1 (FE follower)",
-    "04:41:41 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
-    "04:43:19 EVENT restore: verify fe on doris-1",
-    "04:43:24 EVENT restore: cluster healthy"
+    "19:29:03 EVENT break: fe crash on doris-1 (FE follower)",
+    "19:29:21 EVENT recovered: fe restarted by systemd on doris-1 (+9s)",
+    "19:30:58 EVENT restore: verify fe on doris-1",
+    "19:31:06 EVENT restore: cluster healthy"
    ],
    "read_only_client": true,
    "window_ops": {
@@ -347,12 +347,12 @@
     "selects_ok": 29,
     "selects_fail": 0,
     "lines": 29,
-    "span_secs": 29
+    "span_secs": 31
    },
    "level": "read-ok",
    "level_zh": "讀取正常"
   }
  },
- "alive": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10132 via doris-1",
+ "alive": "FE 3/3 (master doris-3) BE 3/3 replicas {'OK': 12} rows=10257 via doris-1",
  "faults": ""
 }

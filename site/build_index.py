@@ -111,7 +111,7 @@ body = f'''<div class="hero"><div class="container">{steps("index")}<p class="ey
 <section class="tight">{stats}</section>
 <section id="matrix"><h2 class="title"><small>RESULT MATRIX</small>故障矩陣（{len(ids)} 格 × 3 輪）</h2>
 <p class="sub">等級取三輪中最差；秒數是三輪的影響範圍＝失敗視窗（第一次失敗到下一次成功）＋卡頓（連續兩次操作間隔超過 5 秒）。arrow-flight 只做查詢，所以只有讀取正常 / 讀取失敗。點 <a href="results.html">03</a> 看每一輪、每個 client 的原始 log。</p>{matrix}</section>
-<section id="conclusions"><h2 class="title"><small>TAKEAWAYS</small>結論</h2><ul class="notes">{"".join(concl)}</ul></section>
+<section id="conclusions"><h2 class="title"><small>TAKEAWAYS</small>結論</h2><ul class="notes">{"".join(concl)}</ul><p class="muted" style="font-size:13px;max-width:78ch">本次執行 2026-09-15。當天 asia-east1-c 的 e2-standard-4 缺貨，doris-3 以 n2 / n2d-standard-4 跑完；細節見 <a href="results.html">03</a> 的「本次執行備註」。</p></section>
 <section id="arch"><h2 class="title"><small>ARCHITECTURE</small>正常狀態 vs 掛掉一台</h2>
 <p class="sub">3 個 FE 都是 FOLLOWER，以多數決選出 1 個 master；3 個 BE 是一個資料池，每個 tablet 三副本各放一個 zone。client 帶三台 FE 的主機清單，第一台連不上就試下一台。</p>
 <div class="grid2"><figure><div class="figure">{diag["arch-normal"]}</div><figcaption>正常：client 連在當下的 master，follower 透過 edit log 同步。</figcaption></figure>
