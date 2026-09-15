@@ -179,7 +179,7 @@ for n, t in main_specs:
     appendix.append(f'<details><summary>主 spec · {TITLES.get(n, n)}</summary><div class="doc">{render_spec_body(t)}</div></details>')
 appendix.append(f'<details><summary>Tasks</summary><div class="doc">{render_tasks(tasks)}</div></details>')
 
-nav = ['<div class="lbl">目錄</div>', '<a href="#arch">01 架構</a>', '<a href="#method">02 方法</a>', '<a href="#hyp">03 假設</a>', '<a href="#scen">04 情境</a>']
+nav = ['<div class="lbl">目錄</div>', '<a href="#arch">01 架構</a>', '<a href="#client">02 Client 行為</a>', '<a href="#method">03 方法</a>', '<a href="#hyp">04 假設</a>', '<a href="#scen">05 情境</a>']
 nav += [f'<a href="#req-{slug(r["name"])}" class="sub-link">· {html.escape(r["name"])}</a>' for r in reqs]
 nav += ['<a href="#appendix">附錄 · OpenSpec 原文</a>', '<div class="lbl">看結果</div>', '<a href="results.html">03 過程與結果 →</a>']
 
@@ -195,7 +195,20 @@ body = f'''<div class="hero"><div class="container">{steps("specs")}<p class="ey
 <figure style="margin-top:18px"><div class="figure">{ex_svg}</div><figcaption>實驗工具：三個探測（mysql / jdbc / arrow-flight）每秒對同一把 key 做 INSERT → UPSERT → SELECT → DELETE → SELECT 並寫 log；<b>break</b> 對任一台的 FE、BE 或整台 VM 注入故障並在 log 記 EVENT；<b>measure</b> 讀 log 算等級與中斷秒數；restore 逆序把故障全部還原。</figcaption></figure>
 </section>
 
-<section id="method"><h2 class="title"><small>02 · METHOD</small>方法</h2>
+<section id="client"><h2 class="title"><small>02 · CLIENT</small>Client 行為</h2>
+<p class="sub">三種連線方式同時跑在 client VM 上，各自一個 systemd 服務、一份 log；用同一套探測循環，才能互相比較。</p>
+<div class="tablewrap"><table class="client-table"><thead><tr><th>client</th><th>協定 / 端點</th><th>連線與 failover</th><th>驗證什麼</th></tr></thead><tbody>
+<tr><td><b>mysql</b><br><span class="note">pymysql</span></td><td>MySQL 協定 · FE:9030</td><td>持 3 台 FE 清單，依序試，第一台可連即用；失敗就關連線、從清單頭重連（自行實作）</td><td>寫 + 讀</td></tr>
+<tr><td><b>jdbc</b><br><span class="note">MySQL Connector/J</span></td><td>MySQL 協定 · FE:9030</td><td>多主機 URL <code>jdbc:mysql://fe1,fe2,fe3/…?failOverReadOnly=false</code>，failover 交給 driver</td><td>寫 + 讀</td></tr>
+<tr><td><b>arrow-flight</b><br><span class="note">ADBC</span></td><td>Arrow Flight SQL · FE:8070，結果由 BE:8050 取回</td><td>同 mysql 的清單 failover；連線時先試 INSERT + DELETE，Doris 不支援 DML 就改為只 SELECT</td><td>只讀（預期）</td></tr>
+</tbody></table></div>
+<div class="cards method" style="margin-top:18px">
+<div class="card"><div class="k">探測循環</div><p>每秒一步，對同一把 key 做 <b>INSERT(ver=1) → UPSERT(ver=2) → SELECT（驗 ver=2）→ DELETE → SELECT（驗不存在）</b>，一輪 5 秒後換下一把 key；三個 client 用不重疊的 key 區段。SELECT 驗證不符即記失敗。</p></div>
+<div class="card"><div class="k">逾時</div><p>connect <b>3 秒</b>、read / write <b>8 秒</b>（三個 client 相同）。量到的中斷秒數包含這段等待，hang 類情境會因此拉長。</p></div>
+<div class="card"><div class="k">失敗時</div><p>操作失敗記 <code>FAIL</code>，關掉連線、依清單重連（記 <code>connected to &lt;fe&gt;</code>），從新 key 的 INSERT 重新開始。不重試同一筆，所以不會留下半套資料。</p></div>
+</div></section>
+
+<section id="method"><h2 class="title"><small>03 · METHOD</small>方法</h2>
 <figure><div class="figure">{cf_svg}</div><figcaption>每一格的流程。break 之後觀察 90 秒（hang 類 120 秒）再量；restore 之後再量一次確認回到讀寫正常。</figcaption></figure>
 <div class="cards method" style="margin-top:18px">
 <div class="card"><div class="k">注入方式</div><table class="mini"><tbody>
@@ -208,14 +221,14 @@ body = f'''<div class="hero"><div class="container">{steps("specs")}<p class="ey
 <div class="card"><div class="k">量什麼</div><p><b>可用性等級</b>：故障中最後 30 秒的操作成功率 → 讀寫正常 / 只讀 / 不可用（arrow-flight 只判讀取）。<b>中斷秒數</b>：第一次 FAIL 到下一次 OK。另記各操作失敗數、重連數、資料一致性。</p></div>
 </div></section>
 
-<section id="hyp"><h2 class="title"><small>03 · HYPOTHESES</small>假設</h2>
+<section id="hyp"><h2 class="title"><small>04 · HYPOTHESES</small>假設</h2>
 <p class="sub">規則只有一條：<b>FE 與 BE 各自要有 2/3 存活</b>。任一層剩 1 個，寫入就停；查詢能不能活，由實驗決定。</p>
 {matrix}
 <h3>要靠實驗回答的問題</h3>
 <ol class="notes">{"".join(f"<li>{inline(q)}</li>" for q in questions)}</ol>
 </section>
 
-<section id="scen"><h2 class="title"><small>04 · SCENARIOS</small>情境</h2>
+<section id="scen"><h2 class="title"><small>05 · SCENARIOS</small>情境</h2>
 <p class="sub">fault-scenarios delta spec 的 {n_sc} 個 Scenario：注入條件與預期。</p>
 {"".join(scen_html)}
 </section>
@@ -231,7 +244,7 @@ EXTRA = """<style>
 .cards.method{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .hyp td .note,.scen-table td .note{display:block;font-size:12px;color:var(--muted);margin-top:4px}
 .hyp td{white-space:nowrap} .hyp td:first-child{white-space:normal;min-width:140px}
-.scen-table td:first-child{min-width:160px} .scen-table td:last-child,.scen-table th:last-child{white-space:nowrap}
+.scen-table td:first-child{min-width:160px} .client-table td:first-child{white-space:nowrap} .client-table td:last-child{white-space:nowrap} .scen-table td:last-child,.scen-table th:last-child{white-space:nowrap}
 table.mini{border:0;background:transparent;font-size:13px} table.mini td{padding:5px 6px 5px 0;border-bottom:1px solid var(--border)} table.mini tr:last-child td{border-bottom:0}
 .card p{margin:0;font-size:14px;color:var(--ink-soft)}
 details{border:1px solid var(--border);border-radius:12px;background:#fff;margin:10px 0} summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:14px;list-style:none;display:flex;gap:10px;align-items:center} summary::before{content:"+";font-family:var(--mono);color:var(--primary-deep);width:14px} details[open] summary::before{content:"−"} details[open] summary{border-bottom:1px solid var(--border)} details .doc{padding:4px 16px 12px}
