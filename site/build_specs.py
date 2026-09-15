@@ -191,7 +191,7 @@ body = f'''<div class="hero"><div class="container">{steps("specs")}<p class="ey
 
 <section id="arch"><h2 class="title"><small>01 · ARCHITECTURE</small>架構</h2>
 <p class="sub">受測系統與實驗工具各一張圖。</p>
-<figure><div class="figure">{arch_svg}</div><figcaption>受測系統：3 台 VM（asia-east1 a / b / c）各 1 FE + 1 BE。FE 三個 FOLLOWER 以 quorum 選 1 個 master；資料3 個 replica，每個 zone 一份。client 以多主機清單連 FE，不經 Load Balancer。</figcaption></figure>
+<figure><div class="figure">{arch_svg}</div><figcaption>受測系統：3 台 VM（asia-east1 a / b / c）各 1 FE + 1 BE。FE 三個 FOLLOWER 以 quorum 選 1 個 master；資料 3 個 replica，每個 zone 一份。client 以多主機清單連 FE，不經 Load Balancer。</figcaption></figure>
 <figure style="margin-top:18px"><div class="figure">{ex_svg}</div><figcaption>實驗工具：三個 probe（mysql / jdbc / arrow-flight）每秒對同一把 key 做 INSERT → UPSERT → SELECT → DELETE → SELECT 並寫 log；<b>break</b> 對任一台的 FE、BE 或整台 VM 製造故障並在 log 記 EVENT；<b>measure</b> 讀 log 算等級與中斷秒數；restore 依相反順序還原全部故障。</figcaption></figure>
 </section>
 

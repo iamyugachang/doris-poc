@@ -94,7 +94,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 <p class="sub">3 個 FE 角色都是 FOLLOWER（有投票權），互相選出 1 個 master；3 個 BE 組成一個資料池，每份資料 3 個 replica，各放一個 zone。client 自己帶三台 FE 的清單，第一台連不上就試下一台，不經 Load Balancer。</p>
 <div class="grid2"><figure><div class="figure"><svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-normal-title arch-normal-desc" xmlns="http://www.w3.org/2000/svg">
     <title id="arch-normal-title">Doris 三節點正常狀態架構</title>
-    <desc id="arch-normal-desc">一個 client 連到位於三個 zone 的三台 VM，每台 VM 跑一個 FE 與一個 BE；doris-2 的 FE 目前是 master，另外兩個 FE 透過 edit log 同步，三個 BE 之間保有每個 tablet 的3 個 replica。</desc>
+    <desc id="arch-normal-desc">一個 client 連到位於三個 zone 的三台 VM，每台 VM 跑一個 FE 與一個 BE；doris-2 的 FE 目前是 master，另外兩個 FE 透過 edit log 同步，三個 BE 之間保有每個 tablet 的 3 個 replica。</desc>
     <defs>
       <marker id="an-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/></marker>
       <marker id="an-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/></marker>
@@ -172,14 +172,14 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
       <text x="40" y="512" letter-spacing="0.14em">LEGEND</text>
       <rect x="120" y="504" width="12" height="10" rx="2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1"/><text x="140" y="512">FE master（當下）</text>
       <rect x="264" y="504" width="12" height="10" rx="2" fill="var(--white)" stroke="var(--ink)" stroke-width="1"/><text x="284" y="512">FE follower</text>
-      <rect x="376" y="504" width="12" height="10" rx="2" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/><text x="396" y="512">BE（資料replica）</text>
+      <rect x="376" y="504" width="12" height="10" rx="2" fill="var(--ink-05)" stroke="var(--muted)" stroke-width="1"/><text x="396" y="512">BE（資料 replica）</text>
       <line x1="512" y1="509" x2="536" y2="509" stroke="var(--accent)" stroke-width="1.2"/><text x="544" y="512">client 目前連線</text>
-      <line x1="668" y1="509" x2="692" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="700" y="512">備援 / replica同步</text>
+      <line x1="668" y1="509" x2="692" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="700" y="512">備援 / replica 同步</text>
     </g>
   </svg></div><figcaption>正常：client 連在當下的 master；master 的 metadata 變更透過 edit log（類似 WAL）複製給 follower。</figcaption></figure>
 <figure><div class="figure"><svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-down-title arch-down-desc" xmlns="http://www.w3.org/2000/svg">
     <title id="arch-down-title">Doris 三節點其中一台 VM 停機後的狀態</title>
-    <desc id="arch-down-desc">doris-2 的 VM 已關機，其 FE 與 BE 離線；client 的連線被重設後改連 doris-3，doris-3 的 FE 被選為新 master 並與 doris-1 同步 edit log；每個 tablet 仍有 doris-1 與 doris-3 上的兩份replica可讀寫。</desc>
+    <desc id="arch-down-desc">doris-2 的 VM 已關機，其 FE 與 BE 離線；client 的連線被重設後改連 doris-3，doris-3 的 FE 被選為新 master 並與 doris-1 同步 edit log；每個 tablet 仍有 doris-1 與 doris-3 上的2 個 replica 可讀寫。</desc>
     <defs>
       <marker id="ad-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="var(--muted)"/></marker>
       <marker id="ad-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/></marker>
@@ -245,7 +245,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
       <rect x="120" y="504" width="12" height="10" rx="2" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1"/><text x="140" y="512">新 master</text>
       <rect x="232" y="504" width="12" height="10" rx="2" fill="var(--ink-02)" stroke="var(--ink-20)" stroke-width="1" stroke-dasharray="3,2"/><text x="252" y="512">已停機</text>
       <line x1="336" y1="509" x2="360" y2="509" stroke="var(--accent)" stroke-width="1.2"/><text x="368" y="512">client 重連後的連線</text>
-      <line x1="520" y1="509" x2="544" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="552" y="512">replica同步（剩 2/3）</text>
+      <line x1="520" y1="509" x2="544" y2="509" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/><text x="552" y="512">replica 同步（剩 2/3）</text>
     </g>
   </svg></div><figcaption>壞一台：client 連線被 reset 後換另一台 FE；剩下 2 個 FE 選出新 master；replica 剩 2/3，仍可讀寫。</figcaption></figure></div></section>
 <section id="timeline"><h2 class="title"><small>ONE RUN</small>一次故障的時間軸</h2>
