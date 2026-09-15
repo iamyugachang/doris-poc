@@ -40,7 +40,7 @@ context: |
 
   ## 工具鏈
   - 資源：Terraform（infra/）；設定：Ansible（ansible/）；動作：demo.sh（break / restore / monitor / measure）
-  - 實驗結果記錄在 logs/ 與各 Scenario 的「實測」段落，報告網站 site/（Cloud Run）
+  - 實驗結果記錄在 results/（每格每輪的 log 與 summary.json），報告網站 site/（Cloud Run）；spec 與 design 只放設計與假設
 
 rules:
   proposal:
@@ -48,7 +48,7 @@ rules:
     - 用「可用性等級」（讀寫正常 / 只讀 / 不可用）描述每種故障的預期
   specs:
     - 每個故障情境一個 Scenario，Then 要寫出預期的可用性等級與三個 client 的觀察點
-    - Scenario 只寫預期；實驗跑完後在 Then 之後附「實測」段落（日期、數字、log 檔名），跑之前不得填
+    - Scenario 只寫預期；實測不寫進 spec，放 results/ 與 results.html
   tasks:
     - 每個任務標明會動到的檔案（demo.sh / cluster.py / clients/ / ansible/ / site/）
-    - 實驗任務要寫「跑完把結果回填到哪個 spec 的哪個 Scenario」
+    - 實驗任務要寫「對應哪個 spec 的哪個 Scenario」，結果存 results/pass-N/<id>/

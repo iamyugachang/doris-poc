@@ -86,7 +86,7 @@ footer{margin-top:64px;background:var(--footer);color:#cfe3da;padding-block:28px
 <div class="tablewrap" style="margin-top:18px"><table><thead><tr><th>層</th><th>工具 / 目錄</th><th>負責</th><th>不負責</th><th>對應指令</th></tr></thead><tbody>
 <tr><td><b>資源</b></td><td>Terraform · <code>infra/</code></td><td>GCP 上「存在什麼」：4 台 VM（3 Doris + 1 client）、防火牆、API、VM 開關機、產生 Ansible inventory</td><td>機器裡的軟體、叢集成員</td><td><code>demo.sh up / stop / start / down / plan</code></td></tr>
 <tr><td><b>設定</b></td><td>Ansible · <code>ansible/</code></td><td>機器裡「長什麼樣」：JDK、Doris、conf、systemd、FE/BE 註冊、client VM 的三個探測</td><td>開關機、故障注入、量測</td><td><code>demo.sh up / client / plan</code></td></tr>
-<tr><td><b>動作</b></td><td><code>demo.sh</code> · <code>experiments/</code></td><td>monitor / break / restore / measure；矩陣執行器、結果回填、網站</td><td>描述狀態</td><td><code>demo.sh monitor / break / restore / measure</code>、<code>run_matrix.py</code></td></tr>
+<tr><td><b>動作</b></td><td><code>demo.sh</code> · <code>experiments/</code></td><td>monitor / break / restore / measure；矩陣執行器、結果彙整、網站</td><td>描述狀態</td><td><code>demo.sh monitor / break / restore / measure</code>、<code>run_matrix.py</code></td></tr>
 </tbody></table></div></section>
 
 <section id="terraform"><h2 class="title"><small>02 · TERRAFORM</small>資源層做什麼</h2>
@@ -185,7 +185,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <pre><code>./venv/bin/python experiments/run_matrix.py --pass 1   # 開機→16 格→關機
 ./venv/bin/python experiments/run_matrix.py --pass 2
 ./venv/bin/python experiments/run_matrix.py --pass 3
-./experiments/finalize.sh  # 回填 spec → 產三頁 → openspec validate → 部署</code></pre>
+./experiments/finalize.sh  # 彙整 results → 產四頁 → openspec validate → 部署</code></pre>
 <h3>D. 收尾</h3>
 <pre><code>./demo.sh stop            # 關機，只剩磁碟費
 ./demo.sh down            # terraform destroy（要打 delete 確認）</code></pre>
@@ -213,10 +213,10 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <tr><td><code>demo.sh</code>、<code>cluster.py</code></td><td>動作指令；本機端狀態查詢、量測與 log 分析（analyze / report）</td></tr>
 <tr><td><code>clients/</code></td><td>probe_common.py、probe_mysql.py、probe_flight.py、Probe.java（部署到 client VM）</td></tr>
 <tr><td><code>experiments/</code></td><td>scenarios.yaml（16 格）、run_matrix.py、fill_results.py、finalize.sh</td></tr>
-<tr><td><code>openspec/</code></td><td>主 spec（topology / clients / operations）與 change fault-matrix（proposal / design / tasks / delta spec，含實測）</td></tr>
+<tr><td><code>openspec/</code></td><td>主 spec（topology / clients / operations）與 change fault-matrix（proposal / design / tasks / delta spec；只有設計與假設）</td></tr>
 <tr><td><code>results/</code>、<code>site/</code>、<code>deploy/</code></td><td>三輪原始結果與彙整；三頁網站產生器與輸出；Cloud Run 靜態站（nginx）</td></tr>
 </tbody></table></div></section>
 </div>
-<footer><div class="container"><span>Apache Doris 4.1.1 · GCP asia-east1 a/b/c · Terraform + Ansible + demo.sh</span><span>產生於 2026-09-11 · 視覺依 doris.apache.org 配色</span></div></footer>
+<footer><div class="container"><span>Apache Doris 4.1.1 · GCP asia-east1 a/b/c · Terraform + Ansible + demo.sh</span><span>產生於 2026-09-15 · 視覺依 doris.apache.org 配色</span></div></footer>
 </body>
 </html>

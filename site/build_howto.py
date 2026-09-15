@@ -4,32 +4,9 @@ Run: ./venv/bin/python site/build_howto.py"""
 import pathlib, sys, html
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from theme import shell, lvl
+from svgkit import FONT_N, FONT_S, FONT_L, INK, MUTED, RULE, GREEN, TINT, WHITE, box, label, arrow, DEFS
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FONT_N = 'font-family="Inter,Noto Sans TC,sans-serif" font-size="12" font-weight="600" fill="#0f1a14"'
-FONT_S = 'font-family="JetBrains Mono,monospace" font-size="9" fill="#4f5e56"'
-FONT_L = 'font-family="JetBrains Mono,monospace" font-size="8" fill="#4f5e56" letter-spacing="0.06em"'
-INK, MUTED, RULE, GREEN, TINT, WHITE = "#0f1a14", "#4f5e56", "#d9eee8", "#11a679", "rgba(17,166,121,.10)", "#fff"
-
-def box(x, y, w, h, name, sub="", focal=False, dashed=False, tag=""):
-    fill = TINT if focal else WHITE; stroke = GREEN if focal else (RULE if dashed else INK)
-    dash = ' stroke-dasharray="4,3"' if dashed else ""
-    s = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="{WHITE}"/><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="{fill}" stroke="{stroke}" stroke-width="{1.2 if focal else 1}"{dash}/>'
-    if tag: s += f'<rect x="{x+8}" y="{y+6}" width="{8+len(tag)*6}" height="12" rx="2" fill="transparent" stroke="rgba(15,26,20,.3)" stroke-width="0.8"/><text x="{x+12+len(tag)*3}" y="{y+15}" {FONT_L} text-anchor="middle">{tag}</text>'
-    cy = y + h/2 + (2 if not sub else -4)
-    s += f'<text x="{x+w/2}" y="{cy+2}" {FONT_N} text-anchor="middle">{html.escape(name)}</text>'
-    if sub: s += f'<text x="{x+w/2}" y="{cy+16}" {FONT_S} text-anchor="middle">{html.escape(sub)}</text>'
-    return s
-
-def label(x, y, text, color=MUTED):
-    w = 8 + len(text) * 5.4
-    return f'<rect x="{x-w/2}" y="{y-9}" width="{w}" height="12" rx="2" fill="{WHITE}"/><text x="{x}" y="{y}" {FONT_L.replace('fill="#4f5e56"', f'fill="{color}"')} text-anchor="middle">{html.escape(text)}</text>'
-
-def arrow(d, dashed=False, color=MUTED, marker="arrow"):
-    return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="1.2"{" stroke-dasharray=\"4,3\"" if dashed else ""} marker-end="url(#{marker})"/>'
-
-DEFS = f'<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="{MUTED}"/></marker><marker id="arrow-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="{GREEN}"/></marker></defs>'
-
 # ---------- 1. tooling flow: local -> terraform -> GCP ; ansible -> nodes ; demo.sh -> actions ----------
 def flow_svg():
     s = [f'<svg viewBox="0 0 960 400" role="img" aria-labelledby="fl-t fl-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-t">工具分工：Terraform、Ansible、demo.sh</title><desc id="fl-d">本機的 demo.sh 呼叫 Terraform 建立 GCP 資源並產生 inventory，Ansible 依 inventory 設定四台 VM，demo.sh 再透過 gcloud 與 ssh 對叢集做故障注入與量測。</desc>{DEFS}<rect width="100%" height="100%" fill="{WHITE}"/>']
@@ -110,7 +87,7 @@ body = f'''<div class="hero"><div class="container"><p class="eyebrow">部署與
 <div class="tablewrap" style="margin-top:18px"><table><thead><tr><th>層</th><th>工具 / 目錄</th><th>負責</th><th>不負責</th><th>對應指令</th></tr></thead><tbody>
 <tr><td><b>資源</b></td><td>Terraform · <code>infra/</code></td><td>GCP 上「存在什麼」：4 台 VM（3 Doris + 1 client）、防火牆、API、VM 開關機、產生 Ansible inventory</td><td>機器裡的軟體、叢集成員</td><td><code>demo.sh up / stop / start / down / plan</code></td></tr>
 <tr><td><b>設定</b></td><td>Ansible · <code>ansible/</code></td><td>機器裡「長什麼樣」：JDK、Doris、conf、systemd、FE/BE 註冊、client VM 的三個探測</td><td>開關機、故障注入、量測</td><td><code>demo.sh up / client / plan</code></td></tr>
-<tr><td><b>動作</b></td><td><code>demo.sh</code> · <code>experiments/</code></td><td>monitor / break / restore / measure；矩陣執行器、結果回填、網站</td><td>描述狀態</td><td><code>demo.sh monitor / break / restore / measure</code>、<code>run_matrix.py</code></td></tr>
+<tr><td><b>動作</b></td><td><code>demo.sh</code> · <code>experiments/</code></td><td>monitor / break / restore / measure；矩陣執行器、結果彙整、網站</td><td>描述狀態</td><td><code>demo.sh monitor / break / restore / measure</code>、<code>run_matrix.py</code></td></tr>
 </tbody></table></div></section>
 
 <section id="terraform"><h2 class="title"><small>02 · TERRAFORM</small>資源層做什麼</h2>
@@ -209,7 +186,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <pre><code>./venv/bin/python experiments/run_matrix.py --pass 1   # 開機→16 格→關機
 ./venv/bin/python experiments/run_matrix.py --pass 2
 ./venv/bin/python experiments/run_matrix.py --pass 3
-./experiments/finalize.sh  # 回填 spec → 產三頁 → openspec validate → 部署</code></pre>
+./experiments/finalize.sh  # 彙整 results → 產四頁 → openspec validate → 部署</code></pre>
 <h3>D. 收尾</h3>
 <pre><code>./demo.sh stop            # 關機，只剩磁碟費
 ./demo.sh down            # terraform destroy（要打 delete 確認）</code></pre>
@@ -237,7 +214,7 @@ infra/tf.sh destroy                          # demo.sh down</code></pre></div></
 <tr><td><code>demo.sh</code>、<code>cluster.py</code></td><td>動作指令；本機端狀態查詢、量測與 log 分析（analyze / report）</td></tr>
 <tr><td><code>clients/</code></td><td>probe_common.py、probe_mysql.py、probe_flight.py、Probe.java（部署到 client VM）</td></tr>
 <tr><td><code>experiments/</code></td><td>scenarios.yaml（16 格）、run_matrix.py、fill_results.py、finalize.sh</td></tr>
-<tr><td><code>openspec/</code></td><td>主 spec（topology / clients / operations）與 change fault-matrix（proposal / design / tasks / delta spec，含實測）</td></tr>
+<tr><td><code>openspec/</code></td><td>主 spec（topology / clients / operations）與 change fault-matrix（proposal / design / tasks / delta spec；只有設計與假設）</td></tr>
 <tr><td><code>results/</code>、<code>site/</code>、<code>deploy/</code></td><td>三輪原始結果與彙整；三頁網站產生器與輸出；Cloud Run 靜態站（nginx）</td></tr>
 </tbody></table></div></section>
 </div>'''

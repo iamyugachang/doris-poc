@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Aggregate results/pass-*/<id>/summary.json into results/summary.json and write the 實測 blocks into
-openspec/changes/fault-matrix/specs/fault-scenarios/spec.md (after each matching Scenario's THEN line).
-Design text is never touched; only lines starting with '- 實測' are (re)written.
+"""Aggregate results/pass-*/<id>/summary.json into results/summary.json (read by site/build_results.py and
+site/build_index.py). The OpenSpec design docs are never touched: measured numbers live only in results/.
 
-  ./venv/bin/python experiments/fill_results.py            # aggregate + fill spec
-  ./venv/bin/python experiments/fill_results.py --dry-run  # aggregate only
-  ./venv/bin/python experiments/fill_results.py --dry-run --passes=0   # look at a smoke run
+  ./venv/bin/python experiments/fill_results.py              # aggregate
+  ./venv/bin/python experiments/fill_results.py --passes=0   # look at a smoke run
 """
 import json, pathlib, re, sys, datetime, collections
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
@@ -13,8 +11,6 @@ import cluster   # analyze(log, phase)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RES = ROOT / "results"
-SPEC = ROOT / "openspec/changes/fault-matrix/specs/fault-scenarios/spec.md"
-DRY = "--dry-run" in sys.argv
 PASSES = next((a.split("=",1)[1] for a in sys.argv if a.startswith("--passes=")), "1,2,3")   # smoke runs (pass-0) are excluded by default
 PASSES = {int(x) for x in PASSES.split(",") if x}
 RANK = {"rw": 0, "read-ok": 0, "ro": 1, "stalled": 2, "read-stalled": 2, "read-down": 2, "down": 3, "n/a": -1}
@@ -85,46 +81,3 @@ for sid, ss in runs.items():
 print(f"aggregated {len(agg)} scenarios from {sum(len(v) for v in runs.values())} runs -> results/summary.json")
 for sid, a in agg.items():
     print(f"  {sid:26} {ZH[a['overall']]:5}  " + "  ".join(f"{c}:{a['clients'][c]['worst_zh']}({a['clients'][c]['impact_min']}~{a['clients'][c]['impact_max']}s)" for c in ("mysql", "jdbc", "flight")))
-if DRY: sys.exit(0)
-
-def block_for(sid, title):
-    """實測 lines for a Scenario title (main scenario or an `also` recovery scenario)."""
-    a = agg[sid]; today = datetime.date.today().isoformat(); lines = []
-    if title == a["scenario"]:
-        for i, p in enumerate(a["passes"]):
-            parts = []
-            for c in ("mysql", "jdbc", "flight"):
-                cp = a["clients"][c]["passes"][i]
-                parts.append(f"{c} {cp['level_zh']}（故障中受影響 {cp['impact']}s，最長無回應 {cp['max_gap']}s；restore 期間 {cp['impact_restore']}s；全程失敗 {cp['failed']}{'：' + '/'.join(f'{k}×{v}' for k, v in (cp['failed_by_type'] or {}).items()) if cp['failed_by_type'] else ''}）")
-            lines.append(f"- 實測 第{p}輪 {today}：" + "；".join(parts) + f"；故障中 {a['recovery'][i]['alive_during']}；log `{a['dirs'][i]}/`")
-        lines.append(f"- 實測 結論：{ZH[a['overall']]}（mysql/jdbc 三輪最差），arrow-flight {a['clients']['flight']['worst_zh']}；影響（失敗＋卡頓）mysql {a['clients']['mysql']['impact_min']}～{a['clients']['mysql']['impact_max']}s、jdbc {a['clients']['jdbc']['impact_min']}～{a['clients']['jdbc']['impact_max']}s、flight {a['clients']['flight']['impact_min']}～{a['clients']['flight']['impact_max']}s")
-    else:   # recovery scenarios reuse the restore timing of the main scenario
-        for i, p in enumerate(a["passes"]):
-            r = a["recovery"][i]
-            lines.append(f"- 實測 第{p}輪 {today}：restore 到叢集健康 {r['restore_secs']}s" + (f"，systemd 拉起 +{r['systemd_secs']}s" if r["systemd_secs"] is not None else "") + f"，restore 後 healthy={r['healthy_after']}；log `{a['dirs'][i]}/`")
-    return lines
-
-text = SPEC.read_text(encoding="utf-8")
-title_to_sid = {}
-for sid, a in agg.items():
-    title_to_sid[a["scenario"]] = sid
-    for t in a["also"]: title_to_sid.setdefault(t, sid)
-out = []; cur = None; filled = 0
-for line in text.splitlines():
-    m = re.match(r"^#### Scenario:\s*(.+)$", line)
-    if m:
-        cur = m.group(1).strip(); out.append(line); continue
-    if line.startswith("- 實測"): continue          # drop old measured lines; rewritten below
-    if cur and (line.startswith("### ") or line.startswith("#### ") or line.startswith("## ")):
-        cur = None
-    out.append(line)
-# insert after the THEN line of each filled scenario
-res = []; cur = None; pending = None
-for line in out:
-    m = re.match(r"^#### Scenario:\s*(.+)$", line)
-    if m: cur = m.group(1).strip(); pending = title_to_sid.get(cur)
-    res.append(line)
-    if pending and line.startswith("- **THEN**"):
-        res.extend(block_for(pending, cur)); filled += 1; pending = None
-SPEC.write_text("\n".join(res) + "\n", encoding="utf-8")
-print(f"filled 實測 blocks for {filled} scenario(s) in {SPEC.relative_to(ROOT)}")

@@ -1,5 +1,5 @@
 # Fault matrix — one entry per runnable cell. `scenario` must match the Scenario title in
-# openspec/changes/fault-matrix/specs/fault-scenarios/spec.md so fill_results.py can write the 實測 block.
+# openspec/specs/fault-scenarios/spec.md so results can be matched to the design.
 # steps = demo.sh break arguments, applied in order with `gap` seconds between them.
 defaults:
   baseline: 30        # seconds of healthy probing before the first break
