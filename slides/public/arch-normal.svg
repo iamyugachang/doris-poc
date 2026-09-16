@@ -1,6 +1,6 @@
 <svg viewBox="0 0 960 544" role="img" aria-labelledby="arch-normal-title arch-normal-desc" xmlns="http://www.w3.org/2000/svg">
     <title id="arch-normal-title">Doris 三節點正常狀態架構</title>
-    <desc id="arch-normal-desc">一個 client 連到位於三個 zone 的三台 VM，每台 VM 跑一個 FE 與一個 BE；doris-2 的 FE 目前是 master，另外兩個 FE 透過 edit log 同步，三個 BE 之間保有每個 tablet 的三份副本。</desc>
+    <desc id="arch-normal-desc">一個 client 連到位於三個 zone 的三台 VM，每台 VM 跑一個 FE 與一個 BE；doris-2 的 FE 目前是 master，另外兩個 FE 透過 edit log 同步，三個 BE 之間保有每個 tablet 的 3 個 replica。</desc>
     <defs>
       <marker id="an-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="#4f5e56"/></marker>
       <marker id="an-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#11a679"/></marker>
@@ -78,8 +78,8 @@
       <text x="40" y="512" letter-spacing="0.14em">LEGEND</text>
       <rect x="120" y="504" width="12" height="10" rx="2" fill="rgba(17,166,121,.10)" stroke="#11a679" stroke-width="1"/><text x="140" y="512">FE master（當下）</text>
       <rect x="264" y="504" width="12" height="10" rx="2" fill="#fff" stroke="#0f1a14" stroke-width="1"/><text x="284" y="512">FE follower</text>
-      <rect x="376" y="504" width="12" height="10" rx="2" fill="rgba(15,26,20,.05)" stroke="#4f5e56" stroke-width="1"/><text x="396" y="512">BE（資料副本）</text>
+      <rect x="376" y="504" width="12" height="10" rx="2" fill="rgba(15,26,20,.05)" stroke="#4f5e56" stroke-width="1"/><text x="396" y="512">BE（資料 replica）</text>
       <line x1="512" y1="509" x2="536" y2="509" stroke="#11a679" stroke-width="1.2"/><text x="544" y="512">client 目前連線</text>
-      <line x1="668" y1="509" x2="692" y2="509" stroke="#4f5e56" stroke-width="1" stroke-dasharray="4,3"/><text x="700" y="512">備援 / 副本同步</text>
+      <line x1="668" y1="509" x2="692" y2="509" stroke="#4f5e56" stroke-width="1" stroke-dasharray="4,3"/><text x="700" y="512">備援 / replica 同步</text>
     </g>
   </svg>

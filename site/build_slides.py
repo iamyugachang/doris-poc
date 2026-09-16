@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Generate slides/slides.md (Slidev deck, zh-TW) from results/summary.json + the exported diagrams.
 Run: ./venv/bin/python site/build_slides.py ; then: cd slides && npx slidev build slides.md --base /slides/"""
-import json, pathlib, shutil, re, datetime
+import json, pathlib, shutil, re, datetime, sys
 import yaml
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from theme import plain
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://doris-ha-demo-195642473078.asia-east1.run.app"
@@ -16,18 +18,47 @@ for f in (ROOT / "site/diagrams").glob("*.svg"):
     for k, v in {"--paper": "#fff", "--ink": "#0f1a14", "--muted": "#4f5e56", "--soft": "#7f8f86", "--rule": "#d9eee8", "--rule-solid": "#d9eee8", "--accent": "#11a679", "--accent-tint": "rgba(17,166,121,.10)", "--white": "#fff", "--ink-05": "rgba(15,26,20,.05)", "--ink-02": "rgba(15,26,20,.02)", "--ink-20": "rgba(15,26,20,.20)", "--ink-30": "rgba(15,26,20,.30)", "--muted-10": "rgba(79,94,86,.10)", "--muted-15": "rgba(79,94,86,.15)", "--link": "#0b7a58", "--sans": "Inter,Noto Sans TC,sans-serif", "--mono": "JetBrains Mono,monospace"}.items():
         txt = txt.replace(f"var({k})", v)
     (pub / f.name).write_text(txt, encoding="utf-8")
+    (ROOT / "openslide/slides/doris-ha/assets" / f.name).write_text(txt, encoding="utf-8")
 
 ZH = {"rw": "讀寫正常", "ro": "只讀", "down": "不可用", "stalled": "卡住", "read-ok": "讀取正常", "read-down": "讀取失敗", "read-stalled": "讀取卡住", "n/a": "n/a"}
 def rng(a, c):
     x, y = a["clients"][c]["impact_min"], a["clients"][c]["impact_max"]
     return "—" if x is None else (f"{x}s" if x == y else f"{x}～{y}s")
 def row(i):
-    a = agg[i]; name = a["scenario"].split("（")[0]
+    a = agg[i]; name = plain(a["scenario"].split("（")[0])
     return f'| {name} | {ZH[a["clients"]["mysql"]["worst"]]} {rng(a,"mysql")} | {ZH[a["clients"]["jdbc"]["worst"]]} {rng(a,"jdbc")} | {ZH[a["clients"]["flight"]["worst"]]} {rng(a,"flight")} | **{ZH[a["overall"]]}** |'
 single = [i for i in ids if not i.startswith("double-")]; double = [i for i in ids if i.startswith("double-")]
 n_runs = sum(len(agg[i]["passes"]) for i in ids)
 verify_fail = sum(f.read_text(encoding="utf-8", errors="replace").count("verify id=") for f in ROOT.glob("results/pass-[1-9]/*/*.log"))
 today = datetime.date.today().isoformat()
+total_ops = sum(len(re.findall(r"#\d+ (?:OK|FAIL) ", f.read_text(encoding="utf-8", errors="replace"))) for f in ROOT.glob("results/pass-[1-9]/*/*.log"))
+restore_secs = [r["restore_secs"] for i in ids for r in agg[i]["recovery"] if r["restore_secs"]]
+single_rw = [i for i in single if agg[i]["overall"] == "rw"]
+CL = ("mysql", "jdbc", "flight")
+ok_hi = max(agg[i]["clients"][c]["impact_max"] or 0 for i in single_rw for c in CL)
+h = agg.get("fe-hang-master"); hang_bad = sum(1 for x in h["overall_per_pass"] if x != "rw") if h else 0
+hang_ok = [p["impact"] for p in h["clients"]["mysql"]["passes"] if p["level"] == "rw"] if h else []
+hang_txt = f"3 輪裡 {hang_bad} 輪在 120 秒觀察期內沒選出新 master" + (f"、{len(hang_ok)} 輪 {hang_ok[0]} 秒後選主" if hang_ok else "")
+def r2(i, c): return rng(agg[i], c) if i in agg else "—"
+# representative timeline numbers (vm-stop-3clients, pass 1, mysql)
+tl = {}
+if "vm-stop-3clients" in agg:
+    x = agg["vm-stop-3clients"]; sj = json.loads((ROOT / x["dirs"][0] / "summary.json").read_text(encoding="utf-8"))
+    ev = sj["after"]["mysql"]["events"]; win = sj["after"]["mysql"]["windows"]
+    t = lambda z: datetime.datetime.strptime(z[:8], "%H:%M:%S"); brk = next(e for e in ev if "break" in e)
+    tl = {"first_fail": (t(win[0]["start"]) - t(brk)).seconds if win else None, "n_windows": len(win), "max_secs": max((w["secs"] for w in win), default=0),
+          "impact": x["clients"]["mysql"]["passes"][0]["impact"], "restore_secs": x["recovery"][0]["restore_secs"]}
+def kind(l): return "rw" if l in ("rw", "read-ok") else "ro" if l == "ro" else "down" if l in ("down", "read-down") else "st"
+def cellj(a, c): return {"zh": ZH[a["clients"][c]["worst"]], "rng": rng(a, c), "kind": kind(a["clients"][c]["worst"])}
+data = {"single": [{"id": i, "name": plain(agg[i]["scenario"]), "mysql": cellj(agg[i], "mysql"), "jdbc": cellj(agg[i], "jdbc"), "flight": cellj(agg[i], "flight"), "overall": {"zh": ZH[agg[i]["overall"]], "kind": kind(agg[i]["overall"])}} for i in single],
+        "double": [{"id": i, "name": plain(agg[i]["scenario"]), "mysql": cellj(agg[i], "mysql"), "jdbc": cellj(agg[i], "jdbc"), "flight": cellj(agg[i], "flight"), "overall": {"zh": ZH[agg[i]["overall"]], "kind": kind(agg[i]["overall"])}} for i in double],
+        "stats": {"n_cells": len(ids), "n_single": len(single), "n_single_rw": len(single_rw), "n_runs": n_runs, "total_ops": total_ops, "verify_fail": verify_fail,
+                  "ok_hi": ok_hi, "restore_min": min(restore_secs) if restore_secs else None, "restore_max": max(restore_secs) if restore_secs else None,
+                  "hang_bad": hang_bad, "hang_ok_secs": hang_ok[0] if hang_ok else None, "hang_txt": hang_txt,
+                  "direct_mysql": r2("vm-stop-master-direct", "mysql"), "follower_mysql": r2("vm-stop-master-follower", "mysql"),
+                  "crossed_mysql": ZH[agg["double-crossed"]["clients"]["mysql"]["worst"]] if "double-crossed" in agg else "", "crossed_jdbc": ZH[agg["double-crossed"]["clients"]["jdbc"]["worst"]] if "double-crossed" in agg else "",
+                  "timeline": tl, "run_date": "2026-09-15"}}
+(ROOT / "openslide/slides/doris-ha/data.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 deck = f'''---
 theme: default
@@ -62,8 +93,8 @@ layout: two-cols
 # 架構：一個叢集、兩層各自 HA
 
 - 3 台 VM（zone a/b/c），每台 1 個 **FE** + 1 個 **BE**
-- FE 三個都是 FOLLOWER，**多數決**選 1 個 master；任一 FE 都能接連線，寫入轉發給 master
-- BE 是一個資料池，每個 tablet **三副本**各放一個 zone，寫入要 2/3 成功
+- 3 個 FE 角色都是 FOLLOWER（有投票權），以 **quorum** 選出 1 個 master；任一 FE 都能接連線，寫入轉發給 master
+- 3 個 BE 是一個資料池，每份資料 **3 個 replica** 各放一個 zone，寫入要 2/3 成功
 - client 帶三台 FE 的**主機清單**，不經 LB；第一台連不上就試下一台
 - FE + BE 同機只是 POC 省錢
 
@@ -72,7 +103,7 @@ layout: two-cols
 <img src="/arch-normal.svg" class="mt-4 rounded border" />
 
 <!--
-強調兩件事：FE 層靠 quorum（2/3），BE 層靠副本 quorum（2/3）。這兩個數字決定了後面所有結果。
+強調兩件事：FE 層靠 quorum（3 台活 2 台），BE 層靠 replica quorum（2/3）。這兩個數字決定了後面所有結果。
 -->
 
 ---
@@ -113,16 +144,16 @@ layout: two-cols
 
 ::right::
 
-**可用性等級（三輪最差）**
+**結果等級（3 輪最差）**
 
 - <span class="lvl rw">讀寫正常</span> 中斷後全部恢復
 - <span class="lvl ro">只讀</span> 寫入持續失敗、SELECT 正常
 - <span class="lvl down">不可用</span> 查詢也失敗
 - <span class="lvl st">卡住</span> 沒報錯也沒回應
 
-**量測**：受影響秒數 = 失敗視窗 ∪ 卡頓（間隔 > 5s）；等級看故障中最後 30 秒
+**量測**：中斷秒數 = 失敗時間 + 無回應時間（間隔 > 5 秒）；等級看故障中最後 30 秒
 
-<div class="mt-4 text-sm op70">規格用 OpenSpec 寫：每格一個 Scenario（WHEN / THEN 預期），跑完由工具回填三輪實測。</div>
+<div class="mt-4 text-sm op70">設計用 OpenSpec 寫：每格一個 Scenario（WHEN / THEN 預期）；實測數字另存 results/，不寫進 spec。</div>
 
 <!--
 先講設計再講結果。等級的判定規則要講清楚，尤其「卡住」是為了 master hang 才加的。
@@ -197,7 +228,7 @@ Terraform 只管 GCP 上「存在什麼」，Ansible 管機器裡「長什麼樣
 {chr(10).join(row(i) for i in single)}
 
 <!--
-重點：除了 master FE hang，全部讀寫正常；秒數是三輪範圍，差異來自 client 是否卡在轉發給快消失的 master。
+重點：除了 master FE hang，全部讀寫正常，最慢 {ok_hi} 秒恢復；秒數是 3 輪範圍。
 -->
 
 ---
@@ -208,7 +239,7 @@ Terraform 只管 GCP 上「存在什麼」，Ansible 管機器裡「長什麼樣
 |---|---|---|---|---|
 {chr(10).join(row(i) for i in double)}
 
-<div class="mt-4">FE 剩 1/3 → <span class="lvl down">不可用</span>（連查詢都拿不到 metadata）；BE 剩 1/3 → <span class="lvl ro">只讀</span>；兩層都 1/3 → 看僅存 FE 是否 master。</div>
+<div class="mt-4">FE 剩 1/3 → <span class="lvl down">不可用</span>（連查詢都失敗）；BE 剩 1/3 → <span class="lvl ro">只讀</span>；兩層都 1/3 → <span class="lvl down">不可用</span>。規則：FE 和 BE 各自要 3 台活 2 台（quorum）才能寫。</div>
 
 ---
 layout: two-cols
@@ -216,9 +247,9 @@ layout: two-cols
 
 # 三個值得記住的發現
 
-1. **master FE hang（SIGSTOP）**：第 1 輪 2 分鐘沒選主、第 2/3 輪 63 秒後選主。期間 jdbc 一筆卡住到恢復、mysql 每筆 8 秒逾時、flight 每筆 9 秒 → 等級「卡住」。BDB JE 心跳只看 TCP 是否存活。
-2. **FE 剩 1/3 連讀都不行**：僅存的是 follower 就拒絕連線；是 master 就全部逾時。
-3. **中斷長短不看連 master 或 follower**，看 client 有沒有卡在「VM 正在關機那 25 秒」裡的轉發逾時：碰到 20～40 秒，沒碰到 0～2 秒。
+1. **master FE hang：偵測慢又不穩定**：{hang_txt}。FE 被凍結但 TCP port 還開著，其他 FE 一開始不覺得它掛了；client 只能讀或整個卡住 → 等級「卡住」。
+2. **FE 剩 1/3 連查詢都不行**：VM 停 + FE dead 三輪 mysql / jdbc / arrow-flight 全部失敗。交錯故障時僅存的 follower FE 還能回 mysql 的 SELECT（{data["stats"]["crossed_mysql"]}），jdbc {data["stats"]["crossed_jdbc"]}，不能依賴。
+3. **client 先連 master 或 follower 差不多**：mysql 先連 master {data["stats"]["direct_mysql"]}、先連 follower {data["stats"]["follower_mysql"]}。差別只在有沒有碰到 VM 關機期間等 timeout。
 
 ::right::
 
@@ -231,20 +262,20 @@ layout: two-cols
 # 資料一致性與恢復
 
 <div class="grid grid-cols-3 gap-6 mt-8 text-center">
-<div class="card"><div class="big">{verify_fail}</div>筆資料不一致<br><span class="op70">{n_runs} 次執行的 SELECT 驗證</span></div>
-<div class="card"><div class="big">12 / 12</div>副本 OK<br><span class="op70">每次 restore 後都回到 3 FE / 3 BE</span></div>
-<div class="card"><div class="big">0</div>人工介入<br><span class="op70">VM 開回來 systemd 自動起 FE/BE、自動歸隊</span></div>
+<div class="card"><div class="big">{verify_fail}</div>筆資料錯誤<br><span class="op70">{n_runs} 次執行 · {total_ops:,} 次操作，每次 SELECT 驗證</span></div>
+<div class="card"><div class="big">12 / 12</div>replica 正常<br><span class="op70">每次 restore 後 {min(restore_secs)}～{max(restore_secs)} 秒回到 3 FE / 3 BE</span></div>
+<div class="card"><div class="big">0</div>人工介入<br><span class="op70">VM 開回來 systemd 自動起 FE/BE、自動回到叢集</span></div>
 </div>
 
-<div class="mt-8 op80">寫入在中斷視窗內失敗會換新 key 重來，不留下半套資料；雙重故障恢復時，第二個元件回來的那一刻就恢復可寫。</div>
+<div class="mt-8 op80">寫入失敗就換一把新 key 重新開始，不會留下寫一半的資料；雙重故障恢復時，第二個元件回來的那一刻就恢復可寫。</div>
 
 ---
 
 # 建議
 
-- **client 端**：JDBC 多主機 URL 最省事；自行實作時逾時 2～3 秒、失敗重連時**輪替主機**，別回到同一台 follower
-- **架構**：正式環境 FE / BE 分開機器；FE 3 台是最低要求，掛 1 台就沒有冗餘
-- **監控**：把 <code>SHOW FRONTENDS</code> 的 master 存在與 hang 偵測（例如 9030 逾時）接進告警，master hang 是唯一「沒報錯但不能用」的情境
+- **client 端**：JDBC 多主機連線字串 `jdbc:mysql://fe1,fe2,fe3/db` 最省事；自行實作時 timeout 2～3 秒、失敗重連時**換下一台 FE**；hang 時連線不會 reset，timeout 別設太長
+- **架構**：正式環境 FE / BE 分開機器；FE 3 台是最低要求，掛 1 台就沒有備援
+- **監控**：把 <code>SHOW FRONTENDS</code> 的 master 存在與 hang 偵測（例如 9030 timeout）接進告警，master hang 是唯一「沒報錯但不能用」的情境
 - **寫入通道**：Arrow Flight SQL 在 4.1.1 只走查詢；寫入用 MySQL 協定或 Stream Load
 - **下一步**：網路分割、zone 故障、調 <code>bdbje_heartbeat_timeout_second</code> 看 hang 偵測能不能縮短
 
@@ -266,6 +297,7 @@ class: text-center
 
 <div class="mt-6 op70 text-sm">結果、log、spec、Terraform / Ansible、探測程式都在同一個 repo；<code>experiments/finalize.sh</code> 一鍵重產這些頁面。</div>
 '''
+deck = plain(deck)
 (ROOT / "slides/slides.md").write_text(deck, encoding="utf-8")
 (ROOT / "slides/style.css").write_text('''
 :root { --slidev-theme-primary: #11a679; }

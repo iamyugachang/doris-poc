@@ -66,14 +66,21 @@ def timeline_svg():
     ev = sj["after"]["mysql"]["events"]; win = sj["after"]["mysql"]["windows"]
     t = lambda s: datetime.datetime.strptime(s[:8], "%H:%M:%S")
     pts = [(t(e), e[9:]) for e in ev]
-    for w in win:
-        pts.append((t(w["start"]), f"client 失敗（{w['secs']}s 後恢復）")); pts.append((t(w["end"]), "client 恢復"))
+    # coalesce failure windows closer than 10 s into one band; label only the first failure and the final recovery
+    bands = []
+    for w in sorted(win, key=lambda w: w["start"]):
+        ws, we = t(w["start"]), t(w["end"] or w["start"])
+        if bands and (ws - bands[-1][1]).seconds <= 10: bands[-1][1] = max(bands[-1][1], we)
+        else: bands.append([ws, we])
+    if bands:
+        impact = a["clients"]["mysql"]["passes"][0]["impact"]
+        pts.append((bands[0][0], f"client 開始失敗（共 {len(win)} 次）")); pts.append((bands[-1][1], f"client 恢復（中斷共 {impact}s）"))
     pts.sort(); t0 = pts[0][0]; span = max(1, (pts[-1][0] - t0).seconds)
     W, L, R = 960, 64, 896; px = lambda dt: L + int((dt - t0).seconds / span * (R - L) / 4) * 4
     out = [f'<svg viewBox="0 0 960 232" role="img" aria-labelledby="tl-t tl-d" xmlns="http://www.w3.org/2000/svg"><title id="tl-t">{html.escape(a["scenario"])}第 {a["passes"][0]} 輪時間軸</title><desc id="tl-d">從製造故障到 client 恢復、叢集回到健康的事件時間軸。</desc>',
            '<rect width="100%" height="100%" fill="#fff"/>']
-    for w in win:
-        out.append(f'<rect x="{px(t(w["start"]))}" y="112" width="{max(8, px(t(w["end"])) - px(t(w["start"])))}" height="16" fill="rgba(17,166,121,.15)"/>')
+    for ws, we in bands:
+        out.append(f'<rect x="{px(ws)}" y="112" width="{max(8, px(we) - px(ws))}" height="16" fill="rgba(17,166,121,.15)"/>')
     out.append('<line x1="64" y1="120" x2="896" y2="120" stroke="#d9eee8" stroke-width="1"/>')
     for k in range(0, span + 1, max(15, (span // 5) // 15 * 15 or 15)):
         x = L + int(k / span * (R - L) / 4) * 4

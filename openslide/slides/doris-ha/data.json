@@ -1,0 +1,400 @@
+{
+ "single": [
+  {
+   "id": "vm-stop-3clients",
+   "name": "三個 client 同時觀察 VM 停機",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "26～29s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "20～33s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "29～36s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "vm-stop-master-direct",
+   "name": "master 所在 VM 停機，client 直連 master",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "0～32s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "1～33s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "0～29s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "vm-stop-master-follower",
+   "name": "master 所在 VM 停機，client 連在 follower",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "2～35s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "1～33s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "1～30s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "vm-stop-follower",
+   "name": "follower 所在 VM 停機",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "0～13s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "0～15s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "2～19s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "fe-crash-master",
+   "name": "master FE crash（kill -9，systemd 自動重啟）",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "6～25s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "9～29s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "6～7s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "fe-crash-follower",
+   "name": "follower FE crash",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "1～4s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "0～2s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "3～5s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "fe-dead-master",
+   "name": "master FE dead（systemctl stop，不會自動重啟）",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "0～25s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "1～24s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "0～9s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "fe-hang-master",
+   "name": "master FE hang（kill -STOP）",
+   "mysql": {
+    "zh": "只讀",
+    "rng": "73～137s",
+    "kind": "ro"
+   },
+   "jdbc": {
+    "zh": "卡住",
+    "rng": "83～139s",
+    "kind": "st"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "72～136s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "卡住",
+    "kind": "st"
+   }
+  },
+  {
+   "id": "fe-hang-follower",
+   "name": "follower FE hang",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "18～26s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "45～54s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "38～40s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "be-crash",
+   "name": "BE crash（systemd 自動重啟）",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "0～23s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "0～18s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "0～2s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "be-dead",
+   "name": "BE dead",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "0s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "0～3s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "1s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  },
+  {
+   "id": "be-hang",
+   "name": "BE hang（kill -STOP）",
+   "mysql": {
+    "zh": "讀寫正常",
+    "rng": "28～36s",
+    "kind": "rw"
+   },
+   "jdbc": {
+    "zh": "讀寫正常",
+    "rng": "27～37s",
+    "kind": "rw"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "28～37s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "讀寫正常",
+    "kind": "rw"
+   }
+  }
+ ],
+ "double": [
+  {
+   "id": "double-vm-fe-dead",
+   "name": "VM 停 + 另一台 FE dead（FE 剩 1/3）",
+   "mysql": {
+    "zh": "不可用",
+    "rng": "106～130s",
+    "kind": "down"
+   },
+   "jdbc": {
+    "zh": "不可用",
+    "rng": "108～132s",
+    "kind": "down"
+   },
+   "flight": {
+    "zh": "讀取失敗",
+    "rng": "107～134s",
+    "kind": "down"
+   },
+   "overall": {
+    "zh": "不可用",
+    "kind": "down"
+   }
+  },
+  {
+   "id": "double-vm-be-dead",
+   "name": "VM 停 + 另一台 BE dead（BE 剩 1/3）",
+   "mysql": {
+    "zh": "只讀",
+    "rng": "17～26s",
+    "kind": "ro"
+   },
+   "jdbc": {
+    "zh": "只讀",
+    "rng": "19～25s",
+    "kind": "ro"
+   },
+   "flight": {
+    "zh": "讀取正常",
+    "rng": "32～36s",
+    "kind": "rw"
+   },
+   "overall": {
+    "zh": "只讀",
+    "kind": "ro"
+   }
+  },
+  {
+   "id": "double-two-vms",
+   "name": "兩台 VM 停（FE 1/3、BE 1/3）",
+   "mysql": {
+    "zh": "不可用",
+    "rng": "130～131s",
+    "kind": "down"
+   },
+   "jdbc": {
+    "zh": "不可用",
+    "rng": "130～131s",
+    "kind": "down"
+   },
+   "flight": {
+    "zh": "讀取卡住",
+    "rng": "131～132s",
+    "kind": "st"
+   },
+   "overall": {
+    "zh": "不可用",
+    "kind": "down"
+   }
+  },
+  {
+   "id": "double-crossed",
+   "name": "交錯故障（一台 VM 停、一台 BE dead、一台 FE dead）",
+   "mysql": {
+    "zh": "只讀",
+    "rng": "84～102s",
+    "kind": "ro"
+   },
+   "jdbc": {
+    "zh": "不可用",
+    "rng": "146～149s",
+    "kind": "down"
+   },
+   "flight": {
+    "zh": "讀取失敗",
+    "rng": "172～177s",
+    "kind": "down"
+   },
+   "overall": {
+    "zh": "不可用",
+    "kind": "down"
+   }
+  }
+ ],
+ "stats": {
+  "n_cells": 16,
+  "n_single": 12,
+  "n_single_rw": 11,
+  "n_runs": 48,
+  "total_ops": 26438,
+  "verify_fail": 0,
+  "ok_hi": 54,
+  "restore_min": 4,
+  "restore_max": 266,
+  "hang_bad": 2,
+  "hang_ok_secs": 73,
+  "hang_txt": "3 輪裡 2 輪在 120 秒觀察期內沒選出新 master、1 輪 73 秒後選主",
+  "direct_mysql": "0～32s",
+  "follower_mysql": "2～35s",
+  "crossed_mysql": "只讀",
+  "crossed_jdbc": "不可用",
+  "timeline": {
+   "first_fail": 13,
+   "n_windows": 9,
+   "max_secs": 2,
+   "impact": 29,
+   "restore_secs": 41
+  },
+  "run_date": "2026-09-15"
+ }
+}
